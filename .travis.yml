@@ -14,7 +14,7 @@ install:
     - platformio lib install 137
 script:
     - platformio ci --lib="." --board=uno --board=leonardo --board=diecimilaatmega168 --board=megaatmega2560 --board=megaatmega1280
-before_install:
-    - bash ci/decrypt_key.sh
 after_success:
+    - sudo apt-get install doxygen graphviz
+    - bash ci/decrypt_key.sh
     - bash ci/gen-docs.sh
