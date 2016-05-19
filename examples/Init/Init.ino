@@ -22,7 +22,7 @@
 
 // LOCAL PROTOTYPES
 void MyIqrfRxHandler(void);
-void MyIqrfTxHandler(UINT8 txPktId, UINT8 txPktResult);
+void MyIqrfTxHandler(uint8_t txPktId, uint8_t txPktResult);
 void AppTimerHandler(void);
 void cb_timer1ms(void);
 
@@ -128,6 +128,6 @@ void MyIqrfRxHandler(void) {
  * @param txPktId Paket ID
  * @param txPktResult Paket writing result
  */
-void MyIqrfTxHandler(UINT8 txPktId, UINT8 txPktResult) {
+void MyIqrfTxHandler(uint8_t txPktId, uint8_t txPktResult) {
   Serial.println("IQRF send done");
 }
