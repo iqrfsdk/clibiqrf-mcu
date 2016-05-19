@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-arduino.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-arduino)
 [![Apache License](http://img.shields.io/badge/license-APACHE2-blue.svg)](LICENSE)
 
-## Supported IQRf TR modules
+## Supported IQRF TR modules
  * IQRF TR-72
  * IQRF TR-52
 
@@ -18,7 +18,7 @@ The best way how to install this library is to [download a latest package](https
 ```
 platformio lib install ID
 ```
-## Pin Layout
+## Pin layout
 The following table shows the typical pin layout used:
 
 |  Signal   | [IQRF BB-01](http://eshop.iqrf.org/products/detail/IQRF-BB-01) |     Uno     | Mega | Nano v3 | Leonardo / Micro | Pro Micro |
