@@ -1,4 +1,9 @@
 /**
+ * @file
+ * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
+ * @version 1.0
+ *
+ * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +21,6 @@
 
 #ifndef _IQRFLIBRARY_H
 #define _IQRFLIBRARY_H
-#define LEONARDO
 
 #include <Arduino.h>
 #include <SPI.h>
@@ -30,57 +34,57 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define IQ_PKT_SIZE           68     // size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE    32     // size of SPI TX packet buffer
-#define IQRF_SPI_CLK          250000 // SPI clock 250kHz
+#define IQ_PKT_SIZE           68     //!< Size of SPI TX and RX buffer
+#define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer
+#define IQRF_SPI_CLK          250000 //!< SPI clock 250kHz
 
 // MCU type of TR module
-#define MCU_UNKNOWN 0
-#define PIC16LF819            1      // TR-xxx-11A not supported
-#define PIC16LF88             2      // TR-xxx-21A
-#define PIC16F886             3      // TR-31B, TR-52B, TR-53B
-#define PIC16LF1938           4      // TR-52D, TR-54D
+#define MCU_UNKNOWN           0      //!< MCU used in uknown module
+#define PIC16LF819            1      //!< MCU used in TR-xxx-11A not supported
+#define PIC16LF88             2      //!< MCU used in TR-xxx-21A
+#define PIC16F886             3      //!< MCU used in TR-31B, TR-52B, TR-53B
+#define PIC16LF1938           4      //!< MCU used in TR-52D, TR-54D
 
 // TR module types
-#define TR_52D                0
-#define TR_58D_RJ             1
-#define TR_72D                2
-#define TR_53D                3
-#define TR_54D                8
-#define TR_55D                9
-#define TR_56D                10
-#define TR_76D                11
+#define TR_52D                0      //!< TR module IQRF TR-52D
+#define TR_58D_RJ             1      //!< TR module IQRF TR-85D-RJ
+#define TR_72D                2      //!< TR module IQRF TR-72D
+#define TR_53D                3      //!< TR module IQRF TR-53D
+#define TR_54D                8      //!< TR module IQRF TR-54D
+#define TR_55D                9      //!< TR module IQRF TR-55D
+#define TR_56D                10     //!< TR module IQRF TR-56D
+#define TR_76D                11     //!< TR module IQRF TR-76D
 
 // FCC cerificate
-#define FCC_NOT_CERTIFIED     0
-#define FCC_CERTIFIED         1
+#define FCC_NOT_CERTIFIED     0      //!< FCC not certificated
+#define FCC_CERTIFIED         1      //!< FCC certificated
 
 // SPI status of TR module (see IQRF SPI user manual)
-#define NO_MODULE             0xFF   // SPI not working (HW error)
-#define SPI_BUSY              0xFE   // SPI busy in Master disabled mode
-#define SPI_DATA_TRANSFER     0xFD   // SPI data transfer in progress
-#define SPI_DISABLED          0x00   // SPI not working (disabled)
-#define SPI_CRCM_OK           0x3F   // SPI not ready (full buffer, last CRCM ok)
-#define SPI_CRCM_ERR          0x3E   // SPI not ready (full buffer, last CRCM error)
-#define COMMUNICATION_MODE    0x80   // SPI ready (communication mode)
-#define PROGRAMMING_MODE      0x81   // SPI ready (programming mode)
-#define DEBUG_MODE            0x82   // SPI ready (debugging mode)
-#define SPI_SLOW_MODE         0x83   // SPI not working in background
-#define SPI_USER_STOP         0x07   // state after stopSPI();
+#define NO_MODULE             0xFF   //!< SPI not working (HW error)
+#define SPI_BUSY              0xFE   //!< SPI busy in Master disabled mode
+#define SPI_DATA_TRANSFER     0xFD   //!< SPI data transfer in progress
+#define SPI_DISABLED          0x00   //!< SPI not working (disabled)
+#define SPI_CRCM_OK           0x3F   //!< SPI not ready (full buffer, last CRCM ok)
+#define SPI_CRCM_ERR          0x3E   //!< SPI not ready (full buffer, last CRCM error)
+#define COMMUNICATION_MODE    0x80   //!< SPI ready (communication mode)
+#define PROGRAMMING_MODE      0x81   //!< SPI ready (programming mode)
+#define DEBUG_MODE            0x82   //!< SPI ready (debugging mode)
+#define SPI_SLOW_MODE         0x83   //!< SPI not working in background
+#define SPI_USER_STOP         0x07   //!< SPI state after stopSPI();
 
 // SPI commands for TR module (see IQRF SPI user manual)
-#define SPI_CHECK             0x00   // Master checks the SPI status of the TR module
-#define SPI_WR_RD             0xF0   // Master reads/writes a packet from/to TR module
-#define SPI_RAM_READ          0xF1   // Master reads data from ram in debug mode
-#define SPI_EEPROM_READ       0xF2   // Master reads data from eeprom in debug mode
-#define SPI_EEPROM_PGM        0xF3   // Master writes data to eeprom in programming mode
-#define SPI_MODULE_INFO       0xF5   // Master reads Module Info from TR module
-#define SPI_FLASH_PGM         0xF6   // Master writes data to flash in programming mode
-#define SPI_PLUGIN_PGM        0xF9   // Master writes plugin data to flash in programming mode
+#define SPI_CHECK             0x00   //!< Master checks the SPI status of the TR module
+#define SPI_WR_RD             0xF0   //!< Master reads/writes a packet from/to TR module
+#define SPI_RAM_READ          0xF1   //!< Master reads data from ram in debug mode
+#define SPI_EEPROM_READ       0xF2   //!< Master reads data from eeprom in debug mode
+#define SPI_EEPROM_PGM        0xF3   //!< Master writes data to eeprom in programming mode
+#define SPI_MODULE_INFO       0xF5   //!< Master reads Module Info from TR module
+#define SPI_FLASH_PGM         0xF6   //!< Master writes data to flash in programming mode
+#define SPI_PLUGIN_PGM        0xF9   //!< Master writes plugin data to flash in programming mode
 
 // IQRF TX packet result
-#define IQRF_TX_PKT_OK        1      // packet sent OK
-#define IQRF_TX_PKT_ERR       2      // packet sent with ERROR
+#define IQRF_TX_PKT_OK        1      //!< Packet sent OK
+#define IQRF_TX_PKT_ERR       2      //!< Packet sent with ERROR
 
 // IQRF SPI master status
 #define IQRF_SPI_MASTER_FREE  0
@@ -88,17 +92,17 @@
 #define IQRF_SPI_MASTER_READ  2
 
 // Pins
-#define TR_RESET_IO           9
-#define TR_SS_IO              10
-#define TR_SDO_IO             11
-#define TR_SDI_IO             12
+#define TR_RESET_IO           9      //!< TR reset pin
+#define TR_SS_IO              10     //!< SPI SS pin
+#define TR_SDO_IO             11     //!< SPI SDO pin
+#define TR_SDI_IO             12     //!< SPI SDI pin
 
 // Timing
-#define MICRO_SECOND          1000000
-#define MILLI_SECOND          1000
+#define MICRO_SECOND          1000000 //!< Microsecond
+#define MILLI_SECOND          1000    //!< Milisecond
 
-#define FALSE                 0
-#define TRUE                  1
+#define FALSE                 0       //!< False 
+#define TRUE                  1       //!< True
 
 // SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
@@ -107,22 +111,22 @@ typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 
 // TR module info structure
 typedef struct {
-	uint16_t osVersion;
-	uint16_t osBuild;
-	uint32_t moduleId;
-	uint16_t mcuType;
-	uint16_t moduleType;
-	uint16_t fcc;
-	uint8_t moduleInfoRawData[8];
+	uint16_t osVersion;           //!< OS version
+	uint16_t osBuild;             //!< OS build
+	uint32_t moduleId;            //!< Module OD
+	uint16_t mcuType;             //!< MCU tyle
+	uint16_t moduleType;          //!< Module type
+	uint16_t fcc;                 //!< FCC
+	uint8_t moduleInfoRawData[8]; //!< Raw data
 } TR_INFO_STRUCT;
 
 // Item of SPI TX packet buffer
 typedef struct {
-	uint8_t pktId;
-	uint8_t spiCmd;
-	uint8_t *pDataBuffer;
-	uint8_t dataLength;
-	uint8_t unallocationFlag;
+	uint8_t pktId;                //!< Packet ID
+	uint8_t spiCmd;               //!< SPI command
+	uint8_t *pDataBuffer;         //!< Pointer to data buffrt
+	uint8_t dataLength;           //!< Data lenght
+	uint8_t unallocationFlag;     //!< Unallocation flag
 } IQRF_PACKET_BUFFER;
 
 extern uint8_t DLEN, spiIqBusy;
