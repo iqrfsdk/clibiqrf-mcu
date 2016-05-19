@@ -43,11 +43,15 @@ void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult);
 /*
  * Public variable declarations
  */
+/// SPI Tx buffer
 uint8_t IQ_SPI_TxBuf[IQ_PKT_SIZE];
+/// SPI Rx buffer
 uint8_t IQ_SPI_RxBuf[IQ_PKT_SIZE];
 uint8_t PTYPE, spiStat, repCnt, tmpCnt, pacLen, trInfoReading;
 uint8_t DLEN, spiIqBusy;
+/// Enabled SPI Master 
 uint8_t iqrfSpiMasterEnable;
+/// Enabled Fast SPI
 uint8_t fastIqrfSpiEnable;
 uint8_t txPktId;
 uint8_t txPktIdCnt;
@@ -56,11 +60,16 @@ uint8_t TR_Control_ProgFlag;
 unsigned long iqrfCheckMicros;
 unsigned long iqrfMicros;
 unsigned long iqrfSpiByteBytePause;
+/// TR info structure
 TR_INFO_STRUCT trInfoStruct;
+/// IQRF packet buffer
 IQRF_PACKET_BUFFER iqrfPacketBuffer[PACKET_BUFFER_SIZE];
 uint16_t iqrfPacketBufferInPtr, iqrfPacketBufferOutPtr;
+/// IQRF Rx callback
 IQRF_RX_CALL_BACK iqrf_rx_call_back_fn;
+/// IQRF Tx callback
 IQRF_TX_CALL_BACK iqrf_tx_call_back_fn;
+/// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
 /**

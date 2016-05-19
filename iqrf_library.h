@@ -104,12 +104,13 @@
 #define FALSE                 0       //!< False 
 #define TRUE                  1       //!< True
 
-// SPI RX data callback function type
+/// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
-// SPI TX data callback function type
+
+/// SPI TX data callback function type
 typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 
-// TR module info structure
+/// TR module info structure
 typedef struct {
 	uint16_t osVersion;           //!< OS version
 	uint16_t osBuild;             //!< OS build
@@ -120,7 +121,7 @@ typedef struct {
 	uint8_t moduleInfoRawData[8]; //!< Raw data
 } TR_INFO_STRUCT;
 
-// Item of SPI TX packet buffer
+/// Item of SPI TX packet buffer
 typedef struct {
 	uint8_t pktId;                //!< Packet ID
 	uint8_t spiCmd;               //!< SPI command
@@ -130,10 +131,10 @@ typedef struct {
 } IQRF_PACKET_BUFFER;
 
 extern uint8_t DLEN, spiIqBusy;
-extern uint8_t spiStat;
-extern uint8_t iqrfSpiMasterEnable;
-extern uint8_t fastIqrfSpiEnable;
-extern TR_INFO_STRUCT trInfoStruct;
+extern uint8_t spiStat;               //!< SPI status
+extern uint8_t iqrfSpiMasterEnable;   //!< SPI master
+extern uint8_t fastIqrfSpiEnable;     //!< Fast SPI
+extern TR_INFO_STRUCT trInfoStruct;   //!< TR info structure
 
 /**
  * Function perform a TR-module driver initialization
