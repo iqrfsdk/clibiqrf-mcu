@@ -34,6 +34,9 @@ The following table shows the typical pin layout used:
 ## Dependecies of this library
  * [MsTimer2](https://github.com/PaulStoffregen/MsTimer2)
 
+## Documentation
+Documentation you can found on [this page](https://roman3349.github.io/clibiqrf-arduino/).
+
 ## License
 This library is licensed under Apache License 2.0:
 
