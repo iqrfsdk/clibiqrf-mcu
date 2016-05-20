@@ -66,7 +66,7 @@ void setup(void) {
   MsTimer2::set(1, cb_timer1ms);
   MsTimer2::start();
   // Clear variables
-  memset(&app_vars, 0, sizeof (app_vars_t));
+  memset(&app_vars, 0, sizeof(app_vars_t));
   app_vars.appTimer = USER_TIMER_PERIOD;
   // Done here
   Serial.println("Peripherals and IQRF init done");
@@ -81,14 +81,14 @@ void loop(void) {
   // Test send data every 5s
   if (app_vars.appTimerAck) {
     // Allocate memory for Tx packet
-    app_vars.myIqrfTxBuf = (uint8_t *) malloc(sizeof (testBuffer));
+    app_vars.myIqrfTxBuf = (uint8_t *) malloc(sizeof(testBuffer));
     if (app_vars.myIqrfTxBuf != NULL) {
-      // copy data from test to IQRF TX packet
-      memcpy(app_vars.myIqrfTxBuf, (uint8_t *) & testBuffer, sizeof (testBuffer));
-      // send data and unallocate data buffer
-      app_vars.testPktId = IQRF_SendData(app_vars.myIqrfTxBuf, sizeof (testBuffer), 1);
+      // Copy data from test to IQRF TX packet
+      memcpy(app_vars.myIqrfTxBuf, (uint8_t *) &testBuffer, sizeof(testBuffer));
+      // Send data and unallocate data buffer
+      app_vars.testPktId = IQRF_SendData(app_vars.myIqrfTxBuf, sizeof(testBuffer), 1);
     }
-    app_vars.appTimerAck = FALSE;
+    app_vars.appTimerAck = false;
   }
 }
 
@@ -109,14 +109,14 @@ void cb_timer1ms(void) {
  * User timer handler
  */
 void AppTimerHandler(void) {
-  app_vars.appTimerAck = TRUE;
+  app_vars.appTimerAck = true;
 }
 
 /**
  * IQRF RX callback
  */
 void MyIqrfRxHandler(void) {
-  // read and print received data
+  // Read and print received data
   IQRF_GetRxData(app_vars.myIqrfRxBuf, IQRF_GetRxDataSize());
   Serial.print("IQRF receive done: ");
   Serial.write(app_vars.myIqrfRxBuf, IQRF_GetRxDataSize());

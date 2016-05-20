@@ -87,9 +87,9 @@
 #define IQRF_TX_PKT_ERR       2      //!< Packet sent with ERROR
 
 // IQRF SPI master status
-#define IQRF_SPI_MASTER_FREE  0
-#define IQRF_SPI_MASTER_WRITE 1
-#define IQRF_SPI_MASTER_READ  2
+#define IQRF_SPI_MASTER_FREE  0      //<! SPI master free
+#define IQRF_SPI_MASTER_WRITE 1      //<! SPI master wrtite
+#define IQRF_SPI_MASTER_READ  2      //<! SPI master read
 
 // Pins
 #define TR_RESET_IO           9      //!< TR reset pin
@@ -101,9 +101,6 @@
 #define MICRO_SECOND          1000000 //!< Microsecond
 #define MILLI_SECOND          1000    //!< Milisecond
 
-#define FALSE                 0       //!< False 
-#define TRUE                  1       //!< True
-
 /// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
 
@@ -114,7 +111,7 @@ typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 typedef struct {
 	uint16_t osVersion;           //!< OS version
 	uint16_t osBuild;             //!< OS build
-	uint32_t moduleId;            //!< Module OD
+	uint32_t moduleId;            //!< Module ID
 	uint16_t mcuType;             //!< MCU tyle
 	uint16_t moduleType;          //!< Module type
 	uint16_t fcc;                 //!< FCC
