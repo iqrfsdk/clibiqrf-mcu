@@ -82,7 +82,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -98,21 +97,6 @@ Include dependency graph for iqrf_library.cpp:</div>
 <area shape="rect" id="node2" href="iqrf__library_8h.html" title="iqrf_library.h" alt="" coords="335,80,428,107"/></map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a96bdd2644568ea4e114d0b00c4e82acb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96bdd2644568ea4e114d0b00c4e82acb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TR_CTRL_READY</b>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a96bdd2644568ea4e114d0b00c4e82acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fdd1a927fecaf5645c8f452270161f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fdd1a927fecaf5645c8f452270161f2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TR_CTRL_RESET</b>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a3fdd1a927fecaf5645c8f452270161f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ae77cec6619eb38fd747a58fef500eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ae77cec6619eb38fd747a58fef500eb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TR_CTRL_WAIT</b>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a9ae77cec6619eb38fd747a58fef500eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cbeb6b003598ef7a9d517f944163c37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cbeb6b003598ef7a9d517f944163c37"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TR_CTRL_PROG_MODE</b>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a2cbeb6b003598ef7a9d517f944163c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0e41b6e7f4fd06a272f28ac5d4e43c2f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a0e41b6e7f4fd06a272f28ac5d4e43c2f">GetCRCM</a> (void)</td></tr>
@@ -172,19 +156,23 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i
 <tr class="memdesc:af9230eb25964a1b30d0ce0fabfa84681"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI status. <br/></td></tr>
 <tr class="separator:af9230eb25964a1b30d0ce0fabfa84681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8e4032f02b3557d87d45f5a4a558291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8e4032f02b3557d87d45f5a4a558291"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>repCnt</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ac8e4032f02b3557d87d45f5a4a558291">repCnt</a></td></tr>
+<tr class="memdesc:ac8e4032f02b3557d87d45f5a4a558291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of attempts to send data. <br/></td></tr>
 <tr class="separator:ac8e4032f02b3557d87d45f5a4a558291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad63e74806fc73be3aeae48dfb418e2d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad63e74806fc73be3aeae48dfb418e2d4"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>tmpCnt</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ad63e74806fc73be3aeae48dfb418e2d4">tmpCnt</a></td></tr>
+<tr class="memdesc:ad63e74806fc73be3aeae48dfb418e2d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts number of send/receive bytes. <br/></td></tr>
 <tr class="separator:ad63e74806fc73be3aeae48dfb418e2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16df779d3a0d8a08d7176a4f689c4e01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16df779d3a0d8a08d7176a4f689c4e01"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>pacLen</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a16df779d3a0d8a08d7176a4f689c4e01">pacLen</a></td></tr>
+<tr class="memdesc:a16df779d3a0d8a08d7176a4f689c4e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packet length. <br/></td></tr>
 <tr class="separator:a16df779d3a0d8a08d7176a4f689c4e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a388f7c2a5e65135507c31f73bb7fcdeb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a388f7c2a5e65135507c31f73bb7fcdeb"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>trInfoReading</b></td></tr>
 <tr class="separator:a388f7c2a5e65135507c31f73bb7fcdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a355b65e571f3b8532c236e4844e427dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a355b65e571f3b8532c236e4844e427dc"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>DLEN</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a355b65e571f3b8532c236e4844e427dc">DLEN</a></td></tr>
+<tr class="memdesc:a355b65e571f3b8532c236e4844e427dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data length. <br/></td></tr>
 <tr class="separator:a355b65e571f3b8532c236e4844e427dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73fcde22a8890232f79a7d22a35cbf68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73fcde22a8890232f79a7d22a35cbf68"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>spiIqBusy</b></td></tr>
@@ -196,16 +184,20 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>spiIqBusy</b></td>
 <tr class="memdesc:ab9659b9cca49a3c162e466c9063bdb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabled Fast SPI.  <a href="#ab9659b9cca49a3c162e466c9063bdb2f">More...</a><br/></td></tr>
 <tr class="separator:ab9659b9cca49a3c162e466c9063bdb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e43d38aeeff90cdbc382722cb160e7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e43d38aeeff90cdbc382722cb160e7f"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>txPktId</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a2e43d38aeeff90cdbc382722cb160e7f">txPktId</a></td></tr>
+<tr class="memdesc:a2e43d38aeeff90cdbc382722cb160e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual Tx packet ID. <br/></td></tr>
 <tr class="separator:a2e43d38aeeff90cdbc382722cb160e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5cf37051fc744c5df8e44792a5a863a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5cf37051fc744c5df8e44792a5a863a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>txPktIdCnt</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ab5cf37051fc744c5df8e44792a5a863a">txPktIdCnt</a></td></tr>
+<tr class="memdesc:ab5cf37051fc744c5df8e44792a5a863a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tx packet ID counter. <br/></td></tr>
 <tr class="separator:ab5cf37051fc744c5df8e44792a5a863a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb43c226df739c51f5faf5a261b8941c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb43c226df739c51f5faf5a261b8941c"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>TR_Control_TaskSM</b> = TR_CTRL_READY</td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#aeb43c226df739c51f5faf5a261b8941c">TR_Control_TaskSM</a> = <a class="el" href="iqrf__library_8h.html#a96bdd2644568ea4e114d0b00c4e82acb">TR_CTRL_READY</a></td></tr>
+<tr class="memdesc:aeb43c226df739c51f5faf5a261b8941c"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR control state. <br/></td></tr>
 <tr class="separator:aeb43c226df739c51f5faf5a261b8941c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c54fa800877a8c59a5309a78c96fa5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c54fa800877a8c59a5309a78c96fa5c"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>TR_Control_ProgFlag</b></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a2c54fa800877a8c59a5309a78c96fa5c">TR_Control_ProgFlag</a></td></tr>
+<tr class="memdesc:a2c54fa800877a8c59a5309a78c96fa5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR programming flag. <br/></td></tr>
 <tr class="separator:a2c54fa800877a8c59a5309a78c96fa5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab56aa142b2d5d3aada188ca7ce25cbba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab56aa142b2d5d3aada188ca7ce25cbba"></a>
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>iqrfCheckMicros</b></td></tr>
@@ -225,7 +217,8 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>iqrfSpiByteB
 <tr class="memdesc:a1694ea6c553d7533276a03b91832a1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">IQRF packet buffer. <br/></td></tr>
 <tr class="separator:a1694ea6c553d7533276a03b91832a1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a568ec30eba5ad766ee37718e85f49e94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a568ec30eba5ad766ee37718e85f49e94"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>iqrfPacketBufferInPtr</b></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a568ec30eba5ad766ee37718e85f49e94">iqrfPacketBufferInPtr</a></td></tr>
+<tr class="memdesc:a568ec30eba5ad766ee37718e85f49e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packet buffer. <br/></td></tr>
 <tr class="separator:a568ec30eba5ad766ee37718e85f49e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a522dddc721cf5c03c57c420488813e3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a522dddc721cf5c03c57c420488813e3c"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>iqrfPacketBufferOutPtr</b></td></tr>
@@ -750,7 +743,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 20 2016 19:28:30 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 20 2016 20:00:17 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
