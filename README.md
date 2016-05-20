@@ -21,15 +21,22 @@ platformio lib install ID
 ## Pin layout
 The following table shows the typical pin layout used:
 
-|  Signal   | [IQRF BB-01](http://eshop.iqrf.org/products/detail/IQRF-BB-01) |     Uno     | Mega | Nano v3 | Leonardo / Micro | Pro Micro |
-| --------- | -------------------------------------------------------------- | ----------- | ---- | ------- | ---------------- | --------- |
-| Reset [1] |                             –TRPWR                             |      9      |   5  |    D9   |      RESET       |    RST    |
-|  SPI SS   |                               SS                               |      10     |  5   |   D10   |        10        |    10     |
-|  SPI MOSI |                              MOSI                              | 11 / ICSP-4 |  5   |   D11   |      ICSP-4      |    16     |
-|  SPI MISO |                              MISO                              | 12 / ICSP-1 |  50  |   D12   |      ICSP-1      |    14     |
-|  SPI SCK  |                              SCK                               | 13 / ICSP-3 |  52  |   D13   |      ICSP-3      |    15     |
+|  Signal      | [IQRF BB-01](http://eshop.iqrf.org/products/detail/IQRF-BB-01) |     Uno     | Mega | Nano | Leonardo / Micro | Pro Micro |
+| ------------ | -------------------------------------------------------------- | ----------- | ---- | ---- | ---------------- | --------- |
+|   Reset [1]  |                             –TRPWR                             |      9      |   5  |  D9  |      RESET       |    RST    |
+|  SPI SS [2]  |                               SS                               |      10     |  53  |  D10 |        10        |    10     |
+| SPI MOSI [3] |                              MOSI                              | 11 / ICSP-4 |  51  |  D11 |      ICSP-4      |    16     |
+| SPI MISO [4] |                              MISO                              | 12 / ICSP-1 |  50  |  D12 |      ICSP-1      |    14     |
+|   SPI SCK    |                              SCK                               | 13 / ICSP-3 |  52  |  D13 |      ICSP-3      |    15     |
 
 [1] Configurable, typically defined as TR_RESET_IO in sketch/program.
+
+[2] Configurable, typically defined as TR_SS_IO in sketch/program.
+
+[3] Configurable, typically defined as TR_SDI_IO in sketch/program.
+
+[4] Configurable, typically defined as TR_SDO_IO in sketch/program.
+
 
 ## Dependecies of this library
  * [MsTimer2](https://github.com/PaulStoffregen/MsTimer2)
