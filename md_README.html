@@ -99,19 +99,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>The following table shows the typical pin layout used:</p>
 <table class="doxtable">
 <tr>
-<th>Signal </th><th><a href="http://eshop.iqrf.org/products/detail/IQRF-BB-01">IQRF BB-01</a> </th><th>Uno </th><th>Mega </th><th>Nano v3 </th><th>Leonardo / Micro </th><th>Pro Micro  </th></tr>
+<th>Signal </th><th><a href="http://eshop.iqrf.org/products/detail/IQRF-BB-01">IQRF BB-01</a> </th><th>Uno </th><th>Mega </th><th>Nano </th><th>Leonardo / Micro </th><th>Pro Micro  </th></tr>
 <tr>
 <td>Reset [1] </td><td>–TRPWR </td><td>9 </td><td>5 </td><td>D9 </td><td>RESET </td><td>RST </td></tr>
 <tr>
-<td>SPI SS </td><td>SS </td><td>10 </td><td>5 </td><td>D10 </td><td>10 </td><td>10 </td></tr>
+<td>SPI SS [2] </td><td>SS </td><td>10 </td><td>53 </td><td>D10 </td><td>10 </td><td>10 </td></tr>
 <tr>
-<td>SPI MOSI </td><td>MOSI </td><td>11 / ICSP-4 </td><td>5 </td><td>D11 </td><td>ICSP-4 </td><td>16 </td></tr>
+<td>SPI MOSI [3] </td><td>MOSI </td><td>11 / ICSP-4 </td><td>51 </td><td>D11 </td><td>ICSP-4 </td><td>16 </td></tr>
 <tr>
-<td>SPI MISO </td><td>MISO </td><td>12 / ICSP-1 </td><td>50 </td><td>D12 </td><td>ICSP-1 </td><td>14 </td></tr>
+<td>SPI MISO [4] </td><td>MISO </td><td>12 / ICSP-1 </td><td>50 </td><td>D12 </td><td>ICSP-1 </td><td>14 </td></tr>
 <tr>
 <td>SPI SCK </td><td>SCK </td><td>13 / ICSP-3 </td><td>52 </td><td>D13 </td><td>ICSP-3 </td><td>15 </td></tr>
 </table>
-<p>[1] Configurable, typically defined as TR_RESET_IO in sketch/program.</p>
+<p>[1] Configurable, typically defined as TR_RESET_IO in sketch/program. [2] Configurable, typically defined as TR_SS_IO in sketch/program. [3] Configurable, typically defined as TR_SDI_IO in sketch/program. [4] Configurable, typically defined as TR_SDO_IO in sketch/program.</p>
 <h2>Dependecies of this library</h2>
 <ul>
 <li><a href="https://github.com/PaulStoffregen/MsTimer2">MsTimer2</a></li>
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 20 2016 20:00:17 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 20 2016 20:16:06 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
