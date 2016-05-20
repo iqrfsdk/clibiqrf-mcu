@@ -87,9 +87,9 @@
 #define IQRF_TX_PKT_ERR       2      //!< Packet sent with ERROR
 
 // IQRF SPI master status
-#define IQRF_SPI_MASTER_FREE  0      //<! SPI master free
-#define IQRF_SPI_MASTER_WRITE 1      //<! SPI master wrtite
-#define IQRF_SPI_MASTER_READ  2      //<! SPI master read
+#define IQRF_SPI_MASTER_FREE  0      //!< SPI master free
+#define IQRF_SPI_MASTER_WRITE 1      //!< SPI master wrtite
+#define IQRF_SPI_MASTER_READ  2      //!< SPI master read
 
 // Pins
 #define TR_RESET_IO           9      //!< TR reset pin
@@ -100,6 +100,12 @@
 // Timing
 #define MICRO_SECOND          1000000 //!< Microsecond
 #define MILLI_SECOND          1000    //!< Milisecond
+
+// TR control states
+#define TR_CTRL_READY     0  //!< TR ready state
+#define TR_CTRL_RESET     1  //!< TR reset process
+#define TR_CTRL_WAIT      2  //!< TR wait state
+#define TR_CTRL_PROG_MODE 3  //!< TR programming mode
 
 /// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
@@ -127,7 +133,8 @@ typedef struct {
 	uint8_t unallocationFlag;     //!< Unallocation flag
 } IQRF_PACKET_BUFFER;
 
-extern uint8_t DLEN, spiIqBusy;
+extern uint8_t DLEN;                  //!< Data length
+extern uint8_t spiIqBusy;
 extern uint8_t spiStat;               //!< SPI status
 extern uint8_t iqrfSpiMasterEnable;   //!< SPI master
 extern uint8_t fastIqrfSpiEnable;     //!< Fast SPI

@@ -21,11 +21,6 @@
 
 #include "iqrf_library.h"
 
-#define TR_CTRL_READY     0
-#define TR_CTRL_RESET     1
-#define TR_CTRL_WAIT      2
-#define TR_CTRL_PROG_MODE 3
-
 /*
  * Locally used function prototypes
  */
@@ -47,15 +42,30 @@ void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult);
 uint8_t IQ_SPI_TxBuf[IQ_PKT_SIZE];
 /// SPI Rx buffer
 uint8_t IQ_SPI_RxBuf[IQ_PKT_SIZE];
-uint8_t PTYPE, spiStat, repCnt, tmpCnt, pacLen, trInfoReading;
-uint8_t DLEN, spiIqBusy;
+uint8_t PTYPE;
+/// SPI status
+uint8_t spiStat;
+/// Number of attempts to send data
+uint8_t repCnt;
+/// Counts number of send/receive bytes
+uint8_t tmpCnt;
+/// Packet length
+uint8_t pacLen;
+uint8_t trInfoReading;
+/// Data length
+uint8_t DLEN;
+uint8_t spiIqBusy;
 /// Enabled SPI Master 
 uint8_t iqrfSpiMasterEnable;
 /// Enabled Fast SPI
 uint8_t fastIqrfSpiEnable;
+/// Actual Tx packet ID
 uint8_t txPktId;
+/// Tx packet ID counter
 uint8_t txPktIdCnt;
+/// TR control state
 uint8_t TR_Control_TaskSM = TR_CTRL_READY;
+/// TR programming flag
 uint8_t TR_Control_ProgFlag;
 unsigned long iqrfCheckMicros;
 unsigned long iqrfMicros;
@@ -64,6 +74,7 @@ unsigned long iqrfSpiByteBytePause;
 TR_INFO_STRUCT trInfoStruct;
 /// IQRF packet buffer
 IQRF_PACKET_BUFFER iqrfPacketBuffer[PACKET_BUFFER_SIZE];
+/// Packet buffer
 uint16_t iqrfPacketBufferInPtr, iqrfPacketBufferOutPtr;
 /// IQRF Rx callback
 IQRF_RX_CALL_BACK iqrf_rx_call_back_fn;
@@ -200,7 +211,9 @@ void IQRF_Driver(void) {
 						// PBYTE set bit7 - write to buffer COM of TR module
 						PTYPE = (DLEN | 0x80);
 						IQ_SPI_TxBuf[0] = iqrfPacketBuffer[iqrfPacketBufferOutPtr].spiCmd;
-						if (IQ_SPI_TxBuf[0] == SPI_MODULE_INFO && DLEN == 16) PTYPE = 0x10;
+						if (IQ_SPI_TxBuf[0] == SPI_MODULE_INFO && DLEN == 16) {
+							PTYPE = 0x10;
+						}
 						IQ_SPI_TxBuf[1] = PTYPE;
 						memcpy(&IQ_SPI_TxBuf[2], iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer, DLEN);
 						// CRCM
