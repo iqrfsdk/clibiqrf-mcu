@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Settings
-REPO_PATH=git@github.com:Roman3349/clibiqrf-arduino.git
+REPO_PATH=git@github.com:iqrfsdk/clibiqrf-arduino.git
 HTML_PATH=build/doc/html
 COMMIT_USER="Documentation Builder"
 COMMIT_EMAIL="travis@microrisc.com"
@@ -28,4 +28,3 @@ git config user.email "${COMMIT_EMAIL}"
 git commit -m "Automated documentation build for changeset ${CHANGESET}."
 git push origin gh-pages
 cd -
-
