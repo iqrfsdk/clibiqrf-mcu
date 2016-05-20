@@ -1,0 +1,29 @@
+{
+  "name": "IQRF SPI for Arduino",
+  "keywords": "IQRF, communication, spi, rf",
+  "description": "IQRF SPI library for Arduino",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iqrfsdk/clibiqrf-arduino.git"
+  },
+  "version": "1.0.0",
+  "authors": [{
+    "name": "Rostislav Spinar",
+    "email": "rostislav.spinar@microrisc.com",
+    "url": "https://github.com/spinarr",
+    "maintainer": true
+  }],
+  "dependencies": [{
+    "name": "MsTimer2",
+    "authors": [
+      "Javier Valencia",
+      "Paul Stoffregen"
+    ]
+  }],
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "atmelavr"
+  ]
+}
