@@ -13,10 +13,10 @@ This library is supported on AVR-based Arduino compatable platforms (e.g. Arduin
 A library for Chipkit is [there](https://github.com/iqrfsdk/clibiqrf-chipkit).
 
 ## Installation
-The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-arduino/releases) or use a [platformio](https://github.com/platformio/platformio):
+The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-arduino/releases) or use a [platformio](http://platformio.org/):
 
 ```
-platformio lib install ID
+platformio lib install 318
 ```
 ## Pin layout
 The following table shows the typical pin layout used:
