@@ -125,7 +125,7 @@ enum trControlStatuses {
 
 /**
  * Tx packet statuses
- */  
+ */
 enum txPacketStatuses {
 	OK = 1, //!< Packet sent OK
 	ERROR = 2 //!< Packet sent with ERROR
@@ -140,10 +140,10 @@ enum fccStatuses {
 };
 
 /// SPI RX data callback function type
-typedef void (*IQRF_RX_CALL_BACK)(void);
+typedef void (*IQRF_RX_CALLBACK)(void);
 
 /// SPI TX data callback function type
-typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
+typedef void (*IQRF_TX_CALLBACK)(uint8_t pktId, uint8_t pktResult);
 
 /**
  * TR module info structure
@@ -172,11 +172,11 @@ typedef struct {
 extern uint8_t dataLength;
 extern uint8_t spiIqBusy;
 extern uint8_t spiStatus;
-extern uint8_t spiMaster;
-extern uint8_t fastSpi;
+extern bool spiMaster;
+extern bool fastSpi;
 extern TR_INFO_STRUCT trInfoStruct;
 
-void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn);
+void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn);
 void IQRF_Driver(void);
 void IQRF_TR_Reset(void);
 void IQRF_TR_EnterProgMode(void);
@@ -239,10 +239,10 @@ void TR_SetByteToByteTime(uint16_t byteToByteTime);
 
 /**
  * Get raw info data about TR module
- * @param x Position in info raw buffer
+ * @param position Position in info raw buffer
  * @return Data byte from info raw buffer
  */
-#define IQRF_GetModuleInfoRawData(x) trInfoStruct.moduleInfoRawData[x]
+#define IQRF_GetModuleInfoRawData(position) trInfoStruct.moduleInfoRawData[position]
 
 /**
  * Get TR module comunication status
@@ -266,16 +266,16 @@ void TR_SetByteToByteTime(uint16_t byteToByteTime);
 /**
  * Enable SPI Master function in IQRF driver
  */
-#define IQRF_SPIMasterEnable()  spiMaster = 1
+#define IQRF_SPIMasterEnable()  spiMaster = true
 
 /**
  * Disable SPI Master function in IQRF driver
  */
-#define IQRF_SPIMasterDisable()  {spiMaster = 0; spiStatus = spiStatuses::DISABLED;}
+#define IQRF_SPIMasterDisable()  {spiMaster = false; spiStatus = spiStatuses::DISABLED;}
 
 /**
  * Returns thw state of SPI Master function in IQRF driver
- * @return State of IQRF SPI master 0 = Disabled, 1 = enabled
+ * @return State of IQRF SPI master - boolean
  */
 #define IQRF_GetSPIMasterState() spiMaster
 
