@@ -94,18 +94,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6e7dd83d82979d4ad06514d189b1489a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e7dd83d82979d4ad06514d189b1489a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>calculate</b> (uint8_t buffer[], uint8_t dataLength, unsigned char value)</td></tr>
-<tr class="separator:a6e7dd83d82979d4ad06514d189b1489a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a806d3d39ef44890d5a946e758b4db586"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a806d3d39ef44890d5a946e758b4db586"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>calculate</b> (uint8_t buffer[], uint8_t dataLength)</td></tr>
-<tr class="separator:a806d3d39ef44890d5a946e758b4db586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ab28c36ae21da9a6bbfc6a6fee96ae"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFCRC.html#a12ab28c36ae21da9a6bbfc6a6fee96ae">calculate</a> (uint8_t buffer[], uint8_t dataLength, uint8_t value=0x5F)</td></tr>
+<tr class="separator:a12ab28c36ae21da9a6bbfc6a6fee96ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae655e6b17bc1f54af20641fd78509630"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFCRC.html#ae655e6b17bc1f54af20641fd78509630">check</a> (uint8_t buffer[], uint8_t dataLength, uint8_t type)</td></tr>
 <tr class="separator:ae655e6b17bc1f54af20641fd78509630"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IQRF CRC </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a12ab28c36ae21da9a6bbfc6a6fee96ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFCRC::calculate </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>buffer</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dataLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0x5F</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculate CRC before master's send </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>IQRF SPI Tx buffer </td></tr>
+    <tr><td class="paramname">dataLength</td><td>Data length </td></tr>
+    <tr><td class="paramname">value</td><td>"Magic" value (default is 0x5F) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CRC </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae655e6b17bc1f54af20641fd78509630"></a>
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +193,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>calculate</b> (uin
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 21 2016 20:02:27 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 22 2016 05:13:01 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
