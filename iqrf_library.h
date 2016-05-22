@@ -137,52 +137,22 @@ typedef struct {
 	uint8_t unallocationFlag; //!< Unallocation flag
 } IQRF_PACKET_BUFFER;
 
-extern uint8_t DLEN; //!< Data length
+extern uint8_t DLEN;
 extern uint8_t spiIqBusy;
-extern uint8_t spiStat; //!< SPI status
-extern uint8_t iqrfSpiMasterEnable; //!< SPI master
-extern uint8_t fastIqrfSpiEnable; //!< Fast SPI
-extern TR_INFO_STRUCT trInfoStruct; //!< TR info structure
+extern uint8_t spiStat;
+extern uint8_t iqrfSpiMasterEnable;
+extern uint8_t fastIqrfSpiEnable;
+extern TR_INFO_STRUCT trInfoStruct;
 
-/**
- * Function perform a TR-module driver initialization
- * Function performes initialization of trInfoStruct identification data structure
- * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
- * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
- */
 void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn);
-
-/**
- * Periodically called IQRF_Driver
- */
 void IQRF_Driver(void);
-
-/**
- * Function perform a TR-module reset
- */
 void IQRF_TR_Reset(void);
-
-/**
- * Function switch TR-module to programming mode
- */
 void IQRF_TR_EnterProgMode(void);
-
-/**
- * Function sends data from buffer to TR module
- * @param pDataBuffer Pointer to a buffer that contains data that I want to send to TR module
- * @param dataLength Number of bytes to send
- * @param unallocationFlag If the pDataBuffer is dynamically allocated using malloc function.
-   If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
- * @return TX packet ID (number 1-255)
- */
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
-
-/**
- * Function is usually called inside the callback function, whitch is called when the driver receives data from TR module
- * @param userDataBuffer Pointer to my buffer, to which I want to load data received from the TR module
- * @param rxDataSize Number of bytes I want to read
- */
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
+uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte);
+uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
+void TR_SetByteToByteTime(uint16_t byteToByteTime);
 
 /**
  * Get size of Rx data
@@ -276,30 +246,5 @@ void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
  * @return State of IQRF SPI master 0 = Disabled, 1 = enabled
  */
 #define IQRF_GetSPIMasterState() iqrfSpiMasterEnable
-
-
-/**
- * Send and receive single byte over SPI
- * @param Tx_Byte Character to be send via SPI
- * @return Byte received via SPI
- */
-uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte);
-
-/**
- * Prepare SPI packet to packet buffer
- * @param spiCmd Command that I want to send to TR module
- * @param pDataBuffer Pointer to a buffer that contains data that I want to send to TR module
- * @param dataLength Number of bytes to send
- * @param unallocationFlag If the pDataBuffer is dynamically allocated using malloc function.
-   If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
- * @return Packet ID
- */
-uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
-
-/**
- * Set byte to byte pause is SPI driver
- * @param byteToByteTime byte to byte time in us
- */
-void TR_SetByteToByteTime(uint16_t byteToByteTime);
 
 #endif
