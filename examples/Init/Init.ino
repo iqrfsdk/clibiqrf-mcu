@@ -53,10 +53,10 @@ void setup(void) {
   IQRF_Init(MyIqrfRxHandler, MyIqrfTxHandler);
   // Info - TR
   switch (IQRF_GetModuleType()) {
-    case TR_52D:
+    case trTypes::TR_52D:
       Serial.println("Module type: TR-52D");
       break;
-    case TR_72D:
+    case trTypes::TR_72D:
       Serial.println("Module type: TR-72D");
       break;
     default:

@@ -38,23 +38,6 @@
 #define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer
 #define IQRF_SPI_CLK          250000 //!< SPI clock 250kHz
 
-// MCU type of TR module
-#define MCU_UNKNOWN           0      //!< MCU used in uknown module
-#define PIC16LF819            1      //!< MCU used in TR-xxx-11A not supported
-#define PIC16LF88             2      //!< MCU used in TR-xxx-21A
-#define PIC16F886             3      //!< MCU used in TR-31B, TR-52B, TR-53B
-#define PIC16LF1938           4      //!< MCU used in TR-52D, TR-54D
-
-// TR module types
-#define TR_52D                0      //!< TR module IQRF TR-52D
-#define TR_58D_RJ             1      //!< TR module IQRF TR-85D-RJ
-#define TR_72D                2      //!< TR module IQRF TR-72D
-#define TR_53D                3      //!< TR module IQRF TR-53D
-#define TR_54D                8      //!< TR module IQRF TR-54D
-#define TR_55D                9      //!< TR module IQRF TR-55D
-#define TR_56D                10     //!< TR module IQRF TR-56D
-#define TR_76D                11     //!< TR module IQRF TR-76D
-
 // FCC cerificate
 #define FCC_NOT_CERTIFIED     0      //!< FCC not certificated
 #define FCC_CERTIFIED         1      //!< FCC certificated
@@ -101,7 +84,6 @@ enum spiStatuses {
 	USER_STOP = 0x07 //!< SPI state after stopSPI();
 };
 
-
 /**
  * SPI commands for TR module (see IQRF SPI user manual)
  */
@@ -116,6 +98,31 @@ enum spiCommands {
 	PLUGIN_PGM = 0xF9 //!< Master writes plugin data to flash in programming mode
 };
 
+/**
+ * TR module types
+ */
+enum trTypes {
+	TR_52D = 0, //!< TR module IQRF TR-52D
+	TR_58D_RJ = 1, //!< TR module IQRF TR-85D-RJ
+	TR_72D = 2, //!< TR module IQRF TR-72D
+	TR_53D = 3, //!< TR module IQRF TR-53D
+	TR_54D = 8, //!< TR module IQRF TR-54D
+	TR_55D = 9, //!< TR module IQRF TR-55D
+	TR_56D = 10, //!< TR module IQRF TR-56D
+	TR_76D = 11 //!< TR module IQRF TR-76D
+};
+
+/**
+ * TR MCU types
+ */
+enum trMcuTypes {
+	UNKNOWN = 0, //!< MCU used in uknown module
+	PIC16LF819 = 1, //!< MCU used in TR-xxx-11A not supported
+	PIC16LF88 = 2, //!< MCU used in TR-xxx-21A
+	PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
+	PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
+};
+
 /// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
 
@@ -123,6 +130,7 @@ typedef void (*IQRF_RX_CALL_BACK)(void);
 typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 
 /// TR module info structure
+
 typedef struct {
 	uint16_t osVersion; //!< OS version
 	uint16_t osBuild; //!< OS build
@@ -134,6 +142,7 @@ typedef struct {
 } TR_INFO_STRUCT;
 
 /// Item of SPI TX packet buffer
+
 typedef struct {
 	uint8_t pktId; //!< Packet ID
 	uint8_t spiCmd; //!< SPI command

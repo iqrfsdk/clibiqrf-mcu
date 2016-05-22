@@ -113,7 +113,7 @@ void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back
 		TR_Info_Task();
 	}
 	// if TR72D or TR76D is conected
-	if (IQRF_GetModuleType() == TR_72D || IQRF_GetModuleType() == TR_76D) {
+	if (IQRF_GetModuleType() == trTypes::TR_72D || IQRF_GetModuleType() == trTypes::TR_76D) {
 		// set fast SPI mode
 		fastSpi = 1;
 		// set byte to byte pause to 150us
@@ -362,7 +362,7 @@ void TR_Info_Task(void) {
 			iqrf_rx_call_back_fn = TR_dummy_func_com;
 			// set call back function after data were sent
 			iqrf_tx_call_back_fn = TR_process_id_packet_com;
-			trInfoStruct.mcuType = MCU_UNKNOWN;
+			trInfoStruct.mcuType = trMcuTypes::UNKNOWN;
 			memset(&dataToModule[0], 0, 16);
 			timeoutMilli = millis();
 			// next state - will read info in PGM mode or /* in COM mode */
