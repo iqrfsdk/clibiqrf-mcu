@@ -137,11 +137,11 @@ typedef struct {
 	uint8_t unallocationFlag; //!< Unallocation flag
 } IQRF_PACKET_BUFFER;
 
-extern uint8_t DLEN;
+extern uint8_t dataLength;
 extern uint8_t spiIqBusy;
-extern uint8_t spiStat;
-extern uint8_t iqrfSpiMasterEnable;
-extern uint8_t fastIqrfSpiEnable;
+extern uint8_t spiStatus;
+extern uint8_t spiMaster;
+extern uint8_t fastSpi;
 extern TR_INFO_STRUCT trInfoStruct;
 
 void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn);
@@ -158,7 +158,7 @@ void TR_SetByteToByteTime(uint16_t byteToByteTime);
  * Get size of Rx data
  * @return Number of bytes recieved from TR module
  */
-#define IQRF_GetRxDataSize() DLEN
+#define IQRF_GetRxDataSize() dataLength
 
 /**
  * Get OS version
@@ -229,22 +229,22 @@ void TR_SetByteToByteTime(uint16_t byteToByteTime);
  *     0x83    |    SPI_SLOW_MODE   | SPI not working in background
  *     0x07    |    SPI_USER_STOP   | SPI state after stopSPI();
  */
-#define IQRF_GetStatus()  spiStat
+#define IQRF_GetStatus()  spiStatus
 
 /**
  * Enable SPI Master function in IQRF driver
  */
-#define IQRF_SPIMasterEnable()  iqrfSpiMasterEnable = 1
+#define IQRF_SPIMasterEnable()  spiMaster = 1
 
 /**
  * Disable SPI Master function in IQRF driver
  */
-#define IQRF_SPIMasterDisable()  {iqrfSpiMasterEnable = 0; spiStat = spiStatuses::DISABLED;}
+#define IQRF_SPIMasterDisable()  {spiMaster = 0; spiStatus = spiStatuses::DISABLED;}
 
 /**
  * Returns thw state of SPI Master function in IQRF driver
  * @return State of IQRF SPI master 0 = Disabled, 1 = enabled
  */
-#define IQRF_GetSPIMasterState() iqrfSpiMasterEnable
+#define IQRF_GetSPIMasterState() spiMaster
 
 #endif

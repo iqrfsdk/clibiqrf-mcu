@@ -24,8 +24,8 @@
 /*
  * Locally used function prototypes
  */
-uint8_t GetCRCM(void);
-uint8_t CheckCRCS(void);
+uint8_t calculateCRC(void);
+uint8_t checkCRC(void);
 void TR_Module_OFF(void);
 void TR_Module_ON(void);
 void TR_Info_Task(void);
@@ -44,25 +44,25 @@ uint8_t IQ_SPI_TxBuf[IQ_PKT_SIZE];
 uint8_t IQ_SPI_RxBuf[IQ_PKT_SIZE];
 uint8_t PTYPE;
 /// SPI status
-uint8_t spiStat;
+uint8_t spiStatus;
 /// Number of attempts to send data
 uint8_t repCnt;
 /// Counts number of send/receive bytes
 uint8_t tmpCnt;
 /// Packet length
-uint8_t pacLen;
+uint8_t packetLength;
 uint8_t trInfoReading;
 /// Data length
-uint8_t DLEN;
+uint8_t dataLength;
 uint8_t spiIqBusy;
-/// Enabled SPI Master 
-uint8_t iqrfSpiMasterEnable;
-/// Enabled Fast SPI
-uint8_t fastIqrfSpiEnable;
+/// SPI Master status
+uint8_t spiMaster;
+/// Fast SPI status
+uint8_t fastSpi;
 /// Actual Tx packet ID
-uint8_t txPktId;
+uint8_t txPacketId;
 /// Tx packet ID counter
-uint8_t txPktIdCnt;
+uint8_t txPacketIdCounter;
 /// TR control state
 uint8_t TR_Control_TaskSM = TR_CTRL_READY;
 /// TR programming flag
@@ -91,10 +91,10 @@ const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
  */
 void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn) {
 	spiIqBusy = 0;
-	spiStat = spiStatuses::DISABLED;
+	spiStatus = spiStatuses::DISABLED;
 	iqrfCheckMicros = 0;
 	// normal SPI communication
-	fastIqrfSpiEnable = 0;
+	fastSpi = 0;
 	// set byte to byte pause to 1000us
 	TR_SetByteToByteTime(1000);
 	TR_Module_ON();
@@ -115,7 +115,7 @@ void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back
 	// if TR72D or TR76D is conected
 	if (IQRF_GetModuleType() == TR_72D || IQRF_GetModuleType() == TR_76D) {
 		// set fast SPI mode
-		fastIqrfSpiEnable = 1;
+		fastSpi = 1;
 		// set byte to byte pause to 150us
 		TR_SetByteToByteTime(150);
 		Serial.println("IQRF_Init - set fast spi");
@@ -129,7 +129,7 @@ void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back
  */
 void IQRF_Driver(void) {
 	// SPI Master enabled
-	if (iqrfSpiMasterEnable) {
+	if (spiMaster) {
 		iqrfMicros = micros();
 		// is anything to send in IQ_SPI_TxBuf?
 		if (spiIqBusy != IQRF_SPI_MASTER_FREE) {
@@ -142,13 +142,13 @@ void IQRF_Driver(void) {
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
 				tmpCnt++;
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
-				if (tmpCnt == pacLen || tmpCnt == IQ_PKT_SIZE) {
+				if (tmpCnt == packetLength || tmpCnt == IQ_PKT_SIZE) {
 					// CS - deactive
 					//digitalWrite(TR_SS_IO, HIGH);
 					// CRC ok
-					if ((IQ_SPI_RxBuf[DLEN + 3] == spiStatuses::CRCM_OK) && CheckCRCS()) {
+					if ((IQ_SPI_RxBuf[dataLength + 3] == spiStatuses::CRCM_OK) && checkCRC()) {
 						if (spiIqBusy == IQRF_SPI_MASTER_WRITE) {
-							iqrf_tx_call_back_fn(txPktId, IQRF_TX_PKT_OK);
+							iqrf_tx_call_back_fn(txPacketId, IQRF_TX_PKT_OK);
 						}
 						if (spiIqBusy == IQRF_SPI_MASTER_READ) {
 							iqrf_rx_call_back_fn();
@@ -161,7 +161,7 @@ void IQRF_Driver(void) {
 							tmpCnt = 0;
 						} else {
 							if (spiIqBusy == IQRF_SPI_MASTER_WRITE) {
-								iqrf_tx_call_back_fn(txPktId, IQRF_TX_PKT_ERR);
+								iqrf_tx_call_back_fn(txPacketId, IQRF_TX_PKT_ERR);
 							}
 							spiIqBusy = IQRF_SPI_MASTER_FREE;
 						}
@@ -173,26 +173,26 @@ void IQRF_Driver(void) {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// get SPI status of TR module
-				spiStat = IQRF_SPI_Byte(SPI_CHECK);
+				spiStatus = IQRF_SPI_Byte(SPI_CHECK);
 				// CS - deactive
 				//digitalWrite(TR_SS_IO, HIGH);      
 				// if the status is dataready prepare packet to read it
-				if ((spiStat & 0xC0) == 0x40) {
+				if ((spiStatus & 0xC0) == 0x40) {
 					memset(IQ_SPI_TxBuf, 0, sizeof (IQ_SPI_TxBuf));
 					// state 0x40 means 64B
-					if (spiStat == 0x40) {
-						DLEN = 64;
+					if (spiStatus == 0x40) {
+						dataLength = 64;
 					} else {
 						// clear bit 7,6 - rest is length (1 az 63B)
-						DLEN = spiStat & 0x3F;
+						dataLength = spiStatus & 0x3F;
 					}
-					PTYPE = DLEN;
+					PTYPE = dataLength;
 					IQ_SPI_TxBuf[0] = SPI_WR_RD;
 					IQ_SPI_TxBuf[1] = PTYPE;
-					// CRCM
-					IQ_SPI_TxBuf[DLEN + 2] = GetCRCM();
+					// CRC
+					IQ_SPI_TxBuf[dataLength + 2] = calculateCRC();
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
-					pacLen = DLEN + 4;
+					packetLength = dataLength + 4;
 					// counter of sent bytes
 					tmpCnt = 0;
 					// number of attempts to send data
@@ -200,28 +200,28 @@ void IQRF_Driver(void) {
 					// reading from buffer COM of TR module
 					spiIqBusy = IQRF_SPI_MASTER_READ;
 					// current SPI status must be updated
-					spiStat = spiStatuses::DATA_TRANSFER;
+					spiStatus = spiStatuses::DATA_TRANSFER;
 				}
 				// if TR module ready and no data in module pending
 				if (!spiIqBusy) {
 					// check if packet to send ready
 					if (iqrfPacketBufferInPtr != iqrfPacketBufferOutPtr) {
 						memset(IQ_SPI_TxBuf, 0, sizeof (IQ_SPI_TxBuf));
-						DLEN = iqrfPacketBuffer[iqrfPacketBufferOutPtr].dataLength;
+						dataLength = iqrfPacketBuffer[iqrfPacketBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
-						PTYPE = (DLEN | 0x80);
+						PTYPE = (dataLength | 0x80);
 						IQ_SPI_TxBuf[0] = iqrfPacketBuffer[iqrfPacketBufferOutPtr].spiCmd;
-						if (IQ_SPI_TxBuf[0] == SPI_MODULE_INFO && DLEN == 16) {
+						if (IQ_SPI_TxBuf[0] == SPI_MODULE_INFO && dataLength == 16) {
 							PTYPE = 0x10;
 						}
 						IQ_SPI_TxBuf[1] = PTYPE;
-						memcpy(&IQ_SPI_TxBuf[2], iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer, DLEN);
+						memcpy(&IQ_SPI_TxBuf[2], iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer, dataLength);
 						// CRCM
-						IQ_SPI_TxBuf[DLEN + 2] = GetCRCM();
+						IQ_SPI_TxBuf[dataLength + 2] = calculateCRC();
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
-						pacLen = DLEN + 4;
+						packetLength = dataLength + 4;
 						// set actual TX packet ID
-						txPktId = iqrfPacketBuffer[iqrfPacketBufferOutPtr].pktId;
+						txPacketId = iqrfPacketBuffer[iqrfPacketBufferOutPtr].pktId;
 						// counter of sent bytes
 						tmpCnt = 0;
 						// number of attempts to send data
@@ -236,7 +236,7 @@ void IQRF_Driver(void) {
 							iqrfPacketBufferOutPtr = 0;
 						}
 						// current SPI status must be updated
-						spiStat = spiStatuses::DATA_TRANSFER;
+						spiStatus = spiStatuses::DATA_TRANSFER;
 					}
 				}
 			}
@@ -252,7 +252,7 @@ void IQRF_Driver(void) {
  */
 void IQRF_TR_Reset(void) {
 	// SPI Master enabled
-	if (iqrfSpiMasterEnable) {
+	if (spiMaster) {
 		// TR module OFF
 		TR_Module_OFF();
 		// RESET pause
@@ -263,7 +263,7 @@ void IQRF_TR_Reset(void) {
 	} else {
 		// TR module RESET process in SPI Master disable mode
 		TR_Control_TaskSM = TR_CTRL_RESET;
-		spiStat = spiStatuses::BUSY;
+		spiStatus = spiStatuses::BUSY;
 	}
 }
 
@@ -273,7 +273,7 @@ void IQRF_TR_Reset(void) {
 void IQRF_TR_EnterProgMode(void) {
 	unsigned long enterP_millis;
 	// SPI Master enabled
-	if (iqrfSpiMasterEnable) {
+	if (spiMaster) {
 		// SPI EE-TR OFF
 		SPI.end();
 		IQRF_TR_Reset();
@@ -294,7 +294,7 @@ void IQRF_TR_EnterProgMode(void) {
 	} else {
 		TR_Control_TaskSM = TR_CTRL_RESET;
 		TR_Control_ProgFlag = 1;
-		spiStat = spiStatuses::BUSY;
+		spiStatus = spiStatuses::BUSY;
 	}
 }
 
@@ -382,7 +382,7 @@ void TR_Info_Task(void) {
 			break;
 		case TR_INFO_SEND_REQUEST:
 			// Only if the IQRF_Driver() is not busy and TR mudule is in communication mode packet preparing
-			if (spiStat == spiStatuses::COMMUNICATION_MODE && spiIqBusy == 0) {
+			if (spiStatus == spiStatuses::COMMUNICATION_MODE && spiIqBusy == 0) {
 				TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 16, 0);
 				// initialize timeout timer
 				timeoutMilli = millis();
@@ -390,7 +390,7 @@ void TR_Info_Task(void) {
 				TR_Info_TaskSM = TR_INFO_WAIT_INFO;
 			} else {
 				// only if the IQRF_Driver() is not busy and TR mudule is in programming mode packet preparing
-				if (spiStat == spiStatuses::PROGRAMMING_MODE && spiIqBusy == 0) {
+				if (spiStatus == spiStatuses::PROGRAMMING_MODE && spiIqBusy == 0) {
 					TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 1, 0);
 					// initialize timeout timer
 					timeoutMilli = millis();
@@ -440,12 +440,12 @@ void TR_Control_Task(void) {
 	switch (TR_Control_TaskSM) {
 		case TR_CTRL_READY:
 			// set SPI state DISABLED
-			spiStat = spiStatuses::DISABLED;
+			spiStatus = spiStatuses::DISABLED;
 			TR_Control_ProgFlag = 0;
 			break;
 		case TR_CTRL_RESET:
 			// set SPI state BUSY
-			spiStat = spiStatuses::BUSY;
+			spiStatus = spiStatuses::BUSY;
 			// SPI EE-TR OFF
 			SPI.end();
 			// SPI controller OFF
@@ -458,7 +458,7 @@ void TR_Control_Task(void) {
 			break;
 		case TR_CTRL_WAIT:
 			// set SPI state BUSY
-			spiStat = spiStatuses::BUSY;
+			spiStatus = spiStatuses::BUSY;
 			// wait 300 ms
 			if (millis() - timeoutMilli >= MILLI_SECOND / 3) {
 				// TR module ON
@@ -554,10 +554,10 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if (dataLength > IQ_PKT_SIZE - 4) {
 		dataLength = IQ_PKT_SIZE - 4;
 	}
-	if ((++txPktIdCnt) == 0) {
-		txPktIdCnt++;
+	if ((++txPacketIdCounter) == 0) {
+		txPacketIdCounter++;
 	}
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].pktId = txPktIdCnt;
+	iqrfPacketBuffer[iqrfPacketBufferInPtr].pktId = txPacketIdCounter;
 	iqrfPacketBuffer[iqrfPacketBufferInPtr].spiCmd = spiCmd;
 	iqrfPacketBuffer[iqrfPacketBufferInPtr].pDataBuffer = pDataBuffer;
 	iqrfPacketBuffer[iqrfPacketBufferInPtr].dataLength = dataLength;
@@ -565,17 +565,17 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if (++iqrfPacketBufferInPtr >= PACKET_BUFFER_SIZE) {
 		iqrfPacketBufferInPtr = 0;
 	}
-	return txPktIdCnt;
+	return txPacketIdCounter;
 }
 
 /**
  * Calculate CRC before master's send
  * @return crc_val
  */
-uint8_t GetCRCM(void) {
+uint8_t calculateCRC(void) {
 	unsigned char i, crc_val;
 	crc_val = 0x5F;
-	for (i = 0; i < (DLEN + 2); i++) {
+	for (i = 0; i < (dataLength + 2); i++) {
 		crc_val ^= IQ_SPI_TxBuf[i];
 	}
 	return crc_val;
@@ -585,13 +585,13 @@ uint8_t GetCRCM(void) {
  * Confirm CRC from SPI slave upon received data
  * @return error code
  */
-uint8_t CheckCRCS(void) {
+uint8_t checkCRC(void) {
 	unsigned char i, crc_val;
 	crc_val = 0x5F ^ PTYPE;
-	for (i = 2; i < (DLEN + 2); i++) {
+	for (i = 2; i < (dataLength + 2); i++) {
 		crc_val ^= IQ_SPI_RxBuf[i];
 	}
-	if (IQ_SPI_RxBuf[DLEN + 2] == crc_val) {
+	if (IQ_SPI_RxBuf[dataLength + 2] == crc_val) {
 		// CRCS ok
 		return 1;
 	} else {
