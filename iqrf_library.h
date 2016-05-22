@@ -59,16 +59,6 @@
 #define FCC_NOT_CERTIFIED     0      //!< FCC not certificated
 #define FCC_CERTIFIED         1      //!< FCC certificated
 
-// SPI commands for TR module (see IQRF SPI user manual)
-#define SPI_CHECK             0x00   //!< Master checks the SPI status of the TR module
-#define SPI_WR_RD             0xF0   //!< Master reads/writes a packet from/to TR module
-#define SPI_RAM_READ          0xF1   //!< Master reads data from ram in debug mode
-#define SPI_EEPROM_READ       0xF2   //!< Master reads data from eeprom in debug mode
-#define SPI_EEPROM_PGM        0xF3   //!< Master writes data to eeprom in programming mode
-#define SPI_MODULE_INFO       0xF5   //!< Master reads Module Info from TR module
-#define SPI_FLASH_PGM         0xF6   //!< Master writes data to flash in programming mode
-#define SPI_PLUGIN_PGM        0xF9   //!< Master writes plugin data to flash in programming mode
-
 // IQRF TX packet result
 #define IQRF_TX_PKT_OK        1      //!< Packet sent OK
 #define IQRF_TX_PKT_ERR       2      //!< Packet sent with ERROR
@@ -109,6 +99,21 @@ enum spiStatuses {
 	DEBUG_MODE = 0x82, //!< SPI ready (debugging mode)
 	SLOW_MODE = 0x83, //!< SPI not working in background
 	USER_STOP = 0x07 //!< SPI state after stopSPI();
+};
+
+
+/**
+ * SPI commands for TR module (see IQRF SPI user manual)
+ */
+enum spiCommands {
+	CHECK = 0x00, //!< Master checks the SPI status of the TR module
+	WR_RD = 0xF0, //!< Master reads/writes a packet from/to TR module
+	RAM_READ = 0xF1, //!< Master reads data from ram in debug mode
+	EEPROM_READ = 0xF2, //!< Master reads data from eeprom in debug mode
+	EEPROM_PGM = 0xF3, //!< Master writes data to eeprom in programming mode
+	MODULE_INFO = 0xF5, //!< Master reads Module Info from TR module
+	FLASH_PGM = 0xF6, //!< Master writes data to flash in programming mode
+	PLUGIN_PGM = 0xF9 //!< Master writes plugin data to flash in programming mode
 };
 
 /// SPI RX data callback function type

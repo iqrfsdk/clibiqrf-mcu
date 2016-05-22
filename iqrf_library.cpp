@@ -173,7 +173,7 @@ void IQRF_Driver(void) {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// get SPI status of TR module
-				spiStatus = IQRF_SPI_Byte(SPI_CHECK);
+				spiStatus = IQRF_SPI_Byte(spiCommands::CHECK);
 				// CS - deactive
 				//digitalWrite(TR_SS_IO, HIGH);      
 				// if the status is dataready prepare packet to read it
@@ -187,7 +187,7 @@ void IQRF_Driver(void) {
 						dataLength = spiStatus & 0x3F;
 					}
 					PTYPE = dataLength;
-					IQ_SPI_TxBuf[0] = SPI_WR_RD;
+					IQ_SPI_TxBuf[0] = spiCommands::WR_RD;
 					IQ_SPI_TxBuf[1] = PTYPE;
 					// CRC
 					IQ_SPI_TxBuf[dataLength + 2] = calculateCRC();
@@ -211,7 +211,7 @@ void IQRF_Driver(void) {
 						// PBYTE set bit7 - write to buffer COM of TR module
 						PTYPE = (dataLength | 0x80);
 						IQ_SPI_TxBuf[0] = iqrfPacketBuffer[iqrfPacketBufferOutPtr].spiCmd;
-						if (IQ_SPI_TxBuf[0] == SPI_MODULE_INFO && dataLength == 16) {
+						if (IQ_SPI_TxBuf[0] == spiCommands::MODULE_INFO && dataLength == 16) {
 							PTYPE = 0x10;
 						}
 						IQ_SPI_TxBuf[1] = PTYPE;
@@ -307,7 +307,7 @@ void IQRF_TR_EnterProgMode(void) {
  * @return TX packet ID (number 1-255)
  */
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
-	return TR_SendSpiPacket(SPI_WR_RD, pDataBuffer, dataLength, unallocationFlag);
+	return TR_SendSpiPacket(spiCommands::WR_RD, pDataBuffer, dataLength, unallocationFlag);
 }
 
 /**
@@ -383,7 +383,7 @@ void TR_Info_Task(void) {
 		case TR_INFO_SEND_REQUEST:
 			// Only if the IQRF_Driver() is not busy and TR mudule is in communication mode packet preparing
 			if (spiStatus == spiStatuses::COMMUNICATION_MODE && spiIqBusy == 0) {
-				TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 16, 0);
+				TR_SendSpiPacket(spiCommands::MODULE_INFO, &dataToModule[0], 16, 0);
 				// initialize timeout timer
 				timeoutMilli = millis();
 				// next state
@@ -391,7 +391,7 @@ void TR_Info_Task(void) {
 			} else {
 				// only if the IQRF_Driver() is not busy and TR mudule is in programming mode packet preparing
 				if (spiStatus == spiStatuses::PROGRAMMING_MODE && spiIqBusy == 0) {
-					TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 1, 0);
+					TR_SendSpiPacket(spiCommands::MODULE_INFO, &dataToModule[0], 1, 0);
 					// initialize timeout timer
 					timeoutMilli = millis();
 					// next state
@@ -415,7 +415,7 @@ void TR_Info_Task(void) {
 			if ((trInfoReading == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
 				if (idfMode == 1) {
 					// send end of PGM mode packet
-					TR_SendSpiPacket(SPI_EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
+					TR_SendSpiPacket(spiCommands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
 				}
 				// next state
 				TR_Info_TaskSM = TR_INFO_DONE;
