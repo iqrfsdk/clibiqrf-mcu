@@ -64,7 +64,7 @@ uint8_t txPacketId;
 /// Tx packet ID counter
 uint8_t txPacketIdCounter;
 /// TR control state
-uint8_t TR_Control_TaskSM = TR_CTRL_READY;
+uint8_t TR_Control_TaskSM = trControlStatuses::READY;
 /// TR programming flag
 uint8_t TR_Control_ProgFlag;
 unsigned long iqrfCheckMicros;
@@ -132,7 +132,7 @@ void IQRF_Driver(void) {
 	if (spiMaster) {
 		iqrfMicros = micros();
 		// is anything to send in IQ_SPI_TxBuf?
-		if (spiIqBusy != IQRF_SPI_MASTER_FREE) {
+		if (spiIqBusy != spiMasterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
 			if ((iqrfMicros - iqrfCheckMicros) > iqrfSpiByteBytePause) {
 				// reset counter
@@ -147,23 +147,23 @@ void IQRF_Driver(void) {
 					//digitalWrite(TR_SS_IO, HIGH);
 					// CRC ok
 					if ((IQ_SPI_RxBuf[dataLength + 3] == spiStatuses::CRCM_OK) && checkCRC()) {
-						if (spiIqBusy == IQRF_SPI_MASTER_WRITE) {
-							iqrf_tx_call_back_fn(txPacketId, IQRF_TX_PKT_OK);
+						if (spiIqBusy == spiMasterStatuses::WRITE) {
+							iqrf_tx_call_back_fn(txPacketId, txPacketStatuses::OK);
 						}
-						if (spiIqBusy == IQRF_SPI_MASTER_READ) {
+						if (spiIqBusy == spiMasterStatuses::READ) {
 							iqrf_rx_call_back_fn();
 						}
-						spiIqBusy = IQRF_SPI_MASTER_FREE;
+						spiIqBusy = spiMasterStatuses::FREE;
 					} else { // CRC error
 						// rep_cnt - must be set on packet preparing
 						if (--repCnt) {
 							// another attempt to send data
 							tmpCnt = 0;
 						} else {
-							if (spiIqBusy == IQRF_SPI_MASTER_WRITE) {
-								iqrf_tx_call_back_fn(txPacketId, IQRF_TX_PKT_ERR);
+							if (spiIqBusy == spiMasterStatuses::WRITE) {
+								iqrf_tx_call_back_fn(txPacketId, txPacketStatuses::ERROR);
 							}
-							spiIqBusy = IQRF_SPI_MASTER_FREE;
+							spiIqBusy = spiMasterStatuses::FREE;
 						}
 					}
 				}
@@ -198,7 +198,7 @@ void IQRF_Driver(void) {
 					// number of attempts to send data
 					repCnt = 1;
 					// reading from buffer COM of TR module
-					spiIqBusy = IQRF_SPI_MASTER_READ;
+					spiIqBusy = spiMasterStatuses::READ;
 					// current SPI status must be updated
 					spiStatus = spiStatuses::DATA_TRANSFER;
 				}
@@ -227,7 +227,7 @@ void IQRF_Driver(void) {
 						// number of attempts to send data
 						repCnt = 3;
 						// writing to buffer COM of TR module
-						spiIqBusy = IQRF_SPI_MASTER_WRITE;
+						spiIqBusy = spiMasterStatuses::WRITE;
 						if (iqrfPacketBuffer[iqrfPacketBufferOutPtr].unallocationFlag) {
 							// unallocate temporary TX data buffer
 							free(iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer);
@@ -262,7 +262,7 @@ void IQRF_TR_Reset(void) {
 		delay(1);
 	} else {
 		// TR module RESET process in SPI Master disable mode
-		TR_Control_TaskSM = TR_CTRL_RESET;
+		TR_Control_TaskSM = trControlStatuses::RESET;
 		spiStatus = spiStatuses::BUSY;
 	}
 }
@@ -292,7 +292,7 @@ void IQRF_TR_EnterProgMode(void) {
 		digitalWrite(TR_SS_IO, HIGH);
 		SPI.begin();
 	} else {
-		TR_Control_TaskSM = TR_CTRL_RESET;
+		TR_Control_TaskSM = trControlStatuses::RESET;
 		TR_Control_ProgFlag = 1;
 		spiStatus = spiStatuses::BUSY;
 	}
@@ -438,12 +438,12 @@ void TR_Control_Task(void) {
 	static unsigned long timeoutMilli;
 	// TR control state machine
 	switch (TR_Control_TaskSM) {
-		case TR_CTRL_READY:
+		case trControlStatuses::READY:
 			// set SPI state DISABLED
 			spiStatus = spiStatuses::DISABLED;
 			TR_Control_ProgFlag = 0;
 			break;
-		case TR_CTRL_RESET:
+		case trControlStatuses::RESET:
 			// set SPI state BUSY
 			spiStatus = spiStatuses::BUSY;
 			// SPI EE-TR OFF
@@ -454,9 +454,9 @@ void TR_Control_Task(void) {
 			// read actual tick
 			timeoutMilli = millis();
 			// goto next state
-			TR_Control_TaskSM = TR_CTRL_WAIT;
+			TR_Control_TaskSM = trControlStatuses::WAIT;
 			break;
-		case TR_CTRL_WAIT:
+		case trControlStatuses::WAIT:
 			// set SPI state BUSY
 			spiStatus = spiStatuses::BUSY;
 			// wait 300 ms
@@ -465,16 +465,16 @@ void TR_Control_Task(void) {
 				TR_Module_ON();
 				if (TR_Control_ProgFlag) {
 					// goto enter programming mode
-					TR_Control_TaskSM = TR_CTRL_PROG_MODE;
+					TR_Control_TaskSM = trControlStatuses::PROG_MODE;
 				} else {
 					digitalWrite(TR_SS_IO, HIGH);
 					SPI.begin();
 					// goto ready state
-					TR_Control_TaskSM = TR_CTRL_READY;
+					TR_Control_TaskSM = trControlStatuses::READY;
 				}
 			}
 			break;
-		case TR_CTRL_PROG_MODE:
+		case trControlStatuses::PROG_MODE:
 			// SPI EE-TR OFF
 			SPI.end();
 			IQRF_TR_Reset();
@@ -493,7 +493,7 @@ void TR_Control_Task(void) {
 			digitalWrite(TR_SS_IO, HIGH);
 			SPI.begin();
 			// goto ready state
-			TR_Control_TaskSM = TR_CTRL_READY;
+			TR_Control_TaskSM = trControlStatuses::READY;
 			break;
 	}
 }

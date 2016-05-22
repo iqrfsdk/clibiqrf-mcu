@@ -38,19 +38,6 @@
 #define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer
 #define IQRF_SPI_CLK          250000 //!< SPI clock 250kHz
 
-// FCC cerificate
-#define FCC_NOT_CERTIFIED     0      //!< FCC not certificated
-#define FCC_CERTIFIED         1      //!< FCC certificated
-
-// IQRF TX packet result
-#define IQRF_TX_PKT_OK        1      //!< Packet sent OK
-#define IQRF_TX_PKT_ERR       2      //!< Packet sent with ERROR
-
-// IQRF SPI master status
-#define IQRF_SPI_MASTER_FREE  0      //!< SPI master free
-#define IQRF_SPI_MASTER_WRITE 1      //!< SPI master wrtite
-#define IQRF_SPI_MASTER_READ  2      //!< SPI master read
-
 // Pins
 #define TR_RESET_IO           9      //!< TR reset pin
 #define TR_SS_IO              10     //!< SPI SS pin
@@ -60,12 +47,6 @@
 // Timing
 #define MICRO_SECOND          1000000 //!< Microsecond
 #define MILLI_SECOND          1000    //!< Milisecond
-
-// TR control states
-#define TR_CTRL_READY     0  //!< TR ready state
-#define TR_CTRL_RESET     1  //!< TR reset process
-#define TR_CTRL_WAIT      2  //!< TR wait state
-#define TR_CTRL_PROG_MODE 3  //!< TR programming mode
 
 /**
  * SPI status of TR module (see IQRF SPI user manual)
@@ -82,6 +63,15 @@ enum spiStatuses {
 	DEBUG_MODE = 0x82, //!< SPI ready (debugging mode)
 	SLOW_MODE = 0x83, //!< SPI not working in background
 	USER_STOP = 0x07 //!< SPI state after stopSPI();
+};
+
+/**
+ * IQRF SPI master statuses
+ */
+enum spiMasterStatuses {
+	FREE = 0, //!< SPI master free
+	WRITE = 1, //!< SPI master wrtite
+	READ = 2 //!< SPI master read
 };
 
 /**
@@ -123,14 +113,41 @@ enum trMcuTypes {
 	PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
 };
 
+/**
+ * TR control statuses
+ */
+enum trControlStatuses {
+	READY = 0, //!< TR ready state
+	RESET = 1, //!< TR reset process
+	WAIT = 2, //!< TR wait state
+	PROG_MODE = 3 //!< TR programming mode
+};
+
+/**
+ * Tx packet statuses
+ */  
+enum txPacketStatuses {
+	OK = 1, //!< Packet sent OK
+	ERROR = 2 //!< Packet sent with ERROR
+};
+
+/**
+ * FCC (Federal Communications Commission) certification statuses
+ */
+enum fccStatuses {
+	NOT_CERTIFIED = 0, //!< Not certified fy FCC
+	CERTIFIED = 1 //!< Certified by FCC
+};
+
 /// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
 
 /// SPI TX data callback function type
 typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 
-/// TR module info structure
-
+/**
+ * TR module info structure
+ */
 typedef struct {
 	uint16_t osVersion; //!< OS version
 	uint16_t osBuild; //!< OS build
@@ -141,8 +158,9 @@ typedef struct {
 	uint8_t moduleInfoRawData[8]; //!< Raw data
 } TR_INFO_STRUCT;
 
-/// Item of SPI TX packet buffer
-
+/**
+ * Item of SPI TX packet buffer
+ */
 typedef struct {
 	uint8_t pktId; //!< Packet ID
 	uint8_t spiCmd; //!< SPI command
