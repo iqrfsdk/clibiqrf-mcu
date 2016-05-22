@@ -13,9 +13,9 @@ var indexSectionsWithContent =
   3: "cit",
   4: "defimoprstu",
   5: "i",
-  6: "st",
-  7: "bcdefmnprstuw",
-  8: "fimpt",
+  6: "fst",
+  7: "bcdefmnoprstuw",
+  8: "impt",
   9: "i"
 };
 

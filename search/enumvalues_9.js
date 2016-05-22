@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['slow_5fmode',['SLOW_MODE',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8',1,'iqrf_library.h']]]
+  ['ram_5fread',['RAM_READ',['../iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262aa98d2fe739ae98b44aaa1b830e084526',1,'iqrf_library.h']]],
+  ['read',['READ',['../iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681acb9be765f361bb7efb9073730aac92c6',1,'iqrf_library.h']]],
+  ['ready',['READY',['../iqrf__library_8h.html#ad7faf0752471ed629b1bebcd7f0377afa6564f2f3e15be06b670547bbcaaf0798',1,'iqrf_library.h']]],
+  ['reset',['RESET',['../iqrf__library_8h.html#ad7faf0752471ed629b1bebcd7f0377afa589b7d94a3d91d145720e2fed0eb3a05',1,'iqrf_library.h']]]
 ];
