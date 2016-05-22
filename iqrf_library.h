@@ -59,19 +59,6 @@
 #define FCC_NOT_CERTIFIED     0      //!< FCC not certificated
 #define FCC_CERTIFIED         1      //!< FCC certificated
 
-// SPI status of TR module (see IQRF SPI user manual)
-#define NO_MODULE             0xFF   //!< SPI not working (HW error)
-#define SPI_BUSY              0xFE   //!< SPI busy in Master disabled mode
-#define SPI_DATA_TRANSFER     0xFD   //!< SPI data transfer in progress
-#define SPI_DISABLED          0x00   //!< SPI not working (disabled)
-#define SPI_CRCM_OK           0x3F   //!< SPI not ready (full buffer, last CRCM ok)
-#define SPI_CRCM_ERR          0x3E   //!< SPI not ready (full buffer, last CRCM error)
-#define COMMUNICATION_MODE    0x80   //!< SPI ready (communication mode)
-#define PROGRAMMING_MODE      0x81   //!< SPI ready (programming mode)
-#define DEBUG_MODE            0x82   //!< SPI ready (debugging mode)
-#define SPI_SLOW_MODE         0x83   //!< SPI not working in background
-#define SPI_USER_STOP         0x07   //!< SPI state after stopSPI();
-
 // SPI commands for TR module (see IQRF SPI user manual)
 #define SPI_CHECK             0x00   //!< Master checks the SPI status of the TR module
 #define SPI_WR_RD             0xF0   //!< Master reads/writes a packet from/to TR module
@@ -107,6 +94,23 @@
 #define TR_CTRL_WAIT      2  //!< TR wait state
 #define TR_CTRL_PROG_MODE 3  //!< TR programming mode
 
+/**
+ * SPI status of TR module (see IQRF SPI user manual)
+ */
+enum spiStatuses {
+	NO_MODULE = 0xFF, //!< SPI not working (HW error)
+	BUSY = 0xFE, //!< SPI busy in Master disabled mode
+	DATA_TRANSFER = 0xFD, //!< SPI data transfer in progress
+	DISABLED = 0x00, //!< SPI not working (disabled)
+	CRCM_OK = 0x3F, //!< SPI not ready (full buffer, last CRCM ok)
+	CRCM_ERR = 0x3E, //!< SPI not ready (full buffer, last CRCM error)
+	COMMUNICATION_MODE = 0x80, //!< SPI ready (communication mode)
+	PROGRAMMING_MODE = 0x81, //!< SPI ready (programming mode)
+	DEBUG_MODE = 0x82, //!< SPI ready (debugging mode)
+	SLOW_MODE = 0x83, //!< SPI not working in background
+	USER_STOP = 0x07 //!< SPI state after stopSPI();
+};
+
 /// SPI RX data callback function type
 typedef void (*IQRF_RX_CALL_BACK)(void);
 
@@ -115,30 +119,30 @@ typedef void (*IQRF_TX_CALL_BACK)(uint8_t pktId, uint8_t pktResult);
 
 /// TR module info structure
 typedef struct {
-	uint16_t osVersion;           //!< OS version
-	uint16_t osBuild;             //!< OS build
-	uint32_t moduleId;            //!< Module ID
-	uint16_t mcuType;             //!< MCU tyle
-	uint16_t moduleType;          //!< Module type
-	uint16_t fcc;                 //!< FCC
+	uint16_t osVersion; //!< OS version
+	uint16_t osBuild; //!< OS build
+	uint32_t moduleId; //!< Module ID
+	uint16_t mcuType; //!< MCU tyle
+	uint16_t moduleType; //!< Module type
+	uint16_t fcc; //!< FCC
 	uint8_t moduleInfoRawData[8]; //!< Raw data
 } TR_INFO_STRUCT;
 
 /// Item of SPI TX packet buffer
 typedef struct {
-	uint8_t pktId;                //!< Packet ID
-	uint8_t spiCmd;               //!< SPI command
-	uint8_t *pDataBuffer;         //!< Pointer to data buffrt
-	uint8_t dataLength;           //!< Data lenght
-	uint8_t unallocationFlag;     //!< Unallocation flag
+	uint8_t pktId; //!< Packet ID
+	uint8_t spiCmd; //!< SPI command
+	uint8_t *pDataBuffer; //!< Pointer to data buffrt
+	uint8_t dataLength; //!< Data lenght
+	uint8_t unallocationFlag; //!< Unallocation flag
 } IQRF_PACKET_BUFFER;
 
-extern uint8_t DLEN;                  //!< Data length
+extern uint8_t DLEN; //!< Data length
 extern uint8_t spiIqBusy;
-extern uint8_t spiStat;               //!< SPI status
-extern uint8_t iqrfSpiMasterEnable;   //!< SPI master
-extern uint8_t fastIqrfSpiEnable;     //!< Fast SPI
-extern TR_INFO_STRUCT trInfoStruct;   //!< TR info structure
+extern uint8_t spiStat; //!< SPI status
+extern uint8_t iqrfSpiMasterEnable; //!< SPI master
+extern uint8_t fastIqrfSpiEnable; //!< Fast SPI
+extern TR_INFO_STRUCT trInfoStruct; //!< TR info structure
 
 /**
  * Function perform a TR-module driver initialization
@@ -265,7 +269,7 @@ void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
 /**
  * Disable SPI Master function in IQRF driver
  */
-#define IQRF_SPIMasterDisable()  {iqrfSpiMasterEnable = 0; spiStat = SPI_DISABLED;}
+#define IQRF_SPIMasterDisable()  {iqrfSpiMasterEnable = 0; spiStat = spiStatuses::DISABLED;}
 
 /**
  * Returns thw state of SPI Master function in IQRF driver

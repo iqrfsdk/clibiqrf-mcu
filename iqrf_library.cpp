@@ -91,7 +91,7 @@ const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
  */
 void IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn) {
 	spiIqBusy = 0;
-	spiStat = 0;
+	spiStat = spiStatuses::DISABLED;
 	iqrfCheckMicros = 0;
 	// normal SPI communication
 	fastIqrfSpiEnable = 0;
@@ -146,7 +146,7 @@ void IQRF_Driver(void) {
 					// CS - deactive
 					//digitalWrite(TR_SS_IO, HIGH);
 					// CRC ok
-					if ((IQ_SPI_RxBuf[DLEN + 3] == SPI_CRCM_OK) && CheckCRCS()) {
+					if ((IQ_SPI_RxBuf[DLEN + 3] == spiStatuses::CRCM_OK) && CheckCRCS()) {
 						if (spiIqBusy == IQRF_SPI_MASTER_WRITE) {
 							iqrf_tx_call_back_fn(txPktId, IQRF_TX_PKT_OK);
 						}
@@ -200,7 +200,7 @@ void IQRF_Driver(void) {
 					// reading from buffer COM of TR module
 					spiIqBusy = IQRF_SPI_MASTER_READ;
 					// current SPI status must be updated
-					spiStat = SPI_DATA_TRANSFER;
+					spiStat = spiStatuses::DATA_TRANSFER;
 				}
 				// if TR module ready and no data in module pending
 				if (!spiIqBusy) {
@@ -236,7 +236,7 @@ void IQRF_Driver(void) {
 							iqrfPacketBufferOutPtr = 0;
 						}
 						// current SPI status must be updated
-						spiStat = SPI_DATA_TRANSFER;
+						spiStat = spiStatuses::DATA_TRANSFER;
 					}
 				}
 			}
@@ -263,7 +263,7 @@ void IQRF_TR_Reset(void) {
 	} else {
 		// TR module RESET process in SPI Master disable mode
 		TR_Control_TaskSM = TR_CTRL_RESET;
-		spiStat = SPI_BUSY;
+		spiStat = spiStatuses::BUSY;
 	}
 }
 
@@ -294,7 +294,7 @@ void IQRF_TR_EnterProgMode(void) {
 	} else {
 		TR_Control_TaskSM = TR_CTRL_RESET;
 		TR_Control_ProgFlag = 1;
-		spiStat = SPI_BUSY;
+		spiStat = spiStatuses::BUSY;
 	}
 }
 
@@ -382,7 +382,7 @@ void TR_Info_Task(void) {
 			break;
 		case TR_INFO_SEND_REQUEST:
 			// Only if the IQRF_Driver() is not busy and TR mudule is in communication mode packet preparing
-			if (spiStat == COMMUNICATION_MODE && spiIqBusy == 0) {
+			if (spiStat == spiStatuses::COMMUNICATION_MODE && spiIqBusy == 0) {
 				TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 16, 0);
 				// initialize timeout timer
 				timeoutMilli = millis();
@@ -390,7 +390,7 @@ void TR_Info_Task(void) {
 				TR_Info_TaskSM = TR_INFO_WAIT_INFO;
 			} else {
 				// only if the IQRF_Driver() is not busy and TR mudule is in programming mode packet preparing
-				if (spiStat == PROGRAMMING_MODE && spiIqBusy == 0) {
+				if (spiStat == spiStatuses::PROGRAMMING_MODE && spiIqBusy == 0) {
 					TR_SendSpiPacket(SPI_MODULE_INFO, &dataToModule[0], 1, 0);
 					// initialize timeout timer
 					timeoutMilli = millis();
@@ -440,12 +440,12 @@ void TR_Control_Task(void) {
 	switch (TR_Control_TaskSM) {
 		case TR_CTRL_READY:
 			// set SPI state DISABLED
-			spiStat = SPI_DISABLED;
+			spiStat = spiStatuses::DISABLED;
 			TR_Control_ProgFlag = 0;
 			break;
 		case TR_CTRL_RESET:
 			// set SPI state BUSY
-			spiStat = SPI_BUSY;
+			spiStat = spiStatuses::BUSY;
 			// SPI EE-TR OFF
 			SPI.end();
 			// SPI controller OFF
@@ -458,7 +458,7 @@ void TR_Control_Task(void) {
 			break;
 		case TR_CTRL_WAIT:
 			// set SPI state BUSY
-			spiStat = SPI_BUSY;
+			spiStat = spiStatuses::BUSY;
 			// wait 300 ms
 			if (millis() - timeoutMilli >= MILLI_SECOND / 3) {
 				// TR module ON
