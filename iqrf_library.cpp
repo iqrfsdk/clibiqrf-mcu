@@ -26,10 +26,10 @@
  */
 uint8_t calculateCRC(void);
 bool checkCRC(void);
-void TR_Module_OFF(void);
-void TR_Module_ON(void);
-void TR_Info_Task(void);
-void TR_Control_Task(void);
+void trModuleOff(void);
+void trModuleOn(void);
+void trInfoTask(void);
+void trControlTask(void);
 void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult);
 void TR_process_id_packet_pgm(void);
 void TR_dummy_func_com(void);
@@ -67,15 +67,20 @@ uint8_t txPacketIdCounter;
 uint8_t trControlStatus = trControlStatuses::READY;
 /// TR programming flag
 bool trControlProgFlag;
+/// Microsecond couter
 unsigned long iqrfCheckMicros;
+/// Microsecond variable
 unsigned long iqrfMicros;
-unsigned long iqrfSpiByteBytePause;
+/// Pause between SPI bytes in us
+unsigned long spiBytePause;
 /// TR info structure
 TR_INFO_STRUCT trInfoStruct;
 /// IQRF packet buffer
 IQRF_PACKET_BUFFER iqrfPacketBuffer[PACKET_BUFFER_SIZE];
-/// Packet buffer
-uint16_t iqrfPacketBufferInPtr, iqrfPacketBufferOutPtr;
+/// Packet input buffer
+uint16_t packetBufferInPtr;
+/// Packet output buffer
+uint16_t packetBufferOutPtr;
 /// IQRF Rx callback
 IQRF_RX_CALLBACK rxCallback;
 /// IQRF Tx callback
@@ -97,7 +102,7 @@ void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_f
 	fastSpi = false;
 	// set byte to byte pause to 1000us
 	TR_SetByteToByteTime(1000);
-	TR_Module_ON();
+	trModuleOn();
 	pinMode(TR_SS_IO, OUTPUT);
 	digitalWrite(TR_SS_IO, HIGH);
 	SPI.begin();
@@ -110,7 +115,7 @@ void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_f
 		// IQRF SPI communication driver
 		IQRF_Driver();
 		// TR module info reading task
-		TR_Info_Task();
+		trInfoTask();
 	}
 	// if TR72D or TR76D is conected
 	if (IQRF_GetModuleType() == trTypes::TR_72D || IQRF_GetModuleType() == trTypes::TR_76D) {
@@ -131,10 +136,10 @@ void IQRF_Driver(void) {
 	// SPI Master enabled
 	if (spiMaster) {
 		iqrfMicros = micros();
-		// is anything to send in IQ_SPI_TxBuf?
+		// is anything to send in spiTxBuffer?
 		if (spiIqBusy != spiMasterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
-			if ((iqrfMicros - iqrfCheckMicros) > iqrfSpiByteBytePause) {
+			if ((iqrfMicros - iqrfCheckMicros) > spiBytePause) {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// send/receive 1 byte via SPI
@@ -205,35 +210,35 @@ void IQRF_Driver(void) {
 				// if TR module ready and no data in module pending
 				if (!spiIqBusy) {
 					// check if packet to send ready
-					if (iqrfPacketBufferInPtr != iqrfPacketBufferOutPtr) {
+					if (packetBufferInPtr != packetBufferOutPtr) {
 						memset(spiTxBuffer, 0, sizeof (spiTxBuffer));
-						dataLength = iqrfPacketBuffer[iqrfPacketBufferOutPtr].dataLength;
+						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
 						PTYPE = (dataLength | 0x80);
-						spiTxBuffer[0] = iqrfPacketBuffer[iqrfPacketBufferOutPtr].spiCmd;
+						spiTxBuffer[0] = iqrfPacketBuffer[packetBufferOutPtr].spiCmd;
 						if (spiTxBuffer[0] == spiCommands::MODULE_INFO && dataLength == 16) {
 							PTYPE = 0x10;
 						}
 						spiTxBuffer[1] = PTYPE;
-						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer, dataLength);
+						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].pDataBuffer, dataLength);
 						// CRCM
 						spiTxBuffer[dataLength + 2] = calculateCRC();
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packetLength = dataLength + 4;
 						// set actual TX packet ID
-						txPacketId = iqrfPacketBuffer[iqrfPacketBufferOutPtr].pktId;
+						txPacketId = iqrfPacketBuffer[packetBufferOutPtr].pktId;
 						// counter of sent bytes
 						tmpCnt = 0;
 						// number of attempts to send data
 						repCnt = 3;
 						// writing to buffer COM of TR module
 						spiIqBusy = spiMasterStatuses::WRITE;
-						if (iqrfPacketBuffer[iqrfPacketBufferOutPtr].unallocationFlag) {
+						if (iqrfPacketBuffer[packetBufferOutPtr].unallocationFlag) {
 							// unallocate temporary TX data buffer
-							free(iqrfPacketBuffer[iqrfPacketBufferOutPtr].pDataBuffer);
+							free(iqrfPacketBuffer[packetBufferOutPtr].pDataBuffer);
 						}
-						if (++iqrfPacketBufferOutPtr >= PACKET_BUFFER_SIZE) {
-							iqrfPacketBufferOutPtr = 0;
+						if (++packetBufferOutPtr >= PACKET_BUFFER_SIZE) {
+							packetBufferOutPtr = 0;
 						}
 						// current SPI status must be updated
 						spiStatus = spiStatuses::DATA_TRANSFER;
@@ -243,7 +248,7 @@ void IQRF_Driver(void) {
 		}
 	} else {
 		// SPI master is disabled
-		TR_Control_Task();
+		trControlTask();
 	}
 }
 
@@ -253,10 +258,10 @@ void IQRF_Driver(void) {
 void IQRF_TR_Reset(void) {
 	// SPI Master enabled
 	if (spiMaster) {
-		TR_Module_OFF();
+		trModuleOff();
 		// RESET pause
 		delay(100);
-		TR_Module_ON();
+		trModuleOn();
 		delay(1);
 	} else {
 		// TR module RESET process in SPI Master disable mode
@@ -337,7 +342,7 @@ uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte) {
 /**
  * Read Module Info from TR module, uses SPI master implementation
  */
-void TR_Info_Task(void) {
+void trInfoTask(void) {
 	static uint8_t dataToModule[16];
 	static uint8_t attempts;
 	static unsigned long timeoutMilli;
@@ -418,7 +423,7 @@ void TR_Info_Task(void) {
 			// the task is finished
 		case DONE:
 			// if no packet is pending to send to TR module
-			if (iqrfPacketBufferInPtr == iqrfPacketBufferOutPtr && spiIqBusy == 0) {
+			if (packetBufferInPtr == packetBufferOutPtr && spiIqBusy == 0) {
 				trInfoReading = 0;
 			}
 			break;
@@ -428,7 +433,7 @@ void TR_Info_Task(void) {
 /**
  * Make TR module reset or switch to prog mode when SPI master is disabled
  */
-void TR_Control_Task(void) {
+void trControlTask(void) {
 	static unsigned long timeoutMilli;
 	// TR control state machine
 	switch (trControlStatus) {
@@ -443,7 +448,7 @@ void TR_Control_Task(void) {
 			SPI.end();
 			// SPI controller OFF
 			// TR module OFF
-			TR_Module_OFF();
+			trModuleOff();
 			// read actual tick
 			timeoutMilli = millis();
 			// goto next state
@@ -454,7 +459,7 @@ void TR_Control_Task(void) {
 			// wait 300 ms
 			if (millis() - timeoutMilli >= MILLI_SECOND / 3) {
 				// TR module ON
-				TR_Module_ON();
+				trModuleOn();
 				if (trControlProgFlag) {
 					// goto enter programming mode
 					trControlStatus = trControlStatuses::PROG_MODE;
@@ -547,13 +552,13 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if ((++txPacketIdCounter) == 0) {
 		txPacketIdCounter++;
 	}
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].pktId = txPacketIdCounter;
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].spiCmd = spiCmd;
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].pDataBuffer = pDataBuffer;
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].dataLength = dataLength;
-	iqrfPacketBuffer[iqrfPacketBufferInPtr].unallocationFlag = unallocationFlag;
-	if (++iqrfPacketBufferInPtr >= PACKET_BUFFER_SIZE) {
-		iqrfPacketBufferInPtr = 0;
+	iqrfPacketBuffer[packetBufferInPtr].pktId = txPacketIdCounter;
+	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
+	iqrfPacketBuffer[packetBufferInPtr].pDataBuffer = pDataBuffer;
+	iqrfPacketBuffer[packetBufferInPtr].dataLength = dataLength;
+	iqrfPacketBuffer[packetBufferInPtr].unallocationFlag = unallocationFlag;
+	if (++packetBufferInPtr >= PACKET_BUFFER_SIZE) {
+		packetBufferInPtr = 0;
 	}
 	return txPacketIdCounter;
 }
@@ -591,7 +596,7 @@ bool checkCRC(void) {
 /**
  * Enter TR module into OFF state
  */
-void TR_Module_OFF(void) {
+void trModuleOff(void) {
 	pinMode(TR_RESET_IO, OUTPUT);
 	digitalWrite(TR_RESET_IO, HIGH);
 }
@@ -599,15 +604,15 @@ void TR_Module_OFF(void) {
 /**
  * Enter TR module into ON state
  */
-void TR_Module_ON(void) {
+void trModuleOn(void) {
 	pinMode(TR_RESET_IO, OUTPUT);
 	digitalWrite(TR_RESET_IO, LOW);
 }
 
 /**
  * Set byte to byte pause is SPI driver
- * @param byteToByteTime byte to byte time in us
+ * @param time Byte to byte time in us
  */
-void TR_SetByteToByteTime(uint16_t byteToByteTime) {
-	iqrfSpiByteBytePause = byteToByteTime;
+void TR_SetByteToByteTime(uint16_t time) {
+	spiBytePause = time;
 }

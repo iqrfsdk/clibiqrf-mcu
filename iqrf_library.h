@@ -184,7 +184,7 @@ uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unalloca
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
 uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte);
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
-void TR_SetByteToByteTime(uint16_t byteToByteTime);
+void TR_SetByteToByteTime(uint16_t time);
 
 /**
  * Get size of Rx data
