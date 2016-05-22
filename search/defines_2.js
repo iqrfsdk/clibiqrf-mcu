@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['fcc_5fcertified',['FCC_CERTIFIED',['../iqrf__library_8h.html#a0200af06a81f1670b2026788e22f5f82',1,'iqrf_library.h']]],
-  ['fcc_5fnot_5fcertified',['FCC_NOT_CERTIFIED',['../iqrf__library_8h.html#a28c6f1b2ba4322f24c2b84d3d6e3ada5',1,'iqrf_library.h']]]
+  ['mcu_5funknown',['MCU_UNKNOWN',['../iqrf__library_8h.html#ac5b8dedb00f0104ff8d8659966392861',1,'iqrf_library.h']]],
+  ['micro_5fsecond',['MICRO_SECOND',['../iqrf__library_8h.html#a6823058ce2e14113fbc93c9c36a7bcee',1,'iqrf_library.h']]],
+  ['milli_5fsecond',['MILLI_SECOND',['../iqrf__library_8h.html#ad4303ff595a045e360e67a93a3159a2e',1,'iqrf_library.h']]]
 ];

@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -199,50 +200,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0200af06a81f1670b2026788e22f5f82">FCC_CERTIFIED</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a0200af06a81f1670b2026788e22f5f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">FCC certificated. <br/></td></tr>
 <tr class="separator:a0200af06a81f1670b2026788e22f5f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7daac6913170e5ed17b2ec8946374188"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7daac6913170e5ed17b2ec8946374188"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a7daac6913170e5ed17b2ec8946374188">NO_MODULE</a>&#160;&#160;&#160;0xFF</td></tr>
-<tr class="memdesc:a7daac6913170e5ed17b2ec8946374188"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI not working (HW error) <br/></td></tr>
-<tr class="separator:a7daac6913170e5ed17b2ec8946374188"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e7ccbd897e6b2c6bd58dc6f54a6536"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4e7ccbd897e6b2c6bd58dc6f54a6536"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ad4e7ccbd897e6b2c6bd58dc6f54a6536">SPI_BUSY</a>&#160;&#160;&#160;0xFE</td></tr>
-<tr class="memdesc:ad4e7ccbd897e6b2c6bd58dc6f54a6536"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI busy in Master disabled mode. <br/></td></tr>
-<tr class="separator:ad4e7ccbd897e6b2c6bd58dc6f54a6536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2cbf3aa8453dba2bba7afb3f9a3f5f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2cbf3aa8453dba2bba7afb3f9a3f5f3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ae2cbf3aa8453dba2bba7afb3f9a3f5f3">SPI_DATA_TRANSFER</a>&#160;&#160;&#160;0xFD</td></tr>
-<tr class="memdesc:ae2cbf3aa8453dba2bba7afb3f9a3f5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI data transfer in progress. <br/></td></tr>
-<tr class="separator:ae2cbf3aa8453dba2bba7afb3f9a3f5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d9320160522591192e302829a93ba3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00d9320160522591192e302829a93ba3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a00d9320160522591192e302829a93ba3">SPI_DISABLED</a>&#160;&#160;&#160;0x00</td></tr>
-<tr class="memdesc:a00d9320160522591192e302829a93ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI not working (disabled) <br/></td></tr>
-<tr class="separator:a00d9320160522591192e302829a93ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10a9e6c4de8dcc11a7d2d5bacaf0a713"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10a9e6c4de8dcc11a7d2d5bacaf0a713"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a10a9e6c4de8dcc11a7d2d5bacaf0a713">SPI_CRCM_OK</a>&#160;&#160;&#160;0x3F</td></tr>
-<tr class="memdesc:a10a9e6c4de8dcc11a7d2d5bacaf0a713"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI not ready (full buffer, last CRCM ok) <br/></td></tr>
-<tr class="separator:a10a9e6c4de8dcc11a7d2d5bacaf0a713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cd98184eeec5f796a50bd1d3b0e5b1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5cd98184eeec5f796a50bd1d3b0e5b1a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a5cd98184eeec5f796a50bd1d3b0e5b1a">SPI_CRCM_ERR</a>&#160;&#160;&#160;0x3E</td></tr>
-<tr class="memdesc:a5cd98184eeec5f796a50bd1d3b0e5b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI not ready (full buffer, last CRCM error) <br/></td></tr>
-<tr class="separator:a5cd98184eeec5f796a50bd1d3b0e5b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3345fd5832d738cf1ca862fe7b6c9759"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3345fd5832d738cf1ca862fe7b6c9759"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a3345fd5832d738cf1ca862fe7b6c9759">COMMUNICATION_MODE</a>&#160;&#160;&#160;0x80</td></tr>
-<tr class="memdesc:a3345fd5832d738cf1ca862fe7b6c9759"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI ready (communication mode) <br/></td></tr>
-<tr class="separator:a3345fd5832d738cf1ca862fe7b6c9759"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4387d307ddd85f212101a3030f065055"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4387d307ddd85f212101a3030f065055"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a4387d307ddd85f212101a3030f065055">PROGRAMMING_MODE</a>&#160;&#160;&#160;0x81</td></tr>
-<tr class="memdesc:a4387d307ddd85f212101a3030f065055"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI ready (programming mode) <br/></td></tr>
-<tr class="separator:a4387d307ddd85f212101a3030f065055"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac80a3592e72fd96b772ee47a7d8e0d0a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a">DEBUG_MODE</a>&#160;&#160;&#160;0x82</td></tr>
-<tr class="memdesc:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI ready (debugging mode) <br/></td></tr>
-<tr class="separator:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa13b32f35d598439300a200647b5f182"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa13b32f35d598439300a200647b5f182"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aa13b32f35d598439300a200647b5f182">SPI_SLOW_MODE</a>&#160;&#160;&#160;0x83</td></tr>
-<tr class="memdesc:aa13b32f35d598439300a200647b5f182"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI not working in background. <br/></td></tr>
-<tr class="separator:aa13b32f35d598439300a200647b5f182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a189ece6baac0c4ac08e51dfd30a80d7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a189ece6baac0c4ac08e51dfd30a80d7a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a189ece6baac0c4ac08e51dfd30a80d7a">SPI_USER_STOP</a>&#160;&#160;&#160;0x07</td></tr>
-<tr class="memdesc:a189ece6baac0c4ac08e51dfd30a80d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI state after stopSPI();. <br/></td></tr>
-<tr class="separator:a189ece6baac0c4ac08e51dfd30a80d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5597f9e1fe5f40503d2f7930cbb977d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5597f9e1fe5f40503d2f7930cbb977d3"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a5597f9e1fe5f40503d2f7930cbb977d3">SPI_CHECK</a>&#160;&#160;&#160;0x00</td></tr>
 <tr class="memdesc:a5597f9e1fe5f40503d2f7930cbb977d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master checks the SPI status of the TR module. <br/></td></tr>
@@ -353,7 +310,7 @@ Macros</h2></td></tr>
 <tr class="separator:aae5bb72957c078353f90c9fe6969ef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347e707ce03d8f5237b8c676a2066605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a347e707ce03d8f5237b8c676a2066605">IQRF_SPIMasterEnable</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a> = 1</td></tr>
 <tr class="separator:a347e707ce03d8f5237b8c676a2066605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0967061a36bee5c678281afa10c9427a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">IQRF_SPIMasterDisable</a>()&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a> = 0; <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">spiStat</a> = <a class="el" href="iqrf__library_8h.html#a00d9320160522591192e302829a93ba3">SPI_DISABLED</a>;}</td></tr>
+<tr class="memitem:a0967061a36bee5c678281afa10c9427a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">IQRF_SPIMasterDisable</a>()&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a> = 0; <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">spiStat</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td></tr>
 <tr class="separator:a0967061a36bee5c678281afa10c9427a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d974fe41fd9dce11dc778e0269ab039"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1d974fe41fd9dce11dc778e0269ab039">IQRF_GetSPIMasterState</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a></td></tr>
 <tr class="separator:a1d974fe41fd9dce11dc778e0269ab039"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -368,6 +325,26 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aab1e54db45861f53ff8bdce00ca64768">IQRF_TX_CALL_BACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
 <tr class="memdesc:aab1e54db45861f53ff8bdce00ca64768"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
 <tr class="separator:aab1e54db45861f53ff8bdce00ca64768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a6c4016ded8642fb6a1a2a046a9991dc3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3">spiStatuses</a> { <br/>
+&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a2a6003405e87a615cf8a9d4f102bac8f">NO_MODULE</a> = 0xFF, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aa6e504d57ec9777faa0185fbd3b93b97">BUSY</a> = 0xFE, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942">DATA_TRANSFER</a> = 0xFD, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">DISABLED</a> = 0x00, 
+<br/>
+&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3abf1cba670ac2c5585bd629923ec91df8">CRCM_OK</a> = 0x3F, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a31830c88410d62baf141d4e7d8466206">CRCM_ERR</a> = 0x3E, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3ad046ea65d10fb0d2cff795069cec6f4b">COMMUNICATION_MODE</a> = 0x80, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3af74d4510acbc1f2c365375ad4cb8cb81">PROGRAMMING_MODE</a> = 0x81, 
+<br/>
+&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6">DEBUG_MODE</a> = 0x82, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8">SLOW_MODE</a> = 0x83, 
+<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a2ec7fe17331c1994e97dee43d11825c2">USER_STOP</a> = 0x07
+<br/>
+ }</td></tr>
+<tr class="separator:a6c4016ded8642fb6a1a2a046a9991dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -648,7 +625,7 @@ LICENSE</h1>
           <td class="memname">#define IQRF_SPIMasterDisable</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a> = 0; <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">spiStat</a> = <a class="el" href="iqrf__library_8h.html#a00d9320160522591192e302829a93ba3">SPI_DISABLED</a>;}</td>
+          <td>&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrfSpiMasterEnable</a> = 0; <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">spiStat</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -669,6 +646,55 @@ LICENSE</h1>
       </table>
 </div><div class="memdoc">
 <p>Enable SPI Master function in IQRF driver </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3">spiStatuses</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SPI status of TR module (see IQRF SPI user manual) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a2a6003405e87a615cf8a9d4f102bac8f"></a>NO_MODULE</em>&#160;</td><td class="fielddoc">
+<p>SPI not working (HW error) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3aa6e504d57ec9777faa0185fbd3b93b97"></a>BUSY</em>&#160;</td><td class="fielddoc">
+<p>SPI busy in Master disabled mode. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942"></a>DATA_TRANSFER</em>&#160;</td><td class="fielddoc">
+<p>SPI data transfer in progress. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4"></a>DISABLED</em>&#160;</td><td class="fielddoc">
+<p>SPI not working (disabled) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3abf1cba670ac2c5585bd629923ec91df8"></a>CRCM_OK</em>&#160;</td><td class="fielddoc">
+<p>SPI not ready (full buffer, last CRCM ok) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a31830c88410d62baf141d4e7d8466206"></a>CRCM_ERR</em>&#160;</td><td class="fielddoc">
+<p>SPI not ready (full buffer, last CRCM error) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3ad046ea65d10fb0d2cff795069cec6f4b"></a>COMMUNICATION_MODE</em>&#160;</td><td class="fielddoc">
+<p>SPI ready (communication mode) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3af74d4510acbc1f2c365375ad4cb8cb81"></a>PROGRAMMING_MODE</em>&#160;</td><td class="fielddoc">
+<p>SPI ready (programming mode) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6"></a>DEBUG_MODE</em>&#160;</td><td class="fielddoc">
+<p>SPI ready (debugging mode) </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8"></a>SLOW_MODE</em>&#160;</td><td class="fielddoc">
+<p>SPI not working in background. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a2ec7fe17331c1994e97dee43d11825c2"></a>USER_STOP</em>&#160;</td><td class="fielddoc">
+<p>SPI state after stopSPI();. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -964,7 +990,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 22 2016 07:33:51 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 22 2016 08:37:40 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
