@@ -174,27 +174,27 @@ Macros</h2></td></tr>
 <tr class="separator:a693dfec78d1816b32ddca594d70f108a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7b3d0f423d662bc412e440e6b823e47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">IQRF_GetModuleType</a>()&#160;&#160;&#160;trInfoStruct.moduleType</td></tr>
 <tr class="separator:aa7b3d0f423d662bc412e440e6b823e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1882641e14acaa7cf387e9c380021914"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1882641e14acaa7cf387e9c380021914">IQRF_GetModuleInfoRawData</a>(x)&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[x]</td></tr>
-<tr class="separator:a1882641e14acaa7cf387e9c380021914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297417602e929b0c0ee034dcb6a7b18c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c">IQRF_GetModuleInfoRawData</a>(position)&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[position]</td></tr>
+<tr class="separator:a297417602e929b0c0ee034dcb6a7b18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae5bb72957c078353f90c9fe6969ef49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aae5bb72957c078353f90c9fe6969ef49">IQRF_GetStatus</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td></tr>
 <tr class="separator:aae5bb72957c078353f90c9fe6969ef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347e707ce03d8f5237b8c676a2066605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a347e707ce03d8f5237b8c676a2066605">IQRF_SPIMasterEnable</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a> = 1</td></tr>
+<tr class="memitem:a347e707ce03d8f5237b8c676a2066605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a347e707ce03d8f5237b8c676a2066605">IQRF_SPIMasterEnable</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = true</td></tr>
 <tr class="separator:a347e707ce03d8f5237b8c676a2066605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0967061a36bee5c678281afa10c9427a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">IQRF_SPIMasterDisable</a>()&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a> = 0; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td></tr>
+<tr class="memitem:a0967061a36bee5c678281afa10c9427a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">IQRF_SPIMasterDisable</a>()&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = false; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td></tr>
 <tr class="separator:a0967061a36bee5c678281afa10c9427a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d974fe41fd9dce11dc778e0269ab039"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1d974fe41fd9dce11dc778e0269ab039">IQRF_GetSPIMasterState</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a></td></tr>
+<tr class="memitem:a1d974fe41fd9dce11dc778e0269ab039"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1d974fe41fd9dce11dc778e0269ab039">IQRF_GetSPIMasterState</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td></tr>
 <tr class="separator:a1d974fe41fd9dce11dc778e0269ab039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a94f7d553cbd2468d871bb62d68289819"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94f7d553cbd2468d871bb62d68289819"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a94f7d553cbd2468d871bb62d68289819">IQRF_RX_CALL_BACK</a> )(void)</td></tr>
-<tr class="memdesc:a94f7d553cbd2468d871bb62d68289819"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI RX data callback function type. <br/></td></tr>
-<tr class="separator:a94f7d553cbd2468d871bb62d68289819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab1e54db45861f53ff8bdce00ca64768"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab1e54db45861f53ff8bdce00ca64768"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aab1e54db45861f53ff8bdce00ca64768">IQRF_TX_CALL_BACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
-<tr class="memdesc:aab1e54db45861f53ff8bdce00ca64768"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
-<tr class="separator:aab1e54db45861f53ff8bdce00ca64768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace88f39aa1df461b66793d731f128959"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace88f39aa1df461b66793d731f128959"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a> )(void)</td></tr>
+<tr class="memdesc:ace88f39aa1df461b66793d731f128959"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI RX data callback function type. <br/></td></tr>
+<tr class="separator:ace88f39aa1df461b66793d731f128959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab1741b83349d01ccc68b6038274443"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab1741b83349d01ccc68b6038274443"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
+<tr class="memdesc:acab1741b83349d01ccc68b6038274443"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
+<tr class="separator:acab1741b83349d01ccc68b6038274443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -273,8 +273,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a62106e1bb0d1d20da3fea10ebd5d98cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a62106e1bb0d1d20da3fea10ebd5d98cc">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#a94f7d553cbd2468d871bb62d68289819">IQRF_RX_CALL_BACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#aab1e54db45861f53ff8bdce00ca64768">IQRF_TX_CALL_BACK</a> tx_call_back_fn)</td></tr>
-<tr class="separator:a62106e1bb0d1d20da3fea10ebd5d98cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72d87e503750a7188a4e60be7eec8849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a72d87e503750a7188a4e60be7eec8849">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a> tx_call_back_fn)</td></tr>
+<tr class="separator:a72d87e503750a7188a4e60be7eec8849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef52706e48dbfcb45deb7790099aa316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316">IQRF_Driver</a> (void)</td></tr>
 <tr class="separator:aef52706e48dbfcb45deb7790099aa316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac616d54da3b40b249c7860399d32afff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac616d54da3b40b249c7860399d32afff">IQRF_TR_Reset</a> (void)</td></tr>
@@ -305,14 +305,14 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>spiIqBusy</b></td>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td></tr>
 <tr class="memdesc:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI status. <br/></td></tr>
 <tr class="separator:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe8d9e8bd91d2290b244472f978b876c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe8d9e8bd91d2290b244472f978b876c"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a></td></tr>
-<tr class="memdesc:abe8d9e8bd91d2290b244472f978b876c"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Master status. <br/></td></tr>
-<tr class="separator:abe8d9e8bd91d2290b244472f978b876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ab8d9a9fddead90c20f8bc30f3cc15b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ab8d9a9fddead90c20f8bc30f3cc15b"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a5ab8d9a9fddead90c20f8bc30f3cc15b">fastSpi</a></td></tr>
-<tr class="memdesc:a5ab8d9a9fddead90c20f8bc30f3cc15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast SPI status. <br/></td></tr>
-<tr class="separator:a5ab8d9a9fddead90c20f8bc30f3cc15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9a3cba8f758ffe5e9fb07ae01b46848"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td></tr>
+<tr class="memdesc:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Master status. <br/></td></tr>
+<tr class="separator:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac81b17c622fb0c27e39dd435aa5ab6b5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac81b17c622fb0c27e39dd435aa5ab6b5">fastSpi</a></td></tr>
+<tr class="memdesc:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast SPI status. <br/></td></tr>
+<tr class="separator:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445d0bc288594a8f603937dc7fb9e875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a445d0bc288594a8f603937dc7fb9e875"></a>
 <a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875">trInfoStruct</a></td></tr>
 <tr class="memdesc:a445d0bc288594a8f603937dc7fb9e875"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
@@ -376,7 +376,7 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a1882641e14acaa7cf387e9c380021914"></a>
+<a class="anchor" id="a297417602e929b0c0ee034dcb6a7b18c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -384,15 +384,15 @@ LICENSE</h1>
           <td class="memname">#define IQRF_GetModuleInfoRawData</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[x]</td>
+          <td class="paramname">position</td><td>)</td>
+          <td>&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[position]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Get raw info data about TR module </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Position in info raw buffer </td></tr>
+    <tr><td class="paramname">position</td><td>Position in info raw buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -492,12 +492,12 @@ LICENSE</h1>
           <td class="memname">#define IQRF_GetSPIMasterState</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a></td>
+          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Returns thw state of SPI Master function in IQRF driver </p>
-<dl class="section return"><dt>Returns</dt><dd>State of IQRF SPI master 0 = Disabled, 1 = enabled </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>State of IQRF SPI master - boolean </dd></dl>
 
 </div>
 </div>
@@ -552,7 +552,7 @@ LICENSE</h1>
           <td class="memname">#define IQRF_SPIMasterDisable</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a> = 0; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td>
+          <td>&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = false; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -568,7 +568,7 @@ LICENSE</h1>
           <td class="memname">#define IQRF_SPIMasterEnable</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">spiMaster</a> = 1</td>
+          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = true</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -878,20 +878,20 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a62106e1bb0d1d20da3fea10ebd5d98cc"></a>
+<a class="anchor" id="a72d87e503750a7188a4e60be7eec8849"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void IQRF_Init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#a94f7d553cbd2468d871bb62d68289819">IQRF_RX_CALL_BACK</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a>&#160;</td>
           <td class="paramname"><em>rx_call_back_fn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#aab1e54db45861f53ff8bdce00ca64768">IQRF_TX_CALL_BACK</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a>&#160;</td>
           <td class="paramname"><em>tx_call_back_fn</em>&#160;</td>
         </tr>
         <tr>
@@ -1087,7 +1087,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 22 2016 10:16:26 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 22 2016 12:03:26 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
