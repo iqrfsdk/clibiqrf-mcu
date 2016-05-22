@@ -1,6 +1,7 @@
 /**
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
+ * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.0
  *
  * @section LICENSE
@@ -568,29 +569,17 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
  * @return crc_val
  */
 uint8_t calculateCRC(void) {
-	uint8_t crc = 0x5F;
-	for (uint8_t i = 0; i < (dataLength + 2); i++) {
-		crc ^= spiTxBuffer[i];
-	}
-	return crc;
+	IQRFCRC* crc = new IQRFCRC;
+	return crc->calculate(spiTxBuffer, dataLength);
 }
 
 /**
  * Confirm CRC from SPI slave upon received data
- * @return error code
+ * @return boolean
  */
 bool checkCRC(void) {
-	uint8_t crc = 0x5F ^ PTYPE;
-	for (uint8_t i = 2; i < (dataLength + 2); i++) {
-		crc ^= spiRxBuffer[i];
-	}
-	if (spiRxBuffer[dataLength + 2] == crc) {
-		// CRCS ok
-		return true;
-	} else {
-		// CRCS error
-		return false;
-	}
+	IQRFCRC* crc = new IQRFCRC;
+	return crc->check(spiRxBuffer, dataLength, PTYPE);
 }
 
 /**

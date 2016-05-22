@@ -1,6 +1,7 @@
 /**
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
+ * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.0
  *
  * @section LICENSE
@@ -33,6 +34,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "IQRFCRC.h"
 
 #define IQ_PKT_SIZE           68     //!< Size of SPI TX and RX buffer
 #define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer

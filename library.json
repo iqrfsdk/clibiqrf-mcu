@@ -12,6 +12,11 @@
     "email": "rostislav.spinar@microrisc.com",
     "url": "https://github.com/spinarr",
     "maintainer": true
+  },
+  {
+    "name": "Roman Ondracek",
+    "email": "ondracek.roman@centrum.cz",
+    "url": "https://github.com/Roman3349"
   }],
   "dependencies": [{
     "name": "MsTimer2",
