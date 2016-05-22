@@ -1,13 +1,5 @@
 var searchData=
 [
-  ['tr_5f52d',['TR_52D',['../iqrf__library_8h.html#a03e68e6e414f40ac0bc5da0ae22be172',1,'iqrf_library.h']]],
-  ['tr_5f53d',['TR_53D',['../iqrf__library_8h.html#a0bec8fdbf28ad447963f915195b7df0f',1,'iqrf_library.h']]],
-  ['tr_5f54d',['TR_54D',['../iqrf__library_8h.html#a5f739704453a7ba17f9bc3293e7e1f6d',1,'iqrf_library.h']]],
-  ['tr_5f55d',['TR_55D',['../iqrf__library_8h.html#a1cf49574740b7c309ccc2aaab02c54d8',1,'iqrf_library.h']]],
-  ['tr_5f56d',['TR_56D',['../iqrf__library_8h.html#aaf3708cf5784b719d07834f0912dc5de',1,'iqrf_library.h']]],
-  ['tr_5f58d_5frj',['TR_58D_RJ',['../iqrf__library_8h.html#abfa87a8be7ab332680f9100e16d9e1d3',1,'iqrf_library.h']]],
-  ['tr_5f72d',['TR_72D',['../iqrf__library_8h.html#ab44291111dddb00d55fbdc1398832ed7',1,'iqrf_library.h']]],
-  ['tr_5f76d',['TR_76D',['../iqrf__library_8h.html#a14030fe3a90b7c955595175cb032431b',1,'iqrf_library.h']]],
   ['tr_5fctrl_5fprog_5fmode',['TR_CTRL_PROG_MODE',['../iqrf__library_8h.html#a2cbeb6b003598ef7a9d517f944163c37',1,'iqrf_library.h']]],
   ['tr_5fctrl_5fready',['TR_CTRL_READY',['../iqrf__library_8h.html#a96bdd2644568ea4e114d0b00c4e82acb',1,'iqrf_library.h']]],
   ['tr_5fctrl_5freset',['TR_CTRL_RESET',['../iqrf__library_8h.html#a3fdd1a927fecaf5645c8f452270161f2',1,'iqrf_library.h']]],
