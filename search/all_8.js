@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['no_5fmodule',['NO_MODULE',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a2a6003405e87a615cf8a9d4f102bac8f',1,'iqrf_library.h']]]
+  ['osbuild',['osBuild',['../structTR__INFO__STRUCT.html#a3aeb9390b492e5a931f526214ba6f2bd',1,'TR_INFO_STRUCT']]],
+  ['osversion',['osVersion',['../structTR__INFO__STRUCT.html#ac0970d0cbc92beb0f733ddf5d2f0a0f7',1,'TR_INFO_STRUCT']]]
 ];

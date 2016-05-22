@@ -83,7 +83,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
-      <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
@@ -120,8 +119,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>CheckCRCS()
-: <a class="el" href="iqrf__library_8cpp.html#a4e7aa2e03c41feac0b744633e62ff679">iqrf_library.cpp</a>
+<li>calculateCRC()
+: <a class="el" href="iqrf__library_8cpp.html#a2b4abfaa438df89f7ec58383014e47d3">iqrf_library.cpp</a>
+</li>
+<li>checkCRC()
+: <a class="el" href="iqrf__library_8cpp.html#afacebc1e7d74068ff4e2b3f3589751cc">iqrf_library.cpp</a>
 </li>
 <li>COMMUNICATION_MODE
 : <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3ad046ea65d10fb0d2cff795069cec6f4b">iqrf_library.h</a>
@@ -139,15 +141,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>DATA_TRANSFER
 : <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942">iqrf_library.h</a>
 </li>
+<li>dataLength
+: <a class="el" href="iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102">iqrf_library.cpp</a>
+, <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">iqrf_library.h</a>
+</li>
 <li>DEBUG_MODE
 : <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6">iqrf_library.h</a>
 </li>
 <li>DISABLED
 : <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">iqrf_library.h</a>
-</li>
-<li>DLEN
-: <a class="el" href="iqrf__library_8cpp.html#a355b65e571f3b8532c236e4844e427dc">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a355b65e571f3b8532c236e4844e427dc">iqrf_library.h</a>
 </li>
 </ul>
 
@@ -160,22 +162,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
-<li>fastIqrfSpiEnable
-: <a class="el" href="iqrf__library_8cpp.html#ab9659b9cca49a3c162e466c9063bdb2f">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#ab9659b9cca49a3c162e466c9063bdb2f">iqrf_library.h</a>
+<li>fastSpi
+: <a class="el" href="iqrf__library_8cpp.html#a5ab8d9a9fddead90c20f8bc30f3cc15b">iqrf_library.cpp</a>
+, <a class="el" href="iqrf__library_8h.html#a5ab8d9a9fddead90c20f8bc30f3cc15b">iqrf_library.h</a>
 </li>
 <li>FCC_CERTIFIED
 : <a class="el" href="iqrf__library_8h.html#a0200af06a81f1670b2026788e22f5f82">iqrf_library.h</a>
 </li>
 <li>FCC_NOT_CERTIFIED
 : <a class="el" href="iqrf__library_8h.html#a28c6f1b2ba4322f24c2b84d3d6e3ada5">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
-<li>GetCRCM()
-: <a class="el" href="iqrf__library_8cpp.html#a0e41b6e7f4fd06a272f28ac5d4e43c2f">iqrf_library.cpp</a>
 </li>
 </ul>
 
@@ -287,10 +282,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>iqrfPacketBufferInPtr
 : <a class="el" href="iqrf__library_8cpp.html#a568ec30eba5ad766ee37718e85f49e94">iqrf_library.cpp</a>
 </li>
-<li>iqrfSpiMasterEnable
-: <a class="el" href="iqrf__library_8cpp.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrf_library.h</a>
-</li>
 </ul>
 
 
@@ -318,8 +309,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PACKET_BUFFER_SIZE
 : <a class="el" href="iqrf__library_8h.html#ab30af815d6e9494361629440f14e3716">iqrf_library.h</a>
 </li>
-<li>pacLen
-: <a class="el" href="iqrf__library_8cpp.html#a16df779d3a0d8a08d7176a4f689c4e01">iqrf_library.cpp</a>
+<li>packetLength
+: <a class="el" href="iqrf__library_8cpp.html#a8a110ab1d56f951cbe4e39d967955f3a">iqrf_library.cpp</a>
 </li>
 <li>PIC16F886
 : <a class="el" href="iqrf__library_8h.html#aa9417fc75122c966c16f053f2158c567">iqrf_library.h</a>
@@ -374,9 +365,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>SPI_WR_RD
 : <a class="el" href="iqrf__library_8h.html#a066bc7c493a6ceca042b311b036cd8ba">iqrf_library.h</a>
 </li>
-<li>spiStat
-: <a class="el" href="iqrf__library_8cpp.html#af9230eb25964a1b30d0ce0fabfa84681">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">iqrf_library.h</a>
+<li>spiMaster
+: <a class="el" href="iqrf__library_8cpp.html#abe8d9e8bd91d2290b244472f978b876c">iqrf_library.cpp</a>
+, <a class="el" href="iqrf__library_8h.html#abe8d9e8bd91d2290b244472f978b876c">iqrf_library.h</a>
+</li>
+<li>spiStatus
+: <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">iqrf_library.h</a>
+, <a class="el" href="iqrf__library_8cpp.html#a4aabb6f0738992c9e8416f6d4abb3f0e">iqrf_library.cpp</a>
 </li>
 <li>spiStatuses
 : <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3">iqrf_library.h</a>
@@ -468,8 +463,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb">iqrf_library.h</a>
 </li>
 <li>TR_SetByteToByteTime()
-: <a class="el" href="iqrf__library_8cpp.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.h</a>
+: <a class="el" href="iqrf__library_8h.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.h</a>
+, <a class="el" href="iqrf__library_8cpp.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.cpp</a>
 </li>
 <li>TR_SS_IO
 : <a class="el" href="iqrf__library_8h.html#a03d098e7391a39ae0f8261652dc88f1a">iqrf_library.h</a>
@@ -478,11 +473,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875">iqrf_library.cpp</a>
 , <a class="el" href="iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875">iqrf_library.h</a>
 </li>
-<li>txPktId
-: <a class="el" href="iqrf__library_8cpp.html#a2e43d38aeeff90cdbc382722cb160e7f">iqrf_library.cpp</a>
+<li>txPacketId
+: <a class="el" href="iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e">iqrf_library.cpp</a>
 </li>
-<li>txPktIdCnt
-: <a class="el" href="iqrf__library_8cpp.html#ab5cf37051fc744c5df8e44792a5a863a">iqrf_library.cpp</a>
+<li>txPacketIdCounter
+: <a class="el" href="iqrf__library_8cpp.html#a4d6aec1cadba86298d3adb2d64375522">iqrf_library.cpp</a>
 </li>
 </ul>
 
@@ -495,7 +490,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 22 2016 08:47:50 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 22 2016 09:04:23 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
