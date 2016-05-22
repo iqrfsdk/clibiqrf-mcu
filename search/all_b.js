@@ -1,6 +1,7 @@
 var searchData=
 [
   ['slow_5fmode',['SLOW_MODE',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8',1,'iqrf_library.h']]],
+  ['spibytepause',['spiBytePause',['../iqrf__library_8cpp.html#ac16758a4ecbc2728f5f084b2ee3dda52',1,'iqrf_library.cpp']]],
   ['spicmd',['spiCmd',['../structIQRF__PACKET__BUFFER.html#a2df4246c3c2aa1e21bb86260acf5b8f4',1,'IQRF_PACKET_BUFFER']]],
   ['spicommands',['spiCommands',['../iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262',1,'iqrf_library.h']]],
   ['spimaster',['spiMaster',['../iqrf__library_8cpp.html#ae9a3cba8f758ffe5e9fb07ae01b46848',1,'spiMaster():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848',1,'spiMaster():&#160;iqrf_library.cpp']]],

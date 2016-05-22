@@ -25,7 +25,8 @@ var searchData=
   ['iqrf_5ftr_5fenterprogmode',['IQRF_TR_EnterProgMode',['../iqrf__library_8cpp.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp']]],
   ['iqrf_5ftr_5freset',['IQRF_TR_Reset',['../iqrf__library_8cpp.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp']]],
   ['iqrf_5ftx_5fcallback',['IQRF_TX_CALLBACK',['../iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443',1,'iqrf_library.h']]],
+  ['iqrfcheckmicros',['iqrfCheckMicros',['../iqrf__library_8cpp.html#ab56aa142b2d5d3aada188ca7ce25cbba',1,'iqrf_library.cpp']]],
+  ['iqrfmicros',['iqrfMicros',['../iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2',1,'iqrf_library.cpp']]],
   ['iqrfpacketbuffer',['iqrfPacketBuffer',['../iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1',1,'iqrf_library.cpp']]],
-  ['iqrfpacketbufferinptr',['iqrfPacketBufferInPtr',['../iqrf__library_8cpp.html#a568ec30eba5ad766ee37718e85f49e94',1,'iqrf_library.cpp']]],
   ['iqrf_20spi_20library_20for_20arduino',['IQRF SPI library for Arduino',['../md_README.html',1,'']]]
 ];
