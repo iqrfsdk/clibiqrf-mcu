@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['spi_5fcheck',['SPI_CHECK',['../iqrf__library_8h.html#a5597f9e1fe5f40503d2f7930cbb977d3',1,'iqrf_library.h']]],
-  ['spi_5feeprom_5fpgm',['SPI_EEPROM_PGM',['../iqrf__library_8h.html#a4bab13c3f6ea81a5d2dd301c5fc42e37',1,'iqrf_library.h']]],
-  ['spi_5feeprom_5fread',['SPI_EEPROM_READ',['../iqrf__library_8h.html#abed99edbe21a1b8449bc5892688cf145',1,'iqrf_library.h']]],
-  ['spi_5fflash_5fpgm',['SPI_FLASH_PGM',['../iqrf__library_8h.html#aa923feb4a0141e3d4a901c27bfe5afeb',1,'iqrf_library.h']]],
-  ['spi_5fmodule_5finfo',['SPI_MODULE_INFO',['../iqrf__library_8h.html#a08a2f4e59e6303b3a9c846d92df4ef30',1,'iqrf_library.h']]],
-  ['spi_5fplugin_5fpgm',['SPI_PLUGIN_PGM',['../iqrf__library_8h.html#a8bda7dbbcf0eb7ca68efae9ac024771e',1,'iqrf_library.h']]],
-  ['spi_5fram_5fread',['SPI_RAM_READ',['../iqrf__library_8h.html#a91fdf2473a7fe0f6e442fcd7fddf5c05',1,'iqrf_library.h']]],
-  ['spi_5fwr_5frd',['SPI_WR_RD',['../iqrf__library_8h.html#a066bc7c493a6ceca042b311b036cd8ba',1,'iqrf_library.h']]]
+  ['tr_5f52d',['TR_52D',['../iqrf__library_8h.html#a03e68e6e414f40ac0bc5da0ae22be172',1,'iqrf_library.h']]],
+  ['tr_5f53d',['TR_53D',['../iqrf__library_8h.html#a0bec8fdbf28ad447963f915195b7df0f',1,'iqrf_library.h']]],
+  ['tr_5f54d',['TR_54D',['../iqrf__library_8h.html#a5f739704453a7ba17f9bc3293e7e1f6d',1,'iqrf_library.h']]],
+  ['tr_5f55d',['TR_55D',['../iqrf__library_8h.html#a1cf49574740b7c309ccc2aaab02c54d8',1,'iqrf_library.h']]],
+  ['tr_5f56d',['TR_56D',['../iqrf__library_8h.html#aaf3708cf5784b719d07834f0912dc5de',1,'iqrf_library.h']]],
+  ['tr_5f58d_5frj',['TR_58D_RJ',['../iqrf__library_8h.html#abfa87a8be7ab332680f9100e16d9e1d3',1,'iqrf_library.h']]],
+  ['tr_5f72d',['TR_72D',['../iqrf__library_8h.html#ab44291111dddb00d55fbdc1398832ed7',1,'iqrf_library.h']]],
+  ['tr_5f76d',['TR_76D',['../iqrf__library_8h.html#a14030fe3a90b7c955595175cb032431b',1,'iqrf_library.h']]],
+  ['tr_5fctrl_5fprog_5fmode',['TR_CTRL_PROG_MODE',['../iqrf__library_8h.html#a2cbeb6b003598ef7a9d517f944163c37',1,'iqrf_library.h']]],
+  ['tr_5fctrl_5fready',['TR_CTRL_READY',['../iqrf__library_8h.html#a96bdd2644568ea4e114d0b00c4e82acb',1,'iqrf_library.h']]],
+  ['tr_5fctrl_5freset',['TR_CTRL_RESET',['../iqrf__library_8h.html#a3fdd1a927fecaf5645c8f452270161f2',1,'iqrf_library.h']]],
+  ['tr_5fctrl_5fwait',['TR_CTRL_WAIT',['../iqrf__library_8h.html#a9ae77cec6619eb38fd747a58fef500eb',1,'iqrf_library.h']]],
+  ['tr_5freset_5fio',['TR_RESET_IO',['../iqrf__library_8h.html#a3bad5ec740aa92509ae469f3ad841892',1,'iqrf_library.h']]],
+  ['tr_5fsdi_5fio',['TR_SDI_IO',['../iqrf__library_8h.html#a7243b9fec5251c1a04a8c739ccc01ce4',1,'iqrf_library.h']]],
+  ['tr_5fsdo_5fio',['TR_SDO_IO',['../iqrf__library_8h.html#afe4955098f29a58a1f86bde1f81cd701',1,'iqrf_library.h']]],
+  ['tr_5fss_5fio',['TR_SS_IO',['../iqrf__library_8h.html#a03d098e7391a39ae0f8261652dc88f1a',1,'iqrf_library.h']]]
 ];
