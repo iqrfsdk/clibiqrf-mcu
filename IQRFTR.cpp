@@ -23,6 +23,21 @@
 #include "IQRFTR.h"
 
 /**
+ * Reset TR module
+ */
+void IQRFTR::reset() {
+	if (spi->getMasterStatus()) {
+		this->turnOff();
+		// RESET pause
+		delay(100);
+		this->turnOn();
+		delay(1);
+	} else {
+		spi->setStatus(spi->statuses::BUSY);
+	}
+}
+
+/**
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
@@ -30,11 +45,10 @@ void IQRFTR::turnOn() {
 	digitalWrite(TR_RESET_IO, LOW);
 }
 
-
 /**
  * Enter TR module into OFF state
  */
-void IQRFTR::turnOff(void) {
+void IQRFTR::turnOff() {
 	pinMode(TR_RESET_IO, OUTPUT);
 	digitalWrite(TR_RESET_IO, HIGH);
 }

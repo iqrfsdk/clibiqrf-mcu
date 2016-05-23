@@ -36,6 +36,7 @@
 #include <string.h>
 
 #include "IQRFCRC.h"
+#include "IQRFSPI.h"
 #include "IQRFTR.h"
 
 #define IQ_PKT_SIZE           68     //!< Size of SPI TX and RX buffer
@@ -50,46 +51,6 @@
 // Timing
 #define MICRO_SECOND          1000000 //!< Microsecond
 #define MILLI_SECOND          1000    //!< Milisecond
-
-/**
- * SPI status of TR module (see IQRF SPI user manual)
- */
-enum spiStatuses {
-	NO_MODULE = 0xFF, //!< SPI not working (HW error)
-	BUSY = 0xFE, //!< SPI busy in Master disabled mode
-	DATA_TRANSFER = 0xFD, //!< SPI data transfer in progress
-	DISABLED = 0x00, //!< SPI not working (disabled)
-	CRCM_OK = 0x3F, //!< SPI not ready (full buffer, last CRCM ok)
-	CRCM_ERR = 0x3E, //!< SPI not ready (full buffer, last CRCM error)
-	COMMUNICATION_MODE = 0x80, //!< SPI ready (communication mode)
-	PROGRAMMING_MODE = 0x81, //!< SPI ready (programming mode)
-	DEBUG_MODE = 0x82, //!< SPI ready (debugging mode)
-	SLOW_MODE = 0x83, //!< SPI not working in background
-	USER_STOP = 0x07 //!< SPI state after stopSPI();
-};
-
-/**
- * IQRF SPI master statuses
- */
-enum spiMasterStatuses {
-	FREE = 0, //!< SPI master free
-	WRITE = 1, //!< SPI master wrtite
-	READ = 2 //!< SPI master read
-};
-
-/**
- * SPI commands for TR module (see IQRF SPI user manual)
- */
-enum spiCommands {
-	CHECK = 0x00, //!< Master checks the SPI status of the TR module
-	WR_RD = 0xF0, //!< Master reads/writes a packet from/to TR module
-	RAM_READ = 0xF1, //!< Master reads data from ram in debug mode
-	EEPROM_READ = 0xF2, //!< Master reads data from eeprom in debug mode
-	EEPROM_PGM = 0xF3, //!< Master writes data to eeprom in programming mode
-	MODULE_INFO = 0xF5, //!< Master reads Module Info from TR module
-	FLASH_PGM = 0xF6, //!< Master writes data to flash in programming mode
-	PLUGIN_PGM = 0xF9 //!< Master writes plugin data to flash in programming mode
-};
 
 /**
  * TR module types
@@ -174,9 +135,6 @@ typedef struct {
 
 extern uint8_t dataLength;
 extern uint8_t spiIqBusy;
-extern uint8_t spiStatus;
-extern bool spiMaster;
-extern bool fastSpi;
 extern TR_INFO_STRUCT trInfoStruct;
 
 void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn);
@@ -187,7 +145,6 @@ uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unalloca
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
 uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte);
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
-void TR_SetByteToByteTime(uint16_t time);
 
 /**
  * Get size of Rx data
@@ -246,40 +203,5 @@ void TR_SetByteToByteTime(uint16_t time);
  * @return Data byte from info raw buffer
  */
 #define IQRF_GetModuleInfoRawData(position) trInfoStruct.moduleInfoRawData[position]
-
-/**
- * Get TR module comunication status
- * @return TR module cominication status
- * Status code |   Status message   |                Description                 
- *  ---------- | ------------------ | --------------------------------------------
- *     0xFF    |     NO_MODULE      | SPI not working (HW error)
- *     0xFE    |      SPI_BUSY      | SPI busy in Master disabled mode
- *     0xFD    |  SPI_DATA_TRANSFER | SPI data transfer in progress
- *     0x00    |    SPI_DISABLED    | SPI not working (disabled)
- *     0x3F    |    SPI_CRCM_OK     | SPI not ready (full buffer, last CRCM ok)
- *     0x3E    |    SPI_CRCM_ERR    | SPI not ready (full buffer, last CRCM error)
- *     0xFF    | COMMUNICATION_MODE | SPI ready (communication mode)
- *     0x81    |  PROGRAMMING_MODE  | SPI ready (programming mode)
- *     0x82    |     DEBUG_MODE     | SPI ready (debugging mode)
- *     0x83    |    SPI_SLOW_MODE   | SPI not working in background
- *     0x07    |    SPI_USER_STOP   | SPI state after stopSPI();
- */
-#define IQRF_GetStatus()  spiStatus
-
-/**
- * Enable SPI Master function in IQRF driver
- */
-#define IQRF_SPIMasterEnable()  spiMaster = true
-
-/**
- * Disable SPI Master function in IQRF driver
- */
-#define IQRF_SPIMasterDisable()  {spiMaster = false; spiStatus = spiStatuses::DISABLED;}
-
-/**
- * Returns thw state of SPI Master function in IQRF driver
- * @return State of IQRF SPI master - boolean
- */
-#define IQRF_GetSPIMasterState() spiMaster
 
 #endif

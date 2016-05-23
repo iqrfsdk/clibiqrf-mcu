@@ -24,16 +24,23 @@
 #define IQRFTR_H
 
 #include <Arduino.h>
+#include <SPI.h>
+
+#include "IQRFSPI.h"
 
 /// TR reset pin
 #define TR_RESET_IO 9
 
+/**
+ * IQRF TR
+ */
 class IQRFTR {
 public:
+	void reset();
 	void turnOn();
 	void turnOff();
 private:
-
+	IQRFSPI* spi = new IQRFSPI;
 };
 
 #endif

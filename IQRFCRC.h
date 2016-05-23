@@ -25,12 +25,13 @@
 
 #include <stdint.h>
 
+/**
+ * IQRF CRC
+ */
 class IQRFCRC {
 public:
 	uint8_t calculate(uint8_t *buffer, uint8_t dataLength);
 	bool check(uint8_t *buffer, uint8_t dataLength, uint8_t type);
-private:
-
 };
 
 #endif
