@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['enablefastspi',['enableFastSpi',['../classIQRFSPI.html#a2a2d1ee4d4a95008bc6524931b328835',1,'IQRFSPI']]],
-  ['enablemaster',['enableMaster',['../classIQRFSPI.html#a3b01ceadbc8549452c5854d890f3b3b6',1,'IQRFSPI']]]
+  ['disablefastspi',['disableFastSpi',['../classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8',1,'IQRFSPI']]],
+  ['disablemaster',['disableMaster',['../classIQRFSPI.html#acb83690ba53849b8e6ff86859336623e',1,'IQRFSPI']]],
+  ['disableprogramflag',['disableProgramFlag',['../classIQRFTR.html#aadedf2a6d56101afd41bfd9aa379eb2d',1,'IQRFTR']]]
 ];

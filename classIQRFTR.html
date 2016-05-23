@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classIQRFTR-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -92,18 +93,167 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="IQRFTR_8h_source.html">IQRFTR.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae8bf84f9c458bedce5ced59635869846"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846">controlStatuses</a> { <a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846aaec2ba9b04af0331d7b72956c894669e">READY</a> = 0, 
+<a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a48cad0b135f9b7364b2458761881c8e7">RESET</a> = 1, 
+<a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a613d5461a0f2206c042cc7eb81b8e17c">WAIT</a> = 2, 
+<a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846ac294cb6e29385c500105893730dbc885">PROG_MODE</a> = 3
+ }</td></tr>
+<tr class="separator:ae8bf84f9c458bedce5ced59635869846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a12c0fb8cff8dd1b261821c054ada2778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778">reset</a> ()</td></tr>
 <tr class="separator:a12c0fb8cff8dd1b261821c054ada2778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c9e6c3860b1e5e95f0dd6cf4e5183ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a1c9e6c3860b1e5e95f0dd6cf4e5183ed">enterProgramMode</a> ()</td></tr>
+<tr class="separator:a1c9e6c3860b1e5e95f0dd6cf4e5183ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add59eb70dfcef70c36b1d4592ca355fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe">turnOn</a> ()</td></tr>
 <tr class="separator:add59eb70dfcef70c36b1d4592ca355fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2fea28bcb03704accfc258135c3fea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea">turnOff</a> ()</td></tr>
 <tr class="separator:a8d2fea28bcb03704accfc258135c3fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0634d559c191d52f2c2f150671b94d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d">getControlStatus</a> ()</td></tr>
+<tr class="separator:a7f0634d559c191d52f2c2f150671b94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeeddc1036ae1fad59603682c01747ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed">setControlStatus</a> (uint8_t status)</td></tr>
+<tr class="separator:adeeddc1036ae1fad59603682c01747ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f161144601a66565e8e1bf760f7d90c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a6f161144601a66565e8e1bf760f7d90c">enableProgramFlag</a> ()</td></tr>
+<tr class="separator:a6f161144601a66565e8e1bf760f7d90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadedf2a6d56101afd41bfd9aa379eb2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#aadedf2a6d56101afd41bfd9aa379eb2d">disableProgramFlag</a> ()</td></tr>
+<tr class="separator:aadedf2a6d56101afd41bfd9aa379eb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4c5a6014dfdadc9d94d2847b2e871b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b">getProgramFlag</a> ()</td></tr>
+<tr class="separator:aae4c5a6014dfdadc9d94d2847b2e871b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d8ec866e85f46186ec0db8cce845cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a6d8ec866e85f46186ec0db8cce845cf2">controlTask</a> ()</td></tr>
+<tr class="separator:a6d8ec866e85f46186ec0db8cce845cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IQRF TR </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="ae8bf84f9c458bedce5ced59635869846"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846">IQRFTR::controlStatuses</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TR control statuses </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ae8bf84f9c458bedce5ced59635869846aaec2ba9b04af0331d7b72956c894669e"></a>READY</em>&#160;</td><td class="fielddoc">
+<p>TR ready state. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae8bf84f9c458bedce5ced59635869846a48cad0b135f9b7364b2458761881c8e7"></a>RESET</em>&#160;</td><td class="fielddoc">
+<p>TR reset process. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae8bf84f9c458bedce5ced59635869846a613d5461a0f2206c042cc7eb81b8e17c"></a>WAIT</em>&#160;</td><td class="fielddoc">
+<p>TR wait state. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae8bf84f9c458bedce5ced59635869846ac294cb6e29385c500105893730dbc885"></a>PROG_MODE</em>&#160;</td><td class="fielddoc">
+<p>TR programming mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6d8ec866e85f46186ec0db8cce845cf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFTR::controlTask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Make TR module reset or switch to prog mode when SPI master is disabled </p>
+
+</div>
+</div>
+<a class="anchor" id="aadedf2a6d56101afd41bfd9aa379eb2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFTR::disableProgramFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable programming flag </p>
+
+</div>
+</div>
+<a class="anchor" id="a6f161144601a66565e8e1bf760f7d90c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFTR::enableProgramFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable programming flag </p>
+
+</div>
+</div>
+<a class="anchor" id="a1c9e6c3860b1e5e95f0dd6cf4e5183ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFTR::enterProgramMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TR module switch to programming mode </p>
+
+</div>
+</div>
+<a class="anchor" id="a7f0634d559c191d52f2c2f150671b94d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFTR::getControlStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get TR control status </p>
+<dl class="section return"><dt>Returns</dt><dd>TR control status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aae4c5a6014dfdadc9d94d2847b2e871b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IQRFTR::getProgramFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get programming flag </p>
+<dl class="section return"><dt>Returns</dt><dd>Programming flag </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a12c0fb8cff8dd1b261821c054ada2778"></a>
 <div class="memitem">
 <div class="memproto">
@@ -117,6 +267,29 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Reset TR module </p>
+
+</div>
+</div>
+<a class="anchor" id="adeeddc1036ae1fad59603682c01747ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFTR::setControlStatus </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set TR control status </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">status</td><td>TR control status </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -159,7 +332,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 23 2016 17:49:59 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 23 2016 19:50:19 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>IQRF SPI library for Arduino: File Members</title>
+<title>IQRF SPI library for Arduino: IQRFSettings.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,18 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li class="current"><a href="globals.html"><span>File&#160;Members</span></a></li>
-    </ul>
-  </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="globals.html"><span>All</span></a></li>
-      <li><a href="globals_func.html"><span>Functions</span></a></li>
-      <li><a href="globals_vars.html"><span>Variables</span></a></li>
-      <li class="current"><a href="globals_type.html"><span>Typedefs</span></a></li>
-      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
-      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
-      <li><a href="globals_defs.html"><span>Macros</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,16 +80,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div class="header">
+  <div class="headertitle">
+<div class="title">IQRFSettings.h</div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>IQRF_RX_CALLBACK
-: <a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">iqrf_library.h</a>
-</li>
-<li>IQRF_TX_CALLBACK
-: <a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">iqrf_library.h</a>
-</li>
-</ul>
-</div><!-- contents -->
+<a href="IQRFSettings_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef IQRFSettings_H</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IQRFSettings_H</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a5ab303eb545301675364973bea76deee">   26</a></span>&#160;<span class="preprocessor">#define IQ_PKT_SIZE        68     </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716">   27</a></span>&#160;<span class="preprocessor">#define PACKET_BUFFER_SIZE 32     </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a09ccbd95b46eca7e62c687ac0035056f">   28</a></span>&#160;<span class="preprocessor">#define IQRF_SPI_CLK       250000 </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="comment">// Timing</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a6823058ce2e14113fbc93c9c36a7bcee">   31</a></span>&#160;<span class="preprocessor">#define MICRO_SECOND       1000000 </span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#ad4303ff595a045e360e67a93a3159a2e">   32</a></span>&#160;<span class="preprocessor">#define MILLI_SECOND       1000    </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span><span class="comment">// Pins</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a3bad5ec740aa92509ae469f3ad841892">   35</a></span>&#160;<span class="preprocessor">#define TR_RESET_IO        9      </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a03d098e7391a39ae0f8261652dc88f1a">   36</a></span>&#160;<span class="preprocessor">#define TR_SS_IO           10     </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#afe4955098f29a58a1f86bde1f81cd701">   37</a></span>&#160;<span class="preprocessor">#define TR_SDO_IO          11     </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="IQRFSettings_8h.html#a7243b9fec5251c1a04a8c739ccc01ce4">   38</a></span>&#160;<span class="preprocessor">#define TR_SDI_IO          12     </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Mon May 23 2016 19:50:19 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">

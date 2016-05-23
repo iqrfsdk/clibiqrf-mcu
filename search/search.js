@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   0: "bcdefgimnoprstuw",
   1: "it",
   2: "i",
-  3: "cdegirst",
+  3: "bcdegirst",
   4: "cdefimoprstu",
   5: "i",
   6: "cfmst",
