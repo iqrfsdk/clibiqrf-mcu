@@ -31,5 +31,8 @@ var searchData=
   ['iqrfcrc_2eh',['IQRFCRC.h',['../IQRFCRC_8h.html',1,'']]],
   ['iqrfmicros',['iqrfMicros',['../iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2',1,'iqrf_library.cpp']]],
   ['iqrfpacketbuffer',['iqrfPacketBuffer',['../iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1',1,'iqrf_library.cpp']]],
+  ['iqrftr',['IQRFTR',['../classIQRFTR.html',1,'']]],
+  ['iqrftr_2ecpp',['IQRFTR.cpp',['../IQRFTR_8cpp.html',1,'']]],
+  ['iqrftr_2eh',['IQRFTR.h',['../IQRFTR_8h.html',1,'']]],
   ['iqrf_20spi_20library_20for_20arduino',['IQRF SPI library for Arduino',['../md_README.html',1,'']]]
 ];

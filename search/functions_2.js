@@ -8,6 +8,6 @@ var searchData=
   ['tr_5fsetbytetobytetime',['TR_SetByteToByteTime',['../iqrf__library_8cpp.html#a739e1e1b7d39b7b6f783d23504a93605',1,'TR_SetByteToByteTime(uint16_t time):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a739e1e1b7d39b7b6f783d23504a93605',1,'TR_SetByteToByteTime(uint16_t time):&#160;iqrf_library.cpp']]],
   ['trcontroltask',['trControlTask',['../iqrf__library_8cpp.html#a79830d43b1ddb442fb9ad42a108494b9',1,'iqrf_library.cpp']]],
   ['trinfotask',['trInfoTask',['../iqrf__library_8cpp.html#ad856c9799e8af54273b182d53eb09729',1,'iqrf_library.cpp']]],
-  ['trmoduleoff',['trModuleOff',['../iqrf__library_8cpp.html#ab85cf48cc3d1dc621ce5abe12ea0eb08',1,'iqrf_library.cpp']]],
-  ['trmoduleon',['trModuleOn',['../iqrf__library_8cpp.html#a571cadf467ebb133354754c1521ed5bc',1,'iqrf_library.cpp']]]
+  ['turnoff',['turnOff',['../classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea',1,'IQRFTR']]],
+  ['turnon',['turnOn',['../classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe',1,'IQRFTR']]]
 ];
