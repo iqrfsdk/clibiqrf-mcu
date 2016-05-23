@@ -70,7 +70,7 @@ void IQRFSPI::disableMaster() {
  * Get TR SPI master status
  * @return TR SPI master status
  */
-bool IQRFSPI::getMasterStatus() {
+bool IQRFSPI::isMasterEnabled() {
 	return this->master;
 }
 
@@ -94,10 +94,9 @@ void IQRFSPI::disableFastSpi() {
  * Get Fast SPI status
  * @return Fast SPI status 
  */
-bool IQRFSPI::getFastSpiStatus() {
+bool IQRFSPI::isFastSpiEnabled() {
 	return this->fastSpi;
 }
-
 
 /**
  * Get SPI byte to byte pause in us
@@ -113,4 +112,21 @@ unsigned long IQRFSPI::getBytePause() {
  */
 void IQRFSPI::setBytePause(unsigned long time) {
 	this->bytePause = time;
+}
+
+/**
+ * Send and receive single byte over SPI
+ * @param txByte Character to be send via SPI
+ * @return Byte received via SPI
+ */
+uint8_t IQRFSPI::byte(uint8_t txByte) {
+	uint8_t rxByte = 0;
+	digitalWrite(TR_SS_IO, LOW);
+	delayMicroseconds(10);
+	SPI.beginTransaction(SPISettings(IQRF_SPI_CLK, MSBFIRST, SPI_MODE0));
+	rxByte = SPI.transfer(txByte);
+	SPI.endTransaction();
+	delayMicroseconds(10);
+	digitalWrite(TR_SS_IO, HIGH);
+	return rxByte;
 }

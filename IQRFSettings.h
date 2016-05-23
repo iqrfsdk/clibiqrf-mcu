@@ -20,44 +20,21 @@
  * limitations under the License.
  */
 
-#ifndef IQRFTR_H
-#define IQRFTR_H
+#ifndef IQRFSettings_H
+#define IQRFSettings_H
 
-#include <Arduino.h>
-#include <SPI.h>
+#define IQ_PKT_SIZE        68     //!< Size of SPI TX and RX buffer
+#define PACKET_BUFFER_SIZE 32     //!< Size of SPI TX packet buffer
+#define IQRF_SPI_CLK       250000 //!< SPI clock 250kHz
 
-#include "IQRFSettings.h"
-#include "IQRFSPI.h"
+// Timing
+#define MICRO_SECOND       1000000 //!< Microsecond
+#define MILLI_SECOND       1000    //!< Milisecond
 
-/**
- * IQRF TR
- */
-class IQRFTR {
-public:
-	void reset();
-	void enterProgramMode();
-	void turnOn();
-	void turnOff();
-	uint8_t getControlStatus();
-	void setControlStatus(uint8_t status);
-	void enableProgramFlag();
-	void disableProgramFlag();
-	bool getProgramFlag();
-	void controlTask();
-	/**
-	 * TR control statuses
-	 */
-	enum controlStatuses {
-		READY = 0, //!< TR ready state
-		RESET = 1, //!< TR reset process
-		WAIT = 2, //!< TR wait state
-		PROG_MODE = 3 //!< TR programming mode
-	};
-private:
-	uint8_t controlStatus;
-	bool programFlag;
-	IQRFSPI* spi = new IQRFSPI;
-};
+// Pins
+#define TR_RESET_IO        9      //!< TR reset pin
+#define TR_SS_IO           10     //!< SPI SS pin
+#define TR_SDO_IO          11     //!< SPI SDO pin
+#define TR_SDI_IO          12     //!< SPI SDI pin
 
 #endif
-

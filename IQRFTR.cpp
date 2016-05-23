@@ -26,13 +26,38 @@
  * Reset TR module
  */
 void IQRFTR::reset() {
-	if (spi->getMasterStatus()) {
+	if (spi->isMasterEnabled()) {
 		this->turnOff();
 		// RESET pause
 		delay(100);
 		this->turnOn();
 		delay(1);
 	} else {
+		spi->setStatus(spi->statuses::BUSY);
+	}
+}
+
+/**
+ * TR module switch to programming mode
+ */
+void IQRFTR::enterProgramMode() {
+	if (spi->isMasterEnabled()) {
+		SPI.end();
+		this->reset();
+		pinMode(TR_SS_IO, OUTPUT);
+		pinMode(TR_SDO_IO, OUTPUT);
+		pinMode(TR_SDI_IO, INPUT);
+		digitalWrite(TR_SS_IO, LOW);
+		unsigned long enterMs = millis();
+		do {
+			// copy SDI to SDO for approx. 500ms => TR into prog. mode
+			digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
+		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
+		digitalWrite(TR_SS_IO, HIGH);
+		SPI.begin();
+	} else {
+		this->setControlStatus(controlStatuses::RESET);
+		this->enableProgramFlag();
 		spi->setStatus(spi->statuses::BUSY);
 	}
 }
@@ -51,4 +76,88 @@ void IQRFTR::turnOn() {
 void IQRFTR::turnOff() {
 	pinMode(TR_RESET_IO, OUTPUT);
 	digitalWrite(TR_RESET_IO, HIGH);
+}
+
+/**
+ * Get TR control status
+ * @return TR control status
+ */
+uint8_t IQRFTR::getControlStatus() {
+	return this->controlStatus;
+}
+
+/**
+ * Set TR control status
+ * @param status TR control status
+ */
+void IQRFTR::setControlStatus(uint8_t status) {
+	this->controlStatus = status;
+}
+
+/**
+ * Enable programming flag
+ */
+void IQRFTR::enableProgramFlag() {
+	this->programFlag = true;
+}
+
+/**
+ * Disable programming flag
+ */
+void IQRFTR::disableProgramFlag() {
+	this->programFlag = false;
+}
+
+/**
+ * Get programming flag
+ * @return Programming flag 
+ */
+bool IQRFTR::getProgramFlag() {
+	return this->programFlag;
+}
+
+/**
+ * Make TR module reset or switch to prog mode when SPI master is disabled
+ */
+void IQRFTR::controlTask() {
+	static unsigned long timeoutMs;
+	switch (this->getControlStatus()) {
+		case controlStatuses::READY:
+			spi->setStatus(spi->statuses::DISABLED);
+			this->disableProgramFlag();
+			break;
+		case controlStatuses::RESET:
+			spi->setStatus(spi->statuses::BUSY);
+			SPI.end();
+			this->turnOff();
+			timeoutMs = millis();
+			this->setControlStatus(controlStatuses::WAIT);
+			break;
+		case controlStatuses::WAIT:
+			spi->setStatus(spi->statuses::BUSY);
+			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
+				this->setControlStatus(controlStatuses::PROG_MODE);
+			} else {
+				digitalWrite(TR_SS_IO, HIGH);
+				SPI.begin();
+				this->setControlStatus(controlStatuses::READY);
+			}
+			break;
+		case controlStatuses::PROG_MODE:
+			SPI.end();
+			this->reset();
+			pinMode(TR_SS_IO, OUTPUT);
+			pinMode(TR_SDI_IO, INPUT);
+			pinMode(TR_SDO_IO, OUTPUT);
+			digitalWrite(TR_SS_IO, LOW);
+			timeoutMs = millis();
+			do {
+				// copy SDI to SDO for approx. 500ms => TR into prog. mode
+				digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
+			} while ((millis() - timeoutMs) < (MILLI_SECOND / 2));
+			digitalWrite(TR_SS_IO, HIGH);
+			SPI.begin();
+			this->setControlStatus(controlStatuses::READY);
+			break;
+	}
 }

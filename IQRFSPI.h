@@ -26,6 +26,8 @@
 #include <stdint.h>
 #include <SPI.h>
 
+#include "IQRFSettings.h"
+
 /**
  * IQRF SPI
  */
@@ -35,12 +37,13 @@ public:
 	void setStatus(uint8_t status);
 	void enableMaster();
 	void disableMaster();
-	bool getMasterStatus();
+	bool isMasterEnabled();
 	void enableFastSpi();
 	void disableFastSpi();
-	bool getFastSpiStatus();
+	bool isFastSpiEnabled();
 	unsigned long getBytePause();
 	void setBytePause(unsigned long time);
+	uint8_t byte(uint8_t txByte);
 
 	/**
 	 * SPI status of TR module (see IQRF SPI user manual)

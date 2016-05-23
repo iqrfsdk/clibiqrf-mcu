@@ -36,21 +36,9 @@
 #include <string.h>
 
 #include "IQRFCRC.h"
+#include "IQRFSettings.h"
 #include "IQRFSPI.h"
 #include "IQRFTR.h"
-
-#define IQ_PKT_SIZE           68     //!< Size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer
-#define IQRF_SPI_CLK          250000 //!< SPI clock 250kHz
-
-// Pins
-#define TR_SS_IO              10     //!< SPI SS pin
-#define TR_SDO_IO             11     //!< SPI SDO pin
-#define TR_SDI_IO             12     //!< SPI SDI pin
-
-// Timing
-#define MICRO_SECOND          1000000 //!< Microsecond
-#define MILLI_SECOND          1000    //!< Milisecond
 
 /**
  * TR module types
@@ -75,16 +63,6 @@ enum trMcuTypes {
 	PIC16LF88 = 2, //!< MCU used in TR-xxx-21A
 	PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
 	PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
-};
-
-/**
- * TR control statuses
- */
-enum trControlStatuses {
-	READY = 0, //!< TR ready state
-	RESET = 1, //!< TR reset process
-	WAIT = 2, //!< TR wait state
-	PROG_MODE = 3 //!< TR programming mode
 };
 
 /**
@@ -139,11 +117,8 @@ extern TR_INFO_STRUCT trInfoStruct;
 
 void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn);
 void IQRF_Driver(void);
-void IQRF_TR_Reset(void);
-void IQRF_TR_EnterProgMode(void);
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
-uint8_t IQRF_SPI_Byte(uint8_t Tx_Byte);
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 
 /**
