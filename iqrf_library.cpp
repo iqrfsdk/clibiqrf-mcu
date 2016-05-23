@@ -85,6 +85,11 @@ IQRF_TX_CALLBACK txCallback;
 /// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
+/// Instance of IQRFCRC class
+IQRFCRC* crc = new IQRFCRC;
+/// Instance of IQRFTR class
+IQRFTR* tr = new IQRFTR;
+
 /**
  * Function perform a TR-module driver initialization
  * Function performes initialization of trInfoStruct identification data structure
@@ -99,7 +104,7 @@ void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_f
 	fastSpi = false;
 	// set byte to byte pause to 1000us
 	TR_SetByteToByteTime(1000);
-	trModuleOn();
+	tr->turnOn();
 	pinMode(TR_SS_IO, OUTPUT);
 	digitalWrite(TR_SS_IO, HIGH);
 	SPI.begin();
@@ -148,7 +153,8 @@ void IQRF_Driver(void) {
 					// CS - deactive
 					//digitalWrite(TR_SS_IO, HIGH);
 					// CRC ok
-					if ((spiRxBuffer[dataLength + 3] == spiStatuses::CRCM_OK) && checkCRC()) {
+					if ((spiRxBuffer[dataLength + 3] == spiStatuses::CRCM_OK) &&
+							crc->check(spiRxBuffer, dataLength, PTYPE)) {
 						if (spiIqBusy == spiMasterStatuses::WRITE) {
 							txCallback(txPacketId, txPacketStatuses::OK);
 						}
@@ -192,7 +198,7 @@ void IQRF_Driver(void) {
 					spiTxBuffer[0] = spiCommands::WR_RD;
 					spiTxBuffer[1] = PTYPE;
 					// CRC
-					spiTxBuffer[dataLength + 2] = calculateCRC();
+					spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
 					packetLength = dataLength + 4;
 					// counter of sent bytes
@@ -219,7 +225,7 @@ void IQRF_Driver(void) {
 						spiTxBuffer[1] = PTYPE;
 						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].pDataBuffer, dataLength);
 						// CRCM
-						spiTxBuffer[dataLength + 2] = calculateCRC();
+						spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packetLength = dataLength + 4;
 						// set actual TX packet ID
@@ -255,10 +261,10 @@ void IQRF_Driver(void) {
 void IQRF_TR_Reset(void) {
 	// SPI Master enabled
 	if (spiMaster) {
-		trModuleOff();
+		tr->turnOff();
 		// RESET pause
 		delay(100);
-		trModuleOn();
+		tr->turnOn();
 		delay(1);
 	} else {
 		// TR module RESET process in SPI Master disable mode
@@ -445,7 +451,7 @@ void trControlTask(void) {
 			SPI.end();
 			// SPI controller OFF
 			// TR module OFF
-			trModuleOff();
+			tr->turnOff();
 			// read actual tick
 			timeoutMilli = millis();
 			// goto next state
@@ -456,7 +462,7 @@ void trControlTask(void) {
 			// wait 300 ms
 			if (millis() - timeoutMilli >= MILLI_SECOND / 3) {
 				// TR module ON
-				trModuleOn();
+				tr->turnOn();
 				if (trControlProgFlag) {
 					// goto enter programming mode
 					trControlStatus = trControlStatuses::PROG_MODE;
@@ -558,40 +564,6 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 		packetBufferInPtr = 0;
 	}
 	return txPacketIdCounter;
-}
-
-/**
- * Calculate CRC before master's send
- * @return crc_val
- */
-uint8_t calculateCRC(void) {
-	IQRFCRC* crc = new IQRFCRC;
-	return crc->calculate(spiTxBuffer, dataLength);
-}
-
-/**
- * Confirm CRC from SPI slave upon received data
- * @return boolean
- */
-bool checkCRC(void) {
-	IQRFCRC* crc = new IQRFCRC;
-	return crc->check(spiRxBuffer, dataLength, PTYPE);
-}
-
-/**
- * Enter TR module into OFF state
- */
-void trModuleOff(void) {
-	IQRFTR* tr = new IQRFTR;
-	tr->turnOff();
-}
-
-/**
- * Enter TR module into ON state
- */
-void trModuleOn(void) {
-	IQRFTR* tr = new IQRFTR;
-	tr->turnOn();
 }
 
 /**
