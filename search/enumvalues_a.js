@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['slow_5fmode',['SLOW_MODE',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8',1,'iqrf_library.h']]]
+  ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]]
 ];

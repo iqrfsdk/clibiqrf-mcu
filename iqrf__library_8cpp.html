@@ -94,7 +94,7 @@ Include dependency graph for iqrf_library.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="iqrf__library_8cpp__incl.png" border="0" usemap="#iqrf__library_8cpp" alt=""/></div>
 <map name="iqrf__library_8cpp" id="iqrf__library_8cpp">
-<area shape="rect" id="node2" href="iqrf__library_8h.html" title="iqrf_library.h" alt="" coords="400,80,493,107"/><area shape="rect" id="node11" href="IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="766,155,860,181"/><area shape="rect" id="node12" href="IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="5,155,87,181"/></map>
+<area shape="rect" id="node2" href="iqrf__library_8h.html" title="iqrf_library.h" alt="" coords="303,80,396,107"/><area shape="rect" id="node11" href="IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="337,229,431,256"/><area shape="rect" id="node12" href="IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="174,229,260,256"/><area shape="rect" id="node13" href="IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="110,155,191,181"/></map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -127,8 +127,6 @@ Functions</h2></td></tr>
 <tr class="separator:a7b6b0cec17d4a369cb3027829980705c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ad38ad5735b391642ce0edc8a3140d4eb">TR_SendSpiPacket</a> (uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
 <tr class="separator:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a739e1e1b7d39b7b6f783d23504a93605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a739e1e1b7d39b7b6f783d23504a93605">TR_SetByteToByteTime</a> (uint16_t time)</td></tr>
-<tr class="separator:a739e1e1b7d39b7b6f783d23504a93605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -143,10 +141,6 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i
 <tr class="memitem:a56c0197185943024e0f89f0a647d1024"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56c0197185943024e0f89f0a647d1024"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>PTYPE</b></td></tr>
 <tr class="separator:a56c0197185943024e0f89f0a647d1024"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aabb6f0738992c9e8416f6d4abb3f0e"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td></tr>
-<tr class="memdesc:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI status. <br/></td></tr>
-<tr class="separator:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8e4032f02b3557d87d45f5a4a558291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8e4032f02b3557d87d45f5a4a558291"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ac8e4032f02b3557d87d45f5a4a558291">repCnt</a></td></tr>
 <tr class="memdesc:ac8e4032f02b3557d87d45f5a4a558291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of attempts to send data. <br/></td></tr>
@@ -169,14 +163,6 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i
 <tr class="memitem:a73fcde22a8890232f79a7d22a35cbf68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73fcde22a8890232f79a7d22a35cbf68"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>spiIqBusy</b></td></tr>
 <tr class="separator:a73fcde22a8890232f79a7d22a35cbf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9a3cba8f758ffe5e9fb07ae01b46848"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td></tr>
-<tr class="memdesc:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Master status. <br/></td></tr>
-<tr class="separator:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac81b17c622fb0c27e39dd435aa5ab6b5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ac81b17c622fb0c27e39dd435aa5ab6b5">fastSpi</a></td></tr>
-<tr class="memdesc:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast SPI status. <br/></td></tr>
-<tr class="separator:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a813de845a535241a3d2cc2f48ff8185e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a813de845a535241a3d2cc2f48ff8185e"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e">txPacketId</a></td></tr>
 <tr class="memdesc:a813de845a535241a3d2cc2f48ff8185e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual Tx packet ID. <br/></td></tr>
@@ -201,10 +187,6 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2">iqrfMicros</a></td></tr>
 <tr class="memdesc:a37de461137d9660684e0ffbbd70344e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Microsecond variable. <br/></td></tr>
 <tr class="separator:a37de461137d9660684e0ffbbd70344e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac16758a4ecbc2728f5f084b2ee3dda52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac16758a4ecbc2728f5f084b2ee3dda52"></a>
-unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ac16758a4ecbc2728f5f084b2ee3dda52">spiBytePause</a></td></tr>
-<tr class="memdesc:ac16758a4ecbc2728f5f084b2ee3dda52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause between SPI bytes in us. <br/></td></tr>
-<tr class="separator:ac16758a4ecbc2728f5f084b2ee3dda52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445d0bc288594a8f603937dc7fb9e875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a445d0bc288594a8f603937dc7fb9e875"></a>
 <a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875">trInfoStruct</a></td></tr>
 <tr class="memdesc:a445d0bc288594a8f603937dc7fb9e875"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
@@ -237,6 +219,10 @@ const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <a class="el" href="classIQRFCRC.html">IQRFCRC</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a9fdddbe942b5019ad9fa25203f1dfbc8">crc</a> = new <a class="el" href="classIQRFCRC.html">IQRFCRC</a></td></tr>
 <tr class="memdesc:a9fdddbe942b5019ad9fa25203f1dfbc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="classIQRFCRC.html">IQRFCRC</a> class. <br/></td></tr>
 <tr class="separator:a9fdddbe942b5019ad9fa25203f1dfbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebf2ed2e3bbac03dae42c892a32f219"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ebf2ed2e3bbac03dae42c892a32f219"></a>
+<a class="el" href="classIQRFSPI.html">IQRFSPI</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219">spi</a> = new <a class="el" href="classIQRFSPI.html">IQRFSPI</a></td></tr>
+<tr class="memdesc:a6ebf2ed2e3bbac03dae42c892a32f219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="classIQRFSPI.html">IQRFSPI</a> class. <br/></td></tr>
+<tr class="separator:a6ebf2ed2e3bbac03dae42c892a32f219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dc0eae26b1c9512166c2b844f0c73b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3dc0eae26b1c9512166c2b844f0c73b"></a>
 <a class="el" href="classIQRFTR.html">IQRFTR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b">tr</a> = new <a class="el" href="classIQRFTR.html">IQRFTR</a></td></tr>
 <tr class="memdesc:ac3dc0eae26b1c9512166c2b844f0c73b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="classIQRFTR.html">IQRFTR</a> class. <br/></td></tr>
@@ -590,29 +576,6 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a739e1e1b7d39b7b6f783d23504a93605"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TR_SetByteToByteTime </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set byte to byte pause is SPI driver </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>Byte to byte time in us </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a79830d43b1ddb442fb9ad42a108494b9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -650,7 +613,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 23 2016 05:28:37 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 23 2016 17:48:40 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

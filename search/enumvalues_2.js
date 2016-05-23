@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_5ftransfer',['DATA_TRANSFER',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942',1,'iqrf_library.h']]],
-  ['debug_5fmode',['DEBUG_MODE',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6',1,'iqrf_library.h']]],
-  ['disabled',['DISABLED',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4',1,'iqrf_library.h']]]
+  ['data_5ftransfer',['DATA_TRANSFER',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a419c02c8cdb1b4ea594c63f2e057c8af',1,'IQRFSPI']]],
+  ['debug_5fmode',['DEBUG_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a8dceec0e67e9921687789e20169c08fd',1,'IQRFSPI']]],
+  ['disabled',['DISABLED',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a4cf4ac49cafdb28bad0217154adaf413',1,'IQRFSPI']]]
 ];

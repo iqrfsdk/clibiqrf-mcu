@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ok',['OK',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2bc49ec37d6a5715dd23e85f1ff5bb59',1,'iqrf_library.h']]],
-  ['osbuild',['osBuild',['../structTR__INFO__STRUCT.html#a3aeb9390b492e5a931f526214ba6f2bd',1,'TR_INFO_STRUCT']]],
-  ['osversion',['osVersion',['../structTR__INFO__STRUCT.html#ac0970d0cbc92beb0f733ddf5d2f0a0f7',1,'TR_INFO_STRUCT']]]
+  ['no_5fmodule',['NO_MODULE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a7f03820ac37815a97b74a59336acd684',1,'IQRFSPI']]],
+  ['not_5fcertified',['NOT_CERTIFIED',['../iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2abe1ad525dfd5a515534980942134bc73',1,'iqrf_library.h']]]
 ];

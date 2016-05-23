@@ -101,13 +101,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="IQRFCRC_8h_source.html">IQRFCRC.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="IQRFSPI_8h_source.html">IQRFSPI.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="IQRFTR_8h_source.html">IQRFTR.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for iqrf_library.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="iqrf__library_8h__incl.png" border="0" usemap="#iqrf__library_8h" alt=""/></div>
 <map name="iqrf__library_8h" id="iqrf__library_8h">
-<area shape="rect" id="node10" href="IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="766,80,860,107"/><area shape="rect" id="node11" href="IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="5,80,87,107"/></map>
+<area shape="rect" id="node10" href="IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="337,155,431,181"/><area shape="rect" id="node11" href="IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="174,155,260,181"/><area shape="rect" id="node12" href="IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="110,80,191,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -174,14 +175,6 @@ Macros</h2></td></tr>
 <tr class="separator:aa7b3d0f423d662bc412e440e6b823e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297417602e929b0c0ee034dcb6a7b18c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c">IQRF_GetModuleInfoRawData</a>(position)&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[position]</td></tr>
 <tr class="separator:a297417602e929b0c0ee034dcb6a7b18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae5bb72957c078353f90c9fe6969ef49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aae5bb72957c078353f90c9fe6969ef49">IQRF_GetStatus</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td></tr>
-<tr class="separator:aae5bb72957c078353f90c9fe6969ef49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347e707ce03d8f5237b8c676a2066605"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a347e707ce03d8f5237b8c676a2066605">IQRF_SPIMasterEnable</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = true</td></tr>
-<tr class="separator:a347e707ce03d8f5237b8c676a2066605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0967061a36bee5c678281afa10c9427a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">IQRF_SPIMasterDisable</a>()&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = false; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td></tr>
-<tr class="separator:a0967061a36bee5c678281afa10c9427a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d974fe41fd9dce11dc778e0269ab039"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1d974fe41fd9dce11dc778e0269ab039">IQRF_GetSPIMasterState</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td></tr>
-<tr class="separator:a1d974fe41fd9dce11dc778e0269ab039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -196,41 +189,6 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6c4016ded8642fb6a1a2a046a9991dc3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3">spiStatuses</a> { <br/>
-&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a2a6003405e87a615cf8a9d4f102bac8f">NO_MODULE</a> = 0xFF, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aa6e504d57ec9777faa0185fbd3b93b97">BUSY</a> = 0xFE, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942">DATA_TRANSFER</a> = 0xFD, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">DISABLED</a> = 0x00, 
-<br/>
-&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3abf1cba670ac2c5585bd629923ec91df8">CRCM_OK</a> = 0x3F, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a31830c88410d62baf141d4e7d8466206">CRCM_ERR</a> = 0x3E, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3ad046ea65d10fb0d2cff795069cec6f4b">COMMUNICATION_MODE</a> = 0x80, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3af74d4510acbc1f2c365375ad4cb8cb81">PROGRAMMING_MODE</a> = 0x81, 
-<br/>
-&#160;&#160;<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6">DEBUG_MODE</a> = 0x82, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8">SLOW_MODE</a> = 0x83, 
-<a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a2ec7fe17331c1994e97dee43d11825c2">USER_STOP</a> = 0x07
-<br/>
- }</td></tr>
-<tr class="separator:a6c4016ded8642fb6a1a2a046a9991dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa8b660df793bc38eea8c0e3418b6681"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681">spiMasterStatuses</a> { <a class="el" href="iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681acc62d1576546f3245237e1b232d838b6">FREE</a> = 0, 
-<a class="el" href="iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681a61aa7ff70b76bff0fda378cf61d6afbc">WRITE</a> = 1, 
-<a class="el" href="iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681acb9be765f361bb7efb9073730aac92c6">READ</a> = 2
- }</td></tr>
-<tr class="separator:afa8b660df793bc38eea8c0e3418b6681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6c023903c5ad5f38ac1e1eb9b702262"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262">spiCommands</a> { <br/>
-&#160;&#160;<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262aed65b7dfe470f4e500b15f7074bb7fa2">CHECK</a> = 0x00, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262aa7fa87121c927c09dc340f682b08e6c5">WR_RD</a> = 0xF0, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262aa98d2fe739ae98b44aaa1b830e084526">RAM_READ</a> = 0xF1, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262a2908bb8cfcd6bc6f52541db8fd36a376">EEPROM_READ</a> = 0xF2, 
-<br/>
-&#160;&#160;<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262a072395b3c58aec75ca25b358000d2ec7">EEPROM_PGM</a> = 0xF3, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262ad8b12610bd58f48af24ed720cb166805">MODULE_INFO</a> = 0xF5, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262ae65eafec8e3c72a77252a58ec3006642">FLASH_PGM</a> = 0xF6, 
-<a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262a6bfe1899dea108f2759df2d10891b95e">PLUGIN_PGM</a> = 0xF9
-<br/>
- }</td></tr>
-<tr class="separator:ac6c023903c5ad5f38ac1e1eb9b702262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2e54def72c6203180305ea8279ecb99"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ad2e54def72c6203180305ea8279ecb99">trTypes</a> { <br/>
 &#160;&#160;<a class="el" href="iqrf__library_8h.html#ad2e54def72c6203180305ea8279ecb99a454cfbe3be41a17eb47294e5b8f63a0e">TR_52D</a> = 0, 
 <a class="el" href="iqrf__library_8h.html#ad2e54def72c6203180305ea8279ecb99a78dd7498efd3d101428d85bb8ae55e1c">TR_58D_RJ</a> = 1, 
@@ -287,8 +245,6 @@ Functions</h2></td></tr>
 <tr class="separator:a7b6b0cec17d4a369cb3027829980705c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb">TR_SendSpiPacket</a> (uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
 <tr class="separator:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a739e1e1b7d39b7b6f783d23504a93605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a739e1e1b7d39b7b6f783d23504a93605">TR_SetByteToByteTime</a> (uint16_t time)</td></tr>
-<tr class="separator:a739e1e1b7d39b7b6f783d23504a93605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -299,18 +255,6 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i
 <tr class="memitem:a73fcde22a8890232f79a7d22a35cbf68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73fcde22a8890232f79a7d22a35cbf68"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>spiIqBusy</b></td></tr>
 <tr class="separator:a73fcde22a8890232f79a7d22a35cbf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aabb6f0738992c9e8416f6d4abb3f0e"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td></tr>
-<tr class="memdesc:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI status. <br/></td></tr>
-<tr class="separator:a4aabb6f0738992c9e8416f6d4abb3f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9a3cba8f758ffe5e9fb07ae01b46848"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td></tr>
-<tr class="memdesc:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Master status. <br/></td></tr>
-<tr class="separator:ae9a3cba8f758ffe5e9fb07ae01b46848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac81b17c622fb0c27e39dd435aa5ab6b5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac81b17c622fb0c27e39dd435aa5ab6b5">fastSpi</a></td></tr>
-<tr class="memdesc:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast SPI status. <br/></td></tr>
-<tr class="separator:ac81b17c622fb0c27e39dd435aa5ab6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445d0bc288594a8f603937dc7fb9e875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a445d0bc288594a8f603937dc7fb9e875"></a>
 <a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875">trInfoStruct</a></td></tr>
 <tr class="memdesc:a445d0bc288594a8f603937dc7fb9e875"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
@@ -484,98 +428,6 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a1d974fe41fd9dce11dc778e0269ab039"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetSPIMasterState</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns thw state of SPI Master function in IQRF driver </p>
-<dl class="section return"><dt>Returns</dt><dd>State of IQRF SPI master - boolean </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aae5bb72957c078353f90c9fe6969ef49"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetStatus</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get TR module comunication status </p>
-<dl class="section return"><dt>Returns</dt><dd>TR module cominication status <table class="doxtable">
-<tr>
-<th>Status code </th><th>Status message </th><th>Description  </th></tr>
-<tr>
-<td>0xFF </td><td>NO_MODULE </td><td>SPI not working (HW error) </td></tr>
-<tr>
-<td>0xFE </td><td>SPI_BUSY </td><td>SPI busy in Master disabled mode </td></tr>
-<tr>
-<td>0xFD </td><td>SPI_DATA_TRANSFER </td><td>SPI data transfer in progress </td></tr>
-<tr>
-<td>0x00 </td><td>SPI_DISABLED </td><td>SPI not working (disabled) </td></tr>
-<tr>
-<td>0x3F </td><td>SPI_CRCM_OK </td><td>SPI not ready (full buffer, last CRCM ok) </td></tr>
-<tr>
-<td>0x3E </td><td>SPI_CRCM_ERR </td><td>SPI not ready (full buffer, last CRCM error) </td></tr>
-<tr>
-<td>0xFF </td><td>COMMUNICATION_MODE </td><td>SPI ready (communication mode) </td></tr>
-<tr>
-<td>0x81 </td><td>PROGRAMMING_MODE </td><td>SPI ready (programming mode) </td></tr>
-<tr>
-<td>0x82 </td><td>DEBUG_MODE </td><td>SPI ready (debugging mode) </td></tr>
-<tr>
-<td>0x83 </td><td>SPI_SLOW_MODE </td><td>SPI not working in background </td></tr>
-<tr>
-<td>0x07 </td><td>SPI_USER_STOP </td><td>SPI state after stopSPI(); </td></tr>
-</table>
-</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a0967061a36bee5c678281afa10c9427a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_SPIMasterDisable</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;{<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = false; <a class="el" href="iqrf__library_8h.html#a4aabb6f0738992c9e8416f6d4abb3f0e">spiStatus</a> = <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4">spiStatuses::DISABLED</a>;}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Disable SPI Master function in IQRF driver </p>
-
-</div>
-</div>
-<a class="anchor" id="a347e707ce03d8f5237b8c676a2066605"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_SPIMasterEnable</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#ae9a3cba8f758ffe5e9fb07ae01b46848">spiMaster</a> = true</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Enable SPI Master function in IQRF driver </p>
-
-</div>
-</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="ad08b9456153d3f1c3674e04d6011daa2"></a>
 <div class="memitem">
@@ -593,117 +445,6 @@ LICENSE</h1>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ad08b9456153d3f1c3674e04d6011daa2a1fdfdf806903c662dc976bfec4b01da5"></a>CERTIFIED</em>&#160;</td><td class="fielddoc">
 <p>Certified by FCC. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262">spiCommands</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>SPI commands for TR module (see IQRF SPI user manual) </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262aed65b7dfe470f4e500b15f7074bb7fa2"></a>CHECK</em>&#160;</td><td class="fielddoc">
-<p>Master checks the SPI status of the TR module. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262aa7fa87121c927c09dc340f682b08e6c5"></a>WR_RD</em>&#160;</td><td class="fielddoc">
-<p>Master reads/writes a packet from/to TR module. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262aa98d2fe739ae98b44aaa1b830e084526"></a>RAM_READ</em>&#160;</td><td class="fielddoc">
-<p>Master reads data from ram in debug mode. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262a2908bb8cfcd6bc6f52541db8fd36a376"></a>EEPROM_READ</em>&#160;</td><td class="fielddoc">
-<p>Master reads data from eeprom in debug mode. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262a072395b3c58aec75ca25b358000d2ec7"></a>EEPROM_PGM</em>&#160;</td><td class="fielddoc">
-<p>Master writes data to eeprom in programming mode. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262ad8b12610bd58f48af24ed720cb166805"></a>MODULE_INFO</em>&#160;</td><td class="fielddoc">
-<p>Master reads Module Info from TR module. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262ae65eafec8e3c72a77252a58ec3006642"></a>FLASH_PGM</em>&#160;</td><td class="fielddoc">
-<p>Master writes data to flash in programming mode. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac6c023903c5ad5f38ac1e1eb9b702262a6bfe1899dea108f2759df2d10891b95e"></a>PLUGIN_PGM</em>&#160;</td><td class="fielddoc">
-<p>Master writes plugin data to flash in programming mode. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="afa8b660df793bc38eea8c0e3418b6681"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681">spiMasterStatuses</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>IQRF SPI master statuses </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="afa8b660df793bc38eea8c0e3418b6681acc62d1576546f3245237e1b232d838b6"></a>FREE</em>&#160;</td><td class="fielddoc">
-<p>SPI master free. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="afa8b660df793bc38eea8c0e3418b6681a61aa7ff70b76bff0fda378cf61d6afbc"></a>WRITE</em>&#160;</td><td class="fielddoc">
-<p>SPI master wrtite. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="afa8b660df793bc38eea8c0e3418b6681acb9be765f361bb7efb9073730aac92c6"></a>READ</em>&#160;</td><td class="fielddoc">
-<p>SPI master read. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3">spiStatuses</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>SPI status of TR module (see IQRF SPI user manual) </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a2a6003405e87a615cf8a9d4f102bac8f"></a>NO_MODULE</em>&#160;</td><td class="fielddoc">
-<p>SPI not working (HW error) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3aa6e504d57ec9777faa0185fbd3b93b97"></a>BUSY</em>&#160;</td><td class="fielddoc">
-<p>SPI busy in Master disabled mode. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a0b7c446a713a8ae36765accdff3d7942"></a>DATA_TRANSFER</em>&#160;</td><td class="fielddoc">
-<p>SPI data transfer in progress. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a40f39385238042f6ec0cbac821a19fc4"></a>DISABLED</em>&#160;</td><td class="fielddoc">
-<p>SPI not working (disabled) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3abf1cba670ac2c5585bd629923ec91df8"></a>CRCM_OK</em>&#160;</td><td class="fielddoc">
-<p>SPI not ready (full buffer, last CRCM ok) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a31830c88410d62baf141d4e7d8466206"></a>CRCM_ERR</em>&#160;</td><td class="fielddoc">
-<p>SPI not ready (full buffer, last CRCM error) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3ad046ea65d10fb0d2cff795069cec6f4b"></a>COMMUNICATION_MODE</em>&#160;</td><td class="fielddoc">
-<p>SPI ready (communication mode) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3af74d4510acbc1f2c365375ad4cb8cb81"></a>PROGRAMMING_MODE</em>&#160;</td><td class="fielddoc">
-<p>SPI ready (programming mode) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a224b1ac1c255111031af41d6c7ce01b6"></a>DEBUG_MODE</em>&#160;</td><td class="fielddoc">
-<p>SPI ready (debugging mode) </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3aef2334560c594e8439dd1fb13957abc8"></a>SLOW_MODE</em>&#160;</td><td class="fielddoc">
-<p>SPI not working in background. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a6c4016ded8642fb6a1a2a046a9991dc3a2ec7fe17331c1994e97dee43d11825c2"></a>USER_STOP</em>&#160;</td><td class="fielddoc">
-<p>SPI state after stopSPI();. </p>
 </td></tr>
 </table>
 
@@ -1061,33 +802,10 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a739e1e1b7d39b7b6f783d23504a93605"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TR_SetByteToByteTime </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Set byte to byte pause is SPI driver </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>Byte to byte time in us </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 23 2016 05:28:37 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 23 2016 17:48:40 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

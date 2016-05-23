@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['busy',['BUSY',['../iqrf__library_8h.html#a6c4016ded8642fb6a1a2a046a9991dc3aa6e504d57ec9777faa0185fbd3b93b97',1,'iqrf_library.h']]]
+  ['busy',['BUSY',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ae75cbdb4593e0845ad8bba3a7ce6be3b',1,'IQRFSPI']]]
 ];

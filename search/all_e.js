@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wait',['WAIT',['../iqrf__library_8h.html#ad7faf0752471ed629b1bebcd7f0377afa79a322ccb4b29b85b3cab52dbccefd17',1,'iqrf_library.h']]],
-  ['wr_5frd',['WR_RD',['../iqrf__library_8h.html#ac6c023903c5ad5f38ac1e1eb9b702262aa7fa87121c927c09dc340f682b08e6c5',1,'iqrf_library.h']]],
-  ['write',['WRITE',['../iqrf__library_8h.html#afa8b660df793bc38eea8c0e3418b6681a61aa7ff70b76bff0fda378cf61d6afbc',1,'iqrf_library.h']]]
+  ['unallocationflag',['unallocationFlag',['../structIQRF__PACKET__BUFFER.html#a3c0f147ad49eee098abbfec2538c9860',1,'IQRF_PACKET_BUFFER']]],
+  ['unknown',['UNKNOWN',['../iqrf__library_8h.html#a10f7bd186a807e9bf9f1a40158b8869da6ce26a62afab55d7606ad4e92428b30c',1,'iqrf_library.h']]],
+  ['user_5fstop',['USER_STOP',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ac5579cc45174869b430c091b16f47a01',1,'IQRFSPI']]]
 ];

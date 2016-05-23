@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['iqrf_5fdriver',['IQRF_Driver',['../iqrf__library_8cpp.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp']]],
-  ['iqrf_5fgetrxdata',['IQRF_GetRxData',['../iqrf__library_8cpp.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp']]],
-  ['iqrf_5finit',['IQRF_Init',['../iqrf__library_8cpp.html#a72d87e503750a7188a4e60be7eec8849',1,'IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a72d87e503750a7188a4e60be7eec8849',1,'IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn):&#160;iqrf_library.cpp']]],
-  ['iqrf_5fsenddata',['IQRF_SendData',['../iqrf__library_8cpp.html#adebe2bdc8b760bee0a2b7f2b6f2db824',1,'IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824',1,'IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp']]],
-  ['iqrf_5fspi_5fbyte',['IQRF_SPI_Byte',['../iqrf__library_8cpp.html#a7b6b0cec17d4a369cb3027829980705c',1,'IQRF_SPI_Byte(uint8_t Tx_Byte):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a7b6b0cec17d4a369cb3027829980705c',1,'IQRF_SPI_Byte(uint8_t Tx_Byte):&#160;iqrf_library.cpp']]],
-  ['iqrf_5ftr_5fenterprogmode',['IQRF_TR_EnterProgMode',['../iqrf__library_8cpp.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp']]],
-  ['iqrf_5ftr_5freset',['IQRF_TR_Reset',['../iqrf__library_8cpp.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp']]]
+  ['disablefastspi',['disableFastSpi',['../classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8',1,'IQRFSPI']]],
+  ['disablemaster',['disableMaster',['../classIQRFSPI.html#acb83690ba53849b8e6ff86859336623e',1,'IQRFSPI']]]
 ];
