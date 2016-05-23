@@ -20,17 +20,21 @@
  * limitations under the License.
  */
 
-#ifndef IQRFCRC_H
-#define IQRFCRC_H
+#ifndef IQRFTR_H
+#define IQRFTR_H
 
-#include <stdint.h>
+#include <Arduino.h>
 
-class IQRFCRC {
+/// TR reset pin
+#define TR_RESET_IO 9
+
+class IQRFTR {
 public:
-	uint8_t calculate(uint8_t *buffer, uint8_t dataLength);
-	bool check(uint8_t *buffer, uint8_t dataLength, uint8_t type);
+	void turnOn();
+	void turnOff();
 private:
 
 };
 
 #endif
+

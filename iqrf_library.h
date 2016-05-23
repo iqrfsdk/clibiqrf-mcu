@@ -36,13 +36,13 @@
 #include <string.h>
 
 #include "IQRFCRC.h"
+#include "IQRFTR.h"
 
 #define IQ_PKT_SIZE           68     //!< Size of SPI TX and RX buffer
 #define PACKET_BUFFER_SIZE    32     //!< Size of SPI TX packet buffer
 #define IQRF_SPI_CLK          250000 //!< SPI clock 250kHz
 
 // Pins
-#define TR_RESET_IO           9      //!< TR reset pin
 #define TR_SS_IO              10     //!< SPI SS pin
 #define TR_SDO_IO             11     //!< SPI SDO pin
 #define TR_SDI_IO             12     //!< SPI SDI pin

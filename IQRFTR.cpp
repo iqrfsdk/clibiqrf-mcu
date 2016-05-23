@@ -20,17 +20,21 @@
  * limitations under the License.
  */
 
-#ifndef IQRFCRC_H
-#define IQRFCRC_H
+#include "IQRFTR.h"
 
-#include <stdint.h>
+/**
+ * Enter TR module into ON state
+ */
+void IQRFTR::turnOn() {
+	pinMode(TR_RESET_IO, OUTPUT);
+	digitalWrite(TR_RESET_IO, LOW);
+}
 
-class IQRFCRC {
-public:
-	uint8_t calculate(uint8_t *buffer, uint8_t dataLength);
-	bool check(uint8_t *buffer, uint8_t dataLength, uint8_t type);
-private:
 
-};
-
-#endif
+/**
+ * Enter TR module into OFF state
+ */
+void IQRFTR::turnOff(void) {
+	pinMode(TR_RESET_IO, OUTPUT);
+	digitalWrite(TR_RESET_IO, HIGH);
+}

@@ -25,10 +25,6 @@
 /*
  * Locally used function prototypes
  */
-uint8_t calculateCRC(void);
-bool checkCRC(void);
-void trModuleOff(void);
-void trModuleOn(void);
 void trInfoTask(void);
 void trControlTask(void);
 void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult);
@@ -586,16 +582,16 @@ bool checkCRC(void) {
  * Enter TR module into OFF state
  */
 void trModuleOff(void) {
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_RESET_IO, HIGH);
+	IQRFTR* tr = new IQRFTR;
+	tr->turnOff();
 }
 
 /**
  * Enter TR module into ON state
  */
 void trModuleOn(void) {
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_RESET_IO, LOW);
+	IQRFTR* tr = new IQRFTR;
+	tr->turnOn();
 }
 
 /**
