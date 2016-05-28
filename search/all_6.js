@@ -1,7 +1,7 @@
 var searchData=
 [
   ['iq_5fpkt_5fsize',['IQ_PKT_SIZE',['../IQRFSettings_8h.html#a5ab303eb545301675364973bea76deee',1,'IQRFSettings.h']]],
-  ['iqrf_5fdriver',['IQRF_Driver',['../iqrf__library_8cpp.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp']]],
+  ['iqrf_5fdriver',['IQRF_Driver',['../iqrf__library_8cpp.html#a020699a7e5e646534a43829ce1324ae5',1,'IQRF_Driver():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp']]],
   ['iqrf_5fgetmcutype',['IQRF_GetMcuType',['../iqrf__library_8h.html#a693dfec78d1816b32ddca594d70f108a',1,'iqrf_library.h']]],
   ['iqrf_5fgetmoduleid',['IQRF_GetModuleId',['../iqrf__library_8h.html#ae8bab73b1e236f3c11f5b58feaa986a8',1,'iqrf_library.h']]],
   ['iqrf_5fgetmoduleinforawdata',['IQRF_GetModuleInfoRawData',['../iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c',1,'iqrf_library.h']]],
