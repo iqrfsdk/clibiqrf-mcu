@@ -1,6 +1,6 @@
 var searchData=
 [
   ['unallocationflag',['unallocationFlag',['../structIQRF__PACKET__BUFFER.html#a3c0f147ad49eee098abbfec2538c9860',1,'IQRF_PACKET_BUFFER']]],
-  ['unknown',['UNKNOWN',['../iqrf__library_8h.html#a10f7bd186a807e9bf9f1a40158b8869da6ce26a62afab55d7606ad4e92428b30c',1,'iqrf_library.h']]],
+  ['unknown',['UNKNOWN',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a7b85b5f1fd926220c2caebe7908c7255',1,'IQRFTR']]],
   ['user_5fstop',['USER_STOP',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ac5579cc45174869b430c091b16f47a01',1,'IQRFSPI']]]
 ];

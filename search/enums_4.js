@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['trmcutypes',['trMcuTypes',['../iqrf__library_8h.html#a10f7bd186a807e9bf9f1a40158b8869d',1,'iqrf_library.h']]],
-  ['trtypes',['trTypes',['../iqrf__library_8h.html#ad2e54def72c6203180305ea8279ecb99',1,'iqrf_library.h']]],
-  ['txpacketstatuses',['txPacketStatuses',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72',1,'iqrf_library.h']]]
+  ['txpacketstatuses',['txPacketStatuses',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72',1,'iqrf_library.h']]],
+  ['types',['types',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1f',1,'IQRFTR']]]
 ];
