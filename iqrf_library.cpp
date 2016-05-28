@@ -25,10 +25,10 @@
 /*
  * Locally used function prototypes
  */
-void trInfoTask(void);
+void trInfoTask();
 void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult);
-void TR_process_id_packet_pgm(void);
-void TR_dummy_func_com(void);
+void TR_process_id_packet_pgm();
+void TR_dummy_func_com();
 void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult);
 
 /*
@@ -48,7 +48,6 @@ uint8_t packetLength;
 uint8_t trInfoReading;
 /// Data length
 uint8_t dataLength;
-uint8_t spiIqBusy;
 /// Actual Tx packet ID
 uint8_t txPacketId;
 /// Tx packet ID counter
@@ -86,7 +85,7 @@ IQRFTR* tr = new IQRFTR;
  * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
  */
 void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn) {
-	spiIqBusy = 0;
+	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	iqrfCheckMicros = 0;
 	// normal SPI communication
@@ -119,12 +118,12 @@ void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_f
 /**
  * Periodically called IQRF_Driver
  */
-void IQRF_Driver(void) {
+void IQRF_Driver() {
 	// SPI Master enabled
 	if (spi->isMasterEnabled()) {
 		iqrfMicros = micros();
 		// is anything to send in spiTxBuffer?
-		if (spiIqBusy != spi->masterStatuses::FREE) {
+		if (spi->getMasterStatus() != spi->masterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
 			if ((iqrfMicros - iqrfCheckMicros) > spi->getBytePause()) {
 				// reset counter
@@ -139,24 +138,24 @@ void IQRF_Driver(void) {
 					//digitalWrite(TR_SS_IO, HIGH);
 					// CRC ok
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
-							crc->check(spiRxBuffer, dataLength, PTYPE)) {
-						if (spiIqBusy == spi->masterStatuses::WRITE) {
+						crc->check(spiRxBuffer, dataLength, PTYPE)) {
+						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
 							txCallback(txPacketId, txPacketStatuses::OK);
 						}
-						if (spiIqBusy == spi->masterStatuses::READ) {
+						if (spi->getMasterStatus() == spi->masterStatuses::READ) {
 							rxCallback();
 						}
-						spiIqBusy = spi->masterStatuses::FREE;
+						spi->setMasterStatus(spi->masterStatuses::FREE);
 					} else { // CRC error
 						// rep_cnt - must be set on packet preparing
 						if (--repCnt) {
 							// another attempt to send data
 							tmpCnt = 0;
 						} else {
-							if (spiIqBusy == spi->masterStatuses::WRITE) {
+							if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
 								txCallback(txPacketId, txPacketStatuses::ERROR);
 							}
-							spiIqBusy = spi->masterStatuses::FREE;
+							spi->setMasterStatus(spi->masterStatuses::FREE);
 						}
 					}
 				}
@@ -171,7 +170,7 @@ void IQRF_Driver(void) {
 				//digitalWrite(TR_SS_IO, HIGH);      
 				// if the status is dataready prepare packet to read it
 				if ((spi->getStatus() & 0xC0) == 0x40) {
-					memset(spiTxBuffer, 0, sizeof (spiTxBuffer));
+					memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
 					// state 0x40 means 64B
 					if (spi->getStatus() == 0x40) {
 						dataLength = 64;
@@ -191,15 +190,15 @@ void IQRF_Driver(void) {
 					// number of attempts to send data
 					repCnt = 1;
 					// reading from buffer COM of TR module
-					spiIqBusy = spi->masterStatuses::READ;
+					spi->setMasterStatus(spi->masterStatuses::READ);
 					// current SPI status must be updated
 					spi->setStatus(spi->statuses::DATA_TRANSFER);
 				}
 				// if TR module ready and no data in module pending
-				if (!spiIqBusy) {
+				if (!spi->getMasterStatus()) {
 					// check if packet to send ready
 					if (packetBufferInPtr != packetBufferOutPtr) {
-						memset(spiTxBuffer, 0, sizeof (spiTxBuffer));
+						memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
 						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
 						PTYPE = (dataLength | 0x80);
@@ -220,7 +219,7 @@ void IQRF_Driver(void) {
 						// number of attempts to send data
 						repCnt = 3;
 						// writing to buffer COM of TR module
-						spiIqBusy = spi->masterStatuses::WRITE;
+						spi->setMasterStatus(spi->masterStatuses::WRITE);
 						if (iqrfPacketBuffer[packetBufferOutPtr].unallocationFlag) {
 							// unallocate temporary TX data buffer
 							free(iqrfPacketBuffer[packetBufferOutPtr].dataBuffer);
@@ -264,7 +263,7 @@ void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize) {
 /**
  * Read Module Info from TR module, uses SPI master implementation
  */
-void trInfoTask(void) {
+void trInfoTask() {
 	static uint8_t dataToModule[16];
 	static uint8_t attempts;
 	static unsigned long timeoutMilli;
@@ -305,13 +304,15 @@ void trInfoTask(void) {
 			trInfoTaskStatus = SEND_REQUEST;
 			break;
 		case SEND_REQUEST:
-			if (spi->getStatus() == spi->statuses::COMMUNICATION_MODE && spiIqBusy == 0) {
+			if (spi->getStatus() == spi->statuses::COMMUNICATION_MODE &&
+				spi->getMasterStatus() == spi->masterStatuses::FREE) {
 				TR_SendSpiPacket(spi->commands::MODULE_INFO, &dataToModule[0], 16, 0);
 				// initialize timeout timer
 				timeoutMilli = millis();
 				trInfoTaskStatus = WAIT_INFO;
 			} else {
-				if (spi->getStatus() == spi->statuses::PROGRAMMING_MODE && spiIqBusy == 0) {
+				if (spi->getStatus() == spi->statuses::PROGRAMMING_MODE &&
+					spi->getMasterStatus() == spi->masterStatuses::FREE) {
 					TR_SendSpiPacket(spi->commands::MODULE_INFO, &dataToModule[0], 1, 0);
 					// initialize timeout timer
 					timeoutMilli = millis();
@@ -344,7 +345,8 @@ void trInfoTask(void) {
 			// the task is finished
 		case DONE:
 			// if no packet is pending to send to TR module
-			if (packetBufferInPtr == packetBufferOutPtr && spiIqBusy == 0) {
+			if (packetBufferInPtr == packetBufferOutPtr &&
+				spi->getMasterStatus() == spi->masterStatuses::FREE) {
 				trInfoReading = 0;
 			}
 			break;
@@ -363,7 +365,7 @@ void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult) {
 /**
  * Process identification data packet from TR module
  */
-void TR_process_id_packet_pgm(void) {
+void TR_process_id_packet_pgm() {
 	memcpy((uint8_t *) & trInfoStruct.moduleInfoRawData, (uint8_t *) & spiRxBuffer[2], 8);
 	trInfoStruct.moduleId = (uint32_t) spiRxBuffer[2] << 24 | (uint32_t) spiRxBuffer[3] << 16 | (uint32_t) spiRxBuffer[4] << 8 | spiRxBuffer[5];
 	trInfoStruct.osVersion = (uint16_t) (spiRxBuffer[6] / 16) << 8 | (spiRxBuffer[6] % 16);
@@ -387,7 +389,7 @@ void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult) {
 /**
  * Function called after TR module identification request were sent
  */
-void TR_dummy_func_com(void) {
+void TR_dummy_func_com() {
 	__asm__("nop\n\t");
 }
 

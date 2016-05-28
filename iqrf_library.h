@@ -86,7 +86,6 @@ typedef struct {
 } IQRF_PACKET_BUFFER;
 
 extern uint8_t dataLength;
-extern uint8_t spiIqBusy;
 extern TR_INFO_STRUCT trInfoStruct;
 
 void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn);

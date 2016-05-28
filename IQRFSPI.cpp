@@ -75,6 +75,18 @@ bool IQRFSPI::isMasterEnabled() {
 }
 
 /**
+ * Get Master status
+ * @return Master status
+ */
+uint8_t IQRFSPI::getMasterStatus() {
+	return this->masterStatus;
+}
+
+void IQRFSPI::setMasterStatus(uint8_t status) {
+	this->masterStatus = status;
+}
+
+/**
  * Enable Fast SPI
  */
 void IQRFSPI::enableFastSpi() {

@@ -38,6 +38,8 @@ public:
 	void enableMaster();
 	void disableMaster();
 	bool isMasterEnabled();
+	uint8_t getMasterStatus();
+	void setMasterStatus(uint8_t status);
 	void enableFastSpi();
 	void disableFastSpi();
 	bool isFastSpiEnabled();
@@ -85,8 +87,10 @@ public:
 		PLUGIN_PGM = 0xF9 //!< Master writes plugin data to flash in programming mode
 	};
 private:
-	/// SPI master status
+	/// SPI master status (ON/OFF)
 	bool master;
+	/// SPI master status
+	uint8_t masterStatus;
 	/// SPI status
 	uint8_t status;
 	/// Fast SPI
