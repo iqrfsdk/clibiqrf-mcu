@@ -78,9 +78,9 @@ typedef struct {
  * Item of SPI TX packet buffer
  */
 typedef struct {
-	uint8_t pktId; //!< Packet ID
+	uint8_t packetId; //!< Packet ID
 	uint8_t spiCmd; //!< SPI command
-	uint8_t *pDataBuffer; //!< Pointer to data buffrt
+	uint8_t *dataBuffer; //!< Pointer to data buffrt
 	uint8_t dataLength; //!< Data lenght
 	uint8_t unallocationFlag; //!< Unallocation flag
 } IQRF_PACKET_BUFFER;

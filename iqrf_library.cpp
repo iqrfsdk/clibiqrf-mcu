@@ -208,13 +208,13 @@ void IQRF_Driver(void) {
 							PTYPE = 0x10;
 						}
 						spiTxBuffer[1] = PTYPE;
-						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].pDataBuffer, dataLength);
+						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
 						spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packetLength = dataLength + 4;
 						// set actual TX packet ID
-						txPacketId = iqrfPacketBuffer[packetBufferOutPtr].pktId;
+						txPacketId = iqrfPacketBuffer[packetBufferOutPtr].packetId;
 						// counter of sent bytes
 						tmpCnt = 0;
 						// number of attempts to send data
@@ -223,7 +223,7 @@ void IQRF_Driver(void) {
 						spiIqBusy = spi->masterStatuses::WRITE;
 						if (iqrfPacketBuffer[packetBufferOutPtr].unallocationFlag) {
 							// unallocate temporary TX data buffer
-							free(iqrfPacketBuffer[packetBufferOutPtr].pDataBuffer);
+							free(iqrfPacketBuffer[packetBufferOutPtr].dataBuffer);
 						}
 						if (++packetBufferOutPtr >= PACKET_BUFFER_SIZE) {
 							packetBufferOutPtr = 0;
@@ -410,9 +410,9 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if ((++txPacketIdCounter) == 0) {
 		txPacketIdCounter++;
 	}
-	iqrfPacketBuffer[packetBufferInPtr].pktId = txPacketIdCounter;
+	iqrfPacketBuffer[packetBufferInPtr].packetId = txPacketIdCounter;
 	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
-	iqrfPacketBuffer[packetBufferInPtr].pDataBuffer = pDataBuffer;
+	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = pDataBuffer;
 	iqrfPacketBuffer[packetBufferInPtr].dataLength = dataLength;
 	iqrfPacketBuffer[packetBufferInPtr].unallocationFlag = unallocationFlag;
 	if (++packetBufferInPtr >= PACKET_BUFFER_SIZE) {
