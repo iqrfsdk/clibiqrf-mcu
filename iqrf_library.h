@@ -25,7 +25,6 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include <MsTimer2.h>
 
 //uint8(16, 32)_t and NULL defines
 #include <stddef.h>
@@ -39,31 +38,6 @@
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
 #include "IQRFTR.h"
-
-/**
- * TR module types
- */
-enum trTypes {
-	TR_52D = 0, //!< TR module IQRF TR-52D
-	TR_58D_RJ = 1, //!< TR module IQRF TR-85D-RJ
-	TR_72D = 2, //!< TR module IQRF TR-72D
-	TR_53D = 3, //!< TR module IQRF TR-53D
-	TR_54D = 8, //!< TR module IQRF TR-54D
-	TR_55D = 9, //!< TR module IQRF TR-55D
-	TR_56D = 10, //!< TR module IQRF TR-56D
-	TR_76D = 11 //!< TR module IQRF TR-76D
-};
-
-/**
- * TR MCU types
- */
-enum trMcuTypes {
-	UNKNOWN = 0, //!< MCU used in uknown module
-	PIC16LF819 = 1, //!< MCU used in TR-xxx-11A not supported
-	PIC16LF88 = 2, //!< MCU used in TR-xxx-21A
-	PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
-	PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
-};
 
 /**
  * Tx packet statuses
