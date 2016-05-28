@@ -15,7 +15,8 @@
  */
 
 // For IQRF
-#include "iqrf_library.h"
+#include <iqrf_library.h>
+#include <MsTimer2.h>
 
 // 5000@1ms = 5s 
 #define USER_TIMER_PERIOD 5000
@@ -41,10 +42,14 @@ app_vars_t app_vars;
 const uint8_t testBuffer[64] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64};
 const uint8_t ledPin = 13;
 
+// INSTANCES
+// IQRFTR instance
+IQRFTR* iqrfTr = new IQRFTR;
+
 /**
  * Init peripherals
  */
-void setup(void) {
+void setup() {
   // User LED
   pinMode(ledPin, OUTPUT);
   // Up - PC
@@ -53,10 +58,10 @@ void setup(void) {
   IQRF_Init(MyIqrfRxHandler, MyIqrfTxHandler);
   // Info - TR
   switch (IQRF_GetModuleType()) {
-    case trTypes::TR_52D:
+    case iqrfTr->types::TR_52D:
       Serial.println("Module type: TR-52D");
       break;
-    case trTypes::TR_72D:
+    case iqrfTr->types::TR_72D:
       Serial.println("Module type: TR-72D");
       break;
     default:
@@ -75,7 +80,7 @@ void setup(void) {
 /**
  * Main loop
  */
-void loop(void) {
+void loop() {
   // TR module SPI comunication driver
   IQRF_Driver();
   // Test send data every 5s
@@ -95,7 +100,7 @@ void loop(void) {
 /**
  * 1ms timer callback
  */
-void cb_timer1ms(void) {
+void cb_timer1ms() {
   // app timer, call handler
   if (app_vars.appTimer) {
     if ((--app_vars.appTimer) == 0) {
@@ -108,14 +113,14 @@ void cb_timer1ms(void) {
 /**
  * User timer handler
  */
-void AppTimerHandler(void) {
+void AppTimerHandler() {
   app_vars.appTimerAck = true;
 }
 
 /**
  * IQRF RX callback
  */
-void MyIqrfRxHandler(void) {
+void MyIqrfRxHandler() {
   // Read and print received data
   IQRF_GetRxData(app_vars.myIqrfRxBuf, IQRF_GetRxDataSize());
   Serial.print("IQRF receive done: ");
