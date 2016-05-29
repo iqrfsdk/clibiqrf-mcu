@@ -145,8 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1b205bccbbc9bf3e24a9237d7936470b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99898db4b4ff9e627a2dd3c4d92b5ee0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a99898db4b4ff9e627a2dd3c4d92b5ee0">getMasterStatus</a> ()</td></tr>
 <tr class="separator:a99898db4b4ff9e627a2dd3c4d92b5ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f34c3bff9015444cb1f53db12df3a6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f34c3bff9015444cb1f53db12df3a6e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMasterStatus</b> (uint8_t status)</td></tr>
+<tr class="memitem:a7f34c3bff9015444cb1f53db12df3a6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e">setMasterStatus</a> (uint8_t status)</td></tr>
 <tr class="separator:a7f34c3bff9015444cb1f53db12df3a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a2d1ee4d4a95008bc6524931b328835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a2a2d1ee4d4a95008bc6524931b328835">enableFastSpi</a> ()</td></tr>
 <tr class="separator:a2a2d1ee4d4a95008bc6524931b328835"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -417,15 +416,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMasterStatus</b> (
 <tr>
 <td>0xFF </td><td>NO_MODULE </td><td>SPI not working (HW error) </td></tr>
 <tr>
-<td>0xFE </td><td>SPI_BUSY </td><td>SPI busy in Master disabled mode </td></tr>
+<td>0xFE </td><td>BUSY </td><td>SPI busy in Master disabled mode </td></tr>
 <tr>
-<td>0xFD </td><td>SPI_DATA_TRANSFER </td><td>SPI data transfer in progress </td></tr>
+<td>0xFD </td><td>DATA_TRANSFER </td><td>SPI data transfer in progress </td></tr>
 <tr>
-<td>0x00 </td><td>SPI_DISABLED </td><td>SPI not working (disabled) </td></tr>
+<td>0x00 </td><td>DISABLED </td><td>SPI not working (disabled) </td></tr>
 <tr>
-<td>0x3F </td><td>SPI_CRCM_OK </td><td>SPI not ready (full buffer, last CRCM ok) </td></tr>
+<td>0x3F </td><td>CRCM_OK </td><td>SPI not ready (full buffer, last CRCM ok) </td></tr>
 <tr>
-<td>0x3E </td><td>SPI_CRCM_ERR </td><td>SPI not ready (full buffer, last CRCM error) </td></tr>
+<td>0x3E </td><td>CRCM_ERR </td><td>SPI not ready (full buffer, last CRCM error) </td></tr>
 <tr>
 <td>0xFF </td><td>COMMUNICATION_MODE </td><td>SPI ready (communication mode) </td></tr>
 <tr>
@@ -433,9 +432,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMasterStatus</b> (
 <tr>
 <td>0x82 </td><td>DEBUG_MODE </td><td>SPI ready (debugging mode) </td></tr>
 <tr>
-<td>0x83 </td><td>SPI_SLOW_MODE </td><td>SPI not working in background </td></tr>
+<td>0x83 </td><td>SLOW_MODE </td><td>SPI not working in background </td></tr>
 <tr>
-<td>0x07 </td><td>SPI_USER_STOP </td><td>SPI state after stopSPI(); </td></tr>
+<td>0x07 </td><td>USER_STOP </td><td>SPI state after stopSPI(); </td></tr>
 </table>
 </dd></dl>
 
@@ -498,6 +497,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMasterStatus</b> (
 
 </div>
 </div>
+<a class="anchor" id="a7f34c3bff9015444cb1f53db12df3a6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFSPI::setMasterStatus </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set master status </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">status</td><td>Master status </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a5e9f5113a9122fd1415bf145092bbf3a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -528,7 +550,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setMasterStatus</b> (
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 28 2016 16:53:58 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 29 2016 14:17:47 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

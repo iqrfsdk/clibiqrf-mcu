@@ -146,14 +146,14 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ace88f39aa1df461b66793d731f128959"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace88f39aa1df461b66793d731f128959"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a> )(void)</td></tr>
-<tr class="memdesc:ace88f39aa1df461b66793d731f128959"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI RX data callback function type. <br/></td></tr>
-<tr class="separator:ace88f39aa1df461b66793d731f128959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab1741b83349d01ccc68b6038274443"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab1741b83349d01ccc68b6038274443"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
-<tr class="memdesc:acab1741b83349d01ccc68b6038274443"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
-<tr class="separator:acab1741b83349d01ccc68b6038274443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82344f187d3567e7e2bb45610c065e1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82344f187d3567e7e2bb45610c065e1a"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a> )(void)</td></tr>
+<tr class="memdesc:a82344f187d3567e7e2bb45610c065e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI RX data callback function type. <br/></td></tr>
+<tr class="separator:a82344f187d3567e7e2bb45610c065e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c622d11f86609ee5ffc65eb420b9ca9"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
+<tr class="memdesc:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
+<tr class="separator:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -168,8 +168,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a72d87e503750a7188a4e60be7eec8849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a72d87e503750a7188a4e60be7eec8849">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a> tx_call_back_fn)</td></tr>
-<tr class="separator:a72d87e503750a7188a4e60be7eec8849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c079f43c2b59dadcd89f3797904360d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0c079f43c2b59dadcd89f3797904360d">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a> tx_call_back_fn)</td></tr>
+<tr class="separator:a0c079f43c2b59dadcd89f3797904360d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef52706e48dbfcb45deb7790099aa316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316">IQRF_Driver</a> (void)</td></tr>
 <tr class="separator:aef52706e48dbfcb45deb7790099aa316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adebe2bdc8b760bee0a2b7f2b6f2db824"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824">IQRF_SendData</a> (uint8_t *pDataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
@@ -453,20 +453,20 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a72d87e503750a7188a4e60be7eec8849"></a>
+<a class="anchor" id="a0c079f43c2b59dadcd89f3797904360d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void IQRF_Init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#ace88f39aa1df461b66793d731f128959">IQRF_RX_CALLBACK</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a>&#160;</td>
           <td class="paramname"><em>rx_call_back_fn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#acab1741b83349d01ccc68b6038274443">IQRF_TX_CALLBACK</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a>&#160;</td>
           <td class="paramname"><em>tx_call_back_fn</em>&#160;</td>
         </tr>
         <tr>
@@ -581,7 +581,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 28 2016 16:53:58 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 29 2016 14:17:47 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

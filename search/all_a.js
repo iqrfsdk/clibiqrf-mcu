@@ -11,5 +11,6 @@ var searchData=
   ['pic16lf88',['PIC16LF88',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a4eb38567bd76d0e15e3cc2ca60ff4bb8',1,'IQRFTR']]],
   ['plugin_5fpgm',['PLUGIN_PGM',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465ad2544b451aa5b8e800831d3d83f9fb61',1,'IQRFSPI']]],
   ['prog_5fmode',['PROG_MODE',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846ac294cb6e29385c500105893730dbc885',1,'IQRFTR']]],
-  ['programming_5fmode',['PROGRAMMING_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a3d8b73d542081b5132c2ccbeb61da56f',1,'IQRFSPI']]]
+  ['programming_5fmode',['PROGRAMMING_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a3d8b73d542081b5132c2ccbeb61da56f',1,'IQRFSPI']]],
+  ['ptype',['PTYPE',['../iqrf__library_8cpp.html#a56c0197185943024e0f89f0a647d1024',1,'iqrf_library.cpp']]]
 ];
