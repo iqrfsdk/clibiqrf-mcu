@@ -28,16 +28,16 @@
  * Status code |   Status message   |                Description                 
  *  ---------- | ------------------ | --------------------------------------------
  *     0xFF    |     NO_MODULE      | SPI not working (HW error)
- *     0xFE    |      SPI_BUSY      | SPI busy in Master disabled mode
- *     0xFD    |  SPI_DATA_TRANSFER | SPI data transfer in progress
- *     0x00    |    SPI_DISABLED    | SPI not working (disabled)
- *     0x3F    |    SPI_CRCM_OK     | SPI not ready (full buffer, last CRCM ok)
- *     0x3E    |    SPI_CRCM_ERR    | SPI not ready (full buffer, last CRCM error)
+ *     0xFE    |        BUSY        | SPI busy in Master disabled mode
+ *     0xFD    |    DATA_TRANSFER   | SPI data transfer in progress
+ *     0x00    |      DISABLED      | SPI not working (disabled)
+ *     0x3F    |      CRCM_OK       | SPI not ready (full buffer, last CRCM ok)
+ *     0x3E    |      CRCM_ERR      | SPI not ready (full buffer, last CRCM error)
  *     0xFF    | COMMUNICATION_MODE | SPI ready (communication mode)
  *     0x81    |  PROGRAMMING_MODE  | SPI ready (programming mode)
  *     0x82    |     DEBUG_MODE     | SPI ready (debugging mode)
- *     0x83    |    SPI_SLOW_MODE   | SPI not working in background
- *     0x07    |    SPI_USER_STOP   | SPI state after stopSPI();
+ *     0x83    |      SLOW_MODE     | SPI not working in background
+ *     0x07    |      USER_STOP     | SPI state after stopSPI();
  */
 uint8_t IQRFSPI::getStatus() {
 	return this->status;
@@ -82,6 +82,10 @@ uint8_t IQRFSPI::getMasterStatus() {
 	return this->masterStatus;
 }
 
+/**
+ * Set master status
+ * @param status Master status
+ */
 void IQRFSPI::setMasterStatus(uint8_t status) {
 	this->masterStatus = status;
 }

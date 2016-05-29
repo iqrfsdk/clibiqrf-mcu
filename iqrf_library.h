@@ -56,10 +56,10 @@ enum fccStatuses {
 };
 
 /// SPI RX data callback function type
-typedef void (*IQRF_RX_CALLBACK)(void);
+typedef void (*RX_CALLBACK)(void);
 
 /// SPI TX data callback function type
-typedef void (*IQRF_TX_CALLBACK)(uint8_t pktId, uint8_t pktResult);
+typedef void (*TX_CALLBACK)(uint8_t pktId, uint8_t pktResult);
 
 /**
  * TR module info structure
@@ -88,7 +88,7 @@ typedef struct {
 extern uint8_t dataLength;
 extern TR_INFO_STRUCT trInfoStruct;
 
-void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn);
+void IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn);
 void IQRF_Driver(void);
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);

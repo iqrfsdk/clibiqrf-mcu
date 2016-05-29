@@ -25,7 +25,7 @@
  * Calculate CRC before master's send
  * @param buffer SPI Tx buffer
  * @param dataLength Data length
- * @return boolean
+ * @return CRC
  */
 uint8_t IQRFCRC::calculate(uint8_t *buffer, uint8_t dataLength) {
 	uint8_t crc = 0x5F;
@@ -40,7 +40,7 @@ uint8_t IQRFCRC::calculate(uint8_t *buffer, uint8_t dataLength) {
  * @param buffer SPI Rx buffer
  * @param dataLength Data length
  * @param type Type
- * @return CRC
+ * @return boolean
  */
 bool IQRFCRC::check(uint8_t *buffer, uint8_t dataLength, uint8_t type) {
 	uint8_t crc = 0x5F ^ type;

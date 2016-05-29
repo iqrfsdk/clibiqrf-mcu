@@ -38,6 +38,7 @@ void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult);
 uint8_t spiTxBuffer[IQ_PKT_SIZE];
 /// SPI Rx buffer
 uint8_t spiRxBuffer[IQ_PKT_SIZE];
+/// Packet type?
 uint8_t PTYPE;
 /// Number of attempts to send data
 uint8_t repCnt;
@@ -45,6 +46,7 @@ uint8_t repCnt;
 uint8_t tmpCnt;
 /// Packet length
 uint8_t packetLength;
+/// Info reading status
 uint8_t trInfoReading;
 /// Data length
 uint8_t dataLength;
@@ -65,9 +67,9 @@ uint16_t packetBufferInPtr;
 /// Packet output buffer
 uint16_t packetBufferOutPtr;
 /// IQRF Rx callback
-IQRF_RX_CALLBACK rxCallback;
+RX_CALLBACK rxCallback;
 /// IQRF Tx callback
-IQRF_TX_CALLBACK txCallback;
+TX_CALLBACK txCallback;
 /// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
@@ -84,7 +86,7 @@ IQRFTR* tr = new IQRFTR;
  * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-void IQRF_Init(IQRF_RX_CALLBACK rx_call_back_fn, IQRF_TX_CALLBACK tx_call_back_fn) {
+void IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	iqrfCheckMicros = 0;
@@ -175,7 +177,7 @@ void IQRF_Driver() {
 					if (spi->getStatus() == 0x40) {
 						dataLength = 64;
 					} else {
-						// clear bit 7,6 - rest is length (1 az 63B)
+						// clear bit 7,6 - rest is length (from 1 to 63B)
 						dataLength = spi->getStatus() & 0x3F;
 					}
 					PTYPE = dataLength;
