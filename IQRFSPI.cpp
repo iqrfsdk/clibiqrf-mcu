@@ -151,8 +151,8 @@ uint8_t IQRFSPI::byte(uint8_t txByte) {
  * Get Rx buffer
  * @return Rx data
  */
-uint8_t IQRFSPI::getRxBuffer() {
-	return this->rxBuffer;
+uint8_t* IQRFSPI::getRxBuffer() {
+	return (uint8_t *) this->rxBuffer;
 }
 
 /**
@@ -178,8 +178,8 @@ void IQRFSPI::setRxData(uint8_t position, uint8_t data) {
  * Get Tx buffer
  * @return Tx buffer
  */
-uint8_t IQRFSPI::getTxBuffer() {
-	return this->txBuffer;
+uint8_t* IQRFSPI::getTxBuffer() {
+	return (uint8_t *) this->txBuffer;
 }
 
 /**

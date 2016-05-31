@@ -28,7 +28,8 @@
 void trInfoTask();
 void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult);
 void TR_process_id_packet_pgm();
-void doNothing(uint8_t pktId, uint8_t pktResult);
+void doNothingRx();
+void doNothingTx(uint8_t pktId, uint8_t pktResult);
 
 /*
  * Public variable declarations
@@ -177,7 +178,7 @@ void IQRF_Driver() {
 					spi->setTxData(0, spi->commands::WR_RD);
 					spi->setTxData(1, PTYPE);
 					// CRC
-					spi->setTxData(dataLength + 2, crc->calculate(spi->getTxBuffer(), dataLength))
+					spi->setTxData(dataLength + 2, crc->calculate(spi->getTxBuffer(), dataLength));
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
 					packetLength = dataLength + 4;
 					// counter of sent bytes
@@ -202,7 +203,7 @@ void IQRF_Driver() {
 							PTYPE = 0x10;
 						}
 						spi->setTxData(1, PTYPE);
-						memcpy(&spi->getTxData(2), packetBuffer[packetBufferOutPtr].dataBuffer, dataLength);
+						memcpy(&spi->getTxBuffer()[2], packetBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
 						spi->setTxData(dataLength + 2, crc->calculate(spi->getTxBuffer(), dataLength));
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
@@ -252,7 +253,7 @@ uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unalloca
  * @param rxDataSize Number of bytes I want to read
  */
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize) {
-	memcpy(userDataBuffer, &spi->getRxData(2), rxDataSize);
+	memcpy(userDataBuffer, &spi->getRxBuffer()[2], rxDataSize);
 }
 
 /**
@@ -278,7 +279,7 @@ void trInfoTask() {
 			// try to read idf in com mode
 			idfMode = 0;
 			// set call back function to process id data
-			rxCallback = doNothing;
+			rxCallback = doNothingRx;
 			// set call back function after data were sent
 			txCallback = TR_process_id_packet_com;
 			tr->setMcuType(tr->mcuTypes::UNKNOWN);
@@ -294,7 +295,7 @@ void trInfoTask() {
 			// set call back function to process id data
 			rxCallback = TR_process_id_packet_pgm;
 			// set call back function after data were sent
-			txCallback = doNothing;
+			txCallback = doNothingTx;
 			timeoutMilli = millis();
 			trInfoTaskStatus = SEND_REQUEST;
 			break;
@@ -368,10 +369,17 @@ void TR_process_id_packet_pgm() {
 
 /**
  * Function called after TR module identification request were sent
+ */
+void doNothingRx() {
+	__asm__("nop\n\t");
+}
+
+/**
+ * Function called after TR module identification request were sent
  * @param pktId Packet ID
  * @param pktResult Operation result
  */
-void doNothing(uint8_t pktId = 0, uint8_t pktResult = 0) {
+void doNothingTx(uint8_t pktId = 0, uint8_t pktResult = 0) {
 	__asm__("nop\n\t");
 }
 

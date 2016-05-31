@@ -164,14 +164,14 @@ void IQRFTR::controlTask() {
 
 void IQRFTR::identify() {
 	memcpy((uint8_t *) & this->infoData.rawData, (uint8_t *) & spi->getRxBuffer()[2], 8);
-	this->infoData.fcc = (spi->getRxBuffer()[7] & 0x08) >> 3;
-	this->infoData.mcuType = spi->getRxBuffer()[7] & 0x07;
-	this->infoData.moduleId = (uint32_t) spi->getRxBuffer()[2] << 24 |
-		(uint32_t) spi->getRxBuffer()[3] << 16 |
-		(uint32_t) spi->getRxBuffer()[4] << 8 | spi->getRxBuffer()[5];
-	this->infoData.moduleType = spi->getRxBuffer()[7] >> 4;
-	this->infoData.osBuild = (uint16_t) spi->getRxBuffer()[9] << 8 | spi->getRxBuffer()[8];
-	this->infoData.osVersion = (uint16_t) (spi->getRxBuffer()[6] / 16) << 8 | (spi->getRxBuffer()[6] % 16);
+	this->infoData.fcc = (spi->getRxData(7) & 0x08) >> 3;
+	this->infoData.mcuType = spi->getRxData(7) & 0x07;
+	this->infoData.moduleId = (uint32_t) spi->getRxData(2) << 24 |
+		(uint32_t) spi->getRxData(3) << 16 |
+		(uint32_t) spi->getRxData(4) << 8 | spi->getRxData(5);
+	this->infoData.moduleType = spi->getRxData(7) >> 4;
+	this->infoData.osBuild = (uint16_t) spi->getRxData(9) << 8 | spi->getRxData(8);
+	this->infoData.osVersion = (uint16_t) (spi->getRxData(6) / 16) << 8 | (spi->getRxData(6) % 16);
 
 }
 
@@ -222,7 +222,6 @@ uint16_t IQRFTR::getMcuType() {
 void IQRFTR::setMcuType(uint16_t type) {
 	this->infoData.mcuType = type;
 }
-
 
 /**
  * Get FCC certification status
