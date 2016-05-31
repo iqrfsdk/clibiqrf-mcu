@@ -161,3 +161,82 @@ void IQRFTR::controlTask() {
 			break;
 	}
 }
+
+void IQRFTR::identify() {
+	memcpy((uint8_t *) & this->infoData.rawData, (uint8_t *) & spi->getRxBuffer()[2], 8);
+	this->infoData.fcc = (spi->getRxBuffer()[7] & 0x08) >> 3;
+	this->infoData.mcuType = spi->getRxBuffer()[7] & 0x07;
+	this->infoData.moduleId = (uint32_t) spi->getRxBuffer()[2] << 24 |
+		(uint32_t) spi->getRxBuffer()[3] << 16 |
+		(uint32_t) spi->getRxBuffer()[4] << 8 | spi->getRxBuffer()[5];
+	this->infoData.moduleType = spi->getRxBuffer()[7] >> 4;
+	this->infoData.osBuild = (uint16_t) spi->getRxBuffer()[9] << 8 | spi->getRxBuffer()[8];
+	this->infoData.osVersion = (uint16_t) (spi->getRxBuffer()[6] / 16) << 8 | (spi->getRxBuffer()[6] % 16);
+
+}
+
+/**
+ * Get TR OS version
+ * @return TR OS version
+ */
+uint16_t IQRFTR::getOsVersion() {
+	return this->infoData.osVersion;
+}
+
+/**
+ * Get TR OS build
+ * @return TR OS build
+ */
+uint16_t IQRFTR::getOsBuild() {
+	return this->infoData.osBuild;
+}
+
+/**
+ * Get TR module ID
+ * @return TR module ID
+ */
+uint32_t IQRFTR::getModuleId() {
+	return this->infoData.moduleId;
+}
+
+/**
+ * Get TR module type
+ * @return TR module type
+ */
+uint16_t IQRFTR::getModuleType() {
+	return this->infoData.moduleType;
+}
+
+/**
+ * Get TR MCU type
+ * @return TR MCU type
+ */
+uint16_t IQRFTR::getMcuType() {
+	return this->infoData.mcuType;
+}
+
+/**
+ * Set TR MCU type
+ * @param type set TR MCU type
+ */
+void IQRFTR::setMcuType(uint16_t type) {
+	this->infoData.mcuType = type;
+}
+
+
+/**
+ * Get FCC certification status
+ * @return FCC certification status
+ */
+uint16_t IQRFTR::getFccStatus() {
+	return this->infoData.fcc;
+}
+
+/**
+ * Get raw info data about TR module
+ * @param position Position in info raw buffer
+ * @return Data byte from info raw buffer
+ */
+uint8_t IQRFTR::getInfoRawData(uint8_t position) {
+	return this->infoData.rawData[position];
+}

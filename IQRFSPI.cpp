@@ -146,3 +146,56 @@ uint8_t IQRFSPI::byte(uint8_t txByte) {
 	digitalWrite(TR_SS_IO, HIGH);
 	return rxByte;
 }
+
+/**
+ * Get Rx buffer
+ * @return Rx data
+ */
+uint8_t IQRFSPI::getRxBuffer() {
+	return this->rxBuffer;
+}
+
+/**
+ * Get data from Rx buffer
+ * @param position Position in buffer
+ * @return Rx data
+ */
+uint8_t IQRFSPI::getRxData(uint8_t position) {
+	return this->rxBuffer[position];
+}
+
+/**
+ * Set data to Rx buffer
+ * @param position Position in Rx buffer
+ * @param data Data in Rx buffer
+ */
+void IQRFSPI::setRxData(uint8_t position, uint8_t data) {
+	this->rxBuffer[position] = data;
+}
+
+
+/**
+ * Get Tx buffer
+ * @return Tx buffer
+ */
+uint8_t IQRFSPI::getTxBuffer() {
+	return this->txBuffer;
+}
+
+/**
+ * Get data from Tx buffer
+ * @param position Position in buffer
+ * @return Tx data
+ */
+uint8_t IQRFSPI::getTxData(uint8_t position) {
+	return this->txBuffer[position];
+}
+
+/**
+ * Set data to Tx buffer
+ * @param position Position in Rx buffer
+ * @param data Data in Tx buffer
+ */
+void IQRFSPI::setTxData(uint8_t position, uint8_t data) {
+	this->txBuffer[position] = data;
+}

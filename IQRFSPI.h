@@ -46,6 +46,12 @@ public:
 	unsigned long getBytePause();
 	void setBytePause(unsigned long time);
 	uint8_t byte(uint8_t txByte);
+	uint8_t getTxBuffer();
+	uint8_t getTxData(uint8_t position);
+	void setTxData(uint8_t position, uint8_t data);
+	uint8_t getRxBuffer();
+	uint8_t getRxData(uint8_t position);
+	void setRxData(uint8_t position, uint8_t data);
 
 	/**
 	 * SPI status of TR module (see IQRF SPI user manual)
@@ -97,6 +103,10 @@ private:
 	bool fastSpi;
 	/// SPI byte to byte pause in us
 	unsigned long bytePause;
+	/// Tx buffer
+	uint8_t txBuffer[PACKET_SIZE];
+	/// Rx buffer
+	uint8_t rxBuffer[PACKET_SIZE];
 };
 
 #endif

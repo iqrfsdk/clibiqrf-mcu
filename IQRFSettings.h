@@ -23,7 +23,7 @@
 #ifndef IQRFSettings_H
 #define IQRFSettings_H
 
-#define IQ_PKT_SIZE        68     //!< Size of SPI TX and RX buffer
+#define PACKET_SIZE        68     //!< Size of SPI TX and RX buffer
 #define PACKET_BUFFER_SIZE 32     //!< Size of SPI TX packet buffer
 #define IQRF_SPI_CLK       250000 //!< SPI clock 250kHz
 

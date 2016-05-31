@@ -44,6 +44,16 @@ public:
 	void disableProgramFlag();
 	bool getProgramFlag();
 	void controlTask();
+	void infoTask();
+	void identify();
+	uint16_t getOsVersion();
+	uint16_t getOsBuild();
+	uint32_t getModuleId();
+	uint16_t getModuleType();
+	uint16_t getMcuType();
+	void setMcuType(uint16_t type);
+	uint16_t getFccStatus();
+	uint8_t getInfoRawData(uint8_t position);
 
 	/**
 	 * TR control statuses
@@ -79,9 +89,34 @@ public:
 		PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
 		PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
 	};
+
+	/**
+	 * FCC (Federal Communications Commission) certification statuses
+	 */
+	enum fccStatuses {
+		NOT_CERTIFIED = 0, //!< Not certified fy FCC
+		CERTIFIED = 1 //!< Certified by FCC
+	};
+
+	/**
+	 * TR module info structure
+	 */
+	typedef struct {
+		uint16_t osVersion; //!< OS version
+		uint16_t osBuild; //!< OS build
+		uint32_t moduleId; //!< Module ID
+		uint16_t mcuType; //!< MCU tyle
+		uint16_t moduleType; //!< Module type
+		uint16_t fcc; //!< FCC
+		uint8_t rawData[8]; //!< Raw data
+	} infoStruct;
 private:
+	/// TR control status
 	uint8_t controlStatus;
+	/// TR programming flag
 	bool programFlag;
+	/// TR info data
+	infoStruct infoData;
 	IQRFSPI* spi = new IQRFSPI;
 };
 
