@@ -122,27 +122,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIQRF__PACKET__BUFFER.html">IQRF_PACKET_BUFFER</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPACKET__BUFFER.html">PACKET_BUFFER</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a887243256981d63873925e690a7a33af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">IQRF_GetRxDataSize</a>()&#160;&#160;&#160;<a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a></td></tr>
 <tr class="separator:a887243256981d63873925e690a7a33af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f317f99a0962ddb6f14ef78881a1950"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0f317f99a0962ddb6f14ef78881a1950">IQRF_GetOsVersion</a>()&#160;&#160;&#160;trInfoStruct.osVersion</td></tr>
-<tr class="separator:a0f317f99a0962ddb6f14ef78881a1950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bcbd024fc9dfc0206f1975093aa93e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a8bcbd024fc9dfc0206f1975093aa93e7">IQRF_GetOsBuild</a>()&#160;&#160;&#160;trInfoStruct.osBuild</td></tr>
-<tr class="separator:a8bcbd024fc9dfc0206f1975093aa93e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8bab73b1e236f3c11f5b58feaa986a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ae8bab73b1e236f3c11f5b58feaa986a8">IQRF_GetModuleId</a>()&#160;&#160;&#160;trInfoStruct.moduleId</td></tr>
-<tr class="separator:ae8bab73b1e236f3c11f5b58feaa986a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693dfec78d1816b32ddca594d70f108a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a693dfec78d1816b32ddca594d70f108a">IQRF_GetMcuType</a>()&#160;&#160;&#160;trInfoStruct.mcuType</td></tr>
-<tr class="separator:a693dfec78d1816b32ddca594d70f108a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7b3d0f423d662bc412e440e6b823e47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">IQRF_GetModuleType</a>()&#160;&#160;&#160;trInfoStruct.moduleType</td></tr>
-<tr class="separator:aa7b3d0f423d662bc412e440e6b823e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a297417602e929b0c0ee034dcb6a7b18c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c">IQRF_GetModuleInfoRawData</a>(position)&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[position]</td></tr>
-<tr class="separator:a297417602e929b0c0ee034dcb6a7b18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -150,10 +136,10 @@ Typedefs</h2></td></tr>
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a> )(void)</td></tr>
 <tr class="memdesc:a82344f187d3567e7e2bb45610c065e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI RX data callback function type. <br/></td></tr>
 <tr class="separator:a82344f187d3567e7e2bb45610c065e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c622d11f86609ee5ffc65eb420b9ca9"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a> )(uint8_t pktId, uint8_t pktResult)</td></tr>
-<tr class="memdesc:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
-<tr class="separator:a2c622d11f86609ee5ffc65eb420b9ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc7a78f7b3db8ccd7f7fe540f09cd2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cc7a78f7b3db8ccd7f7fe540f09cd2d"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a3cc7a78f7b3db8ccd7f7fe540f09cd2d">TX_CALLBACK</a> )(uint8_t packetId, uint8_t packetResult)</td></tr>
+<tr class="memdesc:a3cc7a78f7b3db8ccd7f7fe540f09cd2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI TX data callback function type. <br/></td></tr>
+<tr class="separator:a3cc7a78f7b3db8ccd7f7fe540f09cd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -161,23 +147,19 @@ Enumerations</h2></td></tr>
 <a class="el" href="iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2fd6f336d08340583bd620a7f5694c90">ERROR</a> = 2
  }</td></tr>
 <tr class="separator:a354b028132596b9b7bef5e7a7ce5cf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08b9456153d3f1c3674e04d6011daa2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2">fccStatuses</a> { <a class="el" href="iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2abe1ad525dfd5a515534980942134bc73">NOT_CERTIFIED</a> = 0, 
-<a class="el" href="iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2a1fdfdf806903c662dc976bfec4b01da5">CERTIFIED</a> = 1
- }</td></tr>
-<tr class="separator:ad08b9456153d3f1c3674e04d6011daa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0c079f43c2b59dadcd89f3797904360d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0c079f43c2b59dadcd89f3797904360d">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a> tx_call_back_fn)</td></tr>
+<tr class="memitem:a0c079f43c2b59dadcd89f3797904360d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a0c079f43c2b59dadcd89f3797904360d">IQRF_Init</a> (<a class="el" href="iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a">RX_CALLBACK</a> rx_call_back_fn, <a class="el" href="iqrf__library_8h.html#a3cc7a78f7b3db8ccd7f7fe540f09cd2d">TX_CALLBACK</a> tx_call_back_fn)</td></tr>
 <tr class="separator:a0c079f43c2b59dadcd89f3797904360d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef52706e48dbfcb45deb7790099aa316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316">IQRF_Driver</a> (void)</td></tr>
-<tr class="separator:aef52706e48dbfcb45deb7790099aa316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adebe2bdc8b760bee0a2b7f2b6f2db824"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824">IQRF_SendData</a> (uint8_t *pDataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
-<tr class="separator:adebe2bdc8b760bee0a2b7f2b6f2db824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438a10cf50a96475d218fdb422f5a15e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a438a10cf50a96475d218fdb422f5a15e">IQRF_GetRxData</a> (uint8_t *userDataBuffer, uint8_t rxDataSize)</td></tr>
-<tr class="separator:a438a10cf50a96475d218fdb422f5a15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb">TR_SendSpiPacket</a> (uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
-<tr class="separator:ad38ad5735b391642ce0edc8a3140d4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a020699a7e5e646534a43829ce1324ae5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a020699a7e5e646534a43829ce1324ae5">IQRF_Driver</a> ()</td></tr>
+<tr class="separator:a020699a7e5e646534a43829ce1324ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9768c8ff4e0548f9cd229bb40b2f542"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#ac9768c8ff4e0548f9cd229bb40b2f542">IQRF_SendData</a> (uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
+<tr class="separator:ac9768c8ff4e0548f9cd229bb40b2f542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813f24abfca36cc2a870eb1fb686e27b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a813f24abfca36cc2a870eb1fb686e27b">IQRF_GetRxData</a> (uint8_t *dataBuffer, uint8_t dataSize)</td></tr>
+<tr class="separator:a813f24abfca36cc2a870eb1fb686e27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031a6f4f79d2224553c132e5ebe092fc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a031a6f4f79d2224553c132e5ebe092fc">TR_SendSpiPacket</a> (uint8_t spiCmd, uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
+<tr class="separator:a031a6f4f79d2224553c132e5ebe092fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -185,10 +167,6 @@ Variables</h2></td></tr>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a></td></tr>
 <tr class="memdesc:a1ba388ee46e00444f79b0e822feac102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data length. <br/></td></tr>
 <tr class="separator:a1ba388ee46e00444f79b0e822feac102"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445d0bc288594a8f603937dc7fb9e875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a445d0bc288594a8f603937dc7fb9e875"></a>
-<a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875">trInfoStruct</a></td></tr>
-<tr class="memdesc:a445d0bc288594a8f603937dc7fb9e875"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
-<tr class="separator:a445d0bc288594a8f603937dc7fb9e875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Rostislav Špinar <a href="#" onclick="location.href='mai'+'lto:'+'ros'+'ti'+'sla'+'v.'+'spi'+'na'+'r@m'+'ic'+'ror'+'is'+'c.c'+'om'; return false;">rosti<span style="display: none;">.nosp@m.</span>slav<span style="display: none;">.nosp@m.</span>.spin<span style="display: none;">.nosp@m.</span>ar@m<span style="display: none;">.nosp@m.</span>icror<span style="display: none;">.nosp@m.</span>isc.<span style="display: none;">.nosp@m.</span>com</a> </dd>
@@ -202,145 +180,6 @@ LICENSE</h1>
 <pre class="fragment">http://www.apache.org/licenses/LICENSE-2.0
 </pre><p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a693dfec78d1816b32ddca594d70f108a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetMcuType</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.mcuType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get MCU model inside TR module </p>
-<dl class="section return"><dt>Returns</dt><dd>MCU type <table class="doxtable">
-<tr>
-<th>Code </th><th>Type  </th></tr>
-<tr>
-<td>0 </td><td>unknown type </td></tr>
-<tr>
-<td>1 </td><td>PIC16LF819 </td></tr>
-<tr>
-<td>2 </td><td>PIC16LF88 </td></tr>
-<tr>
-<td>3 </td><td>PIC16F886 </td></tr>
-<tr>
-<td>4 </td><td>PIC16LF1938 </td></tr>
-</table>
-</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ae8bab73b1e236f3c11f5b58feaa986a8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetModuleId</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.moduleId</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get TR module ID </p>
-<dl class="section return"><dt>Returns</dt><dd>Unique 32 bit identifier data word of TR module </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a297417602e929b0c0ee034dcb6a7b18c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetModuleInfoRawData</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">position</td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.moduleInfoRawData[position]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get raw info data about TR module </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">position</td><td>Position in info raw buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Data byte from info raw buffer </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa7b3d0f423d662bc412e440e6b823e47"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetModuleType</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.moduleType</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get TR module type </p>
-<dl class="section return"><dt>Returns</dt><dd>TR module type <table class="doxtable">
-<tr>
-<th>Code </th><th>Model  </th></tr>
-<tr>
-<td>0 </td><td>TR_52D </td></tr>
-<tr>
-<td>1 </td><td>TR_58D_RJ </td></tr>
-<tr>
-<td>2 </td><td>TR_72D </td></tr>
-<tr>
-<td>8 </td><td>TR_54D </td></tr>
-<tr>
-<td>9 </td><td>TR_55D </td></tr>
-<tr>
-<td>10 </td><td>TR_56D </td></tr>
-</table>
-</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a8bcbd024fc9dfc0206f1975093aa93e7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetOsBuild</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.osBuild</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get OS build </p>
-<dl class="section return"><dt>Returns</dt><dd>Build of OS used inside of TR module </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a0f317f99a0962ddb6f14ef78881a1950"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IQRF_GetOsVersion</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;trInfoStruct.osVersion</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get OS version </p>
-<dl class="section return"><dt>Returns</dt><dd>Version of OS used inside of TR module </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a887243256981d63873925e690a7a33af"></a>
 <div class="memitem">
 <div class="memproto">
@@ -359,27 +198,6 @@ LICENSE</h1>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ad08b9456153d3f1c3674e04d6011daa2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2">fccStatuses</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>FCC (Federal Communications Commission) certification statuses </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ad08b9456153d3f1c3674e04d6011daa2abe1ad525dfd5a515534980942134bc73"></a>NOT_CERTIFIED</em>&#160;</td><td class="fielddoc">
-<p>Not certified fy FCC. </p>
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad08b9456153d3f1c3674e04d6011daa2a1fdfdf806903c662dc976bfec4b01da5"></a>CERTIFIED</em>&#160;</td><td class="fielddoc">
-<p>Certified by FCC. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a class="anchor" id="a354b028132596b9b7bef5e7a7ce5cf72"></a>
 <div class="memitem">
 <div class="memproto">
@@ -402,14 +220,13 @@ LICENSE</h1>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aef52706e48dbfcb45deb7790099aa316"></a>
+<a class="anchor" id="a020699a7e5e646534a43829ce1324ae5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void IQRF_Driver </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -419,7 +236,7 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="a438a10cf50a96475d218fdb422f5a15e"></a>
+<a class="anchor" id="a813f24abfca36cc2a870eb1fb686e27b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -466,7 +283,7 @@ LICENSE</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9">TX_CALLBACK</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="iqrf__library_8h.html#a3cc7a78f7b3db8ccd7f7fe540f09cd2d">TX_CALLBACK</a>&#160;</td>
           <td class="paramname"><em>tx_call_back_fn</em>&#160;</td>
         </tr>
         <tr>
@@ -487,7 +304,7 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="adebe2bdc8b760bee0a2b7f2b6f2db824"></a>
+<a class="anchor" id="ac9768c8ff4e0548f9cd229bb40b2f542"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -529,7 +346,7 @@ LICENSE</h1>
 
 </div>
 </div>
-<a class="anchor" id="ad38ad5735b391642ce0edc8a3140d4eb"></a>
+<a class="anchor" id="a031a6f4f79d2224553c132e5ebe092fc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -543,7 +360,7 @@ LICENSE</h1>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>pDataBuffer</em>, </td>
+          <td class="paramname"><em>dataBuffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -581,7 +398,7 @@ LICENSE</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2016 14:17:47 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 31 2016 18:08:37 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

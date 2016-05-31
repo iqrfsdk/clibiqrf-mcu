@@ -159,6 +159,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a98c9ae1b85aa65c54b86f26f85eaade4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0091a38860a0ecf4c5fa4fcf09d9de0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#ad0091a38860a0ecf4c5fa4fcf09d9de0">byte</a> (uint8_t txByte)</td></tr>
 <tr class="separator:ad0091a38860a0ecf4c5fa4fcf09d9de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a882b20fa116d219a6bd82253eb19bdb0"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a882b20fa116d219a6bd82253eb19bdb0">getTxBuffer</a> ()</td></tr>
+<tr class="separator:a882b20fa116d219a6bd82253eb19bdb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3162fe0c4612cc837a0cc973e7cea961"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a3162fe0c4612cc837a0cc973e7cea961">getTxData</a> (uint8_t position)</td></tr>
+<tr class="separator:a3162fe0c4612cc837a0cc973e7cea961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb15e88ad36107954e0bafbe65a6120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a3fb15e88ad36107954e0bafbe65a6120">setTxData</a> (uint8_t position, uint8_t data)</td></tr>
+<tr class="separator:a3fb15e88ad36107954e0bafbe65a6120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac2d6856e4042daf7c1d56259b410b2"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#adac2d6856e4042daf7c1d56259b410b2">getRxBuffer</a> ()</td></tr>
+<tr class="separator:adac2d6856e4042daf7c1d56259b410b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d078f1e0e21925e6af8a9f1f27a7a47"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a9d078f1e0e21925e6af8a9f1f27a7a47">getRxData</a> (uint8_t position)</td></tr>
+<tr class="separator:a9d078f1e0e21925e6af8a9f1f27a7a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92aece49919212b445cca975156ff39d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFSPI.html#a92aece49919212b445cca975156ff39d">setRxData</a> (uint8_t position, uint8_t data)</td></tr>
+<tr class="separator:a92aece49919212b445cca975156ff39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IQRF SPI </p>
@@ -397,6 +409,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adac2d6856e4042daf7c1d56259b410b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t * IQRFSPI::getRxBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get Rx buffer </p>
+<dl class="section return"><dt>Returns</dt><dd>Rx data </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9d078f1e0e21925e6af8a9f1f27a7a47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFSPI::getRxData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get data from Rx buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position in buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Rx data </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a3b211058dc5d2391addfd068e005e065"></a>
 <div class="memitem">
 <div class="memproto">
@@ -437,6 +490,47 @@ Public Member Functions</h2></td></tr>
 <td>0x07 </td><td>USER_STOP </td><td>SPI state after stopSPI(); </td></tr>
 </table>
 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a882b20fa116d219a6bd82253eb19bdb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t * IQRFSPI::getTxBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get Tx buffer </p>
+<dl class="section return"><dt>Returns</dt><dd>Tx buffer </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3162fe0c4612cc837a0cc973e7cea961"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFSPI::getTxData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get data from Tx buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position in buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tx data </dd></dl>
 
 </div>
 </div>
@@ -520,6 +614,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a92aece49919212b445cca975156ff39d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFSPI::setRxData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set data to Rx buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position in Rx buffer </td></tr>
+    <tr><td class="paramname">data</td><td>Data in Rx buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a5e9f5113a9122fd1415bf145092bbf3a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -543,6 +671,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3fb15e88ad36107954e0bafbe65a6120"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRFSPI::setTxData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set data to Tx buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position in Rx buffer </td></tr>
+    <tr><td class="paramname">data</td><td>Data in Tx buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="IQRFSPI_8h_source.html">IQRFSPI.h</a></li>
 <li><a class="el" href="IQRFSPI_8cpp.html">IQRFSPI.cpp</a></li>
@@ -550,7 +712,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2016 14:17:47 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 31 2016 18:08:37 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

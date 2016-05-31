@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['osbuild',['osBuild',['../structTR__INFO__STRUCT.html#a3aeb9390b492e5a931f526214ba6f2bd',1,'TR_INFO_STRUCT']]],
-  ['osversion',['osVersion',['../structTR__INFO__STRUCT.html#ac0970d0cbc92beb0f733ddf5d2f0a0f7',1,'TR_INFO_STRUCT']]]
+  ['osbuild',['osBuild',['../structIQRFTR_1_1infoStruct.html#ada748d2937682aff0bbbb83185eb3958',1,'IQRFTR::infoStruct']]],
+  ['osversion',['osVersion',['../structIQRFTR_1_1infoStruct.html#a40a4e86d4891012e2c94b47169c69861',1,'IQRFTR::infoStruct']]]
 ];

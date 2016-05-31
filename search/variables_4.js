@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['iqrfcheckmicros',['iqrfCheckMicros',['../iqrf__library_8cpp.html#ab56aa142b2d5d3aada188ca7ce25cbba',1,'iqrf_library.cpp']]],
-  ['iqrfmicros',['iqrfMicros',['../iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2',1,'iqrf_library.cpp']]],
-  ['iqrfpacketbuffer',['iqrfPacketBuffer',['../iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1',1,'iqrf_library.cpp']]]
+  ['iqrfcheckms',['iqrfCheckMs',['../iqrf__library_8cpp.html#a42617e67e19042e7277efb56ca66b9c6',1,'iqrf_library.cpp']]],
+  ['iqrfms',['iqrfMs',['../iqrf__library_8cpp.html#aef9051cf2a681861f31ee71c6db3cdb2',1,'iqrf_library.cpp']]]
 ];

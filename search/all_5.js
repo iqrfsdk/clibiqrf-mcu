@@ -2,7 +2,18 @@ var searchData=
 [
   ['getbytepause',['getBytePause',['../classIQRFSPI.html#aae5a280703ea8f1803945f609e63c2e1',1,'IQRFSPI']]],
   ['getcontrolstatus',['getControlStatus',['../classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d',1,'IQRFTR']]],
+  ['getfccstatus',['getFccStatus',['../classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933',1,'IQRFTR']]],
+  ['getinforawdata',['getInfoRawData',['../classIQRFTR.html#a9c2b686254313d342a88c4686a07e753',1,'IQRFTR']]],
   ['getmasterstatus',['getMasterStatus',['../classIQRFSPI.html#a99898db4b4ff9e627a2dd3c4d92b5ee0',1,'IQRFSPI']]],
+  ['getmcutype',['getMcuType',['../classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939',1,'IQRFTR']]],
+  ['getmoduleid',['getModuleId',['../classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2',1,'IQRFTR']]],
+  ['getmoduletype',['getModuleType',['../classIQRFTR.html#aa40de369389c13881f61542d8cf8257c',1,'IQRFTR']]],
+  ['getosbuild',['getOsBuild',['../classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a',1,'IQRFTR']]],
+  ['getosversion',['getOsVersion',['../classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65',1,'IQRFTR']]],
   ['getprogramflag',['getProgramFlag',['../classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b',1,'IQRFTR']]],
-  ['getstatus',['getStatus',['../classIQRFSPI.html#a3b211058dc5d2391addfd068e005e065',1,'IQRFSPI']]]
+  ['getrxbuffer',['getRxBuffer',['../classIQRFSPI.html#adac2d6856e4042daf7c1d56259b410b2',1,'IQRFSPI']]],
+  ['getrxdata',['getRxData',['../classIQRFSPI.html#a9d078f1e0e21925e6af8a9f1f27a7a47',1,'IQRFSPI']]],
+  ['getstatus',['getStatus',['../classIQRFSPI.html#a3b211058dc5d2391addfd068e005e065',1,'IQRFSPI']]],
+  ['gettxbuffer',['getTxBuffer',['../classIQRFSPI.html#a882b20fa116d219a6bd82253eb19bdb0',1,'IQRFSPI']]],
+  ['gettxdata',['getTxData',['../classIQRFSPI.html#a3162fe0c4612cc837a0cc973e7cea961',1,'IQRFSPI']]]
 ];
