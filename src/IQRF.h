@@ -48,12 +48,19 @@ public:
 	uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 	void identifyTR();
 private:
+	/// Instance of IQRFBuffers class
 	IQRFBuffers* buffers = new IQRFBuffers;
+	/// Instance of IQRFCallbacks class
 	IQRFCallbacks* callbacks = new IQRFCallbacks;
+	/// Instance of IQRFCRC class
 	IQRFCRC* crc = new IQRFCRC;
+	///Instance of IQRFPackets class
 	IQRFPackets* packets = new IQRFPackets;
+	/// Instance of IQRFSPI class
 	IQRFSPI* spi = new IQRFSPI;
+	/// Instance of IQRFTR class
 	IQRFTR* tr = new IQRFTR;
+	/// Instance of InfoTask class
 	InfoTask* infoTask = new InfoTask;
 	/// Ms counter
 	unsigned long checkMs1;

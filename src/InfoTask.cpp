@@ -85,14 +85,14 @@ void InfoTask::task() {
 		case this->statuses::WAIT_INFO:
 			if ((tr->getInfoReadingStatus() == 1) || (millis() - timeoutMs >= 500)) {
 				if (idfMode == 1) {
-					// send end of PGM mode packet
+					// Send end of PGM mode packet
 					packets->sendPacket(spi->commands::EEPROM_PGM, (uint8_t *) & this->endPgmMode[0], 3, 0);
 				}
 				this->status = this->statuses::DONE;
 			}
 			break;
 		case this->statuses::DONE:
-			// if no packet is pending to send to TR module
+			// If no packet is pending to send to TR module
 			if (packets->getInputCounter() == packets->getOutputCounter() &&
 				spi->getMasterStatus() == spi->masterStatuses::FREE) {
 				tr->setInfoReadingStatus(0);

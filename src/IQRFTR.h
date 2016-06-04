@@ -51,7 +51,6 @@ public:
 	void disableProgramFlag();
 	bool getProgramFlag();
 	void controlTask();
-	void infoTask();
 	void identify();
 	uint16_t getOsVersion();
 	uint16_t getOsBuild();
