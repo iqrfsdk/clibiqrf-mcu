@@ -66,7 +66,9 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
+	pinMode(Arduino_h::SS, OUTPUT);
 	pinMode(RESET_PIN, OUTPUT);
+	digitalWrite(Arduino_h::SS, HIGH);
 	digitalWrite(RESET_PIN, LOW);
 }
 
@@ -74,7 +76,9 @@ void IQRFTR::turnOn() {
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
+	pinMode(Arduino_h::SS, OUTPUT);
 	pinMode(RESET_PIN, OUTPUT);
+	digitalWrite(Arduino_h::SS, LOW);
 	digitalWrite(RESET_PIN, HIGH);
 }
 
