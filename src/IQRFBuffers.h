@@ -20,21 +20,33 @@
  * limitations under the License.
  */
 
-#ifndef IQRFSettings_H
-#define IQRFSettings_H
+#ifndef IQRFBUFFERS_H
+#define IQRFBUFFERS_H
 
-#define PACKET_SIZE        68     //!< Size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE 32     //!< Size of SPI TX packet buffer
-#define IQRF_SPI_CLK       250000 //!< SPI clock 250kHz
+#include <stdint.h>
 
-// Timing
-#define MICRO_SECOND       1000000 //!< Microsecond
-#define MILLI_SECOND       1000    //!< Milisecond
+#include "IQRFPackets.h"
 
-// Pins
-#define TR_RESET_IO        9      //!< TR reset pin
-#define TR_SS_IO           10     //!< SPI SS pin
-#define TR_SDO_IO          11     //!< SPI SDO pin
-#define TR_SDI_IO          12     //!< SPI SDI pin
+using namespace std;
+
+/**
+ * IQRF Buffers
+ */
+class IQRFBuffers {
+public:
+	uint8_t* getTxBuffer();
+	uint8_t getTxBufferSize();
+	uint8_t getTxData(uint8_t position);
+	void setTxData(uint8_t position, uint8_t data);
+	uint8_t* getRxBuffer();
+	uint8_t getRxBufferSize();
+	uint8_t getRxData(uint8_t position);
+	void setRxData(uint8_t position, uint8_t data);
+private:
+	/// Tx buffer
+	uint8_t txBuffer[PACKET_SIZE];
+	/// Rx buffer
+	uint8_t rxBuffer[PACKET_SIZE];
+};
 
 #endif

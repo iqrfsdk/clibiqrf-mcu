@@ -25,7 +25,7 @@
 /**
  * Get TR module SPI status
  * @return TR module SPI status
- * Status code |   Status message   |                Description                 
+ * Status code |   Status message   |                Description
  *  ---------- | ------------------ | --------------------------------------------
  *     0xFF    |     NO_MODULE      | SPI not working (HW error)
  *     0xFE    |        BUSY        | SPI busy in Master disabled mode
@@ -108,7 +108,7 @@ void IQRFSPI::disableFastSpi() {
 
 /**
  * Get Fast SPI status
- * @return Fast SPI status 
+ * @return Fast SPI status
  */
 bool IQRFSPI::isFastSpiEnabled() {
 	return this->fastSpi;
@@ -136,66 +136,12 @@ void IQRFSPI::setBytePause(unsigned long time) {
  * @return Byte received via SPI
  */
 uint8_t IQRFSPI::byte(uint8_t txByte) {
-	uint8_t rxByte = 0;
-	digitalWrite(TR_SS_IO, LOW);
+	digitalWrite(Arduino_h::SS, LOW);
 	delayMicroseconds(10);
-	SPI.beginTransaction(SPISettings(IQRF_SPI_CLK, MSBFIRST, SPI_MODE0));
-	rxByte = SPI.transfer(txByte);
+	SPI.beginTransaction(SPISettings(IQRF_SPI_CLOCK, MSBFIRST, SPI_MODE0));
+	uint8_t rxByte = SPI.transfer(txByte);
 	SPI.endTransaction();
 	delayMicroseconds(10);
-	digitalWrite(TR_SS_IO, HIGH);
+	digitalWrite(Arduino_h::SS, HIGH);
 	return rxByte;
-}
-
-/**
- * Get Rx buffer
- * @return Rx data
- */
-uint8_t* IQRFSPI::getRxBuffer() {
-	return (uint8_t *) this->rxBuffer;
-}
-
-/**
- * Get data from Rx buffer
- * @param position Position in buffer
- * @return Rx data
- */
-uint8_t IQRFSPI::getRxData(uint8_t position) {
-	return this->rxBuffer[position];
-}
-
-/**
- * Set data to Rx buffer
- * @param position Position in Rx buffer
- * @param data Data in Rx buffer
- */
-void IQRFSPI::setRxData(uint8_t position, uint8_t data) {
-	this->rxBuffer[position] = data;
-}
-
-
-/**
- * Get Tx buffer
- * @return Tx buffer
- */
-uint8_t* IQRFSPI::getTxBuffer() {
-	return (uint8_t *) this->txBuffer;
-}
-
-/**
- * Get data from Tx buffer
- * @param position Position in buffer
- * @return Tx data
- */
-uint8_t IQRFSPI::getTxData(uint8_t position) {
-	return this->txBuffer[position];
-}
-
-/**
- * Set data to Tx buffer
- * @param position Position in Rx buffer
- * @param data Data in Tx buffer
- */
-void IQRFSPI::setTxData(uint8_t position, uint8_t data) {
-	this->txBuffer[position] = data;
 }

@@ -22,12 +22,17 @@
 
 #ifndef IQRFTR_H
 #define IQRFTR_H
+#define RESET_PIN 9 //!< TR reset pin
 
+#include <stdint.h>
 #include <Arduino.h>
 #include <SPI.h>
 
-#include "IQRFSettings.h"
+#include "IQRFBuffers.h"
+#include "IQRFPackets.h"
 #include "IQRFSPI.h"
+
+using namespace std;
 
 /**
  * IQRF TR
@@ -40,6 +45,8 @@ public:
 	void turnOff();
 	uint8_t getControlStatus();
 	void setControlStatus(uint8_t status);
+	uint8_t getInfoReadingStatus();
+	void setInfoReadingStatus(uint8_t status);
 	void enableProgramFlag();
 	void disableProgramFlag();
 	bool getProgramFlag();
@@ -113,12 +120,18 @@ public:
 private:
 	/// TR control status
 	uint8_t controlStatus;
+	/// TR info reading status
+	uint8_t infoReadingStatus;
 	/// TR programming flag
 	bool programFlag;
 	/// TR info data
 	infoStruct infoData;
+	/// Instance of IQRFBuffers class
+	IQRFBuffers* buffers = new IQRFBuffers;
+	/// Instance of IQRFPackets class
+	IQRFPackets* packets = new IQRFPackets;
+	/// Instance of IQRFSPI class
 	IQRFSPI* spi = new IQRFSPI;
 };
 
 #endif
-

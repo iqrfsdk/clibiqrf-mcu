@@ -20,18 +20,18 @@
  * limitations under the License.
  */
 
-#ifndef IQRFCRC_H
-#define IQRFCRC_H
+#ifndef CALLBACKFUNCTIONS_H
+#define CALLBACKFUNCTIONS_H
 
 #include <stdint.h>
 
-/**
- * IQRF CRC
- */
-class IQRFCRC {
-public:
-	uint8_t calculate(uint8_t *buffer, uint8_t dataLength);
-	bool check(uint8_t *buffer, uint8_t dataLength, uint8_t type);
-};
+#include "IQRFTR.h"
+
+using namespace std;
+
+void doNothingRx();
+void doNothingTx(uint8_t packetId, uint8_t packetResult);
+void identifyRx();
+void identifyTx(uint8_t packetId, uint8_t packetResult);
 
 #endif

@@ -14,7 +14,7 @@ install:
     # Install MsTimer2 library
     - platformio lib install 137
 script:
-    - platformio ci --lib="." --board=uno --board=leonardo --board=diecimilaatmega168 --board=megaatmega2560 --board=megaatmega1280
+    - platformio ci --lib="src/" --board=uno --board=leonardo --board=diecimilaatmega168 --board=megaatmega2560 --board=megaatmega1280
 after_success:
     - sudo apt-get install doxygen graphviz
     - bash ci/decrypt_key.sh

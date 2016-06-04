@@ -1,7 +1,7 @@
 # IQRF SPI library for Arduino
 
 [![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-arduino.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-arduino)
-[![Apache License](http://img.shields.io/badge/license-APACHE2-blue.svg)](LICENSE)
+[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/iqrfsdk/clibiqrf-arduino/blob/master/LICENSE)
 
 ## Supported IQRF TR modules
  * IQRF TR-72
@@ -21,21 +21,15 @@ platformio lib install 318
 ## Pin layout
 The following table shows the typical pin layout used:
 
-|  Signal      | [IQRF BB-01](http://eshop.iqrf.org/products/detail/IQRF-BB-01) |     Uno     | Mega | Nano | Leonardo / Micro | Pro Micro |
-| ------------ | -------------------------------------------------------------- | ----------- | ---- | ---- | ---------------- | --------- |
-|   Reset [1]  |                             –TRPWR                             |      9      |   5  |  D9  |      RESET       |    RST    |
-|  SPI SS [2]  |                               SS                               |      10     |  53  |  D10 |        10        |    10     |
-| SPI MOSI [3] |                              MOSI                              | 11 / ICSP-4 |  51  |  D11 |      ICSP-4      |    16     |
-| SPI MISO [4] |                              MISO                              | 12 / ICSP-1 |  50  |  D12 |      ICSP-1      |    14     |
-|   SPI SCK    |                              SCK                               | 13 / ICSP-3 |  52  |  D13 |      ICSP-3      |    15     |
+|  Signal   | [IQRF BB-01](http://eshop.iqrf.org/products/detail/IQRF-BB-01) |  Uno / Nano | Mega | Leonardo / Micro | Pro Micro |
+| :-------: | :------------------------------------------------------------: | :---------: | :--: | :--------------: | :-------: |
+| Reset [1] |                             –TRPWR                             |      9      |   5  |      RESET       |    RST    |
+|  SPI SS   |                               SS                               |      10     |  53  |        10        |    10     |
+|  SPI MOSI |                              MOSI                              | 11 / ICSP-4 |  51  |      ICSP-4      |    16     |
+|  SPI MISO |                              MISO                              | 12 / ICSP-1 |  50  |      ICSP-1      |    14     |
+|  SPI SCK  |                              SCK                               | 13 / ICSP-3 |  52  |      ICSP-3      |    15     |
 
-[1] Configurable, typically defined as TR_RESET_IO in sketch/program.
-
-[2] Configurable, typically defined as TR_SS_IO in sketch/program.
-
-[3] Configurable, typically defined as TR_SDI_IO in sketch/program.
-
-[4] Configurable, typically defined as TR_SDO_IO in sketch/program.
+[1] Configurable, typically defined as ```TR_RESET_IO``` in sketch/program.
 
 
 ## Dependecies of this library

@@ -44,16 +44,16 @@ void IQRFTR::enterProgramMode() {
 	if (spi->isMasterEnabled()) {
 		SPI.end();
 		this->reset();
-		pinMode(TR_SS_IO, OUTPUT);
-		pinMode(TR_SDO_IO, OUTPUT);
-		pinMode(TR_SDI_IO, INPUT);
-		digitalWrite(TR_SS_IO, LOW);
+		pinMode(Arduino_h::SS, OUTPUT);
+		pinMode(Arduino_h::MISO, OUTPUT);
+		pinMode(Arduino_h::MOSI, INPUT);
+		digitalWrite(Arduino_h::SS, LOW);
 		unsigned long enterMs = millis();
 		do {
-			// copy SDI to SDO for approx. 500ms => TR into prog. mode
-			digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
-		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
-		digitalWrite(TR_SS_IO, HIGH);
+			// copy MOSI to MISO for approx. 500ms => TR into prog. mode
+			digitalWrite(Arduino_h::MISO, digitalRead(Arduino_h::MOSI));
+		} while ((millis() - enterMs) < (500));
+		digitalWrite(Arduino_h::SS, HIGH);
 		SPI.begin();
 	} else {
 		this->setControlStatus(controlStatuses::RESET);
@@ -66,16 +66,16 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_RESET_IO, LOW);
+	pinMode(RESET_PIN, OUTPUT);
+	digitalWrite(RESET_PIN, LOW);
 }
 
 /**
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_RESET_IO, HIGH);
+	pinMode(RESET_PIN, OUTPUT);
+	digitalWrite(RESET_PIN, HIGH);
 }
 
 /**
@@ -95,6 +95,22 @@ void IQRFTR::setControlStatus(uint8_t status) {
 }
 
 /**
+ * Get TR info reading status
+ * @return TR info reading status
+ */
+uint8_t IQRFTR::getInfoReadingStatus() {
+	return this->infoReadingStatus;
+}
+
+/**
+ * Set TR reading status
+ * @param status TR reading status
+ */
+void IQRFTR::setInfoReadingStatus(uint8_t status) {
+	this->infoReadingStatus = status;
+}
+
+/**
  * Enable programming flag
  */
 void IQRFTR::enableProgramFlag() {
@@ -110,7 +126,7 @@ void IQRFTR::disableProgramFlag() {
 
 /**
  * Get programming flag
- * @return Programming flag 
+ * @return Programming flag
  */
 bool IQRFTR::getProgramFlag() {
 	return this->programFlag;
@@ -135,44 +151,35 @@ void IQRFTR::controlTask() {
 			break;
 		case controlStatuses::WAIT:
 			spi->setStatus(spi->statuses::BUSY);
-			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
+			if (millis() - timeoutMs >= 333) {
 				this->setControlStatus(controlStatuses::PROG_MODE);
 			} else {
-				digitalWrite(TR_SS_IO, HIGH);
+				digitalWrite(Arduino_h::SS, HIGH);
 				SPI.begin();
 				this->setControlStatus(controlStatuses::READY);
 			}
 			break;
 		case controlStatuses::PROG_MODE:
-			SPI.end();
-			this->reset();
-			pinMode(TR_SS_IO, OUTPUT);
-			pinMode(TR_SDI_IO, INPUT);
-			pinMode(TR_SDO_IO, OUTPUT);
-			digitalWrite(TR_SS_IO, LOW);
-			timeoutMs = millis();
-			do {
-				// copy SDI to SDO for approx. 500ms => TR into prog. mode
-				digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
-			} while ((millis() - timeoutMs) < (MILLI_SECOND / 2));
-			digitalWrite(TR_SS_IO, HIGH);
-			SPI.begin();
+			this->enterProgramMode();
 			this->setControlStatus(controlStatuses::READY);
 			break;
 	}
 }
 
+/**
+ * Process identification data packet from TR module
+ */
 void IQRFTR::identify() {
-	memcpy((uint8_t *) & this->infoData.rawData, (uint8_t *) & spi->getRxBuffer()[2], 8);
-	this->infoData.fcc = (spi->getRxData(7) & 0x08) >> 3;
-	this->infoData.mcuType = spi->getRxData(7) & 0x07;
-	this->infoData.moduleId = (uint32_t) spi->getRxData(2) << 24 |
-		(uint32_t) spi->getRxData(3) << 16 |
-		(uint32_t) spi->getRxData(4) << 8 | spi->getRxData(5);
-	this->infoData.moduleType = spi->getRxData(7) >> 4;
-	this->infoData.osBuild = (uint16_t) spi->getRxData(9) << 8 | spi->getRxData(8);
-	this->infoData.osVersion = (uint16_t) (spi->getRxData(6) / 16) << 8 | (spi->getRxData(6) % 16);
-
+	memcpy((uint8_t *) & this->infoData.rawData, (uint8_t *) & buffers->getRxBuffer()[2], 8);
+	this->infoData.fcc = (buffers->getRxData(7) & 0x08) >> 3;
+	this->infoData.mcuType = buffers->getRxData(7) & 0x07;
+	this->infoData.moduleId = (uint32_t) buffers->getRxData(2) << 24 |
+		(uint32_t) buffers->getRxData(3) << 16 |
+		(uint32_t) buffers->getRxData(4) << 8 | buffers->getRxData(5);
+	this->infoData.moduleType = buffers->getRxData(7) >> 4;
+	this->infoData.osBuild = (uint16_t) buffers->getRxData(9) << 8 | buffers->getRxData(8);
+	this->infoData.osVersion = (uint16_t) (buffers->getRxData(6) / 16) << 8 | (buffers->getRxData(6) % 16);
+	this->infoReadingStatus--;
 }
 
 /**
