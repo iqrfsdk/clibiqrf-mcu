@@ -68,7 +68,6 @@ void IQRFPackets::setInputCounter(uint16_t count) {
 	this->inputCounter = count;
 }
 
-
 /**
  * Get count of output packets
  * @return Count of output packets
@@ -84,7 +83,6 @@ uint16_t IQRFPackets::getOutputCounter() {
 void IQRFPackets::setOutputCounter(uint16_t count) {
 	this->outputCounter = count;
 }
-
 
 /**
  * Get temporary data buffer

@@ -48,7 +48,6 @@ public:
 	uint8_t getType();
 	void setType(uint8_t type);
 
-
 	/**
 	 * Tx packet statuses
 	 */

@@ -22,7 +22,6 @@
 
 #include "IQRFBuffers.h"
 
-
 /**
  * Get Rx buffer
  * @return Rx buffer

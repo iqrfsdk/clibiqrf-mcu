@@ -102,7 +102,7 @@ void IQRF::driver() {
 			}
 		} else {
 			// No data to send => SPI status will be updated every 10ms
-			if((this->checkMs1 - this->checkMs2) > 10) {
+			if ((this->checkMs1 - this->checkMs2) > 10) {
 				// Reset Ms counter
 				this->checkMs2 = this->checkMs1;
 				spi->setStatus(spi->byte(spi->commands::CHECK));
