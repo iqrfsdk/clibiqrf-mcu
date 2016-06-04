@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['module_5finfo',['MODULE_INFO',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465acb193918944e4583a5e1ca889ce5ccc6',1,'IQRFSPI']]]
+  ['init_5ftask',['INIT_TASK',['../classInfoTask.html#a856e1b0efea60db4a249a8d3d0200deaa873fa4a536322dad41c4aff900a3da3f',1,'InfoTask']]]
 ];

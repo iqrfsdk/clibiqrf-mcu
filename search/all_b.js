@@ -4,8 +4,7 @@ var searchData=
   ['rawdata',['rawData',['../structIQRFTR_1_1infoStruct.html#a33e314540fb70e8067f082b4f23697b3',1,'IQRFTR::infoStruct']]],
   ['read',['READ',['../classIQRFSPI.html#aa0243b3c8117fb3ba82ab8ba58ebca9ca585d052d41a644fdbbfd03bdd3a4eee8',1,'IQRFSPI']]],
   ['ready',['READY',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846aaec2ba9b04af0331d7b72956c894669e',1,'IQRFTR']]],
-  ['repcnt',['repCnt',['../iqrf__library_8cpp.html#ac8e4032f02b3557d87d45f5a4a558291',1,'iqrf_library.cpp']]],
   ['reset',['RESET',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a48cad0b135f9b7364b2458761881c8e7',1,'IQRFTR::RESET()'],['../classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778',1,'IQRFTR::reset()']]],
-  ['rx_5fcallback',['RX_CALLBACK',['../iqrf__library_8h.html#a82344f187d3567e7e2bb45610c065e1a',1,'iqrf_library.h']]],
-  ['rxcallback',['rxCallback',['../iqrf__library_8cpp.html#a70961ac351f0853267a5b0cb739cd61a',1,'iqrf_library.cpp']]]
+  ['reset_5fpin',['RESET_PIN',['../IQRFTR_8h.html#a08bca59db4b190eaaea4d47b7562869c',1,'IQRFTR.h']]],
+  ['rx_5fcallback',['rx_callback',['../classIQRFCallbacks.html#a30fd8c8769200ae5f1616f905a6d1a9f',1,'IQRFCallbacks']]]
 ];

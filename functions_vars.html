@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
       <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -93,10 +93,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 &#160;<ul>
 <li>dataBuffer
-: <a class="el" href="structPACKET__BUFFER.html#ad12069ba9b20c82b1cd95e47fa4ee7e4">PACKET_BUFFER</a>
+: <a class="el" href="structIQRFPackets_1_1packet__buffer.html#a0a5243a066ace15663343d7b374367fa">IQRFPackets::packet_buffer</a>
 </li>
 <li>dataLength
-: <a class="el" href="structPACKET__BUFFER.html#a423ac108e1fac35ab253ebdf0eac95c3">PACKET_BUFFER</a>
+: <a class="el" href="structIQRFPackets_1_1packet__buffer.html#a66ff3e257ebf4fe84e5dc87d7eab6291">IQRFPackets::packet_buffer</a>
 </li>
 <li>fcc
 : <a class="el" href="structIQRFTR_1_1infoStruct.html#aedf4d3e7006bfe8a31028253e607df1a">IQRFTR::infoStruct</a>
@@ -117,22 +117,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structIQRFTR_1_1infoStruct.html#a40a4e86d4891012e2c94b47169c69861">IQRFTR::infoStruct</a>
 </li>
 <li>packetId
-: <a class="el" href="structPACKET__BUFFER.html#a9ce8f79cc25baaadcd755b003a7d9aa1">PACKET_BUFFER</a>
+: <a class="el" href="structIQRFPackets_1_1packet__buffer.html#ae3d9646303c6d0e6a6f255a517c6106f">IQRFPackets::packet_buffer</a>
 </li>
 <li>rawData
 : <a class="el" href="structIQRFTR_1_1infoStruct.html#a33e314540fb70e8067f082b4f23697b3">IQRFTR::infoStruct</a>
 </li>
 <li>spiCmd
-: <a class="el" href="structPACKET__BUFFER.html#abdabe25b5a6932a2908ac10d203a31c9">PACKET_BUFFER</a>
+: <a class="el" href="structIQRFPackets_1_1packet__buffer.html#ac926e4804e6eb9f9fd1e66661a42535d">IQRFPackets::packet_buffer</a>
 </li>
 <li>unallocationFlag
-: <a class="el" href="structPACKET__BUFFER.html#acb25c4d3c270d3d4ba10ebb868e92e9c">PACKET_BUFFER</a>
+: <a class="el" href="structIQRFPackets_1_1packet__buffer.html#a343b9f1705d2be4b57a9a89db92336d8">IQRFPackets::packet_buffer</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2016 18:10:10 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 4 2016 19:18:17 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,6 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
       <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -136,6 +136,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>disableProgramFlag()
 : <a class="el" href="classIQRFTR.html#aadedf2a6d56101afd41bfd9aa379eb2d">IQRFTR</a>
 </li>
+<li>driver()
+: <a class="el" href="classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74">IQRF</a>
+</li>
 </ul>
 
 
@@ -162,11 +165,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getControlStatus()
 : <a class="el" href="classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d">IQRFTR</a>
 </li>
+<li>getData()
+: <a class="el" href="classIQRF.html#a163c9397368fb32d57b1bbbdffeea502">IQRF</a>
+</li>
+<li>getDataBuffer()
+: <a class="el" href="classIQRFPackets.html#a70f8dad81b63f552fd53c8509678df39">IQRFPackets</a>
+</li>
+<li>getDataLength()
+: <a class="el" href="classIQRF.html#a77e8fe55a098096412743299c8690810">IQRF</a>
+, <a class="el" href="classIQRFPackets.html#aaa7538ee1fc122682d419bb216b97b16">IQRFPackets</a>
+</li>
 <li>getFccStatus()
 : <a class="el" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">IQRFTR</a>
 </li>
 <li>getInfoRawData()
 : <a class="el" href="classIQRFTR.html#a9c2b686254313d342a88c4686a07e753">IQRFTR</a>
+</li>
+<li>getInfoReadingStatus()
+: <a class="el" href="classIQRFTR.html#a5675709f63c7c8ba80df072ab58af9f4">IQRFTR</a>
+</li>
+<li>getInputCounter()
+: <a class="el" href="classIQRFPackets.html#ae116cee5154e5e6586f52193e30888e7">IQRFPackets</a>
 </li>
 <li>getMasterStatus()
 : <a class="el" href="classIQRFSPI.html#a99898db4b4ff9e627a2dd3c4d92b5ee0">IQRFSPI</a>
@@ -186,28 +205,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getOsVersion()
 : <a class="el" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">IQRFTR</a>
 </li>
+<li>getOutputCounter()
+: <a class="el" href="classIQRFPackets.html#ad82a20be50bab96e46d4d34f8a808f5a">IQRFPackets</a>
+</li>
+<li>getPacketId()
+: <a class="el" href="classIQRFPackets.html#a1bddb5ddf11595b56717b31d329108f4">IQRFPackets</a>
+</li>
 <li>getProgramFlag()
 : <a class="el" href="classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b">IQRFTR</a>
 </li>
+<li>getRx()
+: <a class="el" href="classIQRFCallbacks.html#a2f754e8ad7bbcae0ab2ed95ef82d88b3">IQRFCallbacks</a>
+</li>
 <li>getRxBuffer()
-: <a class="el" href="classIQRFSPI.html#adac2d6856e4042daf7c1d56259b410b2">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#aaa67723c4f4e9a5061ec0c981c65f7e6">IQRFBuffers</a>
+</li>
+<li>getRxBufferSize()
+: <a class="el" href="classIQRFBuffers.html#a0a90c0878a6d682907f3fcade2173d6d">IQRFBuffers</a>
 </li>
 <li>getRxData()
-: <a class="el" href="classIQRFSPI.html#a9d078f1e0e21925e6af8a9f1f27a7a47">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#a5b3cb2be682b95d729ac90d70bcc5932">IQRFBuffers</a>
+</li>
+<li>getSpiCommand()
+: <a class="el" href="classIQRFPackets.html#a5ec2622a327c518daac545dada767c88">IQRFPackets</a>
 </li>
 <li>getStatus()
 : <a class="el" href="classIQRFSPI.html#a3b211058dc5d2391addfd068e005e065">IQRFSPI</a>
 </li>
+<li>getTx()
+: <a class="el" href="classIQRFCallbacks.html#a66d0c74953ab3f58a1f07df9adfb6df7">IQRFCallbacks</a>
+</li>
 <li>getTxBuffer()
-: <a class="el" href="classIQRFSPI.html#a882b20fa116d219a6bd82253eb19bdb0">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#aaec517dc62af867a3238d6d3773cbd05">IQRFBuffers</a>
+</li>
+<li>getTxBufferSize()
+: <a class="el" href="classIQRFBuffers.html#a098a723b1621e7e61c124b56179275c2">IQRFBuffers</a>
 </li>
 <li>getTxData()
-: <a class="el" href="classIQRFSPI.html#a3162fe0c4612cc837a0cc973e7cea961">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#a1708579aa360ff82884ff2cbded445b3">IQRFBuffers</a>
+</li>
+<li>getType()
+: <a class="el" href="classIQRFPackets.html#a6aabdbb46168b7f44bdcc42af677936f">IQRFPackets</a>
+</li>
+<li>getUnallocationFlag()
+: <a class="el" href="classIQRFPackets.html#aa01533381c73a0f5606c1bf309799205">IQRFPackets</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>identify()
+: <a class="el" href="classIQRFTR.html#a202921bf68c40dc32586d73b1df49520">IQRFTR</a>
+</li>
+<li>identifyTR()
+: <a class="el" href="classIQRF.html#a8f1b42bf2d8c7d9ea0e4888e8ef84b1e">IQRF</a>
+</li>
+<li>IQRF()
+: <a class="el" href="classIQRF.html#ac96c7fda3bf013d74a0707d6090bf07a">IQRF</a>
+</li>
 <li>isFastSpiEnabled()
 : <a class="el" href="classIQRFSPI.html#af7a595f137b659fb58dc936c08b0f4cd">IQRFSPI</a>
 </li>
@@ -225,11 +280,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>sendData()
+: <a class="el" href="classIQRF.html#acaa58c7a8b74f2e2f36fee9191aea9d1">IQRF</a>
+</li>
+<li>sendPacket()
+: <a class="el" href="classIQRFPackets.html#a3286419bf521d0ea5ae73182695d3eed">IQRFPackets</a>
+</li>
 <li>setBytePause()
 : <a class="el" href="classIQRFSPI.html#a98c9ae1b85aa65c54b86f26f85eaade4">IQRFSPI</a>
 </li>
 <li>setControlStatus()
 : <a class="el" href="classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed">IQRFTR</a>
+</li>
+<li>setInfoReadingStatus()
+: <a class="el" href="classIQRFTR.html#a49add0efc37d39cc9734533c61801221">IQRFTR</a>
+</li>
+<li>setInputCounter()
+: <a class="el" href="classIQRFPackets.html#a07cbf00c41f09dd798873d9faeb320f8">IQRFPackets</a>
 </li>
 <li>setMasterStatus()
 : <a class="el" href="classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e">IQRFSPI</a>
@@ -237,19 +304,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setMcuType()
 : <a class="el" href="classIQRFTR.html#a6963674d7534a07382410ba4980df1ea">IQRFTR</a>
 </li>
+<li>setOutputCounter()
+: <a class="el" href="classIQRFPackets.html#a2dae669636a9ffafca3a96412ef114ea">IQRFPackets</a>
+</li>
+<li>setRx()
+: <a class="el" href="classIQRFCallbacks.html#a415a72f01c82f56b329570a467ed7bd7">IQRFCallbacks</a>
+</li>
 <li>setRxData()
-: <a class="el" href="classIQRFSPI.html#a92aece49919212b445cca975156ff39d">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#aa4bb189b89e9acd7a7364e9ff1b42622">IQRFBuffers</a>
 </li>
 <li>setStatus()
 : <a class="el" href="classIQRFSPI.html#a5e9f5113a9122fd1415bf145092bbf3a">IQRFSPI</a>
 </li>
+<li>setTx()
+: <a class="el" href="classIQRFCallbacks.html#a0ae38675021f76e17a36afb6d38c9e21">IQRFCallbacks</a>
+</li>
 <li>setTxData()
-: <a class="el" href="classIQRFSPI.html#a3fb15e88ad36107954e0bafbe65a6120">IQRFSPI</a>
+: <a class="el" href="classIQRFBuffers.html#ac8b749f427834a09429f613fd2f9a816">IQRFBuffers</a>
+</li>
+<li>setType()
+: <a class="el" href="classIQRFPackets.html#a4ab1ddb8c6ee9ddeec19f157fab5f619">IQRFPackets</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>task()
+: <a class="el" href="classInfoTask.html#a985f0ff729c1a492dd63b9038063b40d">InfoTask</a>
+</li>
 <li>turnOff()
 : <a class="el" href="classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea">IQRFTR</a>
 </li>
@@ -260,7 +342,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2016 18:10:10 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 4 2016 19:18:17 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

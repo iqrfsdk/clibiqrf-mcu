@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -65,7 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,10 +78,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">IQRF SPI library for Arduino Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p><a href="https://travis-ci.org/iqrfsdk/clibiqrf-arduino">![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-arduino.svg?branch=master)</a> <a href="https://github.com/iqrfsdk/clibiqrf-arduino/blob/master/LICENSE">![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)</a></p>
+<h2>Supported <a class="el" href="classIQRF.html">IQRF</a> TR modules</h2>
+<ul>
+<li><a class="el" href="classIQRF.html">IQRF</a> TR-72</li>
+<li><a class="el" href="classIQRF.html">IQRF</a> TR-52</li>
+</ul>
+<h2>Supported platforms</h2>
+<p>This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano).</p>
+<p>A library for Chipkit is <a href="https://github.com/iqrfsdk/clibiqrf-chipkit">there</a>.</p>
+<h2>Installation</h2>
+<p>The best way how to install this library is to <a href="https://github.com/iqrfsdk/clibiqrf-arduino/releases">download a latest package</a> or use a <a href="http://platformio.org/">platformio</a>:</p>
+<p>``` platformio lib install 318 ``` </p>
+<h2>Pin layout</h2>
+<p>The following table shows the typical pin layout used:</p>
+<table class="doxtable">
+<tr>
+<th align="center">Signal </th><th align="center"><a href="http://eshop.iqrf.org/products/detail/IQRF-BB-01">IQRF BB-01</a> </th><th align="center">Uno / Nano </th><th align="center">Mega </th><th align="center">Leonardo / Micro </th><th align="center">Pro Micro  </th></tr>
+<tr>
+<td align="center">Reset [1] </td><td align="center">–TRPWR </td><td align="center">9 </td><td align="center">5 </td><td align="center">RESET </td><td align="center">RST </td></tr>
+<tr>
+<td align="center">SPI SS </td><td align="center">SS </td><td align="center">10 </td><td align="center">53 </td><td align="center">10 </td><td align="center">10 </td></tr>
+<tr>
+<td align="center">SPI MOSI </td><td align="center">MOSI </td><td align="center">11 / ICSP-4 </td><td align="center">51 </td><td align="center">ICSP-4 </td><td align="center">16 </td></tr>
+<tr>
+<td align="center">SPI MISO </td><td align="center">MISO </td><td align="center">12 / ICSP-1 </td><td align="center">50 </td><td align="center">ICSP-1 </td><td align="center">14 </td></tr>
+<tr>
+<td align="center">SPI SCK </td><td align="center">SCK </td><td align="center">13 / ICSP-3 </td><td align="center">52 </td><td align="center">ICSP-3 </td><td align="center">15 </td></tr>
+</table>
+<p>[1] Configurable, typically defined as <code>TR_RESET_IO</code> in sketch/program.</p>
+<h2>Dependecies of this library</h2>
+<ul>
+<li><a href="https://github.com/PaulStoffregen/MsTimer2">MsTimer2</a></li>
+</ul>
+<h2>Documentation</h2>
+<p>Documentation you can found on <a href="https://iqrfsdk.github.io/clibiqrf-arduino/">this page</a>.</p>
+<h2>License</h2>
+<p>This library is licensed under Apache License 2.0:</p>
+<blockquote class="doxtable">
+<p>Copyright 2015 MICRORISC s.r.o.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at </p>
+<pre class="fragment">http://www.apache.org/licenses/LICENSE-2.0
+</pre><p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </p>
+</blockquote>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2016 18:10:10 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 4 2016 19:18:16 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
