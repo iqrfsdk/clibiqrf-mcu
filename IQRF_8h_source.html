@@ -114,23 +114,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> identifyTR();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classIQRFBuffers.html">IQRFBuffers</a>* buffers = <span class="keyword">new</span> <a class="code" href="classIQRFBuffers.html">IQRFBuffers</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>* callbacks = <span class="keyword">new</span> <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classIQRFCRC.html">IQRFCRC</a>* crc = <span class="keyword">new</span> <a class="code" href="classIQRFCRC.html">IQRFCRC</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classIQRFPackets.html">IQRFPackets</a>* packets = <span class="keyword">new</span> <a class="code" href="classIQRFPackets.html">IQRFPackets</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classIQRFSPI.html">IQRFSPI</a>* spi = <span class="keyword">new</span> <a class="code" href="classIQRFSPI.html">IQRFSPI</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIQRFTR.html">IQRFTR</a>* <a class="code" href="CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b">tr</a> = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classInfoTask.html">InfoTask</a>* infoTask = <span class="keyword">new</span> <a class="code" href="classInfoTask.html">InfoTask</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> checkMs1;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> checkMs2;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    uint8_t byteCounter;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    uint8_t dataLength;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    uint8_t packetLength;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    uint8_t packetId;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    uint8_t sendAttempts;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classIQRFBuffers.html">IQRFBuffers</a>* buffers = <span class="keyword">new</span> <a class="code" href="classIQRFBuffers.html">IQRFBuffers</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>* callbacks = <span class="keyword">new</span> <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classIQRFCRC.html">IQRFCRC</a>* crc = <span class="keyword">new</span> <a class="code" href="classIQRFCRC.html">IQRFCRC</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classIQRFPackets.html">IQRFPackets</a>* packets = <span class="keyword">new</span> <a class="code" href="classIQRFPackets.html">IQRFPackets</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classIQRFSPI.html">IQRFSPI</a>* spi = <span class="keyword">new</span> <a class="code" href="classIQRFSPI.html">IQRFSPI</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classIQRFTR.html">IQRFTR</a>* <a class="code" href="CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b">tr</a> = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classInfoTask.html">InfoTask</a>* infoTask = <span class="keyword">new</span> <a class="code" href="classInfoTask.html">InfoTask</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> checkMs1;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> checkMs2;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    uint8_t byteCounter;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    uint8_t dataLength;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    uint8_t packetLength;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    uint8_t packetId;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    uint8_t sendAttempts;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="IQRFCallbacks_8h_html"><div class="ttname"><a href="IQRFCallbacks_8h.html">IQRFCallbacks.h</a></div></div>
 <div class="ttc" id="classIQRFCRC_html"><div class="ttname"><a href="classIQRFCRC.html">IQRFCRC</a></div><div class="ttdef"><b>Definition:</b> IQRFCRC.h:33</div></div>
 <div class="ttc" id="classIQRFCallbacks_html_a02e9ca4bd8f14c5083c48b23030cab6d"><div class="ttname"><a href="classIQRFCallbacks.html#a02e9ca4bd8f14c5083c48b23030cab6d">IQRFCallbacks::tx_callback</a></div><div class="ttdeci">void(* tx_callback)(uint8_t packetId, uint8_t packetResult)</div><div class="ttdoc">Tx data callback function type. </div><div class="ttdef"><b>Definition:</b> IQRFCallbacks.h:38</div></div>
@@ -152,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 4 2016 19:18:16 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 4 2016 19:48:10 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
