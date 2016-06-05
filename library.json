@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/iqrfsdk/clibiqrf-arduino.git"
   },
-  "version": "1.0.0",
+  "version": "2.0",
   "authors": [{
     "name": "Rostislav Spinar",
     "email": "rostislav.spinar@microrisc.com",
@@ -16,7 +16,8 @@
   {
     "name": "Roman Ondracek",
     "email": "ondracek.roman@centrum.cz",
-    "url": "https://github.com/Roman3349"
+    "url": "https://github.com/Roman3349",
+    "maintainer": true
   }],
   "dependencies": [{
     "name": "MsTimer2",
@@ -30,5 +31,8 @@
   ],
   "platforms": [
     "atmelavr"
+  ],
+  "examples": [
+    "examples/*/*/*.ino"
   ]
 }

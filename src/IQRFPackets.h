@@ -23,10 +23,11 @@
 #ifndef IQRFPACKETS_H
 #define IQRFPACKETS_H
 
-#define PACKET_SIZE        68 //!< Size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE 32 //!< Size of SPI TX packet buffer
+#define PACKET_SIZE        68 //!< Size of SPI Tx and Rx buffer
+#define PACKET_BUFFER_SIZE 32 //!< Size of SPI Tx packet buffer
 
 #include <stdint.h>
+#include <stddef.h>
 
 using namespace std;
 

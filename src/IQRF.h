@@ -41,7 +41,8 @@ using namespace std;
  */
 class IQRF {
 public:
-	void init(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback);
+	IQRF(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback);
+	void begin();
 	void driver();
 	void getData(uint8_t *dataBuffer, uint8_t dataSize);
 	uint8_t getDataLength();

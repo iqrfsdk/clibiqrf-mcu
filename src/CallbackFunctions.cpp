@@ -23,7 +23,7 @@
 #include "CallbackFunctions.h"
 
 /// Instance of IQRFTR class
-IQRFTR* tr = new IQRFTR;
+IQRFTR* _tr = new IQRFTR;
 
 /**
  * Function called after TR module identification request were sent
@@ -45,7 +45,7 @@ void doNothingTx(uint8_t packetId, uint8_t packetResult) {
  * Process identification data packet from TR module
  */
 void identifyRx() {
-	tr->identify();
+	_tr->identify();
 }
 
 /**
@@ -54,5 +54,5 @@ void identifyRx() {
  * @param packetResult Operation result
  */
 void identifyTx(uint8_t packetId, uint8_t packetResult) {
-	tr->identify();
+	_tr->identify();
 }

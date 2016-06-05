@@ -23,12 +23,22 @@
 #include "IQRF.h"
 
 /**
+ * Constructor for class IQRF, set callbacks
+ * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
+ * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
+ */
+IQRF::IQRF(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback) {
+	callbacks->setRx(rxCallback);
+	callbacks->setTx(txCallback);
+}
+
+/**
  * Function perform a TR-module driver initialization
  * Function performes initialization of trInfoStruct identification data structure
  * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-void IQRF::init(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback) {
+void IQRF::begin() {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	// Normal SPI communication
@@ -53,8 +63,6 @@ void IQRF::init(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callbac
 		spi->enableFastSpi();
 		Serial.println("IQRF_Init - set fast spi");
 	}
-	callbacks->setRx(rxCallback);
-	callbacks->setTx(txCallback);
 	tr->setControlStatus(tr->controlStatuses::READY);
 }
 
