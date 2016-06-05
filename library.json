@@ -16,8 +16,7 @@
   {
     "name": "Roman Ondracek",
     "email": "ondracek.roman@centrum.cz",
-    "url": "https://github.com/Roman3349",
-    "maintainer": true
+    "url": "https://github.com/Roman3349"
   }],
   "dependencies": [{
     "name": "MsTimer2",
