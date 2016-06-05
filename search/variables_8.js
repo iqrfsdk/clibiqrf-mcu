@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tr',['tr',['../CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'tr():&#160;CallbackFunctions.cpp'],['../iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'tr():&#160;iqrf_library.cpp']]]
+  ['unallocationflag',['unallocationFlag',['../structIQRFPackets_1_1packet__buffer.html#a343b9f1705d2be4b57a9a89db92336d8',1,'IQRFPackets::packet_buffer']]]
 ];

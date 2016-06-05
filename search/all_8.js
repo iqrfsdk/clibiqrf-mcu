@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['no_5fmodule',['NO_MODULE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a7f03820ac37815a97b74a59336acd684',1,'IQRFSPI']]],
-  ['not_5fcertified',['NOT_CERTIFIED',['../classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699a68bfb057af914c528fc27887019752ce',1,'IQRFTR']]]
+  ['masterstatuses',['masterStatuses',['../classIQRFSPI.html#aa0243b3c8117fb3ba82ab8ba58ebca9c',1,'IQRFSPI']]],
+  ['mcutype',['mcuType',['../structIQRFTR_1_1infoStruct.html#a866dad5ece704363b0773f7d86e67f2e',1,'IQRFTR::infoStruct']]],
+  ['mcutypes',['mcuTypes',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9',1,'IQRFTR']]],
+  ['module_5finfo',['MODULE_INFO',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465acb193918944e4583a5e1ca889ce5ccc6',1,'IQRFSPI']]],
+  ['moduleid',['moduleId',['../structIQRFTR_1_1infoStruct.html#ae789ddd78999cdf043bf527232577200',1,'IQRFTR::infoStruct']]],
+  ['moduletype',['moduleType',['../structIQRFTR_1_1infoStruct.html#a45ee0b6767c1ef9db53b5aef1db84b72',1,'IQRFTR::infoStruct']]]
 ];

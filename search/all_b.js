@@ -1,10 +1,14 @@
 var searchData=
 [
-  ['ram_5fread',['RAM_READ',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465a109b4fcb9aff2581494c8b44068df300',1,'IQRFSPI']]],
-  ['rawdata',['rawData',['../structIQRFTR_1_1infoStruct.html#a33e314540fb70e8067f082b4f23697b3',1,'IQRFTR::infoStruct']]],
-  ['read',['READ',['../classIQRFSPI.html#aa0243b3c8117fb3ba82ab8ba58ebca9ca585d052d41a644fdbbfd03bdd3a4eee8',1,'IQRFSPI']]],
-  ['ready',['READY',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846aaec2ba9b04af0331d7b72956c894669e',1,'IQRFTR']]],
-  ['reset',['reset',['../classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778',1,'IQRFTR::reset()'],['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a48cad0b135f9b7364b2458761881c8e7',1,'IQRFTR::RESET()']]],
-  ['reset_5fpin',['RESET_PIN',['../IQRFTR_8h.html#a08bca59db4b190eaaea4d47b7562869c',1,'IQRFTR.h']]],
-  ['rx_5fcallback',['rx_callback',['../classIQRFCallbacks.html#a30fd8c8769200ae5f1616f905a6d1a9f',1,'IQRFCallbacks']]]
+  ['packet_5fbuffer',['packet_buffer',['../structIQRFPackets_1_1packet__buffer.html',1,'IQRFPackets']]],
+  ['packet_5fbuffer_5fsize',['PACKET_BUFFER_SIZE',['../IQRFPackets_8h.html#ab30af815d6e9494361629440f14e3716',1,'IQRFPackets.h']]],
+  ['packet_5fsize',['PACKET_SIZE',['../IQRFPackets_8h.html#aebdc7d8ca8e25ed8efc90bb88ef7ef5b',1,'IQRFPackets.h']]],
+  ['packetid',['packetId',['../structIQRFPackets_1_1packet__buffer.html#ae3d9646303c6d0e6a6f255a517c6106f',1,'IQRFPackets::packet_buffer']]],
+  ['pic16f886',['PIC16F886',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a9b1b9f90d2eb135a4f00827b5e042cb7',1,'IQRFTR']]],
+  ['pic16lf1938',['PIC16LF1938',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9aee0c82501ebb0b458f5f4a2054992368',1,'IQRFTR']]],
+  ['pic16lf819',['PIC16LF819',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a5f57cfa456fd9f1a2a4d14a4689b50a8',1,'IQRFTR']]],
+  ['pic16lf88',['PIC16LF88',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a4eb38567bd76d0e15e3cc2ca60ff4bb8',1,'IQRFTR']]],
+  ['plugin_5fpgm',['PLUGIN_PGM',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465ad2544b451aa5b8e800831d3d83f9fb61',1,'IQRFSPI']]],
+  ['prog_5fmode',['PROG_MODE',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846ac294cb6e29385c500105893730dbc885',1,'IQRFTR']]],
+  ['programming_5fmode',['PROGRAMMING_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a3d8b73d542081b5132c2ccbeb61da56f',1,'IQRFSPI']]]
 ];

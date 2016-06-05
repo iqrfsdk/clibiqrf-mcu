@@ -38,7 +38,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,30 +121,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    uint8_t idfMode;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    uint8_t endPgmMode[3] = {0xDE, 0x01, 0xFF};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>* callbacks = <span class="keyword">new</span> <a class="code" href="classIQRFCallbacks.html">IQRFCallbacks</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classIQRFPackets.html">IQRFPackets</a>* <a class="code" href="iqrf__library_8cpp.html#a6ac3f444789b2f480fe5bc8306281752">packets</a> = <span class="keyword">new</span> <a class="code" href="classIQRFPackets.html">IQRFPackets</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classIQRFSPI.html">IQRFSPI</a>* <a class="code" href="iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219">spi</a> = <span class="keyword">new</span> <a class="code" href="classIQRFSPI.html">IQRFSPI</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classIQRFTR.html">IQRFTR</a>* <a class="code" href="CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b">tr</a> = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classIQRFPackets.html">IQRFPackets</a>* packets = <span class="keyword">new</span> <a class="code" href="classIQRFPackets.html">IQRFPackets</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classIQRFSPI.html">IQRFSPI</a>* spi = <span class="keyword">new</span> <a class="code" href="classIQRFSPI.html">IQRFSPI</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classIQRFTR.html">IQRFTR</a>* tr = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="IQRFCallbacks_8h_html"><div class="ttname"><a href="IQRFCallbacks_8h.html">IQRFCallbacks.h</a></div></div>
-<div class="ttc" id="iqrf__library_8cpp_html_a6ac3f444789b2f480fe5bc8306281752"><div class="ttname"><a href="iqrf__library_8cpp.html#a6ac3f444789b2f480fe5bc8306281752">packets</a></div><div class="ttdeci">IQRFPackets * packets</div><div class="ttdoc">Instance of IQRFPackets class. </div><div class="ttdef"><b>Definition:</b> iqrf_library.cpp:28</div></div>
-<div class="ttc" id="CallbackFunctions_8cpp_html_ac3dc0eae26b1c9512166c2b844f0c73b"><div class="ttname"><a href="CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b">tr</a></div><div class="ttdeci">IQRFTR * tr</div><div class="ttdoc">Instance of IQRFTR class. </div><div class="ttdef"><b>Definition:</b> CallbackFunctions.cpp:26</div></div>
 <div class="ttc" id="classIQRFTR_html"><div class="ttname"><a href="classIQRFTR.html">IQRFTR</a></div><div class="ttdef"><b>Definition:</b> IQRFTR.h:40</div></div>
-<div class="ttc" id="iqrf__library_8cpp_html_a6ebf2ed2e3bbac03dae42c892a32f219"><div class="ttname"><a href="iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219">spi</a></div><div class="ttdeci">IQRFSPI * spi</div><div class="ttdoc">Instance of IQRFSPI class. </div><div class="ttdef"><b>Definition:</b> iqrf_library.cpp:30</div></div>
 <div class="ttc" id="IQRFTR_8h_html"><div class="ttname"><a href="IQRFTR_8h.html">IQRFTR.h</a></div></div>
 <div class="ttc" id="IQRFPackets_8h_html"><div class="ttname"><a href="IQRFPackets_8h.html">IQRFPackets.h</a></div></div>
 <div class="ttc" id="IQRFSPI_8h_html"><div class="ttname"><a href="IQRFSPI_8h.html">IQRFSPI.h</a></div></div>
 <div class="ttc" id="classIQRFCallbacks_html"><div class="ttname"><a href="classIQRFCallbacks.html">IQRFCallbacks</a></div><div class="ttdef"><b>Definition:</b> IQRFCallbacks.h:33</div></div>
 <div class="ttc" id="CallbackFunctions_8h_html"><div class="ttname"><a href="CallbackFunctions_8h.html">CallbackFunctions.h</a></div></div>
-<div class="ttc" id="classIQRFPackets_html"><div class="ttname"><a href="classIQRFPackets.html">IQRFPackets</a></div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:36</div></div>
+<div class="ttc" id="classIQRFPackets_html"><div class="ttname"><a href="classIQRFPackets.html">IQRFPackets</a></div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:37</div></div>
 <div class="ttc" id="classIQRFSPI_html"><div class="ttname"><a href="classIQRFSPI.html">IQRFSPI</a></div><div class="ttdef"><b>Definition:</b> IQRFSPI.h:35</div></div>
 <div class="ttc" id="classInfoTask_html_a856e1b0efea60db4a249a8d3d0200dea"><div class="ttname"><a href="classInfoTask.html#a856e1b0efea60db4a249a8d3d0200dea">InfoTask::statuses</a></div><div class="ttdeci">statuses</div><div class="ttdef"><b>Definition:</b> InfoTask.h:46</div></div>
 <div class="ttc" id="classInfoTask_html"><div class="ttname"><a href="classInfoTask.html">InfoTask</a></div><div class="ttdef"><b>Definition:</b> InfoTask.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2016 09:19:05 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 5 2016 17:08:09 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
