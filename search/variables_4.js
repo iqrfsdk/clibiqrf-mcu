@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['packetid',['packetId',['../structIQRFPackets_1_1packet__buffer.html#ae3d9646303c6d0e6a6f255a517c6106f',1,'IQRFPackets::packet_buffer']]]
+  ['osbuild',['osBuild',['../structIQRFTR_1_1infoStruct.html#ada748d2937682aff0bbbb83185eb3958',1,'IQRFTR::infoStruct']]],
+  ['osversion',['osVersion',['../structIQRFTR_1_1infoStruct.html#a40a4e86d4891012e2c94b47169c69861',1,'IQRFTR::infoStruct']]]
 ];

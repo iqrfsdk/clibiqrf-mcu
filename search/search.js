@@ -11,11 +11,12 @@ var indexSectionsWithContent =
   1: "ip",
   2: "ci",
   3: "bcdegirst",
-  4: "dfmoprstu",
+  4: "dfimoprstu",
   5: "rt",
   6: "cfmst",
   7: "bcdefimnoprstuw",
-  8: "ipr"
+  8: "ipr",
+  9: "d"
 };
 
 var indexSectionNames =
@@ -28,7 +29,8 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines"
+  8: "defines",
+  9: "pages"
 };
 
 function convertToId(search)

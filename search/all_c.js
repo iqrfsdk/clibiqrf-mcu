@@ -17,6 +17,7 @@ var searchData=
   ['settxdata',['setTxData',['../classIQRFBuffers.html#ac8b749f427834a09429f613fd2f9a816',1,'IQRFBuffers']]],
   ['settype',['setType',['../classIQRFPackets.html#a4ab1ddb8c6ee9ddeec19f157fab5f619',1,'IQRFPackets']]],
   ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
+  ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
   ['spicmd',['spiCmd',['../structIQRFPackets_1_1packet__buffer.html#ac926e4804e6eb9f9fd1e66661a42535d',1,'IQRFPackets::packet_buffer']]],
   ['statuses',['statuses',['../classInfoTask.html#a856e1b0efea60db4a249a8d3d0200dea',1,'InfoTask::statuses()'],['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869',1,'IQRFPackets::statuses()'],['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI::statuses()']]]
 ];

@@ -4,6 +4,7 @@ var searchData=
   ['databuffer',['dataBuffer',['../structIQRFPackets_1_1packet__buffer.html#a0a5243a066ace15663343d7b374367fa',1,'IQRFPackets::packet_buffer']]],
   ['datalength',['dataLength',['../structIQRFPackets_1_1packet__buffer.html#a66ff3e257ebf4fe84e5dc87d7eab6291',1,'IQRFPackets::packet_buffer']]],
   ['debug_5fmode',['DEBUG_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a8dceec0e67e9921687789e20169c08fd',1,'IQRFSPI']]],
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
   ['disabled',['DISABLED',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a4cf4ac49cafdb28bad0217154adaf413',1,'IQRFSPI']]],
   ['disablefastspi',['disableFastSpi',['../classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8',1,'IQRFSPI']]],
   ['disablemaster',['disableMaster',['../classIQRFSPI.html#acb83690ba53849b8e6ff86859336623e',1,'IQRFSPI']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['task',['task',['../classInfoTask.html#a985f0ff729c1a492dd63b9038063b40d',1,'InfoTask']]],
-  ['tr',['tr',['../CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'CallbackFunctions.cpp']]],
+  ['tr',['tr',['../CallbackFunctions_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'tr():&#160;CallbackFunctions.cpp'],['../iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'tr():&#160;iqrf_library.cpp']]],
   ['tr_5f52d',['TR_52D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa0079858516c1cf71582ce41c7166b184',1,'IQRFTR']]],
   ['tr_5f53d',['TR_53D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa6733a12ef69f98e6741439c8bea35276',1,'IQRFTR']]],
   ['tr_5f54d',['TR_54D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa96d326906d2666dd798d78a766abe8bc',1,'IQRFTR']]],
@@ -10,6 +10,7 @@ var searchData=
   ['tr_5f58d_5frj',['TR_58D_RJ',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fae96a8755797aa6ada6950d9ece011fe2',1,'IQRFTR']]],
   ['tr_5f72d',['TR_72D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1faa88cbb62180e9563f819b27a81e8750d',1,'IQRFTR']]],
   ['tr_5f76d',['TR_76D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa14fc6600b82880741e7b9c8f460e975e',1,'IQRFTR']]],
+  ['tr_5fsendspipacket',['TR_SendSpiPacket',['../iqrf__library_8cpp.html#a031a6f4f79d2224553c132e5ebe092fc',1,'TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a031a6f4f79d2224553c132e5ebe092fc',1,'TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp']]],
   ['turnoff',['turnOff',['../classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea',1,'IQRFTR']]],
   ['turnon',['turnOn',['../classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe',1,'IQRFTR']]],
   ['tx_5fcallback',['tx_callback',['../classIQRFCallbacks.html#a02e9ca4bd8f14c5083c48b23030cab6d',1,'IQRFCallbacks']]],
