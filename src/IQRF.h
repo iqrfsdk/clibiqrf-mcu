@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 1.0
+ * @version 2.0
  *
  * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
@@ -41,7 +41,7 @@ using namespace std;
  */
 class IQRF {
 public:
-	IQRF(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback);
+	void init(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback);
 	void driver();
 	void getData(uint8_t *dataBuffer, uint8_t dataSize);
 	uint8_t getDataLength();

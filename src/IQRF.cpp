@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 1.0
+ * @version 2.0
  *
  * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
@@ -28,7 +28,7 @@
  * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-IQRF::IQRF(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback) {
+void IQRF::init(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txCallback) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	// Normal SPI communication
