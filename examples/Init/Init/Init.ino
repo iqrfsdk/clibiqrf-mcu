@@ -36,11 +36,11 @@ void msTimerCallback();
  * App data structure
  */
 typedef struct {
-	uint8_t rxBuffer[PACKET_SIZE];
-	uint8_t *txBuffer;
-	uint8_t packetId;
-	volatile uint16_t timer;
-	volatile bool timerAck;
+	uint8_t rxBuffer[PACKET_SIZE]; //!< Rx buffer
+	uint8_t *txBuffer; //!< Tx buffer
+	uint8_t packetId; //!< Packet ID
+	volatile uint16_t timer; //!< Timer
+	volatile bool timerAck; //!< Timer action
 } appVarsStruct;
 appVarsStruct appVars;
 
@@ -81,7 +81,7 @@ void loop() {
 		// Allocate memory for Tx packet
 		appVars.txBuffer = (uint8_t *) malloc(sizeof(testBuffer));
 		if (appVars.txBuffer != NULL) {
-			// Copy data from test to IQRF TX packet
+			// Copy data from test to Tx packet
 			memcpy(appVars.txBuffer, (uint8_t *) & testBuffer, sizeof(testBuffer));
 			// Send data and unallocate data buffer
 			appVars.packetId = iqrf->sendData(appVars.txBuffer, sizeof(testBuffer), 1);
@@ -94,7 +94,7 @@ void loop() {
  * 1ms timer callback
  */
 void msTimerCallback() {
-	// app timer, call handler
+	// App timer, call handler
 	if (appVars.timer) {
 		if ((--appVars.timer) == 0) {
 			appVars.timerAck = true;

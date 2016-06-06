@@ -1,9 +1,11 @@
+// Examples
 /**
- * @file
- * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
- * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
- *
+ * @example Init.ino This example shows how to send data packet.
+ */
+
+// Sections
+/**
+ * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,21 +20,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-#ifndef IQRFCRC_H
-#define IQRFCRC_H
-
-#include <stdint.h>
-
-using namespace std;
-
-/**
- * IQRF CRC class
- */
-class IQRFCRC {
-public:
-	uint8_t calculate(uint8_t *buffer, uint8_t dataLength);
-	bool check(uint8_t *buffer, uint8_t dataLength, uint8_t type);
-};
-
-#endif

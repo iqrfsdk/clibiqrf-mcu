@@ -4,7 +4,6 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 2.0
  *
- * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

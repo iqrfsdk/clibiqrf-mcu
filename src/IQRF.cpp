@@ -4,7 +4,6 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 2.0
  *
- * @section LICENSE
  * Copyright 2015 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,8 +34,6 @@ IQRF::IQRF(IQRFCallbacks::rx_callback rxCallback, IQRFCallbacks::tx_callback txC
 /**
  * Function perform a TR-module driver initialization
  * Function performes initialization of trInfoStruct identification data structure
- * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
- * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
 void IQRF::begin() {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
