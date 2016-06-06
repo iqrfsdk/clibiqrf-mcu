@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['disablefastspi',['disableFastSpi',['../classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8',1,'IQRFSPI']]],
-  ['disablemaster',['disableMaster',['../classIQRFSPI.html#acb83690ba53849b8e6ff86859336623e',1,'IQRFSPI']]],
-  ['disableprogramflag',['disableProgramFlag',['../classIQRFTR.html#aadedf2a6d56101afd41bfd9aa379eb2d',1,'IQRFTR']]],
-  ['donothingrx',['doNothingRx',['../CallbackFunctions_8cpp.html#aa538395fc85d70265c4090601d9cf64d',1,'doNothingRx():&#160;CallbackFunctions.cpp'],['../CallbackFunctions_8h.html#aa538395fc85d70265c4090601d9cf64d',1,'doNothingRx():&#160;CallbackFunctions.cpp']]],
-  ['donothingtx',['doNothingTx',['../CallbackFunctions_8cpp.html#ad5997234f86b8e95f2914a95cb941175',1,'doNothingTx(uint8_t packetId, uint8_t packetResult):&#160;CallbackFunctions.cpp'],['../CallbackFunctions_8h.html#ad5997234f86b8e95f2914a95cb941175',1,'doNothingTx(uint8_t packetId, uint8_t packetResult):&#160;CallbackFunctions.cpp']]],
-  ['driver',['driver',['../classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74',1,'IQRF']]]
+  ['iqrf_5fdriver',['IQRF_Driver',['../iqrf__library_8cpp.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316',1,'IQRF_Driver(void):&#160;iqrf_library.cpp']]],
+  ['iqrf_5fgetrxdata',['IQRF_GetRxData',['../iqrf__library_8cpp.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp']]],
+  ['iqrf_5finit',['IQRF_Init',['../iqrf__library_8cpp.html#a62106e1bb0d1d20da3fea10ebd5d98cc',1,'IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a62106e1bb0d1d20da3fea10ebd5d98cc',1,'IQRF_Init(IQRF_RX_CALL_BACK rx_call_back_fn, IQRF_TX_CALL_BACK tx_call_back_fn):&#160;iqrf_library.cpp']]],
+  ['iqrf_5fsenddata',['IQRF_SendData',['../iqrf__library_8cpp.html#adebe2bdc8b760bee0a2b7f2b6f2db824',1,'IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824',1,'IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp']]],
+  ['iqrf_5fspi_5fbyte',['IQRF_SPI_Byte',['../iqrf__library_8cpp.html#a7b6b0cec17d4a369cb3027829980705c',1,'IQRF_SPI_Byte(uint8_t Tx_Byte):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a7b6b0cec17d4a369cb3027829980705c',1,'IQRF_SPI_Byte(uint8_t Tx_Byte):&#160;iqrf_library.cpp']]],
+  ['iqrf_5ftr_5fenterprogmode',['IQRF_TR_EnterProgMode',['../iqrf__library_8cpp.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#aff334caab6258b9e04a9b3b645611d99',1,'IQRF_TR_EnterProgMode(void):&#160;iqrf_library.cpp']]],
+  ['iqrf_5ftr_5freset',['IQRF_TR_Reset',['../iqrf__library_8cpp.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#ac616d54da3b40b249c7860399d32afff',1,'IQRF_TR_Reset(void):&#160;iqrf_library.cpp']]]
 ];

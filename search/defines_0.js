@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iqrf_5fspi_5fclock',['IQRF_SPI_CLOCK',['../IQRFSPI_8h.html#a34935487e4599d2425c910754b4663ee',1,'IQRFSPI.h']]]
+  ['communication_5fmode',['COMMUNICATION_MODE',['../iqrf__library_8h.html#a3345fd5832d738cf1ca862fe7b6c9759',1,'iqrf_library.h']]]
 ];
