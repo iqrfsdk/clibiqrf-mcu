@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['packet_5fbuffer_5fsize',['PACKET_BUFFER_SIZE',['../iqrf__library_8h.html#ab30af815d6e9494361629440f14e3716',1,'iqrf_library.h']]],
-  ['pdatabuffer',['pDataBuffer',['../structIQRF__PACKET__BUFFER.html#a1fc691c0c67cb35d83549ea879ef58bb',1,'IQRF_PACKET_BUFFER']]],
-  ['pic16f886',['PIC16F886',['../iqrf__library_8h.html#aa9417fc75122c966c16f053f2158c567',1,'iqrf_library.h']]],
-  ['pic16lf1938',['PIC16LF1938',['../iqrf__library_8h.html#a4af05824e99130fbcda123e2ccd8876d',1,'iqrf_library.h']]],
-  ['pic16lf819',['PIC16LF819',['../iqrf__library_8h.html#aab114e0afc38d244e188c83431e74f92',1,'iqrf_library.h']]],
-  ['pic16lf88',['PIC16LF88',['../iqrf__library_8h.html#a1b675c796d2f228d6138ccd4bf5065b4',1,'iqrf_library.h']]],
-  ['pktid',['pktId',['../structIQRF__PACKET__BUFFER.html#a4d6c8526fe2d9a982bf214e436853ef0',1,'IQRF_PACKET_BUFFER']]],
-  ['programming_5fmode',['PROGRAMMING_MODE',['../iqrf__library_8h.html#a4387d307ddd85f212101a3030f065055',1,'iqrf_library.h']]]
+  ['masterstatuses',['masterStatuses',['../classIQRFSPI.html#aa0243b3c8117fb3ba82ab8ba58ebca9c',1,'IQRFSPI']]],
+  ['mcutype',['mcuType',['../structIQRFTR_1_1infoStruct.html#a866dad5ece704363b0773f7d86e67f2e',1,'IQRFTR::infoStruct']]],
+  ['mcutypes',['mcuTypes',['../classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9',1,'IQRFTR']]],
+  ['module_5finfo',['MODULE_INFO',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465acb193918944e4583a5e1ca889ce5ccc6',1,'IQRFSPI']]],
+  ['moduleid',['moduleId',['../structIQRFTR_1_1infoStruct.html#ae789ddd78999cdf043bf527232577200',1,'IQRFTR::infoStruct']]],
+  ['moduletype',['moduleType',['../structIQRFTR_1_1infoStruct.html#a45ee0b6767c1ef9db53b5aef1db84b72',1,'IQRFTR::infoStruct']]]
 ];

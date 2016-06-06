@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['osbuild',['osBuild',['../structTR__INFO__STRUCT.html#a3aeb9390b492e5a931f526214ba6f2bd',1,'TR_INFO_STRUCT']]],
-  ['osversion',['osVersion',['../structTR__INFO__STRUCT.html#ac0970d0cbc92beb0f733ddf5d2f0a0f7',1,'TR_INFO_STRUCT']]]
+  ['packetid',['packetId',['../structIQRFPackets_1_1packet__buffer.html#ae3d9646303c6d0e6a6f255a517c6106f',1,'IQRFPackets::packet_buffer::packetId()'],['../structappVarsStruct.html#a2f1453f54ead19c928a2f31bd3645bae',1,'appVarsStruct::packetId()']]]
 ];

@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -23,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">IQRF SPI library for Arduino
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">Version 2.0</span>
    </div>
   </td>
  </tr>
@@ -38,9 +45,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,32 +77,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_vars.html"><span>Variables</span></a></li>
-      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
-  <div id="navrow4" class="tabs3">
-    <ul class="tablist">
-      <li><a href="#index_c"><span>c</span></a></li>
-      <li><a href="#index_d"><span>d</span></a></li>
-      <li><a href="#index_e"><span>e</span></a></li>
-      <li><a href="#index_f"><span>f</span></a></li>
-      <li><a href="#index_g"><span>g</span></a></li>
-      <li><a href="#index_i"><span>i</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
-      <li><a href="#index_n"><span>n</span></a></li>
-      <li><a href="#index_p"><span>p</span></a></li>
-      <li><a href="#index_s"><span>s</span></a></li>
-      <li class="current"><a href="#index_t"><span>t</span></a></li>
-    </ul>
-  </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,330 +110,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented file members with links to the documentation:</div>
-
-<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>CheckCRCS()
-: <a class="el" href="iqrf__library_8cpp.html#a4e7aa2e03c41feac0b744633e62ff679">iqrf_library.cpp</a>
+<div class="textblock">Here is a list of all documented file members with links to the documentation:</div><ul>
+<li>_tr
+: <a class="el" href="CallbackFunctions_8cpp.html#aadde70242224399a4bb9dcb84fa1bdab">CallbackFunctions.cpp</a>
 </li>
-<li>COMMUNICATION_MODE
-: <a class="el" href="iqrf__library_8h.html#a3345fd5832d738cf1ca862fe7b6c9759">iqrf_library.h</a>
+<li>doNothingRx()
+: <a class="el" href="CallbackFunctions_8cpp.html#aa538395fc85d70265c4090601d9cf64d">CallbackFunctions.cpp</a>
+, <a class="el" href="CallbackFunctions_8h.html#aa538395fc85d70265c4090601d9cf64d">CallbackFunctions.h</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>DEBUG_MODE
-: <a class="el" href="iqrf__library_8h.html#ac80a3592e72fd96b772ee47a7d8e0d0a">iqrf_library.h</a>
+<li>doNothingTx()
+: <a class="el" href="CallbackFunctions_8cpp.html#ad5997234f86b8e95f2914a95cb941175">CallbackFunctions.cpp</a>
+, <a class="el" href="CallbackFunctions_8h.html#ad5997234f86b8e95f2914a95cb941175">CallbackFunctions.h</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
-<li>endPgmMode
-: <a class="el" href="iqrf__library_8cpp.html#a3b735646c59523ad497e77173824e284">iqrf_library.cpp</a>
+<li>identifyRx()
+: <a class="el" href="CallbackFunctions_8cpp.html#a9b2ac4da0e80949623c3dd838a5bb34c">CallbackFunctions.cpp</a>
+, <a class="el" href="CallbackFunctions_8h.html#a9b2ac4da0e80949623c3dd838a5bb34c">CallbackFunctions.h</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
-<li>fastIqrfSpiEnable
-: <a class="el" href="iqrf__library_8cpp.html#ab9659b9cca49a3c162e466c9063bdb2f">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#ab9659b9cca49a3c162e466c9063bdb2f">iqrf_library.h</a>
+<li>identifyTx()
+: <a class="el" href="CallbackFunctions_8h.html#a58e28ed4559e80e7494af93c40dabce6">CallbackFunctions.h</a>
+, <a class="el" href="CallbackFunctions_8cpp.html#a58e28ed4559e80e7494af93c40dabce6">CallbackFunctions.cpp</a>
 </li>
-<li>FCC_CERTIFIED
-: <a class="el" href="iqrf__library_8h.html#a0200af06a81f1670b2026788e22f5f82">iqrf_library.h</a>
+<li>IQRF_SPI_CLOCK
+: <a class="el" href="IQRFSPI_8h.html#a34935487e4599d2425c910754b4663ee">IQRFSPI.h</a>
 </li>
-<li>FCC_NOT_CERTIFIED
-: <a class="el" href="iqrf__library_8h.html#a28c6f1b2ba4322f24c2b84d3d6e3ada5">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
-<li>GetCRCM()
-: <a class="el" href="iqrf__library_8cpp.html#a0e41b6e7f4fd06a272f28ac5d4e43c2f">iqrf_library.cpp</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>IQ_PKT_SIZE
-: <a class="el" href="iqrf__library_8h.html#a5ab303eb545301675364973bea76deee">iqrf_library.h</a>
-</li>
-<li>IQ_SPI_RxBuf
-: <a class="el" href="iqrf__library_8cpp.html#a6db0ea3740d8161cc74b5904157d6d53">iqrf_library.cpp</a>
-</li>
-<li>IQ_SPI_TxBuf
-: <a class="el" href="iqrf__library_8cpp.html#a1305f1d92a27fcdcc3c8297c2d6835e0">iqrf_library.cpp</a>
-</li>
-<li>IQRF_Driver()
-: <a class="el" href="iqrf__library_8cpp.html#aef52706e48dbfcb45deb7790099aa316">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#aef52706e48dbfcb45deb7790099aa316">iqrf_library.h</a>
-</li>
-<li>IQRF_GetMcuType
-: <a class="el" href="iqrf__library_8h.html#a693dfec78d1816b32ddca594d70f108a">iqrf_library.h</a>
-</li>
-<li>IQRF_GetModuleId
-: <a class="el" href="iqrf__library_8h.html#ae8bab73b1e236f3c11f5b58feaa986a8">iqrf_library.h</a>
-</li>
-<li>IQRF_GetModuleInfoRawData
-: <a class="el" href="iqrf__library_8h.html#a1882641e14acaa7cf387e9c380021914">iqrf_library.h</a>
-</li>
-<li>IQRF_GetModuleType
-: <a class="el" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">iqrf_library.h</a>
-</li>
-<li>IQRF_GetOsBuild
-: <a class="el" href="iqrf__library_8h.html#a8bcbd024fc9dfc0206f1975093aa93e7">iqrf_library.h</a>
-</li>
-<li>IQRF_GetOsVersion
-: <a class="el" href="iqrf__library_8h.html#a0f317f99a0962ddb6f14ef78881a1950">iqrf_library.h</a>
-</li>
-<li>IQRF_GetRxData()
-: <a class="el" href="iqrf__library_8cpp.html#a438a10cf50a96475d218fdb422f5a15e">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a438a10cf50a96475d218fdb422f5a15e">iqrf_library.h</a>
-</li>
-<li>IQRF_GetRxDataSize
-: <a class="el" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">iqrf_library.h</a>
-</li>
-<li>IQRF_GetSPIMasterState
-: <a class="el" href="iqrf__library_8h.html#a1d974fe41fd9dce11dc778e0269ab039">iqrf_library.h</a>
-</li>
-<li>IQRF_GetStatus
-: <a class="el" href="iqrf__library_8h.html#aae5bb72957c078353f90c9fe6969ef49">iqrf_library.h</a>
-</li>
-<li>IQRF_Init()
-: <a class="el" href="iqrf__library_8cpp.html#a62106e1bb0d1d20da3fea10ebd5d98cc">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a62106e1bb0d1d20da3fea10ebd5d98cc">iqrf_library.h</a>
-</li>
-<li>IQRF_RX_CALL_BACK
-: <a class="el" href="iqrf__library_8h.html#a94f7d553cbd2468d871bb62d68289819">iqrf_library.h</a>
-</li>
-<li>iqrf_rx_call_back_fn
-: <a class="el" href="iqrf__library_8cpp.html#af6ec50984001efbc5a5ae9851d0086ee">iqrf_library.cpp</a>
-</li>
-<li>IQRF_SendData()
-: <a class="el" href="iqrf__library_8cpp.html#adebe2bdc8b760bee0a2b7f2b6f2db824">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824">iqrf_library.h</a>
-</li>
-<li>IQRF_SPI_Byte()
-: <a class="el" href="iqrf__library_8cpp.html#a7b6b0cec17d4a369cb3027829980705c">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a7b6b0cec17d4a369cb3027829980705c">iqrf_library.h</a>
-</li>
-<li>IQRF_SPI_CLK
-: <a class="el" href="iqrf__library_8h.html#a09ccbd95b46eca7e62c687ac0035056f">iqrf_library.h</a>
-</li>
-<li>IQRF_SPIMasterDisable
-: <a class="el" href="iqrf__library_8h.html#a0967061a36bee5c678281afa10c9427a">iqrf_library.h</a>
-</li>
-<li>IQRF_SPIMasterEnable
-: <a class="el" href="iqrf__library_8h.html#a347e707ce03d8f5237b8c676a2066605">iqrf_library.h</a>
-</li>
-<li>IQRF_TR_EnterProgMode()
-: <a class="el" href="iqrf__library_8h.html#aff334caab6258b9e04a9b3b645611d99">iqrf_library.h</a>
-, <a class="el" href="iqrf__library_8cpp.html#aff334caab6258b9e04a9b3b645611d99">iqrf_library.cpp</a>
-</li>
-<li>IQRF_TR_Reset()
-: <a class="el" href="iqrf__library_8h.html#ac616d54da3b40b249c7860399d32afff">iqrf_library.h</a>
-, <a class="el" href="iqrf__library_8cpp.html#ac616d54da3b40b249c7860399d32afff">iqrf_library.cpp</a>
-</li>
-<li>IQRF_TX_CALL_BACK
-: <a class="el" href="iqrf__library_8h.html#aab1e54db45861f53ff8bdce00ca64768">iqrf_library.h</a>
-</li>
-<li>iqrf_tx_call_back_fn
-: <a class="el" href="iqrf__library_8cpp.html#a3cab392775fa7c863d6006628f19a632">iqrf_library.cpp</a>
-</li>
-<li>IQRF_TX_PKT_ERR
-: <a class="el" href="iqrf__library_8h.html#af5006c56a8ee524faf4a97b3efb0f9f9">iqrf_library.h</a>
-</li>
-<li>IQRF_TX_PKT_OK
-: <a class="el" href="iqrf__library_8h.html#abb5eaa20c74e2d868ffee9724d1eca2f">iqrf_library.h</a>
-</li>
-<li>iqrfPacketBuffer
-: <a class="el" href="iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1">iqrf_library.cpp</a>
-</li>
-<li>iqrfSpiMasterEnable
-: <a class="el" href="iqrf__library_8cpp.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#a69b48472478f6dc62f0dcd767c1fbf45">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
-<li>MCU_UNKNOWN
-: <a class="el" href="iqrf__library_8h.html#ac5b8dedb00f0104ff8d8659966392861">iqrf_library.h</a>
-</li>
-<li>MICRO_SECOND
-: <a class="el" href="iqrf__library_8h.html#a6823058ce2e14113fbc93c9c36a7bcee">iqrf_library.h</a>
-</li>
-<li>MILLI_SECOND
-: <a class="el" href="iqrf__library_8h.html#ad4303ff595a045e360e67a93a3159a2e">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
-<li>NO_MODULE
-: <a class="el" href="iqrf__library_8h.html#a7daac6913170e5ed17b2ec8946374188">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>PACKET_BUFFER_SIZE
-: <a class="el" href="iqrf__library_8h.html#ab30af815d6e9494361629440f14e3716">iqrf_library.h</a>
+: <a class="el" href="IQRFPackets_8h.html#ab30af815d6e9494361629440f14e3716">IQRFPackets.h</a>
 </li>
-<li>PIC16F886
-: <a class="el" href="iqrf__library_8h.html#aa9417fc75122c966c16f053f2158c567">iqrf_library.h</a>
+<li>PACKET_SIZE
+: <a class="el" href="IQRFPackets_8h.html#aebdc7d8ca8e25ed8efc90bb88ef7ef5b">IQRFPackets.h</a>
 </li>
-<li>PIC16LF1938
-: <a class="el" href="iqrf__library_8h.html#a4af05824e99130fbcda123e2ccd8876d">iqrf_library.h</a>
-</li>
-<li>PIC16LF819
-: <a class="el" href="iqrf__library_8h.html#aab114e0afc38d244e188c83431e74f92">iqrf_library.h</a>
-</li>
-<li>PIC16LF88
-: <a class="el" href="iqrf__library_8h.html#a1b675c796d2f228d6138ccd4bf5065b4">iqrf_library.h</a>
-</li>
-<li>PROGRAMMING_MODE
-: <a class="el" href="iqrf__library_8h.html#a4387d307ddd85f212101a3030f065055">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>SPI_BUSY
-: <a class="el" href="iqrf__library_8h.html#ad4e7ccbd897e6b2c6bd58dc6f54a6536">iqrf_library.h</a>
-</li>
-<li>SPI_CHECK
-: <a class="el" href="iqrf__library_8h.html#a5597f9e1fe5f40503d2f7930cbb977d3">iqrf_library.h</a>
-</li>
-<li>SPI_CRCM_ERR
-: <a class="el" href="iqrf__library_8h.html#a5cd98184eeec5f796a50bd1d3b0e5b1a">iqrf_library.h</a>
-</li>
-<li>SPI_CRCM_OK
-: <a class="el" href="iqrf__library_8h.html#a10a9e6c4de8dcc11a7d2d5bacaf0a713">iqrf_library.h</a>
-</li>
-<li>SPI_DATA_TRANSFER
-: <a class="el" href="iqrf__library_8h.html#ae2cbf3aa8453dba2bba7afb3f9a3f5f3">iqrf_library.h</a>
-</li>
-<li>SPI_DISABLED
-: <a class="el" href="iqrf__library_8h.html#a00d9320160522591192e302829a93ba3">iqrf_library.h</a>
-</li>
-<li>SPI_EEPROM_PGM
-: <a class="el" href="iqrf__library_8h.html#a4bab13c3f6ea81a5d2dd301c5fc42e37">iqrf_library.h</a>
-</li>
-<li>SPI_EEPROM_READ
-: <a class="el" href="iqrf__library_8h.html#abed99edbe21a1b8449bc5892688cf145">iqrf_library.h</a>
-</li>
-<li>SPI_FLASH_PGM
-: <a class="el" href="iqrf__library_8h.html#aa923feb4a0141e3d4a901c27bfe5afeb">iqrf_library.h</a>
-</li>
-<li>SPI_MODULE_INFO
-: <a class="el" href="iqrf__library_8h.html#a08a2f4e59e6303b3a9c846d92df4ef30">iqrf_library.h</a>
-</li>
-<li>SPI_PLUGIN_PGM
-: <a class="el" href="iqrf__library_8h.html#a8bda7dbbcf0eb7ca68efae9ac024771e">iqrf_library.h</a>
-</li>
-<li>SPI_RAM_READ
-: <a class="el" href="iqrf__library_8h.html#a91fdf2473a7fe0f6e442fcd7fddf5c05">iqrf_library.h</a>
-</li>
-<li>SPI_SLOW_MODE
-: <a class="el" href="iqrf__library_8h.html#aa13b32f35d598439300a200647b5f182">iqrf_library.h</a>
-</li>
-<li>SPI_USER_STOP
-: <a class="el" href="iqrf__library_8h.html#a189ece6baac0c4ac08e51dfd30a80d7a">iqrf_library.h</a>
-</li>
-<li>SPI_WR_RD
-: <a class="el" href="iqrf__library_8h.html#a066bc7c493a6ceca042b311b036cd8ba">iqrf_library.h</a>
-</li>
-<li>spiStat
-: <a class="el" href="iqrf__library_8cpp.html#af9230eb25964a1b30d0ce0fabfa84681">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#af9230eb25964a1b30d0ce0fabfa84681">iqrf_library.h</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>TR_52D
-: <a class="el" href="iqrf__library_8h.html#a03e68e6e414f40ac0bc5da0ae22be172">iqrf_library.h</a>
-</li>
-<li>TR_53D
-: <a class="el" href="iqrf__library_8h.html#a0bec8fdbf28ad447963f915195b7df0f">iqrf_library.h</a>
-</li>
-<li>TR_54D
-: <a class="el" href="iqrf__library_8h.html#a5f739704453a7ba17f9bc3293e7e1f6d">iqrf_library.h</a>
-</li>
-<li>TR_55D
-: <a class="el" href="iqrf__library_8h.html#a1cf49574740b7c309ccc2aaab02c54d8">iqrf_library.h</a>
-</li>
-<li>TR_56D
-: <a class="el" href="iqrf__library_8h.html#aaf3708cf5784b719d07834f0912dc5de">iqrf_library.h</a>
-</li>
-<li>TR_58D_RJ
-: <a class="el" href="iqrf__library_8h.html#abfa87a8be7ab332680f9100e16d9e1d3">iqrf_library.h</a>
-</li>
-<li>TR_72D
-: <a class="el" href="iqrf__library_8h.html#ab44291111dddb00d55fbdc1398832ed7">iqrf_library.h</a>
-</li>
-<li>TR_76D
-: <a class="el" href="iqrf__library_8h.html#a14030fe3a90b7c955595175cb032431b">iqrf_library.h</a>
-</li>
-<li>TR_Control_Task()
-: <a class="el" href="iqrf__library_8cpp.html#a230fba6a7b6858eb84a72afa9278e0e4">iqrf_library.cpp</a>
-</li>
-<li>TR_dummy_func_com()
-: <a class="el" href="iqrf__library_8cpp.html#a3671d95eb1e11ac19c4155e10678ea3f">iqrf_library.cpp</a>
-</li>
-<li>TR_dummy_func_pgm()
-: <a class="el" href="iqrf__library_8cpp.html#a329a79e4bf2308320c42a76ab619ecb4">iqrf_library.cpp</a>
-</li>
-<li>TR_Info_Task()
-: <a class="el" href="iqrf__library_8cpp.html#a45058dcee725be22e3d6cf0e22c50429">iqrf_library.cpp</a>
-</li>
-<li>TR_Module_OFF()
-: <a class="el" href="iqrf__library_8cpp.html#a8201c57591fbe10558b0904458d609c3">iqrf_library.cpp</a>
-</li>
-<li>TR_Module_ON()
-: <a class="el" href="iqrf__library_8cpp.html#a51a09bcb1aa7c4654a857efdbf57dd4e">iqrf_library.cpp</a>
-</li>
-<li>TR_process_id_packet_com()
-: <a class="el" href="iqrf__library_8cpp.html#ab061ceff1222036b456fa92dd32cff44">iqrf_library.cpp</a>
-</li>
-<li>TR_process_id_packet_pgm()
-: <a class="el" href="iqrf__library_8cpp.html#a42c98db7bbfccc10327bfb21759ff64a">iqrf_library.cpp</a>
-</li>
-<li>TR_RESET_IO
-: <a class="el" href="iqrf__library_8h.html#a3bad5ec740aa92509ae469f3ad841892">iqrf_library.h</a>
-</li>
-<li>TR_SDI_IO
-: <a class="el" href="iqrf__library_8h.html#a7243b9fec5251c1a04a8c739ccc01ce4">iqrf_library.h</a>
-</li>
-<li>TR_SDO_IO
-: <a class="el" href="iqrf__library_8h.html#afe4955098f29a58a1f86bde1f81cd701">iqrf_library.h</a>
-</li>
-<li>TR_SendSpiPacket()
-: <a class="el" href="iqrf__library_8cpp.html#ad38ad5735b391642ce0edc8a3140d4eb">iqrf_library.cpp</a>
-, <a class="el" href="iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb">iqrf_library.h</a>
-</li>
-<li>TR_SetByteToByteTime()
-: <a class="el" href="iqrf__library_8h.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.h</a>
-, <a class="el" href="iqrf__library_8cpp.html#a148acdecd661584f64f772c6a5ba42b1">iqrf_library.cpp</a>
-</li>
-<li>TR_SS_IO
-: <a class="el" href="iqrf__library_8h.html#a03d098e7391a39ae0f8261652dc88f1a">iqrf_library.h</a>
-</li>
-<li>trInfoStruct
-: <a class="el" href="iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875">iqrf_library.h</a>
-, <a class="el" href="iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875">iqrf_library.cpp</a>
+<li>RESET_PIN
+: <a class="el" href="IQRFTR_8h.html#a08bca59db4b190eaaea4d47b7562869c">IQRFTR.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 6 2016 17:27:59 for IQRF SPI library for Arduino by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Jun 6 2016 19:30:50 for IQRF SPI library for Arduino by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
 </body>
 </html>

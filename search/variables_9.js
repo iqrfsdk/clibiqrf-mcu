@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unallocationflag',['unallocationFlag',['../structIQRF__PACKET__BUFFER.html#a3c0f147ad49eee098abbfec2538c9860',1,'IQRF_PACKET_BUFFER']]]
+  ['unallocationflag',['unallocationFlag',['../structIQRFPackets_1_1packet__buffer.html#a343b9f1705d2be4b57a9a89db92336d8',1,'IQRFPackets::packet_buffer']]]
 ];
