@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *
@@ -21,12 +21,11 @@
 
 #ifndef IQRFSPI_H
 #define IQRFSPI_H
-#define IQRF_SPI_CLOCK 250000 //!< SPI clock 250kHz
 
 #include <stdint.h>
 #include <SPI.h>
 
-using namespace std;
+#include "IQRFSettings.h"
 
 /**
  * IQRF SPI

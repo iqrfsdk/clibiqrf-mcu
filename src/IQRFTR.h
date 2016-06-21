@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *
@@ -21,17 +21,12 @@
 
 #ifndef IQRFTR_H
 #define IQRFTR_H
-#define RESET_PIN 9 //!< TR reset pin
 
-#include <stdint.h>
 #include <Arduino.h>
 #include <SPI.h>
 
-#include "IQRFBuffers.h"
-#include "IQRFPackets.h"
+#include "IQRFSettings.h"
 #include "IQRFSPI.h"
-
-using namespace std;
 
 /**
  * IQRF TR
@@ -44,21 +39,10 @@ public:
 	void turnOff();
 	uint8_t getControlStatus();
 	void setControlStatus(uint8_t status);
-	uint8_t getInfoReadingStatus();
-	void setInfoReadingStatus(uint8_t status);
 	void enableProgramFlag();
 	void disableProgramFlag();
 	bool getProgramFlag();
 	void controlTask();
-	void identify();
-	uint16_t getOsVersion();
-	uint16_t getOsBuild();
-	uint32_t getModuleId();
-	uint16_t getModuleType();
-	uint16_t getMcuType();
-	void setMcuType(uint16_t type);
-	uint16_t getFccStatus();
-	uint8_t getInfoRawData(uint8_t position);
 
 	/**
 	 * TR control statuses
@@ -94,40 +78,11 @@ public:
 		PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
 		PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
 	};
-
-	/**
-	 * FCC (Federal Communications Commission) certification statuses
-	 */
-	enum fccStatuses {
-		NOT_CERTIFIED = 0, //!< Not certified fy FCC
-		CERTIFIED = 1 //!< Certified by FCC
-	};
-
-	/**
-	 * TR module info structure
-	 */
-	typedef struct {
-		uint16_t osVersion; //!< OS version
-		uint16_t osBuild; //!< OS build
-		uint32_t moduleId; //!< Module ID
-		uint16_t mcuType; //!< MCU tyle
-		uint16_t moduleType; //!< Module type
-		uint16_t fcc; //!< FCC
-		uint8_t rawData[8]; //!< Raw data
-	} infoStruct;
 private:
 	/// TR control status
 	uint8_t controlStatus;
-	/// TR info reading status
-	uint8_t infoReadingStatus;
 	/// TR programming flag
 	bool programFlag;
-	/// TR info data
-	infoStruct infoData;
-	/// Instance of IQRFBuffers class
-	IQRFBuffers* buffers = new IQRFBuffers;
-	/// Instance of IQRFPackets class
-	IQRFPackets* packets = new IQRFPackets;
 	/// Instance of IQRFSPI class
 	IQRFSPI* spi = new IQRFSPI;
 };

@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *
@@ -19,31 +19,21 @@
  * limitations under the License.
  */
 
-#ifndef IQRFCALLBACKS_H
-#define IQRFCALLBACKS_H
+#ifndef IQRFSettings_H
+#define IQRFSettings_H
 
-#include <stdint.h>
+#define IQ_PKT_SIZE        68     //!< Size of SPI TX and RX buffer
+#define PACKET_BUFFER_SIZE 32     //!< Size of SPI TX packet buffer
+#define IQRF_SPI_CLK       250000 //!< SPI clock 250kHz
 
-using namespace std;
+// Timing
+#define MICRO_SECOND       1000000 //!< Microsecond
+#define MILLI_SECOND       1000    //!< Milisecond
 
-/**
- * IQRF Callbacks class
- */
-class IQRFCallbacks {
-public:
-	/// Rx data callback function type
-	typedef void (*rx_callback)();
-	/// Tx data callback function type
-	typedef void (*tx_callback)(uint8_t packetId, uint8_t packetResult);
-	void getRx();
-	void setRx(rx_callback callback);
-	void getTx(uint8_t packetId, uint8_t packetResult);
-	void setTx(tx_callback callback);
-private:
-	/// Rx callback
-	rx_callback rxCallback;
-	/// Tx callback
-	tx_callback txCallback;
-};
+// Pins
+#define TR_RESET_IO        9      //!< TR reset pin
+#define TR_SS_IO           10     //!< SPI SS pin
+#define TR_SDO_IO          11     //!< SPI SDO pin
+#define TR_SDI_IO          12     //!< SPI SDI pin
 
 #endif

@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *

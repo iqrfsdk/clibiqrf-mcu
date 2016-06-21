@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *
@@ -43,16 +43,16 @@ void IQRFTR::enterProgramMode() {
 	if (spi->isMasterEnabled()) {
 		SPI.end();
 		this->reset();
-		pinMode(Arduino_h::SS, OUTPUT);
-		pinMode(Arduino_h::MISO, OUTPUT);
-		pinMode(Arduino_h::MOSI, INPUT);
-		digitalWrite(Arduino_h::SS, LOW);
+		pinMode(TR_SS_IO, OUTPUT);
+		pinMode(TR_SDO_IO, OUTPUT);
+		pinMode(TR_SDI_IO, INPUT);
+		digitalWrite(TR_SS_IO, LOW);
 		unsigned long enterMs = millis();
 		do {
-			// copy MOSI to MISO for approx. 500ms => TR into prog. mode
-			digitalWrite(Arduino_h::MISO, digitalRead(Arduino_h::MOSI));
-		} while ((millis() - enterMs) < (500));
-		digitalWrite(Arduino_h::SS, HIGH);
+			// Copy MOSI to MISO for approx. 500ms => TR into programming mode
+			digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
+		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
+		digitalWrite(TR_SS_IO, HIGH);
 		SPI.begin();
 	} else {
 		this->setControlStatus(controlStatuses::RESET);
@@ -65,20 +65,20 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
-	pinMode(Arduino_h::SS, OUTPUT);
-	pinMode(RESET_PIN, OUTPUT);
-	digitalWrite(Arduino_h::SS, HIGH);
-	digitalWrite(RESET_PIN, LOW);
+	pinMode(TR_SS_IO, OUTPUT);
+	pinMode(TR_RESET_IO, OUTPUT);
+	digitalWrite(TR_SS_IO, HIGH);
+	digitalWrite(TR_RESET_IO, LOW);
 }
 
 /**
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
-	pinMode(Arduino_h::SS, OUTPUT);
-	pinMode(RESET_PIN, OUTPUT);
-	digitalWrite(Arduino_h::SS, LOW);
-	digitalWrite(RESET_PIN, HIGH);
+	pinMode(TR_SS_IO, OUTPUT);
+	pinMode(TR_RESET_IO, OUTPUT);
+	digitalWrite(TR_SS_IO, LOW);
+	digitalWrite(TR_RESET_IO, HIGH);
 }
 
 /**
@@ -95,22 +95,6 @@ uint8_t IQRFTR::getControlStatus() {
  */
 void IQRFTR::setControlStatus(uint8_t status) {
 	this->controlStatus = status;
-}
-
-/**
- * Get TR info reading status
- * @return TR info reading status
- */
-uint8_t IQRFTR::getInfoReadingStatus() {
-	return this->infoReadingStatus;
-}
-
-/**
- * Set TR reading status
- * @param status TR reading status
- */
-void IQRFTR::setInfoReadingStatus(uint8_t status) {
-	this->infoReadingStatus = status;
 }
 
 /**
@@ -154,10 +138,10 @@ void IQRFTR::controlTask() {
 			break;
 		case controlStatuses::WAIT:
 			spi->setStatus(spi->statuses::BUSY);
-			if (millis() - timeoutMs >= 333) {
+			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
 				this->setControlStatus(controlStatuses::PROG_MODE);
 			} else {
-				digitalWrite(Arduino_h::SS, HIGH);
+				digitalWrite(TR_SS_IO, HIGH);
 				SPI.begin();
 				this->setControlStatus(controlStatuses::READY);
 			}
@@ -167,85 +151,4 @@ void IQRFTR::controlTask() {
 			this->setControlStatus(controlStatuses::READY);
 			break;
 	}
-}
-
-/**
- * Process identification data packet from TR module
- */
-void IQRFTR::identify() {
-	memcpy((uint8_t *) & this->infoData.rawData, (uint8_t *) & buffers->getRxBuffer()[2], 8);
-	this->infoData.fcc = (buffers->getRxData(7) & 0x08) >> 3;
-	this->infoData.mcuType = buffers->getRxData(7) & 0x07;
-	this->infoData.moduleId = (uint32_t) buffers->getRxData(2) << 24 |
-		(uint32_t) buffers->getRxData(3) << 16 |
-		(uint32_t) buffers->getRxData(4) << 8 | buffers->getRxData(5);
-	this->infoData.moduleType = buffers->getRxData(7) >> 4;
-	this->infoData.osBuild = (uint16_t) buffers->getRxData(9) << 8 | buffers->getRxData(8);
-	this->infoData.osVersion = (uint16_t) (buffers->getRxData(6) / 16) << 8 | (buffers->getRxData(6) % 16);
-	this->infoReadingStatus--;
-}
-
-/**
- * Get TR OS version
- * @return TR OS version
- */
-uint16_t IQRFTR::getOsVersion() {
-	return this->infoData.osVersion;
-}
-
-/**
- * Get TR OS build
- * @return TR OS build
- */
-uint16_t IQRFTR::getOsBuild() {
-	return this->infoData.osBuild;
-}
-
-/**
- * Get TR module ID
- * @return TR module ID
- */
-uint32_t IQRFTR::getModuleId() {
-	return this->infoData.moduleId;
-}
-
-/**
- * Get TR module type
- * @return TR module type
- */
-uint16_t IQRFTR::getModuleType() {
-	return this->infoData.moduleType;
-}
-
-/**
- * Get TR MCU type
- * @return TR MCU type
- */
-uint16_t IQRFTR::getMcuType() {
-	return this->infoData.mcuType;
-}
-
-/**
- * Set TR MCU type
- * @param type set TR MCU type
- */
-void IQRFTR::setMcuType(uint16_t type) {
-	this->infoData.mcuType = type;
-}
-
-/**
- * Get FCC certification status
- * @return FCC certification status
- */
-uint16_t IQRFTR::getFccStatus() {
-	return this->infoData.fcc;
-}
-
-/**
- * Get raw info data about TR module
- * @param position Position in info raw buffer
- * @return Data byte from info raw buffer
- */
-uint8_t IQRFTR::getInfoRawData(uint8_t position) {
-	return this->infoData.rawData[position];
 }

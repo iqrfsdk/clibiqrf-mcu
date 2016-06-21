@@ -2,7 +2,7 @@
  * @file
  * @author Rostislav Špinar <rostislav.spinar@microrisc.com>
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
- * @version 2.0
+ * @version 1.1
  *
  * Copyright 2015 MICRORISC s.r.o.
  *
@@ -135,12 +135,12 @@ void IQRFSPI::setBytePause(unsigned long time) {
  * @return Byte received via SPI
  */
 uint8_t IQRFSPI::byte(uint8_t txByte) {
-	digitalWrite(Arduino_h::SS, LOW);
+	digitalWrite(TR_SS_IO, LOW);
 	delayMicroseconds(10);
-	SPI.beginTransaction(SPISettings(IQRF_SPI_CLOCK, MSBFIRST, SPI_MODE0));
+	SPI.beginTransaction(SPISettings(IQRF_SPI_CLK, MSBFIRST, SPI_MODE0));
 	uint8_t rxByte = SPI.transfer(txByte);
 	SPI.endTransaction();
 	delayMicroseconds(10);
-	digitalWrite(Arduino_h::SS, HIGH);
+	digitalWrite(TR_SS_IO, HIGH);
 	return rxByte;
 }
