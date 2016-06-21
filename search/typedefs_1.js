@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tx_5fcallback',['tx_callback',['../classIQRFCallbacks.html#a02e9ca4bd8f14c5083c48b23030cab6d',1,'IQRFCallbacks']]]
+  ['tx_5fcallback',['TX_CALLBACK',['../iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9',1,'iqrf_library.h']]]
 ];

@@ -1,12 +1,9 @@
 var annotated =
 [
     [ "appVarsStruct", "structappVarsStruct.html", "structappVarsStruct" ],
-    [ "InfoTask", "classInfoTask.html", "classInfoTask" ],
-    [ "IQRF", "classIQRF.html", "classIQRF" ],
-    [ "IQRFBuffers", "classIQRFBuffers.html", "classIQRFBuffers" ],
-    [ "IQRFCallbacks", "classIQRFCallbacks.html", "classIQRFCallbacks" ],
+    [ "IQRF_PACKET_BUFFER", "structIQRF__PACKET__BUFFER.html", "structIQRF__PACKET__BUFFER" ],
     [ "IQRFCRC", "classIQRFCRC.html", "classIQRFCRC" ],
-    [ "IQRFPackets", "classIQRFPackets.html", "classIQRFPackets" ],
     [ "IQRFSPI", "classIQRFSPI.html", "classIQRFSPI" ],
-    [ "IQRFTR", "classIQRFTR.html", "classIQRFTR" ]
+    [ "IQRFTR", "classIQRFTR.html", "classIQRFTR" ],
+    [ "TR_INFO_STRUCT", "structTR__INFO__STRUCT.html", "structTR__INFO__STRUCT" ]
 ];

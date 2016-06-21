@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['ram_5fread',['RAM_READ',['../classIQRFSPI.html#a34356e761d8ce99ba3a6c42e99434465a109b4fcb9aff2581494c8b44068df300',1,'IQRFSPI']]],
-  ['rawdata',['rawData',['../structIQRFTR_1_1infoStruct.html#a33e314540fb70e8067f082b4f23697b3',1,'IQRFTR::infoStruct']]],
-  ['read',['READ',['../classIQRFSPI.html#aa0243b3c8117fb3ba82ab8ba58ebca9ca585d052d41a644fdbbfd03bdd3a4eee8',1,'IQRFSPI']]],
-  ['ready',['READY',['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846aaec2ba9b04af0331d7b72956c894669e',1,'IQRFTR']]],
-  ['reset',['reset',['../classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778',1,'IQRFTR::reset()'],['../classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a48cad0b135f9b7364b2458761881c8e7',1,'IQRFTR::RESET()']]],
-  ['reset_5fpin',['RESET_PIN',['../IQRFTR_8h.html#a08bca59db4b190eaaea4d47b7562869c',1,'IQRFTR.h']]],
-  ['rx_5fcallback',['rx_callback',['../classIQRFCallbacks.html#a30fd8c8769200ae5f1616f905a6d1a9f',1,'IQRFCallbacks']]],
-  ['rxbuffer',['rxBuffer',['../structappVarsStruct.html#a46fe8a5277927fa451c8de9d4c617f52',1,'appVarsStruct']]]
+  ['setbytepause',['setBytePause',['../classIQRFSPI.html#a98c9ae1b85aa65c54b86f26f85eaade4',1,'IQRFSPI']]],
+  ['setcontrolstatus',['setControlStatus',['../classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed',1,'IQRFTR']]],
+  ['setmasterstatus',['setMasterStatus',['../classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e',1,'IQRFSPI']]],
+  ['setstatus',['setStatus',['../classIQRFSPI.html#a5e9f5113a9122fd1415bf145092bbf3a',1,'IQRFSPI']]],
+  ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
+  ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
+  ['spicmd',['spiCmd',['../structIQRF__PACKET__BUFFER.html#a2df4246c3c2aa1e21bb86260acf5b8f4',1,'IQRF_PACKET_BUFFER']]],
+  ['spirxbuffer',['spiRxBuffer',['../iqrf__library_8cpp.html#a80a7143479bf1d64df530e1b60b6dbf4',1,'iqrf_library.cpp']]],
+  ['spitxbuffer',['spiTxBuffer',['../iqrf__library_8cpp.html#a3e6d877359ff6a2aade47d730f565a6e',1,'iqrf_library.cpp']]],
+  ['statuses',['statuses',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['packet_5fbuffer',['packet_buffer',['../structIQRFPackets_1_1packet__buffer.html',1,'IQRFPackets']]]
+  ['tr_5finfo_5fstruct',['TR_INFO_STRUCT',['../structTR__INFO__STRUCT.html',1,'']]]
 ];

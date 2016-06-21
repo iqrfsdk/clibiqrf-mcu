@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rawdata',['rawData',['../structIQRFTR_1_1infoStruct.html#a33e314540fb70e8067f082b4f23697b3',1,'IQRFTR::infoStruct']]],
-  ['rxbuffer',['rxBuffer',['../structappVarsStruct.html#a46fe8a5277927fa451c8de9d4c617f52',1,'appVarsStruct']]]
+  ['osbuild',['osBuild',['../structTR__INFO__STRUCT.html#a3aeb9390b492e5a931f526214ba6f2bd',1,'TR_INFO_STRUCT']]],
+  ['osversion',['osVersion',['../structTR__INFO__STRUCT.html#ac0970d0cbc92beb0f733ddf5d2f0a0f7',1,'TR_INFO_STRUCT']]]
 ];

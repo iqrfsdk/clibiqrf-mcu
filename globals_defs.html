@@ -77,6 +77,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li class="current"><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -111,17 +114,53 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 
 <div class="contents">
 &#160;<ul>
-<li>IQRF_SPI_CLOCK
-: <a class="el" href="IQRFSPI_8h.html#a34935487e4599d2425c910754b4663ee">IQRFSPI.h</a>
+<li>IQ_PKT_SIZE
+: <a class="el" href="IQRFSettings_8h.html#a5ab303eb545301675364973bea76deee">IQRFSettings.h</a>
+</li>
+<li>IQRF_GetMcuType
+: <a class="el" href="iqrf__library_8h.html#a693dfec78d1816b32ddca594d70f108a">iqrf_library.h</a>
+</li>
+<li>IQRF_GetModuleId
+: <a class="el" href="iqrf__library_8h.html#ae8bab73b1e236f3c11f5b58feaa986a8">iqrf_library.h</a>
+</li>
+<li>IQRF_GetModuleInfoRawData
+: <a class="el" href="iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c">iqrf_library.h</a>
+</li>
+<li>IQRF_GetModuleType
+: <a class="el" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">iqrf_library.h</a>
+</li>
+<li>IQRF_GetOsBuild
+: <a class="el" href="iqrf__library_8h.html#a8bcbd024fc9dfc0206f1975093aa93e7">iqrf_library.h</a>
+</li>
+<li>IQRF_GetOsVersion
+: <a class="el" href="iqrf__library_8h.html#a0f317f99a0962ddb6f14ef78881a1950">iqrf_library.h</a>
+</li>
+<li>IQRF_GetRxDataSize
+: <a class="el" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">iqrf_library.h</a>
+</li>
+<li>IQRF_SPI_CLK
+: <a class="el" href="IQRFSettings_8h.html#a09ccbd95b46eca7e62c687ac0035056f">IQRFSettings.h</a>
+</li>
+<li>MICRO_SECOND
+: <a class="el" href="IQRFSettings_8h.html#a6823058ce2e14113fbc93c9c36a7bcee">IQRFSettings.h</a>
+</li>
+<li>MILLI_SECOND
+: <a class="el" href="IQRFSettings_8h.html#ad4303ff595a045e360e67a93a3159a2e">IQRFSettings.h</a>
 </li>
 <li>PACKET_BUFFER_SIZE
-: <a class="el" href="IQRFPackets_8h.html#ab30af815d6e9494361629440f14e3716">IQRFPackets.h</a>
+: <a class="el" href="IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716">IQRFSettings.h</a>
 </li>
-<li>PACKET_SIZE
-: <a class="el" href="IQRFPackets_8h.html#aebdc7d8ca8e25ed8efc90bb88ef7ef5b">IQRFPackets.h</a>
+<li>TR_RESET_IO
+: <a class="el" href="IQRFSettings_8h.html#a3bad5ec740aa92509ae469f3ad841892">IQRFSettings.h</a>
 </li>
-<li>RESET_PIN
-: <a class="el" href="IQRFTR_8h.html#a08bca59db4b190eaaea4d47b7562869c">IQRFTR.h</a>
+<li>TR_SDI_IO
+: <a class="el" href="IQRFSettings_8h.html#a7243b9fec5251c1a04a8c739ccc01ce4">IQRFSettings.h</a>
+</li>
+<li>TR_SDO_IO
+: <a class="el" href="IQRFSettings_8h.html#afe4955098f29a58a1f86bde1f81cd701">IQRFSettings.h</a>
+</li>
+<li>TR_SS_IO
+: <a class="el" href="IQRFSettings_8h.html#a03d098e7391a39ae0f8261652dc88f1a">IQRFSettings.h</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -129,7 +168,7 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Jun 6 2016 19:30:50 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Tue Jun 21 2016 20:00:46 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
