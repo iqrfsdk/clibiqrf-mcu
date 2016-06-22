@@ -33,6 +33,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "CallbackFunctions.h"
 #include "IQRFCRC.h"
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
@@ -92,6 +93,7 @@ void IQRF_Driver(void);
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
+void trIdentify();
 
 /**
  * Get size of Rx data

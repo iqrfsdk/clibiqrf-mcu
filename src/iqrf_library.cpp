@@ -25,10 +25,6 @@
  * Locally used function prototypes
  */
 void trInfoTask();
-void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult);
-void TR_process_id_packet_pgm();
-void TR_dummy_func_com();
-void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult);
 
 /*
  * Public variable declarations
@@ -284,9 +280,9 @@ void trInfoTask() {
 			// try to read idf in com mode
 			idfMode = 0;
 			// set call back function to process id data
-			rxCallback = TR_dummy_func_com;
+			rxCallback = doNothingRx;
 			// set call back function after data were sent
-			txCallback = TR_process_id_packet_com;
+			txCallback = identifyTx;
 			trInfoStruct.mcuType = tr->mcuTypes::UNKNOWN;
 			memset(&dataToModule[0], 0, 16);
 			timeoutMilli = millis();
@@ -298,9 +294,9 @@ void trInfoTask() {
 			// try to read idf in pgm mode
 			idfMode = 1;
 			// set call back function to process id data
-			rxCallback = TR_process_id_packet_pgm;
+			rxCallback = identifyRx;
 			// set call back function after data were sent
-			txCallback = TR_dummy_func_pgm;
+			txCallback = doNothingTx;
 			timeoutMilli = millis();
 			trInfoTaskStatus = SEND_REQUEST;
 			break;
@@ -356,17 +352,8 @@ void trInfoTask() {
 
 /**
  * Process identification data packet from TR module
- * @param pktId Packet ID
- * @param pktResult Operation result
  */
-void TR_process_id_packet_com(uint8_t pktId, uint8_t pktResult) {
-	TR_process_id_packet_pgm();
-}
-
-/**
- * Process identification data packet from TR module
- */
-void TR_process_id_packet_pgm() {
+void trIdentify() {
 	memcpy((uint8_t *) & trInfoStruct.moduleInfoRawData, (uint8_t *) & spiRxBuffer[2], 8);
 	trInfoStruct.moduleId = (uint32_t) spiRxBuffer[2] << 24 | (uint32_t) spiRxBuffer[3] << 16 | (uint32_t) spiRxBuffer[4] << 8 | spiRxBuffer[5];
 	trInfoStruct.osVersion = (uint16_t) (spiRxBuffer[6] / 16) << 8 | (spiRxBuffer[6] % 16);
@@ -376,22 +363,6 @@ void TR_process_id_packet_pgm() {
 	trInfoStruct.osBuild = (uint16_t) spiRxBuffer[9] << 8 | spiRxBuffer[8];
 	// TR info data processed
 	trInfoReading--;
-}
-
-/**
- * Function called after TR module identification request were sent
- * @param pktId Packet ID
- * @param pktResult Operation result
- */
-void TR_dummy_func_pgm(uint8_t pktId, uint8_t pktResult) {
-	__asm__("nop\n\t");
-}
-
-/**
- * Function called after TR module identification request were sent
- */
-void TR_dummy_func_com() {
-	__asm__("nop\n\t");
 }
 
 /**
