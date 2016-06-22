@@ -92,8 +92,8 @@ void IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn) {
 	// normal SPI communication
 	spi->disableFastSpi();
 	tr->turnOn();
-	pinMode(TR_SS_IO, OUTPUT);
-	digitalWrite(TR_SS_IO, HIGH);
+	pinMode(Arduino_h::SS, OUTPUT);
+	digitalWrite(Arduino_h::SS, HIGH);
 	SPI.begin();
 	// enable SPI master function in driver
 	spi->enableMaster();
@@ -136,7 +136,7 @@ void IQRF_Driver() {
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
 				if (tmpCnt == packetLength || tmpCnt == IQ_PKT_SIZE) {
 					// CS - deactive
-					//digitalWrite(TR_SS_IO, HIGH);
+					//digitalWrite(Arduino_h::SS, HIGH);
 					// CRC ok
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
 						crc->check(spiRxBuffer, dataLength, PTYPE)) {
@@ -168,7 +168,7 @@ void IQRF_Driver() {
 				// get SPI status of TR module
 				spi->setStatus(spi->byte(spi->commands::CHECK));
 				// CS - deactive
-				//digitalWrite(TR_SS_IO, HIGH);      
+				//digitalWrite(Arduino_h::SS, HIGH);
 				// if the status is dataready prepare packet to read it
 				if ((spi->getStatus() & 0xC0) == 0x40) {
 					memset(spiTxBuffer, 0, sizeof(spiTxBuffer));

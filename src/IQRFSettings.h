@@ -32,8 +32,5 @@
 
 // Pins
 #define TR_RESET_IO        9      //!< TR reset pin
-#define TR_SS_IO           10     //!< SPI SS pin
-#define TR_SDO_IO          11     //!< SPI SDO pin
-#define TR_SDI_IO          12     //!< SPI SDI pin
 
 #endif

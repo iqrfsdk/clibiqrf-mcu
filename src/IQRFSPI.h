@@ -22,6 +22,7 @@
 #ifndef IQRFSPI_H
 #define IQRFSPI_H
 
+#include <Arduino.h>
 #include <stdint.h>
 #include <SPI.h>
 

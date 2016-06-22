@@ -43,16 +43,16 @@ void IQRFTR::enterProgramMode() {
 	if (spi->isMasterEnabled()) {
 		SPI.end();
 		this->reset();
-		pinMode(TR_SS_IO, OUTPUT);
-		pinMode(TR_SDO_IO, OUTPUT);
-		pinMode(TR_SDI_IO, INPUT);
-		digitalWrite(TR_SS_IO, LOW);
+		pinMode(Arduino_h::SS, OUTPUT);
+		pinMode(Arduino_h::MISO, OUTPUT);
+		pinMode(Arduino_h::MOSI, INPUT);
+		digitalWrite(Arduino_h::SS, LOW);
 		unsigned long enterMs = millis();
 		do {
 			// Copy MOSI to MISO for approx. 500ms => TR into programming mode
-			digitalWrite(TR_SDO_IO, digitalRead(TR_SDI_IO));
+			digitalWrite(Arduino_h::MISO, digitalRead(Arduino_h::MOSI));
 		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
-		digitalWrite(TR_SS_IO, HIGH);
+		digitalWrite(Arduino_h::SS, HIGH);
 		SPI.begin();
 	} else {
 		this->setControlStatus(controlStatuses::RESET);
@@ -65,9 +65,9 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
-	pinMode(TR_SS_IO, OUTPUT);
+	pinMode(Arduino_h::SS, OUTPUT);
 	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_SS_IO, HIGH);
+	digitalWrite(Arduino_h::SS, HIGH);
 	digitalWrite(TR_RESET_IO, LOW);
 }
 
@@ -75,9 +75,9 @@ void IQRFTR::turnOn() {
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
-	pinMode(TR_SS_IO, OUTPUT);
+	pinMode(Arduino_h::SS, OUTPUT);
 	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(TR_SS_IO, LOW);
+	digitalWrite(Arduino_h::SS, LOW);
 	digitalWrite(TR_RESET_IO, HIGH);
 }
 
@@ -141,7 +141,7 @@ void IQRFTR::controlTask() {
 			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
 				this->setControlStatus(controlStatuses::PROG_MODE);
 			} else {
-				digitalWrite(TR_SS_IO, HIGH);
+				digitalWrite(Arduino_h::SS, HIGH);
 				SPI.begin();
 				this->setControlStatus(controlStatuses::READY);
 			}
