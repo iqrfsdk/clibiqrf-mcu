@@ -24,6 +24,7 @@ var iqrf__library_8h =
     [ "IQRF_Init", "iqrf__library_8h.html#a0c079f43c2b59dadcd89f3797904360d", null ],
     [ "IQRF_SendData", "iqrf__library_8h.html#adebe2bdc8b760bee0a2b7f2b6f2db824", null ],
     [ "TR_SendSpiPacket", "iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb", null ],
+    [ "trIdentify", "iqrf__library_8h.html#a8190871ac5c8930f7be8c7d0855b325c", null ],
     [ "dataLength", "iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102", null ],
     [ "trInfoStruct", "iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875", null ]
 ];

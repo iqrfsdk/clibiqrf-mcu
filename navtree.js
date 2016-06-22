@@ -30,7 +30,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"IQRFCRC_8cpp.html"
+"CallbackFunctions_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
