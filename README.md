@@ -1,7 +1,7 @@
-# IQRF SPI library for Arduino
+# IQRF SPI library for microcontrollers
 
-[![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-arduino.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-arduino)
-[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/iqrfsdk/clibiqrf-arduino/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-uc.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-uc)
+[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/iqrfsdk/clibiqrf-uc/blob/master/LICENSE)
 
 ## Supported IQRF TR modules
  * IQRF TR-72
@@ -10,10 +10,8 @@
 ## Supported platforms
 This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano).
 
-A library for Chipkit is [there](https://github.com/iqrfsdk/clibiqrf-chipkit).
-
 ## Installation
-The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-arduino/releases) or use a [platformio](http://platformio.org/):
+The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-uc/releases) or use a [platformio](http://platformio.org/):
 
 ```
 platformio lib install 318
@@ -36,7 +34,7 @@ The following table shows the typical pin layout used:
  * [MsTimer2](https://github.com/PaulStoffregen/MsTimer2)
 
 ## Documentation
-Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-arduino/).
+Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-uc/).
 
 ## License
 This library is licensed under Apache License 2.0:
