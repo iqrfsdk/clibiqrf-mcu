@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/iqrfsdk/clibiqrf-uc.git"
   },
-  "version": "1.1",
+  "version": "1.1.0",
   "authors": [{
     "name": "Dusan Machut",
     "email": "dusan.machut@gmail.com"
