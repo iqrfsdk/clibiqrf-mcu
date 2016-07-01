@@ -30,9 +30,9 @@ void trInfoTask();
  * Public variable declarations
  */
 /// SPI Tx buffer
-uint8_t spiTxBuffer[IQ_PKT_SIZE];
+uint8_t spiTxBuffer[PACKET_SIZE];
 /// SPI Rx buffer
-uint8_t spiRxBuffer[IQ_PKT_SIZE];
+uint8_t spiRxBuffer[PACKET_SIZE];
 /// Packet type?
 uint8_t PTYPE;
 /// Number of attempts to send data
@@ -74,6 +74,8 @@ IQRFCRC* crc = new IQRFCRC;
 IQRFSPI* spi = new IQRFSPI;
 /// Instance of IQRFTR class
 IQRFTR* tr = new IQRFTR;
+/// Instance of IQSPI class
+IQSPI* iqSpi = new IQSPI;
 
 /**
  * Function perform a TR-module driver initialization
@@ -88,9 +90,7 @@ void IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn) {
 	// normal SPI communication
 	spi->disableFastSpi();
 	tr->turnOn();
-	pinMode(Arduino_h::SS, OUTPUT);
-	digitalWrite(Arduino_h::SS, HIGH);
-	SPI.begin();
+	iqSpi->begin();
 	// enable SPI master function in driver
 	spi->enableMaster();
 	// read TR module info
@@ -130,7 +130,7 @@ void IQRF_Driver() {
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
 				tmpCnt++;
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
-				if (tmpCnt == packetLength || tmpCnt == IQ_PKT_SIZE) {
+				if (tmpCnt == packetLength || tmpCnt == PACKET_SIZE) {
 					// CS - deactive
 					//digitalWrite(Arduino_h::SS, HIGH);
 					// CRC ok
@@ -158,7 +158,7 @@ void IQRF_Driver() {
 				}
 			}
 		} else { // no data to send => SPI status will be updated every 10ms
-			if ((iqrfMicros - iqrfCheckMicros) > (MICRO_SECOND / 100)) {
+			if ((iqrfMicros - iqrfCheckMicros) > 10000) {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// get SPI status of TR module
@@ -315,7 +315,7 @@ void trInfoTask() {
 					timeoutMilli = millis();
 					trInfoTaskStatus = WAIT_INFO;
 				} else {
-					if (millis() - timeoutMilli >= MILLI_SECOND / 2) {
+					if (millis() - timeoutMilli >= 500) {
 						// in a case, try it twice to enter programming mode
 						if (attempts) {
 							attempts--;
@@ -330,7 +330,7 @@ void trInfoTask() {
 			break;
 			// wait for info data from TR module
 		case WAIT_INFO:
-			if ((trInfoReading == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
+			if ((trInfoReading == 1) || (millis() - timeoutMilli >= 500)) {
 				if (idfMode == 1) {
 					// send end of PGM mode packet
 					TR_SendSpiPacket(spi->commands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
@@ -378,8 +378,8 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if (dataLength == 0) {
 		return 0;
 	}
-	if (dataLength > IQ_PKT_SIZE - 4) {
-		dataLength = IQ_PKT_SIZE - 4;
+	if (dataLength > PACKET_SIZE - 4) {
+		dataLength = PACKET_SIZE - 4;
 	}
 	if ((++txPacketIdCounter) == 0) {
 		txPacketIdCounter++;

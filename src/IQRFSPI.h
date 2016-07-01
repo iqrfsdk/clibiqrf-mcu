@@ -22,11 +22,9 @@
 #ifndef IQRFSPI_H
 #define IQRFSPI_H
 
-#include <Arduino.h>
 #include <stdint.h>
-#include <SPI.h>
 
-#include "IQRFSettings.h"
+#include "IQSPI.h"
 
 /**
  * IQRF SPI
@@ -97,6 +95,8 @@ private:
 	bool fastSpi;
 	/// SPI byte to byte pause in us
 	unsigned long bytePause;
+	/// Instance of IQSPI class
+	IQSPI* iqSpi = new IQSPI;
 };
 
 #endif

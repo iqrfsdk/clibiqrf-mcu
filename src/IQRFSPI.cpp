@@ -135,12 +135,7 @@ void IQRFSPI::setBytePause(unsigned long time) {
  * @return Byte received via SPI
  */
 uint8_t IQRFSPI::byte(uint8_t txByte) {
-	digitalWrite(Arduino_h::SS, LOW);
-	delayMicroseconds(10);
-	SPI.beginTransaction(SPISettings(IQRF_SPI_CLK, MSBFIRST, SPI_MODE0));
-	uint8_t rxByte = SPI.transfer(txByte);
-	SPI.endTransaction();
-	delayMicroseconds(10);
-	digitalWrite(Arduino_h::SS, HIGH);
+	uint8_t rxByte;
+	iqSpi->transfer(txByte, rxByte);
 	return rxByte;
 }

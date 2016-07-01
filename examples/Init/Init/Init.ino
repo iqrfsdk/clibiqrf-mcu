@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 
+#if defined(__AVR__)
 #include <Arduino.h>
+#elif defined(__PIC32MX__)
+#include <WProgram.h>
+#endif
+
 #include <stddef.h>
 #include <stdint.h>
 #include <iqrf_library.h>
+#include <IQRFSettings.h>
+#if defined(__AVR__)
 #include <MsTimer2.h>
+#endif
+
 
 // 5000@1ms = 5s
 #define USER_TIMER_PERIOD 5000
@@ -28,7 +37,11 @@ void setup();
 void loop();
 void rxHandler();
 void txHandler(uint8_t packetId, uint8_t packetResult);
+#if defined(__AVR__)
 void msTimerCallback();
+#elif defined(__PIC32MX__)
+uint32_t msTimerCallback(uint32_t currentTime);
+#endif
 
 // GLOBAL VARIABLES
 
@@ -36,7 +49,7 @@ void msTimerCallback();
  * App data structure
  */
 typedef struct {
-	uint8_t rxBuffer[IQ_PKT_SIZE]; //!< Rx buffer
+	uint8_t rxBuffer[PACKET_SIZE]; //!< Rx buffer
 	uint8_t *txBuffer; //!< Tx buffer
 	uint8_t packetId; //!< Packet ID
 	volatile uint16_t timer; //!< Timer
@@ -72,10 +85,14 @@ void setup() {
 			Serial.println("Module type: UNKNOWN");
 			break;
 	}
+#if defined(__AVR__)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();
+#elif defined(__PIC32MX__)
+	attachCoreTimerService(msTimerCallback);
+#endif
 	// Clear variables
-	memset(&appVars, 0, sizeof (appVarsStruct));
+	memset(&appVars, 0, sizeof(appVarsStruct));
 	appVars.timer = USER_TIMER_PERIOD;
 	// Done here
 	Serial.println("Peripherals and IQRF init done");
@@ -90,16 +107,18 @@ void loop() {
 	// Test send data every 5s
 	if (appVars.timerAck) {
 		// Allocate memory for Tx packet
-		appVars.txBuffer = (uint8_t *) malloc(sizeof (testBuffer));
+		appVars.txBuffer = (uint8_t *) malloc(sizeof(testBuffer));
 		if (appVars.txBuffer != NULL) {
 			// Copy data from test to Tx packet
-			memcpy(appVars.txBuffer, (uint8_t *) & testBuffer, sizeof (testBuffer));
+			memcpy(appVars.txBuffer, (uint8_t *) & testBuffer, sizeof(testBuffer));
 			// Send data and unallocate data buffer
-			appVars.packetId = IQRF_SendData(appVars.txBuffer, sizeof (testBuffer), 1);
+			appVars.packetId = IQRF_SendData(appVars.txBuffer, sizeof(testBuffer), 1);
 		}
 		appVars.timerAck = false;
 	}
 }
+
+#if defined(__AVR__)
 
 /**
  * 1ms timer callback
@@ -113,6 +132,24 @@ void msTimerCallback() {
 		}
 	}
 }
+#elif defined(__PIC32MX__)
+
+/**
+ * 1ms timer callback
+ * @param currentTime Current time
+ * @return Next time
+ */
+uint32_t msTimerCallback(uint32_t currentTime) {
+	// App timer, call handler
+	if (appVars.timer) {
+		if ((--appVars.timer) == 0) {
+			appVars.timerAck = true;
+			appVars.timer = USER_TIMER_PERIOD;
+		}
+	}
+	return(currentTime + CORE_TICK_RATE);
+}
+#endif
 
 /**
  * IQRF Rx callback
@@ -133,4 +170,3 @@ void rxHandler() {
 void txHandler(uint8_t packetId, uint8_t packetResult) {
 	Serial.println("IQRF send done");
 }
-

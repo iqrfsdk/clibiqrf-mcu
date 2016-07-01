@@ -22,11 +22,15 @@
 #ifndef IQRFTR_H
 #define IQRFTR_H
 
+#if defined(__AVR__)
 #include <Arduino.h>
-#include <SPI.h>
+#elif defined(__PIC32MX__)
+#include <WProgram.h>
+#endif
 
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
+#include "IQSPI.h"
 
 /**
  * IQRF TR
@@ -84,7 +88,9 @@ private:
 	/// TR programming flag
 	bool programFlag;
 	/// Instance of IQRFSPI class
-	IQRFSPI* spi = new IQRFSPI;
+	IQRFSPI* spi = new IQRFSPI();
+	/// Instance of IQSPI class
+	IQSPI* iqSpi = new IQSPI();
 };
 
 #endif

@@ -41,19 +41,18 @@ void IQRFTR::reset() {
  */
 void IQRFTR::enterProgramMode() {
 	if (spi->isMasterEnabled()) {
-		SPI.end();
+		iqSpi->end();
 		this->reset();
-		pinMode(Arduino_h::SS, OUTPUT);
-		pinMode(Arduino_h::MISO, OUTPUT);
-		pinMode(Arduino_h::MOSI, INPUT);
-		digitalWrite(Arduino_h::SS, LOW);
+		pinMode(iqSpi->getSs(), OUTPUT);
+		pinMode(MISO, OUTPUT);
+		pinMode(MOSI, INPUT);
+		digitalWrite(iqSpi->getSs(), LOW);
 		unsigned long enterMs = millis();
 		do {
 			// Copy MOSI to MISO for approx. 500ms => TR into programming mode
-			digitalWrite(Arduino_h::MISO, digitalRead(Arduino_h::MOSI));
-		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
-		digitalWrite(Arduino_h::SS, HIGH);
-		SPI.begin();
+			digitalWrite(MISO, digitalRead(MOSI));
+		} while ((millis() - enterMs) < 500);
+		iqSpi->begin();
 	} else {
 		this->setControlStatus(controlStatuses::RESET);
 		this->enableProgramFlag();
@@ -65,9 +64,9 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
-	pinMode(Arduino_h::SS, OUTPUT);
+	pinMode(iqSpi->getSs(), OUTPUT);
 	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(Arduino_h::SS, HIGH);
+	digitalWrite(iqSpi->getSs(), HIGH);
 	digitalWrite(TR_RESET_IO, LOW);
 }
 
@@ -75,9 +74,9 @@ void IQRFTR::turnOn() {
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
-	pinMode(Arduino_h::SS, OUTPUT);
+	pinMode(iqSpi->getSs(), OUTPUT);
 	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(Arduino_h::SS, LOW);
+	digitalWrite(iqSpi->getSs(), LOW);
 	digitalWrite(TR_RESET_IO, HIGH);
 }
 
@@ -131,18 +130,17 @@ void IQRFTR::controlTask() {
 			break;
 		case controlStatuses::RESET:
 			spi->setStatus(spi->statuses::BUSY);
-			SPI.end();
+			iqSpi->end();
 			this->turnOff();
 			timeoutMs = millis();
 			this->setControlStatus(controlStatuses::WAIT);
 			break;
 		case controlStatuses::WAIT:
 			spi->setStatus(spi->statuses::BUSY);
-			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
+			if (millis() - timeoutMs >= 333) {
 				this->setControlStatus(controlStatuses::PROG_MODE);
 			} else {
-				digitalWrite(Arduino_h::SS, HIGH);
-				SPI.begin();
+				iqSpi->begin();
 				this->setControlStatus(controlStatuses::READY);
 			}
 			break;

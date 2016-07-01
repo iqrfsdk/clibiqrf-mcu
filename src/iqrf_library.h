@@ -38,6 +38,7 @@
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
 #include "IQRFTR.h"
+#include "IQSPI.h"
 
 /**
  * Tx packet statuses

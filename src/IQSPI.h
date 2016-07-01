@@ -19,13 +19,37 @@
  * limitations under the License.
  */
 
-#ifndef IQRFSettings_H
-#define IQRFSettings_H
+#ifndef IQSPI_H
+#define IQSPI_H
 
-#define PACKET_SIZE        68 //!< Size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE 32 //!< Size of SPI TX packet buffer
+#define IQSPI_CLOCK 250000 //!< SPI clock 250kHz
 
-// Pins
-#define TR_RESET_IO        9  //!< TR reset pin
+#include <stdint.h>
+#if defined(__AVR__)
+#include <Arduino.h>
+#include <SPI.h>
+#elif defined(__PIC32MX__)
+#include <WProgram.h>
+#include <DSPI.h>
+#endif
+
+/**
+ * SPI interface for AVR and PIC32 MCU
+ */
+class IQSPI {
+public:
+	void begin();
+	void end();
+	void transfer(uint8_t txByte, uint8_t rxByte);
+	void setSs(uint8_t pin);
+	uint8_t getSs();
+private:
+	/// Slave select pin
+	uint8_t ss;
+#if defined(__PIC32MX__)
+	/// Instance of chipKIT SPI class
+	DSPI0* spi = new DSPI0;
+#endif
+};
 
 #endif

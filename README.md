@@ -8,7 +8,7 @@
  * IQRF TR-52
 
 ## Supported platforms
-This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano).
+This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano) and PIC32-based Arduino compatable platforms (e.g. chipKIT).
 
 ## Installation
 The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-uc/releases) or use a [platformio](http://platformio.org/):
