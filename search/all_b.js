@@ -1,6 +1,7 @@
 var searchData=
 [
   ['packet_5fbuffer_5fsize',['PACKET_BUFFER_SIZE',['../IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716',1,'IQRFSettings.h']]],
+  ['packet_5fsize',['PACKET_SIZE',['../IQRFSettings_8h.html#aebdc7d8ca8e25ed8efc90bb88ef7ef5b',1,'IQRFSettings.h']]],
   ['packetbufferinptr',['packetBufferInPtr',['../iqrf__library_8cpp.html#aea9c2b209b66a2ea10edd0a192f7f82c',1,'iqrf_library.cpp']]],
   ['packetbufferoutptr',['packetBufferOutPtr',['../iqrf__library_8cpp.html#a3d28fb6b65a7fa4778db032f868de1ec',1,'iqrf_library.cpp']]],
   ['packetid',['packetId',['../structIQRF__PACKET__BUFFER.html#a4031cdc58e5c1aa2327396861c69a18a',1,'IQRF_PACKET_BUFFER::packetId()'],['../structappVarsStruct.html#a2f1453f54ead19c928a2f31bd3645bae',1,'appVarsStruct::packetId()']]],

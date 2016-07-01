@@ -15,6 +15,7 @@ var searchData=
   ['tr_5finfo_5fstruct',['TR_INFO_STRUCT',['../structTR__INFO__STRUCT.html',1,'']]],
   ['tr_5freset_5fio',['TR_RESET_IO',['../IQRFSettings_8h.html#a3bad5ec740aa92509ae469f3ad841892',1,'IQRFSettings.h']]],
   ['tr_5fsendspipacket',['TR_SendSpiPacket',['../iqrf__library_8cpp.html#ad38ad5735b391642ce0edc8a3140d4eb',1,'TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb',1,'TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag):&#160;iqrf_library.cpp']]],
+  ['transfer',['transfer',['../classIQSPI.html#a34d7996b80c138cbe617c7592fcf1660',1,'IQSPI']]],
   ['tridentify',['trIdentify',['../iqrf__library_8cpp.html#a8190871ac5c8930f7be8c7d0855b325c',1,'trIdentify():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a8190871ac5c8930f7be8c7d0855b325c',1,'trIdentify():&#160;iqrf_library.cpp']]],
   ['trinforeading',['trInfoReading',['../iqrf__library_8cpp.html#a388f7c2a5e65135507c31f73bb7fcdeb',1,'iqrf_library.cpp']]],
   ['trinfostruct',['trInfoStruct',['../iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875',1,'trInfoStruct():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875',1,'trInfoStruct():&#160;iqrf_library.cpp']]],

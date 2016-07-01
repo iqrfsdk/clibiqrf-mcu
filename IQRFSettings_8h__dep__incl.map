@@ -1,10 +1,8 @@
 <map id="src/IQRFSettings.h" name="src/IQRFSettings.h">
-<area shape="rect" id="node2" href="$iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="36,229,151,256"/>
-<area shape="rect" id="node6" href="$IQRFSPI_8h.html" title="src/IQRFSPI.h" alt="" coords="137,80,247,107"/>
-<area shape="rect" id="node7" href="$IQRFTR_8h.html" title="src/IQRFTR.h" alt="" coords="278,155,383,181"/>
-<area shape="rect" id="node3" href="$CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="12,304,175,331"/>
-<area shape="rect" id="node5" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="199,304,328,331"/>
-<area shape="rect" id="node4" href="$CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,379,181,405"/>
-<area shape="rect" id="node9" href="$IQRFSPI_8cpp.html" title="src/IQRFSPI.cpp" alt="" coords="131,155,253,181"/>
-<area shape="rect" id="node8" href="$IQRFTR_8cpp.html" title="src/IQRFTR.cpp" alt="" coords="271,229,389,256"/>
+<area shape="rect" id="node2" href="$iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="36,155,151,181"/>
+<area shape="rect" id="node6" href="$IQRFTR_8h.html" title="src/IQRFTR.h" alt="" coords="131,80,236,107"/>
+<area shape="rect" id="node3" href="$CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="12,229,175,256"/>
+<area shape="rect" id="node5" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="199,229,328,256"/>
+<area shape="rect" id="node4" href="$CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,304,181,331"/>
+<area shape="rect" id="node7" href="$IQRFTR_8cpp.html" title="src/IQRFTR.cpp" alt="" coords="175,155,293,181"/>
 </map>

@@ -16,5 +16,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "IQRFTR.cpp", "IQRFTR_8cpp.html", null ],
     [ "IQRFTR.h", "IQRFTR_8h.html", [
       [ "IQRFTR", "classIQRFTR.html", "classIQRFTR" ]
-    ] ]
+    ] ],
+    [ "IQSPI.cpp", "IQSPI_8cpp.html", null ],
+    [ "IQSPI.h", "IQSPI_8h.html", "IQSPI_8h" ]
 ];
