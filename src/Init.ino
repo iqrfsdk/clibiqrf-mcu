@@ -1,0 +1,1 @@
+/home/roman/github/clibiqrf-arduino/examples/Init/Init/Init.ino
