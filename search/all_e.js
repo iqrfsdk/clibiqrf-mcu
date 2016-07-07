@@ -23,7 +23,7 @@ var searchData=
   ['turnoff',['turnOff',['../classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea',1,'IQRFTR']]],
   ['turnon',['turnOn',['../classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe',1,'IQRFTR']]],
   ['tx_5fcallback',['TX_CALLBACK',['../iqrf__library_8h.html#a2c622d11f86609ee5ffc65eb420b9ca9',1,'iqrf_library.h']]],
-  ['txbuffer',['txBuffer',['../structappVarsStruct.html#a84833d2e9ca1df13c1360fe3f075449b',1,'appVarsStruct']]],
+  ['txbuffer',['txBuffer',['../structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab',1,'appVarsStruct']]],
   ['txcallback',['txCallback',['../iqrf__library_8cpp.html#a220d976d115d1aef5a4ab192f891c99c',1,'iqrf_library.cpp']]],
   ['txpacketid',['txPacketId',['../iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e',1,'iqrf_library.cpp']]],
   ['txpacketidcounter',['txPacketIdCounter',['../iqrf__library_8cpp.html#a4d6aec1cadba86298d3adb2d64375522',1,'iqrf_library.cpp']]],
