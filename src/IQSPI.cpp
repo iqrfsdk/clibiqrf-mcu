@@ -25,14 +25,14 @@
  * Initialize the SPI bus
  */
 void IQSPI::begin() {
-	pinMode(this->ss, OUTPUT);
-	digitalWrite(this->ss, HIGH);
+	pinMode(TR_SS_PIN, OUTPUT);
+	digitalWrite(TR_SS_PIN, HIGH);
 #if defined(__AVR__)
 	SPI.begin();
 #elif defined(__PIC32MX__)
 	spi->begin();
 	spi->setSpeed(IQSPI_CLOCK);
-	spi->setPinSelect(this->ss);
+	spi->setPinSelect(TR_SS_PIN);
 #endif
 }
 
@@ -50,18 +50,19 @@ void IQSPI::end() {
 /**
  * SPI byte transfer
  * @param txByte Transmitted byte
- * @param rxByte Received byte
+ * @return Received byte
  */
-void IQSPI::transfer(uint8_t txByte, uint8_t rxByte) {
+uint8_t IQSPI::transfer(uint8_t txByte) {
+	uint8_t rxByte;
 #if defined(__AVR__)
-	pinMode(this->ss, OUTPUT);
-	digitalWrite(this->ss, LOW);
+	pinMode(TR_SS_PIN, OUTPUT);
+	digitalWrite(TR_SS_PIN, LOW);
 	delayMicroseconds(10);
 	SPI.beginTransaction(SPISettings(IQSPI_CLOCK, MSBFIRST, SPI_MODE0));
 	rxByte = SPI.transfer(txByte);
 	SPI.endTransaction();
 	delayMicroseconds(10);
-	digitalWrite(this->ss, HIGH);
+	digitalWrite(TR_SS_PIN, HIGH);
 #elif defined(__PIC32MX__)
 	spi->setSelect(LOW);
 	delayMicroseconds(10);
@@ -69,20 +70,5 @@ void IQSPI::transfer(uint8_t txByte, uint8_t rxByte) {
 	delayMicroseconds(10);
 	spi->setSelect(HIGH);
 #endif
-}
-
-/**
- * Set SS (Slave Select) pin
- * @param pin SS (Slave Select) pin
- */
-void IQSPI::setSs(uint8_t pin) {
-	this->ss = ss;
-}
-
-/**
- * Get SS (Slave Select) pin
- * @return SS (Slave Select) pin
- */
-uint8_t IQSPI::getSs() {
-	return this->ss;
+	return rxByte;
 }

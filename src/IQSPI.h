@@ -25,6 +25,7 @@
 #define IQSPI_CLOCK 250000 //!< SPI clock 250kHz
 
 #include <stdint.h>
+#include "IQRFSettings.h"
 #if defined(__AVR__)
 #include <Arduino.h>
 #include <SPI.h>
@@ -40,12 +41,8 @@ class IQSPI {
 public:
 	void begin();
 	void end();
-	void transfer(uint8_t txByte, uint8_t rxByte);
-	void setSs(uint8_t pin);
-	uint8_t getSs();
+	uint8_t transfer(uint8_t txByte);
 private:
-	/// Slave select pin
-	uint8_t ss;
 #if defined(__PIC32MX__)
 	/// Instance of chipKIT SPI class
 	DSPI0* spi = new DSPI0;

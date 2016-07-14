@@ -128,14 +128,3 @@ unsigned long IQRFSPI::getBytePause() {
 void IQRFSPI::setBytePause(unsigned long time) {
 	this->bytePause = time;
 }
-
-/**
- * Send and receive single byte over SPI
- * @param txByte Character to be send via SPI
- * @return Byte received via SPI
- */
-uint8_t IQRFSPI::byte(uint8_t txByte) {
-	uint8_t rxByte;
-	iqSpi->transfer(txByte, rxByte);
-	return rxByte;
-}

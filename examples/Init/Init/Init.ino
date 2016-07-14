@@ -16,6 +16,7 @@
 
 #if defined(__AVR__)
 #include <Arduino.h>
+#include <MsTimer2.h>
 #elif defined(__PIC32MX__)
 #include <WProgram.h>
 #endif
@@ -23,14 +24,13 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <iqrf_library.h>
-#include <IQRFSettings.h>
-#if defined(__AVR__)
-#include <MsTimer2.h>
-#endif
-
 
 // 5000@1ms = 5s
 #define USER_TIMER_PERIOD 5000
+
+// TR MODULE PINS
+#define TR_RESET_PIN  6   //!< TR reset pin
+#define TR_SS_PIN     10  //!< SPI SS pin
 
 // LOCAL PROTOTYPES
 void setup();

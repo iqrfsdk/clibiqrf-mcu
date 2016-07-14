@@ -43,7 +43,6 @@ public:
 	bool isFastSpiEnabled();
 	unsigned long getBytePause();
 	void setBytePause(unsigned long time);
-	uint8_t byte(uint8_t txByte);
 
 	/**
 	 * SPI status of TR module (see IQRF SPI user manual)

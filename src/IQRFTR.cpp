@@ -43,15 +43,15 @@ void IQRFTR::enterProgramMode() {
 	if (spi->isMasterEnabled()) {
 		iqSpi->end();
 		this->reset();
-		pinMode(iqSpi->getSs(), OUTPUT);
-		pinMode(MISO, OUTPUT);
-		pinMode(MOSI, INPUT);
-		digitalWrite(iqSpi->getSs(), LOW);
+		pinMode(TR_SS_PIN, OUTPUT);
+		pinMode(TR_MOSI_PIN, OUTPUT);
+		pinMode(TR_MISO_PIN, INPUT);
+		digitalWrite(TR_SS_PIN, LOW);
 		unsigned long enterMs = millis();
 		do {
 			// Copy MOSI to MISO for approx. 500ms => TR into programming mode
-			digitalWrite(MISO, digitalRead(MOSI));
-		} while ((millis() - enterMs) < 500);
+			digitalWrite(TR_MOSI_PIN, digitalRead(TR_MISO_PIN));
+		} while ((millis() - enterMs) < (MILLI_SECOND / 2));
 		iqSpi->begin();
 	} else {
 		this->setControlStatus(controlStatuses::RESET);
@@ -64,20 +64,20 @@ void IQRFTR::enterProgramMode() {
  * Enter TR module into ON state
  */
 void IQRFTR::turnOn() {
-	pinMode(iqSpi->getSs(), OUTPUT);
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(iqSpi->getSs(), HIGH);
-	digitalWrite(TR_RESET_IO, LOW);
+	pinMode(TR_SS_PIN, OUTPUT);
+	pinMode(TR_RESET_PIN, OUTPUT);
+	digitalWrite(TR_SS_PIN, HIGH);
+	digitalWrite(TR_RESET_PIN, LOW);
 }
 
 /**
  * Enter TR module into OFF state
  */
 void IQRFTR::turnOff() {
-	pinMode(iqSpi->getSs(), OUTPUT);
-	pinMode(TR_RESET_IO, OUTPUT);
-	digitalWrite(iqSpi->getSs(), LOW);
-	digitalWrite(TR_RESET_IO, HIGH);
+	pinMode(TR_SS_PIN, OUTPUT);
+	pinMode(TR_RESET_PIN, OUTPUT);
+	digitalWrite(TR_SS_PIN, LOW);
+	digitalWrite(TR_RESET_PIN, HIGH);
 }
 
 /**
@@ -137,7 +137,7 @@ void IQRFTR::controlTask() {
 			break;
 		case controlStatuses::WAIT:
 			spi->setStatus(spi->statuses::BUSY);
-			if (millis() - timeoutMs >= 333) {
+			if (millis() - timeoutMs >= MILLI_SECOND / 3) {
 				this->setControlStatus(controlStatuses::PROG_MODE);
 			} else {
 				iqSpi->begin();

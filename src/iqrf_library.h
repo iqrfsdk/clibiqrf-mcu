@@ -22,8 +22,11 @@
 #ifndef _IQRFLIBRARY_H
 #define _IQRFLIBRARY_H
 
+#if defined(__AVR__)
 #include <Arduino.h>
-#include <SPI.h>
+#elif defined(__PIC32MX__)
+#include <WProgram.h>
+#endif
 
 //uint8(16, 32)_t and NULL defines
 #include <stddef.h>

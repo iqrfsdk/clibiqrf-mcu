@@ -126,13 +126,13 @@ void IQRF_Driver() {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// send/receive 1 byte via SPI
-				spiRxBuffer[tmpCnt] = spi->byte(spiTxBuffer[tmpCnt]);
+				spiRxBuffer[tmpCnt] = iqSpi->transfer(spiTxBuffer[tmpCnt]);
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
 				tmpCnt++;
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
 				if (tmpCnt == packetLength || tmpCnt == PACKET_SIZE) {
 					// CS - deactive
-					//digitalWrite(Arduino_h::SS, HIGH);
+					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
 						crc->check(spiRxBuffer, dataLength, PTYPE)) {
@@ -158,13 +158,13 @@ void IQRF_Driver() {
 				}
 			}
 		} else { // no data to send => SPI status will be updated every 10ms
-			if ((iqrfMicros - iqrfCheckMicros) > 10000) {
+			if ((iqrfMicros - iqrfCheckMicros) > (MICRO_SECOND / 100)) {
 				// reset counter
 				iqrfCheckMicros = iqrfMicros;
 				// get SPI status of TR module
-				spi->setStatus(spi->byte(spi->commands::CHECK));
+				spi->setStatus(iqSpi->transfer(spi->commands::CHECK));
 				// CS - deactive
-				//digitalWrite(Arduino_h::SS, HIGH);
+				//digitalWrite(TR_SS_PIN, HIGH);      
 				// if the status is dataready prepare packet to read it
 				if ((spi->getStatus() & 0xC0) == 0x40) {
 					memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
@@ -315,7 +315,7 @@ void trInfoTask() {
 					timeoutMilli = millis();
 					trInfoTaskStatus = WAIT_INFO;
 				} else {
-					if (millis() - timeoutMilli >= 500) {
+					if (millis() - timeoutMilli >= MILLI_SECOND / 2) {
 						// in a case, try it twice to enter programming mode
 						if (attempts) {
 							attempts--;
@@ -330,7 +330,7 @@ void trInfoTask() {
 			break;
 			// wait for info data from TR module
 		case WAIT_INFO:
-			if ((trInfoReading == 1) || (millis() - timeoutMilli >= 500)) {
+			if ((trInfoReading == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
 				if (idfMode == 1) {
 					// send end of PGM mode packet
 					TR_SendSpiPacket(spi->commands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);

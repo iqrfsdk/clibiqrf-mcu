@@ -22,10 +22,40 @@
 #ifndef IQRFSettings_H
 #define IQRFSettings_H
 
-#define PACKET_SIZE        68 //!< Size of SPI TX and RX buffer
-#define PACKET_BUFFER_SIZE 32 //!< Size of SPI TX packet buffer
+#define PACKET_SIZE        68     //!< Size of SPI TX and RX buffer
+#define PACKET_BUFFER_SIZE 32     //!< Size of SPI TX packet buffer
+
+// Timing
+#define MICRO_SECOND       1000000 //!< Microsecond
+#define MILLI_SECOND       1000    //!< Milisecond
 
 // Pins
-#define TR_RESET_IO        9  //!< TR reset pin
+#if !defined(TR_RESET_PIN)
+#define TR_RESET_PIN        6      //!< TR reset pin
+#endif
+#if !defined(TR_SS_PIN)
+#define TR_SS_PIN           10     //!< SPI SS pin
+#endif
+
+// Arduino Leonardo, Micro
+#if defined(__AVR_ATmega32U4__)
+#define TR_MOSI_PIN         16     //!< SPI MOSI pin
+#define TR_MISO_PIN         14     //!< SPI MISO pin
+// Arduino Mega, Mega 2560
+#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+#define TR_MOSI_PIN         51     //!< SPI MOSI pin
+#define TR_MISO_PIN         50     //!< SPI MISO pin
+// Arduino Due
+#elif defined(__SAM3X8E__)
+#define TR_MOSI_PIN         (75u)   //!< SPI MOSI pin
+#define TR_MISO_PIN         (74u)   //!< SPI MISO pin
+// Arduino Zero, MKR1000
+#elif defined(__SAMD21G18A__)
+#define TR_MOSI_PIN         (23u)   //!< SPI MOSI pin
+#define TR_MISO_PIN         (22u)   //!< SPI MISO pin
+#else
+#define TR_MOSI_PIN         11     //!< SPI MOSI pin
+#define TR_MISO_PIN         12     //!< SPI MISO pin
+#endif
 
 #endif

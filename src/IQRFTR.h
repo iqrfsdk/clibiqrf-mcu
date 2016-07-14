@@ -88,9 +88,9 @@ private:
 	/// TR programming flag
 	bool programFlag;
 	/// Instance of IQRFSPI class
-	IQRFSPI* spi = new IQRFSPI();
+	IQRFSPI* spi = new IQRFSPI;
 	/// Instance of IQSPI class
-	IQSPI* iqSpi = new IQSPI();
+	IQSPI* iqSpi = new IQSPI;
 };
 
 #endif
