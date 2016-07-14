@@ -113,7 +113,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="IQRFSettings_8h__dep__incl.png" border="0" usemap="#src_2IQRFSettings_8hdep" alt=""/></div>
 <map name="src_2IQRFSettings_8hdep" id="src_2IQRFSettings_8hdep">
-<area shape="rect" id="node2" href="iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="36,155,151,181"/><area shape="rect" id="node6" href="IQRFTR_8h.html" title="src/IQRFTR.h" alt="" coords="131,80,236,107"/><area shape="rect" id="node3" href="CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="12,229,175,256"/><area shape="rect" id="node5" href="iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="199,229,328,256"/><area shape="rect" id="node4" href="CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,304,181,331"/><area shape="rect" id="node7" href="IQRFTR_8cpp.html" title="src/IQRFTR.cpp" alt="" coords="175,155,293,181"/></map>
+<area shape="rect" id="node2" href="iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="36,304,151,331"/><area shape="rect" id="node6" href="IQSPI_8h.html" title="src/IQSPI.h" alt="" coords="160,80,251,107"/><area shape="rect" id="node8" href="IQRFTR_8h.html" title="src/IQRFTR.h" alt="" coords="303,229,408,256"/><area shape="rect" id="node3" href="CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="12,379,175,405"/><area shape="rect" id="node5" href="iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="199,379,328,405"/><area shape="rect" id="node4" href="CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,453,181,480"/><area shape="rect" id="node7" href="IQRFSPI_8h.html" title="src/IQRFSPI.h" alt="" coords="105,155,215,181"/><area shape="rect" id="node11" href="IQSPI_8cpp.html" title="src/IQSPI.cpp" alt="" coords="290,155,395,181"/><area shape="rect" id="node10" href="IQRFSPI_8cpp.html" title="src/IQRFSPI.cpp" alt="" coords="156,229,279,256"/><area shape="rect" id="node9" href="IQRFTR_8cpp.html" title="src/IQRFTR.cpp" alt="" coords="297,304,415,331"/></map>
 </div>
 </div>
 <p><a href="IQRFSettings_8h_source.html">Go to the source code of this file.</a></p>
@@ -128,10 +128,30 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716">PACKET_BUFFER_SIZE</a>&#160;&#160;&#160;32</td></tr>
 <tr class="memdesc:ab30af815d6e9494361629440f14e3716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of SPI TX packet buffer. <br/></td></tr>
 <tr class="separator:ab30af815d6e9494361629440f14e3716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bad5ec740aa92509ae469f3ad841892"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bad5ec740aa92509ae469f3ad841892"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#a3bad5ec740aa92509ae469f3ad841892">TR_RESET_IO</a>&#160;&#160;&#160;9</td></tr>
-<tr class="memdesc:a3bad5ec740aa92509ae469f3ad841892"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR reset pin. <br/></td></tr>
-<tr class="separator:a3bad5ec740aa92509ae469f3ad841892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6823058ce2e14113fbc93c9c36a7bcee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6823058ce2e14113fbc93c9c36a7bcee"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#a6823058ce2e14113fbc93c9c36a7bcee">MICRO_SECOND</a>&#160;&#160;&#160;1000000</td></tr>
+<tr class="memdesc:a6823058ce2e14113fbc93c9c36a7bcee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Microsecond. <br/></td></tr>
+<tr class="separator:a6823058ce2e14113fbc93c9c36a7bcee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4303ff595a045e360e67a93a3159a2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4303ff595a045e360e67a93a3159a2e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#ad4303ff595a045e360e67a93a3159a2e">MILLI_SECOND</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:ad4303ff595a045e360e67a93a3159a2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Milisecond. <br/></td></tr>
+<tr class="separator:ad4303ff595a045e360e67a93a3159a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa46a222bd5187fa5e37305c9594e22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaa46a222bd5187fa5e37305c9594e22"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#afaa46a222bd5187fa5e37305c9594e22">TR_RESET_PIN</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:afaa46a222bd5187fa5e37305c9594e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR reset pin. <br/></td></tr>
+<tr class="separator:afaa46a222bd5187fa5e37305c9594e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4e4776e9fc2490e73f78159b93ca30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a4e4776e9fc2490e73f78159b93ca30"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#a1a4e4776e9fc2490e73f78159b93ca30">TR_SS_PIN</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a1a4e4776e9fc2490e73f78159b93ca30"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI SS pin. <br/></td></tr>
+<tr class="separator:a1a4e4776e9fc2490e73f78159b93ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24708b5d077ce26712ba33f92b56b563"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24708b5d077ce26712ba33f92b56b563"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#a24708b5d077ce26712ba33f92b56b563">TR_MOSI_PIN</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a24708b5d077ce26712ba33f92b56b563"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI MOSI pin. <br/></td></tr>
+<tr class="separator:a24708b5d077ce26712ba33f92b56b563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974470c1d0d213e56c97a7b3543a2328"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a974470c1d0d213e56c97a7b3543a2328"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IQRFSettings_8h.html#a974470c1d0d213e56c97a7b3543a2328">TR_MISO_PIN</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a974470c1d0d213e56c97a7b3543a2328"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI MISO pin. <br/></td></tr>
+<tr class="separator:a974470c1d0d213e56c97a7b3543a2328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Rostislav Špinar <a href="#" onclick="location.href='mai'+'lto:'+'ros'+'ti'+'sla'+'v.'+'spi'+'na'+'r@m'+'ic'+'ror'+'is'+'c.c'+'om'; return false;">rosti<span style="display: none;">.nosp@m.</span>slav<span style="display: none;">.nosp@m.</span>.spin<span style="display: none;">.nosp@m.</span>ar@m<span style="display: none;">.nosp@m.</span>icror<span style="display: none;">.nosp@m.</span>isc.<span style="display: none;">.nosp@m.</span>com</a> </dd>
@@ -148,7 +168,7 @@ Roman Ondráček <a href="#" onclick="location.href='mai'+'lto:'+'ond'+'ra'+'cek
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="IQRFSettings_8h.html">IQRFSettings.h</a></li>
-    <li class="footer">Generated on Thu Jul 7 2016 18:09:01 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Thu Jul 14 2016 20:45:49 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

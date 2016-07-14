@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['packet_5fbuffer_5fsize',['PACKET_BUFFER_SIZE',['../IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716',1,'IQRFSettings.h']]],
-  ['packet_5fsize',['PACKET_SIZE',['../IQRFSettings_8h.html#aebdc7d8ca8e25ed8efc90bb88ef7ef5b',1,'IQRFSettings.h']]]
+  ['micro_5fsecond',['MICRO_SECOND',['../IQRFSettings_8h.html#a6823058ce2e14113fbc93c9c36a7bcee',1,'IQRFSettings.h']]],
+  ['milli_5fsecond',['MILLI_SECOND',['../IQRFSettings_8h.html#ad4303ff595a045e360e67a93a3159a2e',1,'IQRFSettings.h']]]
 ];

@@ -104,6 +104,7 @@ $(document).ready(function(){initNavTree('Init_8ino-example.html','');});
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;MsTimer2.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;WProgram.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
@@ -111,16 +112,15 @@ $(document).ready(function(){initNavTree('Init_8ino-example.html','');});
 <div class="line"><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iqrf__library_8h.html">iqrf_library.h</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="IQRFSettings_8h.html">IQRFSettings.h</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
-<div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;MsTimer2.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="preprocessor"></span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// 5000@1ms = 5s</span></div>
 <div class="line"><span class="preprocessor">#define USER_TIMER_PERIOD 5000</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="comment">// LOCAL PROTOTYPES</span></div>
+<div class="line"><span class="comment">// TR MODULE PINS</span></div>
+<div class="line"><span class="preprocessor">#define TR_RESET_PIN  6   </span></div>
+<div class="line"><span class="preprocessor">#define TR_SS_PIN     10  </span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor"></span><span class="comment">// LOCAL PROTOTYPES</span></div>
 <div class="line"><span class="keywordtype">void</span> setup();</div>
 <div class="line"><span class="keywordtype">void</span> loop();</div>
 <div class="line"><span class="keywordtype">void</span> rxHandler();</div>
@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('Init_8ino-example.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Jul 7 2016 18:09:01 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Thu Jul 14 2016 20:45:49 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -28,7 +28,6 @@ var classIQRFSPI =
       [ "SLOW_MODE", "classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0", null ],
       [ "USER_STOP", "classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ac5579cc45174869b430c091b16f47a01", null ]
     ] ],
-    [ "byte", "classIQRFSPI.html#ad0091a38860a0ecf4c5fa4fcf09d9de0", null ],
     [ "disableFastSpi", "classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8", null ],
     [ "disableMaster", "classIQRFSPI.html#acb83690ba53849b8e6ff86859336623e", null ],
     [ "enableFastSpi", "classIQRFSPI.html#a2a2d1ee4d4a95008bc6524931b328835", null ],
