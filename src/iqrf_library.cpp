@@ -62,9 +62,9 @@ uint16_t packetBufferInPtr;
 /// Packet output buffer
 uint16_t packetBufferOutPtr;
 /// IQRF Rx callback
-RX_CALLBACK rxCallback;
+rxCallback_t rxCallback;
 /// IQRF Tx callback
-TX_CALLBACK txCallback;
+txCallback_t txCallback;
 /// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
@@ -83,7 +83,7 @@ IQSPI* iqSpi = new IQSPI;
  * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-void IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn) {
+void IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	iqrfCheckMicros = 0;
