@@ -11,7 +11,7 @@ var searchData=
   ['iqrf_5fgetosversion',['IQRF_GetOsVersion',['../iqrf__library_8h.html#a0f317f99a0962ddb6f14ef78881a1950',1,'iqrf_library.h']]],
   ['iqrf_5fgetrxdata',['IQRF_GetRxData',['../iqrf__library_8cpp.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a438a10cf50a96475d218fdb422f5a15e',1,'IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize):&#160;iqrf_library.cpp']]],
   ['iqrf_5fgetrxdatasize',['IQRF_GetRxDataSize',['../iqrf__library_8h.html#a887243256981d63873925e690a7a33af',1,'iqrf_library.h']]],
-  ['iqrf_5finit',['IQRF_Init',['../iqrf__library_8cpp.html#a0c079f43c2b59dadcd89f3797904360d',1,'IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a0c079f43c2b59dadcd89f3797904360d',1,'IQRF_Init(RX_CALLBACK rx_call_back_fn, TX_CALLBACK tx_call_back_fn):&#160;iqrf_library.cpp']]],
+  ['iqrf_5finit',['IQRF_Init',['../iqrf__library_8cpp.html#afd14ed40d8ab2d85f09b90d3e2891914',1,'IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn):&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#afd14ed40d8ab2d85f09b90d3e2891914',1,'IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn):&#160;iqrf_library.cpp']]],
   ['iqrf_5flibrary_2ecpp',['iqrf_library.cpp',['../iqrf__library_8cpp.html',1,'']]],
   ['iqrf_5flibrary_2eh',['iqrf_library.h',['../iqrf__library_8h.html',1,'']]],
   ['iqrf_5fpacket_5fbuffer',['IQRF_PACKET_BUFFER',['../structIQRF__PACKET__BUFFER.html',1,'']]],
