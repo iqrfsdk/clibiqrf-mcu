@@ -4,6 +4,10 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "CallbackFunctions.h", "CallbackFunctions_8h.html", "CallbackFunctions_8h" ],
     [ "iqrf_library.cpp", "iqrf__library_8cpp.html", "iqrf__library_8cpp" ],
     [ "iqrf_library.h", "iqrf__library_8h.html", "iqrf__library_8h" ],
+    [ "IQRFCallbacks.cpp", "IQRFCallbacks_8cpp.html", null ],
+    [ "IQRFCallbacks.h", "IQRFCallbacks_8h.html", [
+      [ "IQRFCallbacks", "classIQRFCallbacks.html", "classIQRFCallbacks" ]
+    ] ],
     [ "IQRFCRC.cpp", "IQRFCRC_8cpp.html", null ],
     [ "IQRFCRC.h", "IQRFCRC_8h.html", [
       [ "IQRFCRC", "classIQRFCRC.html", "classIQRFCRC" ]
