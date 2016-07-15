@@ -1,4 +1,4 @@
 var examples =
 [
-    [ "Init.ino", "Init_8ino-example.html", null ]
+    [ "Hello-world.ino", "Hello-world_8ino-example.html", null ]
 ];
