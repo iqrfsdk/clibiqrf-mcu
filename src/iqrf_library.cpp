@@ -61,15 +61,13 @@ IQRF_PACKET_BUFFER iqrfPacketBuffer[PACKET_BUFFER_SIZE];
 uint16_t packetBufferInPtr;
 /// Packet output buffer
 uint16_t packetBufferOutPtr;
-/// IQRF Rx callback
-rxCallback_t rxCallback;
-/// IQRF Tx callback
-txCallback_t txCallback;
 /// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
 /// Instance of IQRFCRC class
 IQRFCRC* crc = new IQRFCRC;
+/// Instance of IQRFCallbacks class
+IQRFCallbacks* callbacks = new IQRFCallbacks;
 /// Instance of IQRFSPI class
 IQRFSPI* spi = new IQRFSPI;
 /// Instance of IQRFTR class
@@ -83,7 +81,7 @@ IQSPI* iqSpi = new IQSPI;
  * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-void IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn) {
+void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	iqrfCheckMicros = 0;
@@ -107,8 +105,8 @@ void IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn) {
 		spi->enableFastSpi();
 		Serial.println("IQRF_Init - set fast spi");
 	}
-	rxCallback = rx_call_back_fn;
-	txCallback = tx_call_back_fn;
+	callbacks->setRxCallback(rx_call_back_fn);
+	callbacks->setTxCallback(tx_call_back_fn);
 	tr->setControlStatus(tr->controlStatuses::READY);
 }
 
@@ -137,10 +135,10 @@ void IQRF_Driver() {
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
 						crc->check(spiRxBuffer, dataLength, PTYPE)) {
 						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-							txCallback(txPacketId, txPacketStatuses::OK);
+							callbacks->callTxCallback(txPacketId, txPacketStatuses::OK);
 						}
 						if (spi->getMasterStatus() == spi->masterStatuses::READ) {
-							rxCallback();
+							callbacks->callRxCallback();
 						}
 						spi->setMasterStatus(spi->masterStatuses::FREE);
 					} else { // CRC error
@@ -150,7 +148,7 @@ void IQRF_Driver() {
 							tmpCnt = 0;
 						} else {
 							if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-								txCallback(txPacketId, txPacketStatuses::ERROR);
+								callbacks->callTxCallback(txPacketId, txPacketStatuses::ERROR);
 							}
 							spi->setMasterStatus(spi->masterStatuses::FREE);
 						}
@@ -280,9 +278,9 @@ void trInfoTask() {
 			// try to read idf in com mode
 			idfMode = 0;
 			// set call back function to process id data
-			rxCallback = doNothingRx;
+			callbacks->setRxCallback(doNothingRx);
 			// set call back function after data were sent
-			txCallback = identifyTx;
+			callbacks->setTxCallback(identifyTx);
 			trInfoStruct.mcuType = tr->mcuTypes::UNKNOWN;
 			memset(&dataToModule[0], 0, 16);
 			timeoutMilli = millis();
@@ -294,9 +292,9 @@ void trInfoTask() {
 			// try to read idf in pgm mode
 			idfMode = 1;
 			// set call back function to process id data
-			rxCallback = identifyRx;
+			callbacks->setRxCallback(identifyRx);
 			// set call back function after data were sent
-			txCallback = doNothingTx;
+			callbacks->setTxCallback(doNothingTx);
 			timeoutMilli = millis();
 			trInfoTaskStatus = SEND_REQUEST;
 			break;

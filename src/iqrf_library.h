@@ -37,6 +37,7 @@
 #include <string.h>
 
 #include "CallbackFunctions.h"
+#include "IQRFCallbacks.h"
 #include "IQRFCRC.h"
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
@@ -58,12 +59,6 @@ enum fccStatuses {
 	NOT_CERTIFIED = 0, //!< Not certified fy FCC
 	CERTIFIED = 1 //!< Certified by FCC
 };
-
-/// SPI RX data callback function type
-typedef void (*rxCallback_t)(void);
-
-/// SPI TX data callback function type
-typedef void (*txCallback_t)(uint8_t packetId, uint8_t packetResult);
 
 /**
  * TR module info structure
@@ -92,7 +87,7 @@ typedef struct {
 extern uint8_t dataLength;
 extern TR_INFO_STRUCT trInfoStruct;
 
-void IQRF_Init(rxCallback_t rx_call_back_fn, txCallback_t tx_call_back_fn);
+void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn);
 void IQRF_Driver(void);
 uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
