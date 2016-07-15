@@ -54,9 +54,9 @@ unsigned long iqrfCheckMicros;
 /// Microsecond variable
 unsigned long iqrfMicros;
 /// TR info structure
-TR_INFO_STRUCT trInfoStruct;
+trInfo_t trInfo;
 /// IQRF packet buffer
-IQRF_PACKET_BUFFER iqrfPacketBuffer[PACKET_BUFFER_SIZE];
+packetBuffer_t iqrfPacketBuffer[PACKET_BUFFER_SIZE];
 /// Packet input buffer
 uint16_t packetBufferInPtr;
 /// Packet output buffer
@@ -77,7 +77,7 @@ IQSPI* iqSpi = new IQSPI;
 
 /**
  * Function perform a TR-module driver initialization
- * Function performes initialization of trInfoStruct identification data structure
+ * Function performes initialization of trInfo identification data structure
  * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
  * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
  */
@@ -281,7 +281,7 @@ void trInfoTask() {
 			callbacks->setRxCallback(doNothingRx);
 			// set call back function after data were sent
 			callbacks->setTxCallback(identifyTx);
-			trInfoStruct.mcuType = tr->mcuTypes::UNKNOWN;
+			trInfo.mcuType = tr->mcuTypes::UNKNOWN;
 			memset(&dataToModule[0], 0, 16);
 			timeoutMilli = millis();
 			// next state - will read info in PGM mode or /* in COM mode */
@@ -352,13 +352,13 @@ void trInfoTask() {
  * Process identification data packet from TR module
  */
 void trIdentify() {
-	memcpy((uint8_t *) & trInfoStruct.moduleInfoRawData, (uint8_t *) & spiRxBuffer[2], 8);
-	trInfoStruct.moduleId = (uint32_t) spiRxBuffer[2] << 24 | (uint32_t) spiRxBuffer[3] << 16 | (uint32_t) spiRxBuffer[4] << 8 | spiRxBuffer[5];
-	trInfoStruct.osVersion = (uint16_t) (spiRxBuffer[6] / 16) << 8 | (spiRxBuffer[6] % 16);
-	trInfoStruct.mcuType = spiRxBuffer[7] & 0x07;
-	trInfoStruct.fcc = (spiRxBuffer[7] & 0x08) >> 3;
-	trInfoStruct.moduleType = spiRxBuffer[7] >> 4;
-	trInfoStruct.osBuild = (uint16_t) spiRxBuffer[9] << 8 | spiRxBuffer[8];
+	memcpy((uint8_t *) & trInfo.moduleInfoRawData, (uint8_t *) & spiRxBuffer[2], 8);
+	trInfo.moduleId = (uint32_t) spiRxBuffer[2] << 24 | (uint32_t) spiRxBuffer[3] << 16 | (uint32_t) spiRxBuffer[4] << 8 | spiRxBuffer[5];
+	trInfo.osVersion = (uint16_t) (spiRxBuffer[6] / 16) << 8 | (spiRxBuffer[6] % 16);
+	trInfo.mcuType = spiRxBuffer[7] & 0x07;
+	trInfo.fcc = (spiRxBuffer[7] & 0x08) >> 3;
+	trInfo.moduleType = spiRxBuffer[7] >> 4;
+	trInfo.osBuild = (uint16_t) spiRxBuffer[9] << 8 | spiRxBuffer[8];
 	// TR info data processed
 	trInfoReading--;
 }

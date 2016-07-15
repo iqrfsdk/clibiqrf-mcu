@@ -71,7 +71,7 @@ typedef struct {
 	uint16_t moduleType; //!< Module type
 	uint16_t fcc; //!< FCC
 	uint8_t moduleInfoRawData[8]; //!< Raw data
-} TR_INFO_STRUCT;
+} trInfo_t;
 
 /**
  * Item of SPI TX packet buffer
@@ -82,10 +82,10 @@ typedef struct {
 	uint8_t *dataBuffer; //!< Pointer to data buffrt
 	uint8_t dataLength; //!< Data lenght
 	uint8_t unallocationFlag; //!< Unallocation flag
-} IQRF_PACKET_BUFFER;
+} packetBuffer_t;
 
 extern uint8_t dataLength;
-extern TR_INFO_STRUCT trInfoStruct;
+extern trInfo_t trInfo;
 
 void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn);
 void IQRF_Driver(void);
@@ -104,19 +104,19 @@ void trIdentify();
  * Get OS version
  * @return Version of OS used inside of TR module
  */
-#define IQRF_GetOsVersion()  trInfoStruct.osVersion
+#define IQRF_GetOsVersion()  trInfo.osVersion
 
 /**
  * Get OS build
  * @return Build of OS used inside of TR module
  */
-#define IQRF_GetOsBuild()  trInfoStruct.osBuild
+#define IQRF_GetOsBuild()  trInfo.osBuild
 
 /**
  * Get TR module ID
  * @return Unique 32 bit identifier data word of TR module
  */
-#define IQRF_GetModuleId()  trInfoStruct.moduleId
+#define IQRF_GetModuleId()  trInfo.moduleId
 
 /**
  * Get MCU model inside TR module
@@ -129,7 +129,7 @@ void trIdentify();
  *   3  |  PIC16F886
  *   4  | PIC16LF1938
  */
-#define IQRF_GetMcuType()  trInfoStruct.mcuType
+#define IQRF_GetMcuType()  trInfo.mcuType
 
 /**
  * Get TR module type
@@ -143,13 +143,13 @@ void trIdentify();
  *   9  |   TR_55D
  *  10  |   TR_56D
  */
-#define IQRF_GetModuleType()  trInfoStruct.moduleType
+#define IQRF_GetModuleType()  trInfo.moduleType
 
 /**
  * Get raw info data about TR module
  * @param position Position in info raw buffer
  * @return Data byte from info raw buffer
  */
-#define IQRF_GetModuleInfoRawData(position) trInfoStruct.moduleInfoRawData[position]
+#define IQRF_GetModuleInfoRawData(position) trInfo.moduleInfoRawData[position]
 
 #endif
