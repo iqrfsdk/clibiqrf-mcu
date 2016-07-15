@@ -8,7 +8,7 @@ var searchData=
   ['settxcallback',['setTxCallback',['../classIQRFCallbacks.html#aa25ea9d6fa7cf56ed1f8cfd1bc540759',1,'IQRFCallbacks']]],
   ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
   ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
-  ['spicmd',['spiCmd',['../structIQRF__PACKET__BUFFER.html#a2df4246c3c2aa1e21bb86260acf5b8f4',1,'IQRF_PACKET_BUFFER']]],
+  ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]],
   ['spirxbuffer',['spiRxBuffer',['../iqrf__library_8cpp.html#ab85c514f1cb01733d97591f36e1f6e2c',1,'iqrf_library.cpp']]],
   ['spitxbuffer',['spiTxBuffer',['../iqrf__library_8cpp.html#a93f411c971c533ad50b7948633b2be3b',1,'iqrf_library.cpp']]],
   ['statuses',['statuses',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI']]]

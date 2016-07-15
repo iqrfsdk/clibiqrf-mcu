@@ -13,7 +13,7 @@ var iqrf__library_8cpp =
     [ "endPgmMode", "iqrf__library_8cpp.html#a3b735646c59523ad497e77173824e284", null ],
     [ "iqrfCheckMicros", "iqrf__library_8cpp.html#ab56aa142b2d5d3aada188ca7ce25cbba", null ],
     [ "iqrfMicros", "iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2", null ],
-    [ "iqrfPacketBuffer", "iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1", null ],
+    [ "iqrfPacketBuffer", "iqrf__library_8cpp.html#aa2620de77c5051751b94498b34d59f24", null ],
     [ "iqSpi", "iqrf__library_8cpp.html#ab05b24bf0989df229a6b7fbc65f167a9", null ],
     [ "packetBufferInPtr", "iqrf__library_8cpp.html#aea9c2b209b66a2ea10edd0a192f7f82c", null ],
     [ "packetBufferOutPtr", "iqrf__library_8cpp.html#a3d28fb6b65a7fa4778db032f868de1ec", null ],
@@ -25,8 +25,8 @@ var iqrf__library_8cpp =
     [ "spiTxBuffer", "iqrf__library_8cpp.html#a93f411c971c533ad50b7948633b2be3b", null ],
     [ "tmpCnt", "iqrf__library_8cpp.html#ad63e74806fc73be3aeae48dfb418e2d4", null ],
     [ "tr", "iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b", null ],
+    [ "trInfo", "iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a", null ],
     [ "trInfoReading", "iqrf__library_8cpp.html#a388f7c2a5e65135507c31f73bb7fcdeb", null ],
-    [ "trInfoStruct", "iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875", null ],
     [ "txPacketId", "iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e", null ],
     [ "txPacketIdCounter", "iqrf__library_8cpp.html#a4d6aec1cadba86298d3adb2d64375522", null ]
 ];

@@ -1,7 +1,7 @@
 var iqrf__library_8h =
 [
-    [ "TR_INFO_STRUCT", "structTR__INFO__STRUCT.html", "structTR__INFO__STRUCT" ],
-    [ "IQRF_PACKET_BUFFER", "structIQRF__PACKET__BUFFER.html", "structIQRF__PACKET__BUFFER" ],
+    [ "trInfo_t", "structtrInfo__t.html", "structtrInfo__t" ],
+    [ "packetBuffer_t", "structpacketBuffer__t.html", "structpacketBuffer__t" ],
     [ "IQRF_GetMcuType", "iqrf__library_8h.html#a693dfec78d1816b32ddca594d70f108a", null ],
     [ "IQRF_GetModuleId", "iqrf__library_8h.html#ae8bab73b1e236f3c11f5b58feaa986a8", null ],
     [ "IQRF_GetModuleInfoRawData", "iqrf__library_8h.html#a297417602e929b0c0ee034dcb6a7b18c", null ],
@@ -24,5 +24,5 @@ var iqrf__library_8h =
     [ "TR_SendSpiPacket", "iqrf__library_8h.html#ad38ad5735b391642ce0edc8a3140d4eb", null ],
     [ "trIdentify", "iqrf__library_8h.html#a8190871ac5c8930f7be8c7d0855b325c", null ],
     [ "dataLength", "iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102", null ],
-    [ "trInfoStruct", "iqrf__library_8h.html#a445d0bc288594a8f603937dc7fb9e875", null ]
+    [ "trInfo", "iqrf__library_8h.html#a00337c2799710312d0473aa3322c2d9a", null ]
 ];

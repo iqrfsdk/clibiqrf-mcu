@@ -185,14 +185,14 @@ unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a37de461137d9660684e0ffbbd70344e2">iqrfMicros</a></td></tr>
 <tr class="memdesc:a37de461137d9660684e0ffbbd70344e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Microsecond variable. <br/></td></tr>
 <tr class="separator:a37de461137d9660684e0ffbbd70344e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445d0bc288594a8f603937dc7fb9e875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a445d0bc288594a8f603937dc7fb9e875"></a>
-<a class="el" href="structTR__INFO__STRUCT.html">TR_INFO_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a445d0bc288594a8f603937dc7fb9e875">trInfoStruct</a></td></tr>
-<tr class="memdesc:a445d0bc288594a8f603937dc7fb9e875"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
-<tr class="separator:a445d0bc288594a8f603937dc7fb9e875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1694ea6c553d7533276a03b91832a1a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1694ea6c553d7533276a03b91832a1a1"></a>
-<a class="el" href="structIQRF__PACKET__BUFFER.html">IQRF_PACKET_BUFFER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a1694ea6c553d7533276a03b91832a1a1">iqrfPacketBuffer</a> [<a class="el" href="IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716">PACKET_BUFFER_SIZE</a>]</td></tr>
-<tr class="memdesc:a1694ea6c553d7533276a03b91832a1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">IQRF packet buffer. <br/></td></tr>
-<tr class="separator:a1694ea6c553d7533276a03b91832a1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00337c2799710312d0473aa3322c2d9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00337c2799710312d0473aa3322c2d9a"></a>
+<a class="el" href="structtrInfo__t.html">trInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a">trInfo</a></td></tr>
+<tr class="memdesc:a00337c2799710312d0473aa3322c2d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">TR info structure. <br/></td></tr>
+<tr class="separator:a00337c2799710312d0473aa3322c2d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2620de77c5051751b94498b34d59f24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2620de77c5051751b94498b34d59f24"></a>
+<a class="el" href="structpacketBuffer__t.html">packetBuffer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#aa2620de77c5051751b94498b34d59f24">iqrfPacketBuffer</a> [<a class="el" href="IQRFSettings_8h.html#ab30af815d6e9494361629440f14e3716">PACKET_BUFFER_SIZE</a>]</td></tr>
+<tr class="memdesc:aa2620de77c5051751b94498b34d59f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">IQRF packet buffer. <br/></td></tr>
+<tr class="separator:aa2620de77c5051751b94498b34d59f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea9c2b209b66a2ea10edd0a192f7f82c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea9c2b209b66a2ea10edd0a192f7f82c"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iqrf__library_8cpp.html#aea9c2b209b66a2ea10edd0a192f7f82c">packetBufferInPtr</a></td></tr>
 <tr class="memdesc:aea9c2b209b66a2ea10edd0a192f7f82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packet input buffer. <br/></td></tr>
@@ -312,7 +312,7 @@ Roman Ondráček <a href="#" onclick="location.href='mai'+'lto:'+'ond'+'ra'+'cek
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function perform a TR-module driver initialization Function performes initialization of trInfoStruct identification data structure </p>
+<p>Function perform a TR-module driver initialization Function performes initialization of trInfo identification data structure </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rx_call_back_fn</td><td>Pointer to callback function. Function is called when the driver receives data from the TR module </td></tr>
@@ -454,7 +454,7 @@ Roman Ondráček <a href="#" onclick="location.href='mai'+'lto:'+'ond'+'ra'+'cek
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="iqrf__library_8cpp.html">iqrf_library.cpp</a></li>
-    <li class="footer">Generated on Fri Jul 15 2016 10:54:28 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Fri Jul 15 2016 11:09:30 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['mcutype',['mcuType',['../structTR__INFO__STRUCT.html#afde4ed0ba6649dd2946725ff83e15a4d',1,'TR_INFO_STRUCT']]],
-  ['moduleid',['moduleId',['../structTR__INFO__STRUCT.html#af3c76598a1aef37e9edc62dc8cf4f3cc',1,'TR_INFO_STRUCT']]],
-  ['moduleinforawdata',['moduleInfoRawData',['../structTR__INFO__STRUCT.html#a73041f0e74243befca179ed945841033',1,'TR_INFO_STRUCT']]],
-  ['moduletype',['moduleType',['../structTR__INFO__STRUCT.html#a5741c4315e22574a3ed3e5adc5ffc01d',1,'TR_INFO_STRUCT']]]
+  ['mcutype',['mcuType',['../structtrInfo__t.html#a62c7fd56b2fc3538c5d0c188dd6abfb2',1,'trInfo_t']]],
+  ['moduleid',['moduleId',['../structtrInfo__t.html#afbd24054b6d90486acc2fe2a524b4256',1,'trInfo_t']]],
+  ['moduleinforawdata',['moduleInfoRawData',['../structtrInfo__t.html#a623bdb433321196dde72a3dd0d3f6a3c',1,'trInfo_t']]],
+  ['moduletype',['moduleType',['../structtrInfo__t.html#a09aff0c013dff511e876fa2220b4511a',1,'trInfo_t']]]
 ];
