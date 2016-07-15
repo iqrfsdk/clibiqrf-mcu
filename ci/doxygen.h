@@ -1,6 +1,6 @@
 // Examples
 /**
- * @example Init.ino This example shows how to send data packet.
+ * @example Hello-world.ino This example shows how to send data packet.
  */
 
 // Sections
