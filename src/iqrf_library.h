@@ -28,15 +28,11 @@
 #include <WProgram.h>
 #endif
 
-//uint8(16, 32)_t and NULL defines
 #include <stddef.h>
 #include <stdint.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "CallbackFunctions.h"
+#include "IQRF.h"
 #include "IQRFCallbacks.h"
 #include "IQRFCRC.h"
 #include "IQRFSettings.h"

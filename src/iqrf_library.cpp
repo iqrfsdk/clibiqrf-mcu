@@ -47,10 +47,6 @@ uint8_t dataLength;
 uint8_t txPacketId;
 /// Tx packet ID counter
 uint8_t txPacketIdCounter;
-/// Microsecond couter
-unsigned long iqrfCheckMicros;
-/// Microsecond variable
-unsigned long iqrfMicros;
 /// TR info structure
 trInfo_t trInfo;
 /// IQRF packet buffer
@@ -62,6 +58,8 @@ uint16_t packetBufferOutPtr;
 /// Packet to end program mode
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
+/// Instance of IQRF class
+IQRF* iqrf = new IQRF;
 /// Instance of IQRFCRC class
 IQRFCRC* crc = new IQRFCRC;
 /// Instance of IQRFCallbacks class
@@ -82,7 +80,7 @@ IQSPI* iqSpi = new IQSPI;
 void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
-	iqrfCheckMicros = 0;
+	iqrf->setUsCounter0(0);
 	// normal SPI communication
 	spi->disableFastSpi();
 	tr->turnOn();
@@ -114,13 +112,13 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCal
 void IQRF_Driver() {
 	// SPI Master enabled
 	if (spi->isMasterEnabled()) {
-		iqrfMicros = micros();
+		iqrf->setUsCounter1(micros());
 		// is anything to send in spiTxBuffer?
 		if (spi->getMasterStatus() != spi->masterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
-			if ((iqrfMicros - iqrfCheckMicros) > spi->getBytePause()) {
+			if ((iqrf->getUsCounter1() - iqrf->getUsCounter0()) > spi->getBytePause()) {
 				// reset counter
-				iqrfCheckMicros = iqrfMicros;
+				iqrf->setUsCounter0(iqrf->getUsCounter1());
 				// send/receive 1 byte via SPI
 				spiRxBuffer[tmpCnt] = iqSpi->transfer(spiTxBuffer[tmpCnt]);
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
@@ -154,9 +152,9 @@ void IQRF_Driver() {
 				}
 			}
 		} else { // no data to send => SPI status will be updated every 10ms
-			if ((iqrfMicros - iqrfCheckMicros) > (MICRO_SECOND / 100)) {
+			if ((iqrf->getUsCounter1() - iqrf->getUsCounter0()) > (MICRO_SECOND / 100)) {
 				// reset counter
-				iqrfCheckMicros = iqrfMicros;
+				iqrf->setUsCounter0(iqrf->getUsCounter1());
 				// get SPI status of TR module
 				spi->setStatus(iqSpi->transfer(spi->commands::CHECK));
 				// CS - deactive
