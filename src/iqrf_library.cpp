@@ -33,10 +33,6 @@ void trInfoTask();
 uint8_t spiTxBuffer[PACKET_SIZE];
 /// SPI Rx buffer
 uint8_t spiRxBuffer[PACKET_SIZE];
-/// Number of attempts to send data
-uint8_t repCnt;
-/// Counts number of send/receive bytes
-uint8_t tmpCnt;
 /// Packet length
 uint8_t packetLength;
 /// Data length
@@ -78,7 +74,7 @@ IQSPI* iqSpi = new IQSPI;
 void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
-	iqrf->setUsCounter0(0);
+	iqrf->setUsCount0(0);
 	// normal SPI communication
 	spi->disableFastSpi();
 	tr->turnOn();
@@ -110,19 +106,19 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCal
 void IQRF_Driver() {
 	// SPI Master enabled
 	if (spi->isMasterEnabled()) {
-		iqrf->setUsCounter1(micros());
+		iqrf->setUsCount1(micros());
 		// is anything to send in spiTxBuffer?
 		if (spi->getMasterStatus() != spi->masterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
-			if ((iqrf->getUsCounter1() - iqrf->getUsCounter0()) > spi->getBytePause()) {
+			if ((iqrf->getUsCount1() - iqrf->getUsCount0()) > spi->getBytePause()) {
 				// reset counter
-				iqrf->setUsCounter0(iqrf->getUsCounter1());
+				iqrf->setUsCount0(iqrf->getUsCount1());
 				// send/receive 1 byte via SPI
-				spiRxBuffer[tmpCnt] = iqSpi->transfer(spiTxBuffer[tmpCnt]);
+				spiRxBuffer[iqrf->getByteCount()] = iqSpi->transfer(spiTxBuffer[iqrf->getByteCount()]);
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
-				tmpCnt++;
+				iqrf->setByteCount(iqrf->getByteCount() + 1);
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
-				if (tmpCnt == packetLength || tmpCnt == PACKET_SIZE) {
+				if (iqrf->getByteCount() == packetLength || iqrf->getByteCount() == PACKET_SIZE) {
 					// CS - deactive
 					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
@@ -137,9 +133,9 @@ void IQRF_Driver() {
 						spi->setMasterStatus(spi->masterStatuses::FREE);
 					} else { // CRC error
 						// rep_cnt - must be set on packet preparing
-						if (--repCnt) {
+						if (iqrf->getAttepmtsCount() - 1) {
 							// another attempt to send data
-							tmpCnt = 0;
+							iqrf->setByteCount(0);
 						} else {
 							if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
 								callbacks->callTxCallback(txPacketId, txPacketStatuses::ERROR);
@@ -150,9 +146,9 @@ void IQRF_Driver() {
 				}
 			}
 		} else { // no data to send => SPI status will be updated every 10ms
-			if ((iqrf->getUsCounter1() - iqrf->getUsCounter0()) > (MICRO_SECOND / 100)) {
+			if ((iqrf->getUsCount1() - iqrf->getUsCount0()) > (MICRO_SECOND / 100)) {
 				// reset counter
-				iqrf->setUsCounter0(iqrf->getUsCounter1());
+				iqrf->setUsCount0(iqrf->getUsCount1());
 				// get SPI status of TR module
 				spi->setStatus(iqSpi->transfer(spi->commands::CHECK));
 				// CS - deactive
@@ -175,9 +171,9 @@ void IQRF_Driver() {
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
 					packetLength = dataLength + 4;
 					// counter of sent bytes
-					tmpCnt = 0;
+					iqrf->setByteCount(0);
 					// number of attempts to send data
-					repCnt = 1;
+					iqrf->setAttepmtsCount(1);
 					// reading from buffer COM of TR module
 					spi->setMasterStatus(spi->masterStatuses::READ);
 					// current SPI status must be updated
@@ -204,9 +200,9 @@ void IQRF_Driver() {
 						// set actual TX packet ID
 						txPacketId = iqrfPacketBuffer[packetBufferOutPtr].packetId;
 						// counter of sent bytes
-						tmpCnt = 0;
+						iqrf->setByteCount(0);
 						// number of attempts to send data
-						repCnt = 3;
+						iqrf->setAttepmtsCount(3);
 						// writing to buffer COM of TR module
 						spi->setMasterStatus(spi->masterStatuses::WRITE);
 						if (iqrfPacketBuffer[packetBufferOutPtr].unallocationFlag) {

@@ -37,12 +37,45 @@ uint8_t IQRF::getPTYPE() {
 	return this->PTYPE;
 }
 
+/**
+ * Set count of attepmts to send data
+ * @param attepmts Count of attepmts to send data
+ */
+void IQRF::setAttepmtsCount(uint8_t attepmts) {
+	this->attepmtsCounter = attepmts;
+}
+
+/**
+ * Get count of attepmts to send data
+ * @return Count of attepmts to send data 
+ */
+uint8_t IQRF::getAttepmtsCount() {
+	return this->attepmtsCounter;
+}
+
+
+/**
+ * Set byte count
+ * @param count Byte count
+ */
+void IQRF::setByteCount(uint8_t count) {
+	this->byteCounter = count;
+}
+
+/**
+ * Get byte count
+ * @return Byte count
+ */
+uint8_t IQRF::getByteCount() {
+	return this->byteCounter;
+}
+
 
 /**
  * Set count of microseconds from counter
  * @param us Count of microseconds
  */
-void IQRF::setUsCounter0(unsigned long us) {
+void IQRF::setUsCount0(unsigned long us) {
 	this->usCounter0 = us;
 }
 
@@ -50,7 +83,7 @@ void IQRF::setUsCounter0(unsigned long us) {
  * Get count of microseconds form counter
  * @return Count of microseconds
  */
-unsigned long IQRF::getUsCounter0() {
+unsigned long IQRF::getUsCount0() {
 	return this->usCounter0;
 }
 
@@ -58,7 +91,7 @@ unsigned long IQRF::getUsCounter0() {
  * Set count of microseconds from counter
  * @param us Count of microseconds
  */
-void IQRF::setUsCounter1(unsigned long us) {
+void IQRF::setUsCount1(unsigned long us) {
 	this->usCounter1 = us;
 }
 
@@ -66,6 +99,6 @@ void IQRF::setUsCounter1(unsigned long us) {
  * Get count of microseconds form counter
  * @return Count of microseconds
  */
-unsigned long IQRF::getUsCounter1() {
+unsigned long IQRF::getUsCount1() {
 	return this->usCounter1;
 }

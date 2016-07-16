@@ -31,13 +31,21 @@ class IQRF {
 public:
 	void setPTYPE(uint8_t PTYPE);
 	uint8_t getPTYPE();
-	void setUsCounter0(unsigned long us);
-	unsigned long getUsCounter0();
-	void setUsCounter1(unsigned long us);
-	unsigned long getUsCounter1();
+	void setAttepmtsCount(uint8_t attepmts);
+	uint8_t getAttepmtsCount();
+	void setByteCount(uint8_t count);
+	uint8_t getByteCount();
+	void setUsCount0(unsigned long us);
+	unsigned long getUsCount0();
+	void setUsCount1(unsigned long us);
+	unsigned long getUsCount1();
 private:
 	/// PTYPE
 	uint8_t PTYPE;
+	/// Count of attempts to send data
+	uint8_t attepmtsCounter;
+	/// Count number of send/receive bytes
+	uint8_t byteCounter;
 	/// Microsecond counter 0
 	unsigned long usCounter0;
 	/// Microsecond counter 1
