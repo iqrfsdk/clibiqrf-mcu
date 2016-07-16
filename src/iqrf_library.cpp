@@ -37,10 +37,6 @@ uint8_t spiRxBuffer[PACKET_SIZE];
 uint8_t packetLength;
 /// Data length
 uint8_t dataLength;
-/// Actual Tx packet ID
-uint8_t txPacketId;
-/// Tx packet ID counter
-uint8_t txPacketIdCounter;
 /// TR info structure
 trInfo_t trInfo;
 /// IQRF packet buffer
@@ -58,6 +54,8 @@ IQRF* iqrf = new IQRF;
 IQRFCRC* crc = new IQRFCRC;
 /// Instance of IQRFCallbacks class
 IQRFCallbacks* callbacks = new IQRFCallbacks;
+/// Instance of IQRFPackets class
+IQRFPackets* packets = new IQRFPackets;
 /// Instance of IQRFSPI class
 IQRFSPI* spi = new IQRFSPI;
 /// Instance of IQRFTR class
@@ -125,7 +123,7 @@ void IQRF_Driver() {
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
 						crc->check(spiRxBuffer, dataLength, iqrf->getPTYPE())) {
 						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-							callbacks->callTxCallback(txPacketId, txPacketStatuses::OK);
+							callbacks->callTxCallback(packets->getId(), packets->statuses::OK);
 						}
 						if (spi->getMasterStatus() == spi->masterStatuses::READ) {
 							callbacks->callRxCallback();
@@ -138,7 +136,7 @@ void IQRF_Driver() {
 							iqrf->setByteCount(0);
 						} else {
 							if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-								callbacks->callTxCallback(txPacketId, txPacketStatuses::ERROR);
+								callbacks->callTxCallback(packets->getId(), packets->statuses::ERROR);
 							}
 							spi->setMasterStatus(spi->masterStatuses::FREE);
 						}
@@ -198,7 +196,7 @@ void IQRF_Driver() {
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packetLength = dataLength + 4;
 						// set actual TX packet ID
-						txPacketId = iqrfPacketBuffer[packetBufferOutPtr].packetId;
+						packets->setId(iqrfPacketBuffer[packetBufferOutPtr].packetId);
 						// counter of sent bytes
 						iqrf->setByteCount(0);
 						// number of attempts to send data
@@ -369,10 +367,10 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if (dataLength > PACKET_SIZE - 4) {
 		dataLength = PACKET_SIZE - 4;
 	}
-	if ((++txPacketIdCounter) == 0) {
-		txPacketIdCounter++;
+	if ((packets->getIdCount() + 1) == 0) {
+		packets->setIdCount(packets->getIdCount() + 1);
 	}
-	iqrfPacketBuffer[packetBufferInPtr].packetId = txPacketIdCounter;
+	iqrfPacketBuffer[packetBufferInPtr].packetId = packets->getIdCount();
 	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
 	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = pDataBuffer;
 	iqrfPacketBuffer[packetBufferInPtr].dataLength = dataLength;
@@ -380,5 +378,5 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	if (++packetBufferInPtr >= PACKET_BUFFER_SIZE) {
 		packetBufferInPtr = 0;
 	}
-	return txPacketIdCounter;
+	return packets->getIdCount();
 }

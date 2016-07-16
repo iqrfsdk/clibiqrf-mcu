@@ -35,18 +35,11 @@
 #include "IQRF.h"
 #include "IQRFCallbacks.h"
 #include "IQRFCRC.h"
+#include "IQRFPackets.h"
 #include "IQRFSettings.h"
 #include "IQRFSPI.h"
 #include "IQRFTR.h"
 #include "IQSPI.h"
-
-/**
- * Tx packet statuses
- */
-enum txPacketStatuses {
-	OK = 1, //!< Packet sent OK
-	ERROR = 2 //!< Packet sent with ERROR
-};
 
 /**
  * TR module info structure
