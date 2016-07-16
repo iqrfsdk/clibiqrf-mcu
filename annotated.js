@@ -4,6 +4,7 @@ var annotated =
     [ "IQRF", "classIQRF.html", "classIQRF" ],
     [ "IQRFCallbacks", "classIQRFCallbacks.html", "classIQRFCallbacks" ],
     [ "IQRFCRC", "classIQRFCRC.html", "classIQRFCRC" ],
+    [ "IQRFPackets", "classIQRFPackets.html", "classIQRFPackets" ],
     [ "IQRFSPI", "classIQRFSPI.html", "classIQRFSPI" ],
     [ "IQRFTR", "classIQRFTR.html", "classIQRFTR" ],
     [ "IQSPI", "classIQSPI.html", "classIQSPI" ],

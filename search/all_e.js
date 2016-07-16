@@ -25,8 +25,5 @@ var searchData=
   ['turnon',['turnOn',['../classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe',1,'IQRFTR']]],
   ['txbuffer',['txBuffer',['../structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab',1,'appVarsStruct']]],
   ['txcallback_5ft',['txCallback_t',['../classIQRFCallbacks.html#af641e5281437ce61cfbabd06952d63db',1,'IQRFCallbacks']]],
-  ['txpacketid',['txPacketId',['../iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e',1,'iqrf_library.cpp']]],
-  ['txpacketidcounter',['txPacketIdCounter',['../iqrf__library_8cpp.html#a4d6aec1cadba86298d3adb2d64375522',1,'iqrf_library.cpp']]],
-  ['txpacketstatuses',['txPacketStatuses',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72',1,'iqrf_library.h']]],
   ['types',['types',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1f',1,'IQRFTR']]]
 ];

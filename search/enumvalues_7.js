@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ok',['OK',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2bc49ec37d6a5715dd23e85f1ff5bb59',1,'iqrf_library.h']]]
+  ['ok',['OK',['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310',1,'IQRFPackets']]]
 ];

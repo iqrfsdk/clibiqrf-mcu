@@ -8,5 +8,5 @@ var searchData=
   ['end',['end',['../classIQSPI.html#aa4fe22e8f6f2989e5b74d952bdea127e',1,'IQSPI']]],
   ['endpgmmode',['endPgmMode',['../iqrf__library_8cpp.html#a3b735646c59523ad497e77173824e284',1,'iqrf_library.cpp']]],
   ['enterprogrammode',['enterProgramMode',['../classIQRFTR.html#a1c9e6c3860b1e5e95f0dd6cf4e5183ed',1,'IQRFTR']]],
-  ['error',['ERROR',['../iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2fd6f336d08340583bd620a7f5694c90',1,'iqrf_library.h']]]
+  ['error',['ERROR',['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06',1,'IQRFPackets']]]
 ];

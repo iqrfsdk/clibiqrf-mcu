@@ -4,6 +4,8 @@ var searchData=
   ['setbytecount',['setByteCount',['../classIQRF.html#a9442e273fbf5fb8200b5ab05ccdf0fac',1,'IQRF']]],
   ['setbytepause',['setBytePause',['../classIQRFSPI.html#a98c9ae1b85aa65c54b86f26f85eaade4',1,'IQRFSPI']]],
   ['setcontrolstatus',['setControlStatus',['../classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed',1,'IQRFTR']]],
+  ['setid',['setId',['../classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be',1,'IQRFPackets']]],
+  ['setidcount',['setIdCount',['../classIQRFPackets.html#a4c3b4e94944a245582e49b2390d22a74',1,'IQRFPackets']]],
   ['setinforeadingstatus',['setInfoReadingStatus',['../classIQRFTR.html#a49add0efc37d39cc9734533c61801221',1,'IQRFTR']]],
   ['setmasterstatus',['setMasterStatus',['../classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e',1,'IQRFSPI']]],
   ['setptype',['setPTYPE',['../classIQRF.html#a0c8d548d5dbf516797ef3be68f377cc2',1,'IQRF']]],
@@ -17,5 +19,5 @@ var searchData=
   ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]],
   ['spirxbuffer',['spiRxBuffer',['../iqrf__library_8cpp.html#ab85c514f1cb01733d97591f36e1f6e2c',1,'iqrf_library.cpp']]],
   ['spitxbuffer',['spiTxBuffer',['../iqrf__library_8cpp.html#a93f411c971c533ad50b7948633b2be3b',1,'iqrf_library.cpp']]],
-  ['statuses',['statuses',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI']]]
+  ['statuses',['statuses',['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869',1,'IQRFPackets::statuses()'],['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI::statuses()']]]
 ];
