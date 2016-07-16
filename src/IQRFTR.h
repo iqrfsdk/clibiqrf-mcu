@@ -47,6 +47,8 @@ public:
 	void disableProgramFlag();
 	bool getProgramFlag();
 	void controlTask();
+	void setInfoReadingStatus(uint8_t status);
+	uint8_t getInfoReadingStatus();
 
 	/**
 	 * TR control statuses
@@ -83,6 +85,8 @@ public:
 		PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
 	};
 private:
+	/// TR info reading status
+	uint8_t infoReading;
 	/// TR control status
 	uint8_t controlStatus;
 	/// TR programming flag

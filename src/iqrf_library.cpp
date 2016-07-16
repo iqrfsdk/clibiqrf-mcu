@@ -41,8 +41,6 @@ uint8_t repCnt;
 uint8_t tmpCnt;
 /// Packet length
 uint8_t packetLength;
-/// Info reading status
-uint8_t trInfoReading;
 /// Data length
 uint8_t dataLength;
 /// Actual Tx packet ID
@@ -92,9 +90,9 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCal
 	// enable SPI master function in driver
 	spi->enableMaster();
 	// read TR module info
-	trInfoReading = 2;
+	tr->setInfoReadingStatus(2);
 	// wait for TR module ID reading
-	while (trInfoReading) {
+	while (tr->getInfoReadingStatus()) {
 		// IQRF SPI communication driver
 		IQRF_Driver();
 		// TR module info reading task
@@ -328,7 +326,7 @@ void trInfoTask() {
 			break;
 			// wait for info data from TR module
 		case WAIT_INFO:
-			if ((trInfoReading == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
+			if ((tr->getInfoReadingStatus() == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
 				if (idfMode == 1) {
 					// send end of PGM mode packet
 					TR_SendSpiPacket(spi->commands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
@@ -342,7 +340,7 @@ void trInfoTask() {
 			// if no packet is pending to send to TR module
 			if (packetBufferInPtr == packetBufferOutPtr &&
 				spi->getMasterStatus() == spi->masterStatuses::FREE) {
-				trInfoReading = 0;
+				tr->setInfoReadingStatus(0);
 			}
 			break;
 	}
@@ -360,7 +358,7 @@ void trIdentify() {
 	trInfo.moduleType = spiRxBuffer[7] >> 4;
 	trInfo.osBuild = (uint16_t) spiRxBuffer[9] << 8 | spiRxBuffer[8];
 	// TR info data processed
-	trInfoReading--;
+	tr->setInfoReadingStatus(tr->getInfoReadingStatus() - 1);
 }
 
 /**

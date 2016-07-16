@@ -150,3 +150,11 @@ void IQRFTR::controlTask() {
 			break;
 	}
 }
+
+void IQRFTR::setInfoReadingStatus(uint8_t status) {
+	this->infoReading = status;
+}
+
+uint8_t IQRFTR::getInfoReadingStatus() {
+	return this->infoReading;
+}
