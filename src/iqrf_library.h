@@ -33,6 +33,7 @@
 
 #include "CallbackFunctions.h"
 #include "IQRF.h"
+#include "IQRFBuffers.h"
 #include "IQRFCallbacks.h"
 #include "IQRFCRC.h"
 #include "IQRFPackets.h"

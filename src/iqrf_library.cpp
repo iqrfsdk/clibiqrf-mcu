@@ -29,10 +29,6 @@ void trInfoTask();
 /*
  * Public variable declarations
  */
-/// SPI Tx buffer
-uint8_t spiTxBuffer[PACKET_SIZE];
-/// SPI Rx buffer
-uint8_t spiRxBuffer[PACKET_SIZE];
 /// Packet length
 uint8_t packetLength;
 /// Data length
@@ -50,6 +46,8 @@ const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
 /// Instance of IQRF class
 IQRF* iqrf = new IQRF;
+/// Instance of IQRFBuffers class
+IQRFBuffers* buffers = new IQRFBuffers;
 /// Instance of IQRFCRC class
 IQRFCRC* crc = new IQRFCRC;
 /// Instance of IQRFCallbacks class
@@ -105,14 +103,14 @@ void IQRF_Driver() {
 	// SPI Master enabled
 	if (spi->isMasterEnabled()) {
 		iqrf->setUsCount1(micros());
-		// is anything to send in spiTxBuffer?
+		// is anything to send in Tx buffer?
 		if (spi->getMasterStatus() != spi->masterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
 			if ((iqrf->getUsCount1() - iqrf->getUsCount0()) > spi->getBytePause()) {
 				// reset counter
 				iqrf->setUsCount0(iqrf->getUsCount1());
 				// send/receive 1 byte via SPI
-				spiRxBuffer[iqrf->getByteCount()] = iqSpi->transfer(spiTxBuffer[iqrf->getByteCount()]);
+				buffers->setRxData(iqrf->getByteCount(), iqSpi->transfer(buffers->getTxData(iqrf->getByteCount())));
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
 				iqrf->setByteCount(iqrf->getByteCount() + 1);
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
@@ -120,8 +118,8 @@ void IQRF_Driver() {
 					// CS - deactive
 					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
-					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
-						crc->check(spiRxBuffer, dataLength, iqrf->getPTYPE())) {
+					if ((buffers->getRxData(dataLength + 3) == spi->statuses::CRCM_OK) &&
+						crc->check(buffers->getRxBuffer(), dataLength, iqrf->getPTYPE())) {
 						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
 							callbacks->callTxCallback(packets->getId(), packets->statuses::OK);
 						}
@@ -153,7 +151,7 @@ void IQRF_Driver() {
 				//digitalWrite(TR_SS_PIN, HIGH);      
 				// if the status is dataready prepare packet to read it
 				if ((spi->getStatus() & 0xC0) == 0x40) {
-					memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
+					memset(buffers->getTxBuffer(), 0, buffers->getTxBufferSize());
 					// state 0x40 means 64B
 					if (spi->getStatus() == 0x40) {
 						dataLength = 64;
@@ -162,10 +160,10 @@ void IQRF_Driver() {
 						dataLength = spi->getStatus() & 0x3F;
 					}
 					iqrf->setPTYPE(dataLength);
-					spiTxBuffer[0] = spi->commands::WR_RD;
-					spiTxBuffer[1] = iqrf->getPTYPE();
+					buffers->setTxData(0,spi->commands::WR_RD);
+					buffers->setTxData(1,iqrf->getPTYPE());
 					// CRC
-					spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
+					buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
 					packetLength = dataLength + 4;
 					// counter of sent bytes
@@ -181,18 +179,18 @@ void IQRF_Driver() {
 				if (!spi->getMasterStatus()) {
 					// check if packet to send ready
 					if (packetBufferInPtr != packetBufferOutPtr) {
-						memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
+						memset(buffers->getTxBuffer(), 0, buffers->getTxBufferSize());
 						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
 						iqrf->setPTYPE(dataLength | 0x80);
-						spiTxBuffer[0] = iqrfPacketBuffer[packetBufferOutPtr].spiCmd;
-						if (spiTxBuffer[0] == spi->commands::MODULE_INFO && dataLength == 16) {
+						buffers->setTxData(0,iqrfPacketBuffer[packetBufferOutPtr].spiCmd);
+						if (buffers->getTxData(0) == spi->commands::MODULE_INFO && dataLength == 16) {
 							iqrf->setPTYPE(0x10);
 						}
-						spiTxBuffer[1] = iqrf->getPTYPE();
-						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
+						buffers->setTxData(1, iqrf->getPTYPE());
+						memcpy(&buffers->getTxBuffer()[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
-						spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
+						buffers->setTxData(dataLength + 2,crc->calculate(buffers->getTxBuffer(), dataLength));
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packetLength = dataLength + 4;
 						// set actual TX packet ID
@@ -240,7 +238,7 @@ uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unalloca
  * @param rxDataSize Number of bytes I want to read
  */
 void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize) {
-	memcpy(userDataBuffer, &spiRxBuffer[2], rxDataSize);
+	memcpy(userDataBuffer, &buffers->getRxBuffer()[2], rxDataSize);
 }
 
 /**
@@ -340,13 +338,13 @@ void trInfoTask() {
  * Process identification data packet from TR module
  */
 void trIdentify() {
-	memcpy((uint8_t *) & trInfo.moduleInfoRawData, (uint8_t *) & spiRxBuffer[2], 8);
-	trInfo.moduleId = (uint32_t) spiRxBuffer[2] << 24 | (uint32_t) spiRxBuffer[3] << 16 | (uint32_t) spiRxBuffer[4] << 8 | spiRxBuffer[5];
-	trInfo.osVersion = (uint16_t) (spiRxBuffer[6] / 16) << 8 | (spiRxBuffer[6] % 16);
-	trInfo.mcuType = spiRxBuffer[7] & 0x07;
-	trInfo.fcc = (spiRxBuffer[7] & 0x08) >> 3;
-	trInfo.moduleType = spiRxBuffer[7] >> 4;
-	trInfo.osBuild = (uint16_t) spiRxBuffer[9] << 8 | spiRxBuffer[8];
+	memcpy((uint8_t *) & trInfo.moduleInfoRawData, (uint8_t *) & buffers->getRxBuffer()[2], 8);
+	trInfo.moduleId = (uint32_t) buffers->getRxBuffer()[2] << 24 | (uint32_t) buffers->getRxBuffer()[3] << 16 | (uint32_t) buffers->getRxBuffer()[4] << 8 | buffers->getRxBuffer()[5];
+	trInfo.osVersion = (uint16_t) (buffers->getRxBuffer()[6] / 16) << 8 | (buffers->getRxBuffer()[6] % 16);
+	trInfo.mcuType = buffers->getRxBuffer()[7] & 0x07;
+	trInfo.fcc = (buffers->getRxBuffer()[7] & 0x08) >> 3;
+	trInfo.moduleType = buffers->getRxBuffer()[7] >> 4;
+	trInfo.osBuild = (uint16_t) buffers->getRxBuffer()[9] << 8 | buffers->getRxBuffer()[8];
 	// TR info data processed
 	tr->setInfoReadingStatus(tr->getInfoReadingStatus() - 1);
 }
