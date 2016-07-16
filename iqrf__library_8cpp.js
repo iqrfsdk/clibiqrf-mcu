@@ -26,7 +26,6 @@ var iqrf__library_8cpp =
     [ "tmpCnt", "iqrf__library_8cpp.html#ad63e74806fc73be3aeae48dfb418e2d4", null ],
     [ "tr", "iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b", null ],
     [ "trInfo", "iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a", null ],
-    [ "trInfoReading", "iqrf__library_8cpp.html#a388f7c2a5e65135507c31f73bb7fcdeb", null ],
     [ "txPacketId", "iqrf__library_8cpp.html#a813de845a535241a3d2cc2f48ff8185e", null ],
     [ "txPacketIdCounter", "iqrf__library_8cpp.html#a4d6aec1cadba86298d3adb2d64375522", null ]
 ];

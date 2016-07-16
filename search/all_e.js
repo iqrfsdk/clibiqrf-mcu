@@ -21,7 +21,6 @@ var searchData=
   ['tridentify',['trIdentify',['../iqrf__library_8cpp.html#a8190871ac5c8930f7be8c7d0855b325c',1,'trIdentify():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a8190871ac5c8930f7be8c7d0855b325c',1,'trIdentify():&#160;iqrf_library.cpp']]],
   ['trinfo',['trInfo',['../iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a',1,'trInfo():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a00337c2799710312d0473aa3322c2d9a',1,'trInfo():&#160;iqrf_library.cpp']]],
   ['trinfo_5ft',['trInfo_t',['../structtrInfo__t.html',1,'']]],
-  ['trinforeading',['trInfoReading',['../iqrf__library_8cpp.html#a388f7c2a5e65135507c31f73bb7fcdeb',1,'iqrf_library.cpp']]],
   ['trinfotask',['trInfoTask',['../iqrf__library_8cpp.html#a19a4e971f53801378b8395abb175e3fa',1,'iqrf_library.cpp']]],
   ['turnoff',['turnOff',['../classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea',1,'IQRFTR']]],
   ['turnon',['turnOn',['../classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe',1,'IQRFTR']]],

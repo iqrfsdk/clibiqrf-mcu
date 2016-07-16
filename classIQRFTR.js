@@ -28,9 +28,11 @@ var classIQRFTR =
     [ "enableProgramFlag", "classIQRFTR.html#a6f161144601a66565e8e1bf760f7d90c", null ],
     [ "enterProgramMode", "classIQRFTR.html#a1c9e6c3860b1e5e95f0dd6cf4e5183ed", null ],
     [ "getControlStatus", "classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d", null ],
+    [ "getInfoReadingStatus", "classIQRFTR.html#a5675709f63c7c8ba80df072ab58af9f4", null ],
     [ "getProgramFlag", "classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b", null ],
     [ "reset", "classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778", null ],
     [ "setControlStatus", "classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed", null ],
+    [ "setInfoReadingStatus", "classIQRFTR.html#a49add0efc37d39cc9734533c61801221", null ],
     [ "turnOff", "classIQRFTR.html#a8d2fea28bcb03704accfc258135c3fea", null ],
     [ "turnOn", "classIQRFTR.html#add59eb70dfcef70c36b1d4592ca355fe", null ]
 ];
