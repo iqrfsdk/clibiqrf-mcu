@@ -33,8 +33,6 @@ void trInfoTask();
 uint8_t spiTxBuffer[PACKET_SIZE];
 /// SPI Rx buffer
 uint8_t spiRxBuffer[PACKET_SIZE];
-/// Packet type?
-uint8_t PTYPE;
 /// Number of attempts to send data
 uint8_t repCnt;
 /// Counts number of send/receive bytes
@@ -129,7 +127,7 @@ void IQRF_Driver() {
 					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
 					if ((spiRxBuffer[dataLength + 3] == spi->statuses::CRCM_OK) &&
-						crc->check(spiRxBuffer, dataLength, PTYPE)) {
+						crc->check(spiRxBuffer, dataLength, iqrf->getPTYPE())) {
 						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
 							callbacks->callTxCallback(txPacketId, txPacketStatuses::OK);
 						}
@@ -169,9 +167,9 @@ void IQRF_Driver() {
 						// clear bit 7,6 - rest is length (from 1 to 63B)
 						dataLength = spi->getStatus() & 0x3F;
 					}
-					PTYPE = dataLength;
+					iqrf->setPTYPE(dataLength);
 					spiTxBuffer[0] = spi->commands::WR_RD;
-					spiTxBuffer[1] = PTYPE;
+					spiTxBuffer[1] = iqrf->getPTYPE();
 					// CRC
 					spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
@@ -192,12 +190,12 @@ void IQRF_Driver() {
 						memset(spiTxBuffer, 0, sizeof(spiTxBuffer));
 						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
-						PTYPE = (dataLength | 0x80);
+						iqrf->setPTYPE(dataLength | 0x80);
 						spiTxBuffer[0] = iqrfPacketBuffer[packetBufferOutPtr].spiCmd;
 						if (spiTxBuffer[0] == spi->commands::MODULE_INFO && dataLength == 16) {
-							PTYPE = 0x10;
+							iqrf->setPTYPE(0x10);
 						}
-						spiTxBuffer[1] = PTYPE;
+						spiTxBuffer[1] = iqrf->getPTYPE();
 						memcpy(&spiTxBuffer[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
 						spiTxBuffer[dataLength + 2] = crc->calculate(spiTxBuffer, dataLength);

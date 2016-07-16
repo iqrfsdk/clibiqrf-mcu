@@ -22,16 +22,22 @@
 #ifndef IQRF_H
 #define IQRF_H
 
+#include <stdint.h>
+
 /**
  * IQRF
  */
 class IQRF {
 public:
+	void setPTYPE(uint8_t PTYPE);
+	uint8_t getPTYPE();
 	void setUsCounter0(unsigned long us);
 	unsigned long getUsCounter0();
 	void setUsCounter1(unsigned long us);
 	unsigned long getUsCounter1();
 private:
+	/// PTYPE
+	uint8_t PTYPE;
 	/// Microsecond counter 0
 	unsigned long usCounter0;
 	/// Microsecond counter 1
