@@ -1,6 +1,7 @@
 var annotated =
 [
     [ "appVarsStruct", "structappVarsStruct.html", "structappVarsStruct" ],
+    [ "IQRF", "classIQRF.html", "classIQRF" ],
     [ "IQRFCallbacks", "classIQRFCallbacks.html", "classIQRFCallbacks" ],
     [ "IQRFCRC", "classIQRFCRC.html", "classIQRFCRC" ],
     [ "IQRFSPI", "classIQRFSPI.html", "classIQRFSPI" ],
