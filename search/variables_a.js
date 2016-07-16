@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['timer',['timer',['../structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00',1,'appVarsStruct']]],
-  ['timerack',['timerAck',['../structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f',1,'appVarsStruct']]],
-  ['tr',['tr',['../iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'iqrf_library.cpp']]],
-  ['trinfo',['trInfo',['../iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a',1,'trInfo():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a00337c2799710312d0473aa3322c2d9a',1,'trInfo():&#160;iqrf_library.cpp']]],
-  ['txbuffer',['txBuffer',['../structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab',1,'appVarsStruct']]]
+  ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
+  ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]]
 ];

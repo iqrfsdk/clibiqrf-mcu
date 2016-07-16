@@ -10,8 +10,10 @@ var searchData=
   ['setmasterstatus',['setMasterStatus',['../classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e',1,'IQRFSPI']]],
   ['setptype',['setPTYPE',['../classIQRF.html#a0c8d548d5dbf516797ef3be68f377cc2',1,'IQRF']]],
   ['setrxcallback',['setRxCallback',['../classIQRFCallbacks.html#ae6ac826aea49853b14edb24f53593ed2',1,'IQRFCallbacks']]],
+  ['setrxdata',['setRxData',['../classIQRFBuffers.html#aa4bb189b89e9acd7a7364e9ff1b42622',1,'IQRFBuffers']]],
   ['setstatus',['setStatus',['../classIQRFSPI.html#a5e9f5113a9122fd1415bf145092bbf3a',1,'IQRFSPI']]],
   ['settxcallback',['setTxCallback',['../classIQRFCallbacks.html#aa25ea9d6fa7cf56ed1f8cfd1bc540759',1,'IQRFCallbacks']]],
+  ['settxdata',['setTxData',['../classIQRFBuffers.html#ac8b749f427834a09429f613fd2f9a816',1,'IQRFBuffers']]],
   ['setuscount0',['setUsCount0',['../classIQRF.html#afe9b8d3886072b7d78f4c5820c4fda6c',1,'IQRF']]],
   ['setuscount1',['setUsCount1',['../classIQRF.html#a2d4784d21c8e084761092d063570f4d8',1,'IQRF']]]
 ];

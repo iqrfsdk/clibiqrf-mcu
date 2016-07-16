@@ -10,14 +10,14 @@ var searchData=
   ['setmasterstatus',['setMasterStatus',['../classIQRFSPI.html#a7f34c3bff9015444cb1f53db12df3a6e',1,'IQRFSPI']]],
   ['setptype',['setPTYPE',['../classIQRF.html#a0c8d548d5dbf516797ef3be68f377cc2',1,'IQRF']]],
   ['setrxcallback',['setRxCallback',['../classIQRFCallbacks.html#ae6ac826aea49853b14edb24f53593ed2',1,'IQRFCallbacks']]],
+  ['setrxdata',['setRxData',['../classIQRFBuffers.html#aa4bb189b89e9acd7a7364e9ff1b42622',1,'IQRFBuffers']]],
   ['setstatus',['setStatus',['../classIQRFSPI.html#a5e9f5113a9122fd1415bf145092bbf3a',1,'IQRFSPI']]],
   ['settxcallback',['setTxCallback',['../classIQRFCallbacks.html#aa25ea9d6fa7cf56ed1f8cfd1bc540759',1,'IQRFCallbacks']]],
+  ['settxdata',['setTxData',['../classIQRFBuffers.html#ac8b749f427834a09429f613fd2f9a816',1,'IQRFBuffers']]],
   ['setuscount0',['setUsCount0',['../classIQRF.html#afe9b8d3886072b7d78f4c5820c4fda6c',1,'IQRF']]],
   ['setuscount1',['setUsCount1',['../classIQRF.html#a2d4784d21c8e084761092d063570f4d8',1,'IQRF']]],
   ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
   ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
   ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]],
-  ['spirxbuffer',['spiRxBuffer',['../iqrf__library_8cpp.html#ab85c514f1cb01733d97591f36e1f6e2c',1,'iqrf_library.cpp']]],
-  ['spitxbuffer',['spiTxBuffer',['../iqrf__library_8cpp.html#a93f411c971c533ad50b7948633b2be3b',1,'iqrf_library.cpp']]],
   ['statuses',['statuses',['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869',1,'IQRFPackets::statuses()'],['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI::statuses()']]]
 ];

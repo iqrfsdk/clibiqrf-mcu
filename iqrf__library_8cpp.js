@@ -7,6 +7,7 @@ var iqrf__library_8cpp =
     [ "TR_SendSpiPacket", "iqrf__library_8cpp.html#ad38ad5735b391642ce0edc8a3140d4eb", null ],
     [ "trIdentify", "iqrf__library_8cpp.html#a8190871ac5c8930f7be8c7d0855b325c", null ],
     [ "trInfoTask", "iqrf__library_8cpp.html#a19a4e971f53801378b8395abb175e3fa", null ],
+    [ "buffers", "iqrf__library_8cpp.html#a1ef88e0239702b231a33d413303c6c88", null ],
     [ "callbacks", "iqrf__library_8cpp.html#ad69fce3b10423234565350d9693b371b", null ],
     [ "crc", "iqrf__library_8cpp.html#a9fdddbe942b5019ad9fa25203f1dfbc8", null ],
     [ "dataLength", "iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102", null ],
@@ -19,8 +20,6 @@ var iqrf__library_8cpp =
     [ "packetLength", "iqrf__library_8cpp.html#a8a110ab1d56f951cbe4e39d967955f3a", null ],
     [ "packets", "iqrf__library_8cpp.html#a6ac3f444789b2f480fe5bc8306281752", null ],
     [ "spi", "iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219", null ],
-    [ "spiRxBuffer", "iqrf__library_8cpp.html#ab85c514f1cb01733d97591f36e1f6e2c", null ],
-    [ "spiTxBuffer", "iqrf__library_8cpp.html#a93f411c971c533ad50b7948633b2be3b", null ],
     [ "tr", "iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b", null ],
     [ "trInfo", "iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a", null ]
 ];

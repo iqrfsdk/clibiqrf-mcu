@@ -10,7 +10,13 @@ var searchData=
   ['getmasterstatus',['getMasterStatus',['../classIQRFSPI.html#a99898db4b4ff9e627a2dd3c4d92b5ee0',1,'IQRFSPI']]],
   ['getprogramflag',['getProgramFlag',['../classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b',1,'IQRFTR']]],
   ['getptype',['getPTYPE',['../classIQRF.html#aad913239cfe08ec42a70b8886f8eac21',1,'IQRF']]],
+  ['getrxbuffer',['getRxBuffer',['../classIQRFBuffers.html#aaa67723c4f4e9a5061ec0c981c65f7e6',1,'IQRFBuffers']]],
+  ['getrxbuffersize',['getRxBufferSize',['../classIQRFBuffers.html#a0a90c0878a6d682907f3fcade2173d6d',1,'IQRFBuffers']]],
+  ['getrxdata',['getRxData',['../classIQRFBuffers.html#a5b3cb2be682b95d729ac90d70bcc5932',1,'IQRFBuffers']]],
   ['getstatus',['getStatus',['../classIQRFSPI.html#a3b211058dc5d2391addfd068e005e065',1,'IQRFSPI']]],
+  ['gettxbuffer',['getTxBuffer',['../classIQRFBuffers.html#aaec517dc62af867a3238d6d3773cbd05',1,'IQRFBuffers']]],
+  ['gettxbuffersize',['getTxBufferSize',['../classIQRFBuffers.html#a098a723b1621e7e61c124b56179275c2',1,'IQRFBuffers']]],
+  ['gettxdata',['getTxData',['../classIQRFBuffers.html#a1708579aa360ff82884ff2cbded445b3',1,'IQRFBuffers']]],
   ['getuscount0',['getUsCount0',['../classIQRF.html#a43e4d58e7f511159adb524378e8ba12b',1,'IQRF']]],
   ['getuscount1',['getUsCount1',['../classIQRF.html#ad73372206723b385d044afd9001ced42',1,'IQRF']]]
 ];

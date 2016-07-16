@@ -8,6 +8,10 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "iqrf_library.cpp", "iqrf__library_8cpp.html", "iqrf__library_8cpp" ],
     [ "iqrf_library.h", "iqrf__library_8h.html", "iqrf__library_8h" ],
+    [ "IQRFBuffers.cpp", "IQRFBuffers_8cpp.html", null ],
+    [ "IQRFBuffers.h", "IQRFBuffers_8h.html", [
+      [ "IQRFBuffers", "classIQRFBuffers.html", "classIQRFBuffers" ]
+    ] ],
     [ "IQRFCallbacks.cpp", "IQRFCallbacks_8cpp.html", null ],
     [ "IQRFCallbacks.h", "IQRFCallbacks_8h.html", [
       [ "IQRFCallbacks", "classIQRFCallbacks.html", "classIQRFCallbacks" ]
