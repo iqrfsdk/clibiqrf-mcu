@@ -84,6 +84,14 @@ public:
 		PIC16F886 = 3, //!< MCU used in TR-31B, TR-52B, TR-53B
 		PIC16LF1938 = 4 //!< MCU used in TR-52D, TR-54D
 	};
+
+	/**
+	 * FCC (Federal Communications Commission) certification statuses
+	 */
+	enum fccStatuses {
+		NOT_CERTIFIED = 0, //!< Not certified fy FCC
+		CERTIFIED = 1 //!< Certified by FCC
+	};
 private:
 	/// TR info reading status
 	uint8_t infoReading;

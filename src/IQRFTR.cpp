@@ -151,10 +151,18 @@ void IQRFTR::controlTask() {
 	}
 }
 
+/**
+ * Set TR info reading status
+ * @param status TR info reading status
+ */
 void IQRFTR::setInfoReadingStatus(uint8_t status) {
 	this->infoReading = status;
 }
 
+/**
+ * Get TR info reading status
+ * @return TR info reading status
+ */
 uint8_t IQRFTR::getInfoReadingStatus() {
 	return this->infoReading;
 }

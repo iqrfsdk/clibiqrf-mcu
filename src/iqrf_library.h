@@ -53,14 +53,6 @@ enum txPacketStatuses {
 };
 
 /**
- * FCC (Federal Communications Commission) certification statuses
- */
-enum fccStatuses {
-	NOT_CERTIFIED = 0, //!< Not certified fy FCC
-	CERTIFIED = 1 //!< Certified by FCC
-};
-
-/**
  * TR module info structure
  */
 typedef struct {
