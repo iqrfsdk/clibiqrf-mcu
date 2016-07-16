@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['setattepmtscount',['setAttepmtsCount',['../classIQRF.html#aebbc1261fe9a7e1a50df9226c4229f63',1,'IQRF']]],
+  ['setbytecount',['setByteCount',['../classIQRF.html#a9442e273fbf5fb8200b5ab05ccdf0fac',1,'IQRF']]],
   ['setbytepause',['setBytePause',['../classIQRFSPI.html#a98c9ae1b85aa65c54b86f26f85eaade4',1,'IQRFSPI']]],
   ['setcontrolstatus',['setControlStatus',['../classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed',1,'IQRFTR']]],
   ['setinforeadingstatus',['setInfoReadingStatus',['../classIQRFTR.html#a49add0efc37d39cc9734533c61801221',1,'IQRFTR']]],
@@ -8,8 +10,8 @@ var searchData=
   ['setrxcallback',['setRxCallback',['../classIQRFCallbacks.html#ae6ac826aea49853b14edb24f53593ed2',1,'IQRFCallbacks']]],
   ['setstatus',['setStatus',['../classIQRFSPI.html#a5e9f5113a9122fd1415bf145092bbf3a',1,'IQRFSPI']]],
   ['settxcallback',['setTxCallback',['../classIQRFCallbacks.html#aa25ea9d6fa7cf56ed1f8cfd1bc540759',1,'IQRFCallbacks']]],
-  ['setuscounter0',['setUsCounter0',['../classIQRF.html#a3b38ad95cd0dc935ccca741b350141ec',1,'IQRF']]],
-  ['setuscounter1',['setUsCounter1',['../classIQRF.html#afaba88e455f17c97e234b2c4be6696ff',1,'IQRF']]],
+  ['setuscount0',['setUsCount0',['../classIQRF.html#afe9b8d3886072b7d78f4c5820c4fda6c',1,'IQRF']]],
+  ['setuscount1',['setUsCount1',['../classIQRF.html#a2d4784d21c8e084761092d063570f4d8',1,'IQRF']]],
   ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
   ['spi',['spi',['../iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219',1,'iqrf_library.cpp']]],
   ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]],

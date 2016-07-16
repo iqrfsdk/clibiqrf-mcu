@@ -2,7 +2,6 @@ var searchData=
 [
   ['timer',['timer',['../structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00',1,'appVarsStruct']]],
   ['timerack',['timerAck',['../structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f',1,'appVarsStruct']]],
-  ['tmpcnt',['tmpCnt',['../iqrf__library_8cpp.html#ad63e74806fc73be3aeae48dfb418e2d4',1,'iqrf_library.cpp']]],
   ['tr',['tr',['../iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b',1,'iqrf_library.cpp']]],
   ['tr_5f52d',['TR_52D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa0079858516c1cf71582ce41c7166b184',1,'IQRFTR']]],
   ['tr_5f53d',['TR_53D',['../classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fa6733a12ef69f98e6741439c8bea35276',1,'IQRFTR']]],
