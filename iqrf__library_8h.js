@@ -9,10 +9,6 @@ var iqrf__library_8h =
     [ "IQRF_GetOsBuild", "iqrf__library_8h.html#a8bcbd024fc9dfc0206f1975093aa93e7", null ],
     [ "IQRF_GetOsVersion", "iqrf__library_8h.html#a0f317f99a0962ddb6f14ef78881a1950", null ],
     [ "IQRF_GetRxDataSize", "iqrf__library_8h.html#a887243256981d63873925e690a7a33af", null ],
-    [ "fccStatuses", "iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2", [
-      [ "NOT_CERTIFIED", "iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2abe1ad525dfd5a515534980942134bc73", null ],
-      [ "CERTIFIED", "iqrf__library_8h.html#ad08b9456153d3f1c3674e04d6011daa2a1fdfdf806903c662dc976bfec4b01da5", null ]
-    ] ],
     [ "txPacketStatuses", "iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72", [
       [ "OK", "iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2bc49ec37d6a5715dd23e85f1ff5bb59", null ],
       [ "ERROR", "iqrf__library_8h.html#a354b028132596b9b7bef5e7a7ce5cf72a2fd6f336d08340583bd620a7f5694c90", null ]

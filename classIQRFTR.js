@@ -6,6 +6,10 @@ var classIQRFTR =
       [ "WAIT", "classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846a613d5461a0f2206c042cc7eb81b8e17c", null ],
       [ "PROG_MODE", "classIQRFTR.html#ae8bf84f9c458bedce5ced59635869846ac294cb6e29385c500105893730dbc885", null ]
     ] ],
+    [ "fccStatuses", "classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699", [
+      [ "NOT_CERTIFIED", "classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699a68bfb057af914c528fc27887019752ce", null ],
+      [ "CERTIFIED", "classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699aa89383e0af9f71f8baab5a961fddf26c", null ]
+    ] ],
     [ "mcuTypes", "classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9", [
       [ "UNKNOWN", "classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a7b85b5f1fd926220c2caebe7908c7255", null ],
       [ "PIC16LF819", "classIQRFTR.html#a3775de05ef31e16356125f93e989bbc9a5f57cfa456fd9f1a2a4d14a4689b50a8", null ],
