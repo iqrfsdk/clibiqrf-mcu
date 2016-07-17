@@ -33,6 +33,8 @@ public:
 	uint8_t getId();
 	void setIdCount(uint8_t count);
 	uint8_t getIdCount();
+	void setLength(uint8_t length);
+	uint8_t getLength();
 	/**
 	 * Tx packet statuses
 	 */
@@ -45,6 +47,8 @@ private:
 	uint8_t id;
 	/// Counter of Tx packet IDs
 	uint8_t idCounter;
+	/// Packet length
+	uint8_t length;
 };
 
 #endif

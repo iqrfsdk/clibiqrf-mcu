@@ -52,3 +52,19 @@ void IQRFPackets::setIdCount(uint8_t count) {
 uint8_t IQRFPackets::getIdCount() {
 	return this->idCounter;
 }
+
+/**
+ * Set packet length
+ * @param length Packet length
+ */
+void IQRFPackets::setLength(uint8_t length) {
+	this->length = length;
+}
+
+/**
+ * Get packet lenght
+ * @return Packet length
+ */
+uint8_t IQRFPackets::getLength() {
+	return this->length;
+}

@@ -29,8 +29,6 @@ void trInfoTask();
 /*
  * Public variable declarations
  */
-/// Packet length
-uint8_t packetLength;
 /// Data length
 uint8_t dataLength;
 /// TR info structure
@@ -114,7 +112,7 @@ void IQRF_Driver() {
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
 				iqrf->setByteCount(iqrf->getByteCount() + 1);
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
-				if (iqrf->getByteCount() == packetLength || iqrf->getByteCount() == PACKET_SIZE) {
+				if (iqrf->getByteCount() == packets->getLength() || iqrf->getByteCount() == PACKET_SIZE) {
 					// CS - deactive
 					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
@@ -165,7 +163,7 @@ void IQRF_Driver() {
 					// CRC
 					buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
-					packetLength = dataLength + 4;
+					packets->setLength(dataLength + 4);
 					// counter of sent bytes
 					iqrf->setByteCount(0);
 					// number of attempts to send data
@@ -192,7 +190,7 @@ void IQRF_Driver() {
 						// CRCM
 						buffers->setTxData(dataLength + 2,crc->calculate(buffers->getTxBuffer(), dataLength));
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
-						packetLength = dataLength + 4;
+						packets->setLength(dataLength + 4);
 						// set actual TX packet ID
 						packets->setId(iqrfPacketBuffer[packetBufferOutPtr].packetId);
 						// counter of sent bytes
