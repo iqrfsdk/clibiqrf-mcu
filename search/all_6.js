@@ -7,6 +7,7 @@ var searchData=
   ['getid',['getId',['../classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1',1,'IQRFPackets']]],
   ['getidcount',['getIdCount',['../classIQRFPackets.html#add1fb2dcb5009a717a70c9854e0ae354',1,'IQRFPackets']]],
   ['getinforeadingstatus',['getInfoReadingStatus',['../classIQRFTR.html#a5675709f63c7c8ba80df072ab58af9f4',1,'IQRFTR']]],
+  ['getlength',['getLength',['../classIQRFPackets.html#aac4973b232e5af859cb23178f63b93cf',1,'IQRFPackets']]],
   ['getmasterstatus',['getMasterStatus',['../classIQRFSPI.html#a99898db4b4ff9e627a2dd3c4d92b5ee0',1,'IQRFSPI']]],
   ['getprogramflag',['getProgramFlag',['../classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b',1,'IQRFTR']]],
   ['getptype',['getPTYPE',['../classIQRF.html#aad913239cfe08ec42a70b8886f8eac21',1,'IQRF']]],

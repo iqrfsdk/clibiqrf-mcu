@@ -17,7 +17,6 @@ var iqrf__library_8cpp =
     [ "iqSpi", "iqrf__library_8cpp.html#ab05b24bf0989df229a6b7fbc65f167a9", null ],
     [ "packetBufferInPtr", "iqrf__library_8cpp.html#aea9c2b209b66a2ea10edd0a192f7f82c", null ],
     [ "packetBufferOutPtr", "iqrf__library_8cpp.html#a3d28fb6b65a7fa4778db032f868de1ec", null ],
-    [ "packetLength", "iqrf__library_8cpp.html#a8a110ab1d56f951cbe4e39d967955f3a", null ],
     [ "packets", "iqrf__library_8cpp.html#a6ac3f444789b2f480fe5bc8306281752", null ],
     [ "spi", "iqrf__library_8cpp.html#a6ebf2ed2e3bbac03dae42c892a32f219", null ],
     [ "tr", "iqrf__library_8cpp.html#ac3dc0eae26b1c9512166c2b844f0c73b", null ],
