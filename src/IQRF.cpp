@@ -22,6 +22,18 @@
 #include "IQRF.h"
 
 /**
+ * Function sends data from buffer to TR module
+ * @param dataBuffer Pointer to a buffer that contains data that I want to send to TR module
+ * @param dataLength Number of bytes to send
+ * @param unallocationFlag If the pDataBuffer is dynamically allocated using malloc function.
+   If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
+ * @return Tx packet ID (number 1-255)
+ */
+uint8_t IQRF::sendData(uint8_t* dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
+	return TR_SendSpiPacket(spi->commands::WR_RD, dataBuffer, dataLength, unallocationFlag);
+}
+
+/**
  * Set PTYPE
  * @param PTYPE PTYPE
  */
@@ -53,7 +65,6 @@ uint8_t IQRF::getAttepmtsCount() {
 	return this->attepmtsCounter;
 }
 
-
 /**
  * Set byte count
  * @param count Byte count
@@ -69,7 +80,6 @@ void IQRF::setByteCount(uint8_t count) {
 uint8_t IQRF::getByteCount() {
 	return this->byteCounter;
 }
-
 
 /**
  * Set count of microseconds from counter

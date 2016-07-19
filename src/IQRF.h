@@ -24,11 +24,15 @@
 
 #include <stdint.h>
 
+#include "IQRFSPI.h"
+#include "iqrf_library.h"
+
 /**
  * IQRF
  */
 class IQRF {
 public:
+	uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 	void setPTYPE(uint8_t PTYPE);
 	uint8_t getPTYPE();
 	void setAttepmtsCount(uint8_t attepmts);
@@ -50,6 +54,8 @@ private:
 	unsigned long usCounter0;
 	/// Microsecond counter 1
 	unsigned long usCounter1;
+	/// Instance of IQRFSPI class
+	IQRFSPI* spi = new IQRFSPI;
 };
 
 #endif

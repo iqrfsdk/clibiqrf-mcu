@@ -58,6 +58,7 @@ typedef struct {
 appVarsStruct appVars;
 
 /// Instances
+IQRF* iqRf = new IQRF;
 IQRFTR* iqrfTr = new IQRFTR;
 
 // Const data
@@ -112,7 +113,7 @@ void loop() {
 			// Copy data from test to Tx packet
 			memcpy(appVars.txBuffer, (uint8_t *) & testBuffer, sizeof(testBuffer));
 			// Send data and unallocate data buffer
-			appVars.packetId = IQRF_SendData(appVars.txBuffer, sizeof(testBuffer), 1);
+			appVars.packetId = iqRf->sendData(appVars.txBuffer, sizeof(testBuffer), 1);
 		}
 		appVars.timerAck = false;
 	}

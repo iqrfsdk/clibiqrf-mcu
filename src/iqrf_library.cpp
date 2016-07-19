@@ -219,18 +219,6 @@ void IQRF_Driver() {
 }
 
 /**
- * Function sends data from buffer to TR module
- * @param pDataBuffer Pointer to a buffer that contains data that I want to send to TR module
- * @param dataLength Number of bytes to send
- * @param unallocationFlag If the pDataBuffer is dynamically allocated using malloc function.
-   If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
- * @return TX packet ID (number 1-255)
- */
-uint8_t IQRF_SendData(uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
-	return TR_SendSpiPacket(spi->commands::WR_RD, pDataBuffer, dataLength, unallocationFlag);
-}
-
-/**
  * Function is usually called inside the callback function, whitch is called when the driver receives data from TR module
  * @param userDataBuffer Pointer to my buffer, to which I want to load data received from the TR module
  * @param rxDataSize Number of bytes I want to read
