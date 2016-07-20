@@ -62,10 +62,10 @@ IQSPI* iqSpi = new IQSPI;
 /**
  * Function perform a TR-module driver initialization
  * Function performes initialization of trInfo identification data structure
- * @param rx_call_back_fn Pointer to callback function. Function is called when the driver receives data from the TR module
- * @param tx_call_back_fn Pointer to callback function. unction is called when the driver sent data to the TR module
+ * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
+ * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
-void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn) {
+void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback) {
 	spi->setMasterStatus(spi->masterStatuses::FREE);
 	spi->setStatus(spi->statuses::DISABLED);
 	iqrf->setUsCount0(0);
@@ -89,8 +89,8 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCal
 		spi->enableFastSpi();
 		Serial.println("IQRF_Init - set fast spi");
 	}
-	callbacks->setRxCallback(rx_call_back_fn);
-	callbacks->setTxCallback(tx_call_back_fn);
+	callbacks->setRxCallback(rxCallback);
+	callbacks->setTxCallback(txCallback);
 	tr->setControlStatus(tr->controlStatuses::READY);
 }
 
@@ -220,11 +220,11 @@ void IQRF_Driver() {
 
 /**
  * Function is usually called inside the callback function, whitch is called when the driver receives data from TR module
- * @param userDataBuffer Pointer to my buffer, to which I want to load data received from the TR module
- * @param rxDataSize Number of bytes I want to read
+ * @param dataBuffer Pointer to my buffer, to which I want to load data received from the TR module
+ * @param dataLength Number of bytes I want to read
  */
-void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize) {
-	memcpy(userDataBuffer, &buffers->getRxBuffer()[2], rxDataSize);
+void IQRF_GetRxData(uint8_t *dataBuffer, uint8_t dataLength) {
+	memcpy(dataBuffer, &buffers->getRxBuffer()[2], dataLength);
 }
 
 /**
@@ -338,13 +338,13 @@ void trIdentify() {
 /**
  * Prepare SPI packet to packet buffer
  * @param spiCmd Command that I want to send to TR module
- * @param pDataBuffer Pointer to a buffer that contains data that I want to send to TR module
+ * @param dataBuffer Pointer to a buffer that contains data that I want to send to TR module
  * @param dataLength Number of bytes to send
- * @param unallocationFlag If the pDataBuffer is dynamically allocated using malloc function.
+ * @param unallocationFlag If the dataBuffer is dynamically allocated using malloc function.
    If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
  * @return Packet ID
  */
-uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
+uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
 	if (dataLength == 0) {
 		return 0;
 	}
@@ -356,7 +356,7 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLengt
 	}
 	iqrfPacketBuffer[packetBufferInPtr].packetId = packets->getIdCount();
 	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
-	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = pDataBuffer;
+	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = dataBuffer;
 	iqrfPacketBuffer[packetBufferInPtr].dataLength = dataLength;
 	iqrfPacketBuffer[packetBufferInPtr].unallocationFlag = unallocationFlag;
 	if (++packetBufferInPtr >= PACKET_BUFFER_SIZE) {

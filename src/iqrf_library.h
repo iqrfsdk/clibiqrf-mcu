@@ -69,10 +69,10 @@ typedef struct {
 extern uint8_t dataLength;
 extern trInfo_t trInfo;
 
-void IQRF_Init(IQRFCallbacks::rxCallback_t rx_call_back_fn, IQRFCallbacks::txCallback_t tx_call_back_fn);
-void IQRF_Driver(void);
-void IQRF_GetRxData(uint8_t *userDataBuffer, uint8_t rxDataSize);
-uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *pDataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
+void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback);
+void IQRF_Driver();
+void IQRF_GetRxData(uint8_t *dataBuffer, uint8_t dataLength);
+uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 void trIdentify();
 
 /**
