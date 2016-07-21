@@ -158,8 +158,8 @@ void IQRF_Driver() {
 						dataLength = spi->getStatus() & 0x3F;
 					}
 					iqrf->setPTYPE(dataLength);
-					buffers->setTxData(0,spi->commands::WR_RD);
-					buffers->setTxData(1,iqrf->getPTYPE());
+					buffers->setTxData(0, spi->commands::WR_RD);
+					buffers->setTxData(1, iqrf->getPTYPE());
 					// CRC
 					buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
@@ -181,14 +181,14 @@ void IQRF_Driver() {
 						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
 						iqrf->setPTYPE(dataLength | 0x80);
-						buffers->setTxData(0,iqrfPacketBuffer[packetBufferOutPtr].spiCmd);
+						buffers->setTxData(0, iqrfPacketBuffer[packetBufferOutPtr].spiCmd);
 						if (buffers->getTxData(0) == spi->commands::MODULE_INFO && dataLength == 16) {
 							iqrf->setPTYPE(0x10);
 						}
 						buffers->setTxData(1, iqrf->getPTYPE());
 						memcpy(&buffers->getTxBuffer()[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
-						buffers->setTxData(dataLength + 2,crc->calculate(buffers->getTxBuffer(), dataLength));
+						buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
 						packets->setLength(dataLength + 4);
 						// set actual TX packet ID
@@ -345,15 +345,6 @@ void trIdentify() {
  * @return Packet ID
  */
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
-	if (dataLength == 0) {
-		return 0;
-	}
-	if (dataLength > PACKET_SIZE - 4) {
-		dataLength = PACKET_SIZE - 4;
-	}
-	if ((packets->getIdCount() + 1) == 0) {
-		packets->setIdCount(packets->getIdCount() + 1);
-	}
 	iqrfPacketBuffer[packetBufferInPtr].packetId = packets->getIdCount();
 	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
 	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = dataBuffer;
@@ -362,5 +353,4 @@ uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength
 	if (++packetBufferInPtr >= PACKET_BUFFER_SIZE) {
 		packetBufferInPtr = 0;
 	}
-	return packets->getIdCount();
 }

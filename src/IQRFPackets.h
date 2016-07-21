@@ -24,11 +24,15 @@
 
 #include <stdint.h>
 
+#include "IQRFSettings.h"
+#include "iqrf_library.h"
+
 /**
  * IQRF Packets
  */
 class IQRFPackets {
 public:
+	uint8_t send(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 	void setId(uint8_t id);
 	uint8_t getId();
 	void setIdCount(uint8_t count);

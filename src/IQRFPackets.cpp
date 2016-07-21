@@ -22,6 +22,29 @@
 #include "IQRFPackets.h"
 
 /**
+ * Prepare SPI packet to packet buffer
+ * @param spiCmd Command that I want to send to TR module
+ * @param dataBuffer Pointer to a buffer that contains data that I want to send to TR module
+ * @param dataLength Number of bytes to send
+ * @param unallocationFlag If the dataBuffer is dynamically allocated using malloc function.
+   If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0.
+ * @return Packet ID
+ */
+uint8_t IQRFPackets::send(uint8_t spiCmd, uint8_t* dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
+	if (dataLength == 0) {
+		return 0;
+	}
+	if (dataLength > PACKET_SIZE - 4) {
+		dataLength = PACKET_SIZE - 4;
+	}
+	if ((++this->idCounter) == 0) {
+		this->idCounter++;
+	}
+	TR_SendSpiPacket(spiCmd, dataBuffer, dataLength, unallocationFlag);
+	return this->idCounter;
+}
+
+/**
  * Set actual Tx packet ID
  * @param id Actual Tx packet ID
  */
