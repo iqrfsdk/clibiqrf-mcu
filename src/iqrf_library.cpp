@@ -43,21 +43,21 @@ uint16_t packetBufferOutPtr;
 const uint8_t endPgmMode[] = {0xDE, 0x01, 0xFF};
 
 /// Instance of IQRF class
-IQRF* iqrf = new IQRF;
+IQRF* _iqrf = new IQRF;
 /// Instance of IQRFBuffers class
-IQRFBuffers* buffers = new IQRFBuffers;
+IQRFBuffers* _buffers = new IQRFBuffers;
 /// Instance of IQRFCRC class
-IQRFCRC* crc = new IQRFCRC;
+IQRFCRC* _crc = new IQRFCRC;
 /// Instance of IQRFCallbacks class
-IQRFCallbacks* callbacks = new IQRFCallbacks;
+IQRFCallbacks* _callbacks = new IQRFCallbacks;
 /// Instance of IQRFPackets class
-IQRFPackets* packets = new IQRFPackets;
+IQRFPackets* _packets = new IQRFPackets;
 /// Instance of IQRFSPI class
-IQRFSPI* spi = new IQRFSPI;
+IQRFSPI* _spi = new IQRFSPI;
 /// Instance of IQRFTR class
-IQRFTR* tr = new IQRFTR;
+IQRFTR* _tr = new IQRFTR;
 /// Instance of IQSPI class
-IQSPI* iqSpi = new IQSPI;
+IQSPI* _iqSpi = new IQSPI;
 
 /**
  * Function perform a TR-module driver initialization
@@ -66,32 +66,32 @@ IQSPI* iqSpi = new IQSPI;
  * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
 void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback) {
-	spi->setMasterStatus(spi->masterStatuses::FREE);
-	spi->setStatus(spi->statuses::DISABLED);
-	iqrf->setUsCount0(0);
+	_spi->setMasterStatus(_spi->masterStatuses::FREE);
+	_spi->setStatus(_spi->statuses::DISABLED);
+	_iqrf->setUsCount0(0);
 	// normal SPI communication
-	spi->disableFastSpi();
-	tr->turnOn();
-	iqSpi->begin();
+	_spi->disableFastSpi();
+	_tr->turnOn();
+	_iqSpi->begin();
 	// enable SPI master function in driver
-	spi->enableMaster();
+	_spi->enableMaster();
 	// read TR module info
-	tr->setInfoReadingStatus(2);
+	_tr->setInfoReadingStatus(2);
 	// wait for TR module ID reading
-	while (tr->getInfoReadingStatus()) {
+	while (_tr->getInfoReadingStatus()) {
 		// IQRF SPI communication driver
 		IQRF_Driver();
 		// TR module info reading task
 		trInfoTask();
 	}
 	// if TR72D or TR76D is conected
-	if (IQRF_GetModuleType() == tr->types::TR_72D || IQRF_GetModuleType() == tr->types::TR_76D) {
-		spi->enableFastSpi();
+	if (IQRF_GetModuleType() == _tr->types::TR_72D || IQRF_GetModuleType() == _tr->types::TR_76D) {
+		_spi->enableFastSpi();
 		Serial.println("IQRF_Init - set fast spi");
 	}
-	callbacks->setRxCallback(rxCallback);
-	callbacks->setTxCallback(txCallback);
-	tr->setControlStatus(tr->controlStatuses::READY);
+	_callbacks->setRxCallback(rxCallback);
+	_callbacks->setTxCallback(txCallback);
+	_tr->setControlStatus(_tr->controlStatuses::READY);
 }
 
 /**
@@ -99,106 +99,106 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback
  */
 void IQRF_Driver() {
 	// SPI Master enabled
-	if (spi->isMasterEnabled()) {
-		iqrf->setUsCount1(micros());
+	if (_spi->isMasterEnabled()) {
+		_iqrf->setUsCount1(micros());
 		// is anything to send in Tx buffer?
-		if (spi->getMasterStatus() != spi->masterStatuses::FREE) {
+		if (_spi->getMasterStatus() != _spi->masterStatuses::FREE) {
 			// send 1 byte every defined time interval via SPI
-			if ((iqrf->getUsCount1() - iqrf->getUsCount0()) > spi->getBytePause()) {
+			if ((_iqrf->getUsCount1() - _iqrf->getUsCount0()) > _spi->getBytePause()) {
 				// reset counter
-				iqrf->setUsCount0(iqrf->getUsCount1());
+				_iqrf->setUsCount0(_iqrf->getUsCount1());
 				// send/receive 1 byte via SPI
-				buffers->setRxData(iqrf->getByteCount(), iqSpi->transfer(buffers->getTxData(iqrf->getByteCount())));
+				_buffers->setRxData(_iqrf->getByteCount(), _iqSpi->transfer(_buffers->getTxData(_iqrf->getByteCount())));
 				// counts number of send/receive bytes, it must be zeroing on packet preparing
-				iqrf->setByteCount(iqrf->getByteCount() + 1);
+				_iqrf->setByteCount(_iqrf->getByteCount() + 1);
 				// pacLen contains length of whole packet it must be set on packet preparing sent everything? + buffer overflow protection
-				if (iqrf->getByteCount() == packets->getLength() || iqrf->getByteCount() == PACKET_SIZE) {
+				if (_iqrf->getByteCount() == _packets->getLength() || _iqrf->getByteCount() == PACKET_SIZE) {
 					// CS - deactive
 					//digitalWrite(TR_SS_PIN, HIGH);
 					// CRC ok
-					if ((buffers->getRxData(dataLength + 3) == spi->statuses::CRCM_OK) &&
-						crc->check(buffers->getRxBuffer(), dataLength, iqrf->getPTYPE())) {
-						if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-							callbacks->callTxCallback(packets->getId(), packets->statuses::OK);
+					if ((_buffers->getRxData(dataLength + 3) == _spi->statuses::CRCM_OK) &&
+						_crc->check(_buffers->getRxBuffer(), dataLength, _iqrf->getPTYPE())) {
+						if (_spi->getMasterStatus() == _spi->masterStatuses::WRITE) {
+							_callbacks->callTxCallback(_packets->getId(), _packets->statuses::OK);
 						}
-						if (spi->getMasterStatus() == spi->masterStatuses::READ) {
-							callbacks->callRxCallback();
+						if (_spi->getMasterStatus() == _spi->masterStatuses::READ) {
+							_callbacks->callRxCallback();
 						}
-						spi->setMasterStatus(spi->masterStatuses::FREE);
+						_spi->setMasterStatus(_spi->masterStatuses::FREE);
 					} else { // CRC error
 						// rep_cnt - must be set on packet preparing
-						if (iqrf->getAttepmtsCount() - 1) {
+						if (_iqrf->getAttepmtsCount() - 1) {
 							// another attempt to send data
-							iqrf->setByteCount(0);
+							_iqrf->setByteCount(0);
 						} else {
-							if (spi->getMasterStatus() == spi->masterStatuses::WRITE) {
-								callbacks->callTxCallback(packets->getId(), packets->statuses::ERROR);
+							if (_spi->getMasterStatus() == _spi->masterStatuses::WRITE) {
+								_callbacks->callTxCallback(_packets->getId(), _packets->statuses::ERROR);
 							}
-							spi->setMasterStatus(spi->masterStatuses::FREE);
+							_spi->setMasterStatus(_spi->masterStatuses::FREE);
 						}
 					}
 				}
 			}
 		} else { // no data to send => SPI status will be updated every 10ms
-			if ((iqrf->getUsCount1() - iqrf->getUsCount0()) > (MICRO_SECOND / 100)) {
+			if ((_iqrf->getUsCount1() - _iqrf->getUsCount0()) > (MICRO_SECOND / 100)) {
 				// reset counter
-				iqrf->setUsCount0(iqrf->getUsCount1());
+				_iqrf->setUsCount0(_iqrf->getUsCount1());
 				// get SPI status of TR module
-				spi->setStatus(iqSpi->transfer(spi->commands::CHECK));
+				_spi->setStatus(_iqSpi->transfer(_spi->commands::CHECK));
 				// CS - deactive
 				//digitalWrite(TR_SS_PIN, HIGH);      
 				// if the status is dataready prepare packet to read it
-				if ((spi->getStatus() & 0xC0) == 0x40) {
-					memset(buffers->getTxBuffer(), 0, buffers->getTxBufferSize());
+				if ((_spi->getStatus() & 0xC0) == 0x40) {
+					memset(_buffers->getTxBuffer(), 0, _buffers->getTxBufferSize());
 					// state 0x40 means 64B
-					if (spi->getStatus() == 0x40) {
+					if (_spi->getStatus() == 0x40) {
 						dataLength = 64;
 					} else {
 						// clear bit 7,6 - rest is length (from 1 to 63B)
-						dataLength = spi->getStatus() & 0x3F;
+						dataLength = _spi->getStatus() & 0x3F;
 					}
-					iqrf->setPTYPE(dataLength);
-					buffers->setTxData(0, spi->commands::WR_RD);
-					buffers->setTxData(1, iqrf->getPTYPE());
+					_iqrf->setPTYPE(dataLength);
+					_buffers->setTxData(0, _spi->commands::WR_RD);
+					_buffers->setTxData(1, _iqrf->getPTYPE());
 					// CRC
-					buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
+					_buffers->setTxData(dataLength + 2, _crc->calculate(_buffers->getTxBuffer(), dataLength));
 					// length of whole packet + (CMD, PTYPE, CRCM, 0)
-					packets->setLength(dataLength + 4);
+					_packets->setLength(dataLength + 4);
 					// counter of sent bytes
-					iqrf->setByteCount(0);
+					_iqrf->setByteCount(0);
 					// number of attempts to send data
-					iqrf->setAttepmtsCount(1);
+					_iqrf->setAttepmtsCount(1);
 					// reading from buffer COM of TR module
-					spi->setMasterStatus(spi->masterStatuses::READ);
+					_spi->setMasterStatus(_spi->masterStatuses::READ);
 					// current SPI status must be updated
-					spi->setStatus(spi->statuses::DATA_TRANSFER);
+					_spi->setStatus(_spi->statuses::DATA_TRANSFER);
 				}
 				// if TR module ready and no data in module pending
-				if (!spi->getMasterStatus()) {
+				if (!_spi->getMasterStatus()) {
 					// check if packet to send ready
 					if (packetBufferInPtr != packetBufferOutPtr) {
-						memset(buffers->getTxBuffer(), 0, buffers->getTxBufferSize());
+						memset(_buffers->getTxBuffer(), 0, _buffers->getTxBufferSize());
 						dataLength = iqrfPacketBuffer[packetBufferOutPtr].dataLength;
 						// PBYTE set bit7 - write to buffer COM of TR module
-						iqrf->setPTYPE(dataLength | 0x80);
-						buffers->setTxData(0, iqrfPacketBuffer[packetBufferOutPtr].spiCmd);
-						if (buffers->getTxData(0) == spi->commands::MODULE_INFO && dataLength == 16) {
-							iqrf->setPTYPE(0x10);
+						_iqrf->setPTYPE(dataLength | 0x80);
+						_buffers->setTxData(0, iqrfPacketBuffer[packetBufferOutPtr].spiCmd);
+						if (_buffers->getTxData(0) == _spi->commands::MODULE_INFO && dataLength == 16) {
+							_iqrf->setPTYPE(0x10);
 						}
-						buffers->setTxData(1, iqrf->getPTYPE());
-						memcpy(&buffers->getTxBuffer()[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
+						_buffers->setTxData(1, _iqrf->getPTYPE());
+						memcpy(&_buffers->getTxBuffer()[2], iqrfPacketBuffer[packetBufferOutPtr].dataBuffer, dataLength);
 						// CRCM
-						buffers->setTxData(dataLength + 2, crc->calculate(buffers->getTxBuffer(), dataLength));
+						_buffers->setTxData(dataLength + 2, _crc->calculate(_buffers->getTxBuffer(), dataLength));
 						// length of whole packet + (CMD, PTYPE, CRCM, 0)
-						packets->setLength(dataLength + 4);
+						_packets->setLength(dataLength + 4);
 						// set actual TX packet ID
-						packets->setId(iqrfPacketBuffer[packetBufferOutPtr].packetId);
+						_packets->setId(iqrfPacketBuffer[packetBufferOutPtr].packetId);
 						// counter of sent bytes
-						iqrf->setByteCount(0);
+						_iqrf->setByteCount(0);
 						// number of attempts to send data
-						iqrf->setAttepmtsCount(3);
+						_iqrf->setAttepmtsCount(3);
 						// writing to buffer COM of TR module
-						spi->setMasterStatus(spi->masterStatuses::WRITE);
+						_spi->setMasterStatus(_spi->masterStatuses::WRITE);
 						if (iqrfPacketBuffer[packetBufferOutPtr].unallocationFlag) {
 							// unallocate temporary TX data buffer
 							free(iqrfPacketBuffer[packetBufferOutPtr].dataBuffer);
@@ -207,14 +207,14 @@ void IQRF_Driver() {
 							packetBufferOutPtr = 0;
 						}
 						// current SPI status must be updated
-						spi->setStatus(spi->statuses::DATA_TRANSFER);
+						_spi->setStatus(_spi->statuses::DATA_TRANSFER);
 					}
 				}
 			}
 		}
 	} else {
 		// SPI master is disabled
-		tr->controlTask();
+		_tr->controlTask();
 	}
 }
 
@@ -224,7 +224,7 @@ void IQRF_Driver() {
  * @param dataLength Number of bytes I want to read
  */
 void IQRF_GetRxData(uint8_t *dataBuffer, uint8_t dataLength) {
-	memcpy(dataBuffer, &buffers->getRxBuffer()[2], dataLength);
+	memcpy(dataBuffer, &_buffers->getRxBuffer()[2], dataLength);
 }
 
 /**
@@ -250,37 +250,37 @@ void trInfoTask() {
 			// try to read idf in com mode
 			idfMode = 0;
 			// set call back function to process id data
-			callbacks->setRxCallback(doNothingRx);
+			_callbacks->setRxCallback(doNothingRx);
 			// set call back function after data were sent
-			callbacks->setTxCallback(identifyTx);
-			trInfo.mcuType = tr->mcuTypes::UNKNOWN;
+			_callbacks->setTxCallback(identifyTx);
+			trInfo.mcuType = _tr->mcuTypes::UNKNOWN;
 			memset(&dataToModule[0], 0, 16);
 			timeoutMilli = millis();
 			// next state - will read info in PGM mode or /* in COM mode */
 			trInfoTaskStatus = ENTER_PROG_MODE /* SEND_REQUEST */;
 			break;
 		case ENTER_PROG_MODE:
-			tr->enterProgramMode();
+			_tr->enterProgramMode();
 			// try to read idf in pgm mode
 			idfMode = 1;
 			// set call back function to process id data
-			callbacks->setRxCallback(identifyRx);
+			_callbacks->setRxCallback(identifyRx);
 			// set call back function after data were sent
-			callbacks->setTxCallback(doNothingTx);
+			_callbacks->setTxCallback(doNothingTx);
 			timeoutMilli = millis();
 			trInfoTaskStatus = SEND_REQUEST;
 			break;
 		case SEND_REQUEST:
-			if (spi->getStatus() == spi->statuses::COMMUNICATION_MODE &&
-				spi->getMasterStatus() == spi->masterStatuses::FREE) {
-				TR_SendSpiPacket(spi->commands::MODULE_INFO, &dataToModule[0], 16, 0);
+			if (_spi->getStatus() == _spi->statuses::COMMUNICATION_MODE &&
+				_spi->getMasterStatus() == _spi->masterStatuses::FREE) {
+				TR_SendSpiPacket(_spi->commands::MODULE_INFO, &dataToModule[0], 16, 0);
 				// initialize timeout timer
 				timeoutMilli = millis();
 				trInfoTaskStatus = WAIT_INFO;
 			} else {
-				if (spi->getStatus() == spi->statuses::PROGRAMMING_MODE &&
-					spi->getMasterStatus() == spi->masterStatuses::FREE) {
-					TR_SendSpiPacket(spi->commands::MODULE_INFO, &dataToModule[0], 1, 0);
+				if (_spi->getStatus() == _spi->statuses::PROGRAMMING_MODE &&
+					_spi->getMasterStatus() == _spi->masterStatuses::FREE) {
+					TR_SendSpiPacket(_spi->commands::MODULE_INFO, &dataToModule[0], 1, 0);
 					// initialize timeout timer
 					timeoutMilli = millis();
 					trInfoTaskStatus = WAIT_INFO;
@@ -300,10 +300,10 @@ void trInfoTask() {
 			break;
 			// wait for info data from TR module
 		case WAIT_INFO:
-			if ((tr->getInfoReadingStatus() == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
+			if ((_tr->getInfoReadingStatus() == 1) || (millis() - timeoutMilli >= MILLI_SECOND / 2)) {
 				if (idfMode == 1) {
 					// send end of PGM mode packet
-					TR_SendSpiPacket(spi->commands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
+					TR_SendSpiPacket(_spi->commands::EEPROM_PGM, (uint8_t *) & endPgmMode[0], 3, 0);
 				}
 				// next state
 				trInfoTaskStatus = DONE;
@@ -313,8 +313,8 @@ void trInfoTask() {
 		case DONE:
 			// if no packet is pending to send to TR module
 			if (packetBufferInPtr == packetBufferOutPtr &&
-				spi->getMasterStatus() == spi->masterStatuses::FREE) {
-				tr->setInfoReadingStatus(0);
+				_spi->getMasterStatus() == _spi->masterStatuses::FREE) {
+				_tr->setInfoReadingStatus(0);
 			}
 			break;
 	}
@@ -324,15 +324,15 @@ void trInfoTask() {
  * Process identification data packet from TR module
  */
 void trIdentify() {
-	memcpy((uint8_t *) & trInfo.moduleInfoRawData, (uint8_t *) & buffers->getRxBuffer()[2], 8);
-	trInfo.moduleId = (uint32_t) buffers->getRxBuffer()[2] << 24 | (uint32_t) buffers->getRxBuffer()[3] << 16 | (uint32_t) buffers->getRxBuffer()[4] << 8 | buffers->getRxBuffer()[5];
-	trInfo.osVersion = (uint16_t) (buffers->getRxBuffer()[6] / 16) << 8 | (buffers->getRxBuffer()[6] % 16);
-	trInfo.mcuType = buffers->getRxBuffer()[7] & 0x07;
-	trInfo.fcc = (buffers->getRxBuffer()[7] & 0x08) >> 3;
-	trInfo.moduleType = buffers->getRxBuffer()[7] >> 4;
-	trInfo.osBuild = (uint16_t) buffers->getRxBuffer()[9] << 8 | buffers->getRxBuffer()[8];
+	memcpy((uint8_t *) & trInfo.moduleInfoRawData, (uint8_t *) & _buffers->getRxBuffer()[2], 8);
+	trInfo.moduleId = (uint32_t) _buffers->getRxBuffer()[2] << 24 | (uint32_t) _buffers->getRxBuffer()[3] << 16 | (uint32_t) _buffers->getRxBuffer()[4] << 8 | _buffers->getRxBuffer()[5];
+	trInfo.osVersion = (uint16_t) (_buffers->getRxBuffer()[6] / 16) << 8 | (_buffers->getRxBuffer()[6] % 16);
+	trInfo.mcuType = _buffers->getRxBuffer()[7] & 0x07;
+	trInfo.fcc = (_buffers->getRxBuffer()[7] & 0x08) >> 3;
+	trInfo.moduleType = _buffers->getRxBuffer()[7] >> 4;
+	trInfo.osBuild = (uint16_t) _buffers->getRxBuffer()[9] << 8 | _buffers->getRxBuffer()[8];
 	// TR info data processed
-	tr->setInfoReadingStatus(tr->getInfoReadingStatus() - 1);
+	_tr->setInfoReadingStatus(_tr->getInfoReadingStatus() - 1);
 }
 
 /**
@@ -345,7 +345,7 @@ void trIdentify() {
  * @return Packet ID
  */
 uint8_t TR_SendSpiPacket(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
-	iqrfPacketBuffer[packetBufferInPtr].packetId = packets->getIdCount();
+	iqrfPacketBuffer[packetBufferInPtr].packetId = _packets->getIdCount();
 	iqrfPacketBuffer[packetBufferInPtr].spiCmd = spiCmd;
 	iqrfPacketBuffer[packetBufferInPtr].dataBuffer = dataBuffer;
 	iqrfPacketBuffer[packetBufferInPtr].dataLength = dataLength;
