@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rxbuffer',['rxBuffer',['../structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1',1,'appVarsStruct']]]
+  ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]]
 ];

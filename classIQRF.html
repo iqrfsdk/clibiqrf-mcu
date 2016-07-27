@@ -115,6 +115,8 @@ $(document).ready(function(){initNavTree('classIQRF.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acaa58c7a8b74f2e2f36fee9191aea9d1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#acaa58c7a8b74f2e2f36fee9191aea9d1">sendData</a> (uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
+<tr class="separator:acaa58c7a8b74f2e2f36fee9191aea9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8d548d5dbf516797ef3be68f377cc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#a0c8d548d5dbf516797ef3be68f377cc2">setPTYPE</a> (uint8_t PTYPE)</td></tr>
 <tr class="separator:a0c8d548d5dbf516797ef3be68f377cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad913239cfe08ec42a70b8886f8eac21"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#aad913239cfe08ec42a70b8886f8eac21">getPTYPE</a> ()</td></tr>
@@ -138,7 +140,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classIQRF.html">IQRF</a> </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#_a2">Hello-world.ino</a>.</dd>
+</dl></div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4efc457d907b1b6aa58e132e2f07a73e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -222,6 +225,49 @@ Public Member Functions</h2></td></tr>
 <p>Get count of microseconds form counter </p>
 <dl class="section return"><dt>Returns</dt><dd>Count of microseconds </dd></dl>
 
+</div>
+</div>
+<a class="anchor" id="acaa58c7a8b74f2e2f36fee9191aea9d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRF::sendData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>dataBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dataLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>unallocationFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function sends data from buffer to TR module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataBuffer</td><td>Pointer to a buffer that contains data that I want to send to TR module </td></tr>
+    <tr><td class="paramname">dataLength</td><td>Number of bytes to send </td></tr>
+    <tr><td class="paramname">unallocationFlag</td><td>If the pDataBuffer is dynamically allocated using malloc function. If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tx packet ID (number 1-255) </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a11">Hello-world.ino</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="aebbc1261fe9a7e1a50df9226c4229f63"></a>
@@ -349,7 +395,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIQRF.html">IQRF</a></li>
-    <li class="footer">Generated on Sun Jul 17 2016 11:58:21 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 08:29:09 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

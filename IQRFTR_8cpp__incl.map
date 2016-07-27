@@ -1,6 +1,6 @@
 <map id="src/IQRFTR.cpp" name="src/IQRFTR.cpp">
-<area shape="rect" id="node2" href="$IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="61,80,143,107"/>
-<area shape="rect" id="node3" href="$IQRFSettings_8h.html" title="IQRFSettings.h" alt="" coords="5,304,117,331"/>
-<area shape="rect" id="node4" href="$IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="141,155,227,181"/>
-<area shape="rect" id="node6" href="$IQSPI_8h.html" title="IQSPI.h" alt="" coords="84,229,153,256"/>
+<area shape="rect" id="node2" href="$IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="136,80,217,107"/>
+<area shape="rect" id="node4" href="$IQRFSettings_8h.html" title="IQRFSettings.h" alt="" coords="275,304,388,331"/>
+<area shape="rect" id="node5" href="$IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="175,155,261,181"/>
+<area shape="rect" id="node7" href="$IQSPI_8h.html" title="IQSPI.h" alt="" coords="107,229,176,256"/>
 </map>

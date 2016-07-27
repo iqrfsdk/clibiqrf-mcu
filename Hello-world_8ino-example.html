@@ -102,11 +102,16 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="contents">
 <p>This example shows how to send data packet.</p>
 <div class="fragment"><div class="line"></div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
-<div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;MsTimer2.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
+<div class="line"><span class="preprocessor">#if defined(__PIC32MX__)</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;WProgram.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;MsTimer2.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#elif defined(__SAM3X8E__)</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;DueTimer.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
@@ -125,10 +130,10 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line"><span class="keywordtype">void</span> loop();</div>
 <div class="line"><span class="keywordtype">void</span> rxHandler();</div>
 <div class="line"><span class="keywordtype">void</span> txHandler(uint8_t packetId, uint8_t packetResult);</div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
-<div class="line"><span class="preprocessor"></span><span class="keywordtype">void</span> msTimerCallback();</div>
-<div class="line"><span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
+<div class="line"><span class="preprocessor">#if defined(__PIC32MX__)</span></div>
 <div class="line"><span class="preprocessor"></span>uint32_t msTimerCallback(uint32_t currentTime);</div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line"><span class="preprocessor"></span><span class="keywordtype">void</span> msTimerCallback();</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="comment">// GLOBAL VARIABLES</span></div>
@@ -142,7 +147,8 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line">} <a name="_a1"></a><a class="code" href="structappVarsStruct.html">appVarsStruct</a>;</div>
 <div class="line"><a class="code" href="structappVarsStruct.html">appVarsStruct</a> appVars;</div>
 <div class="line"></div>
-<div class="line"><a name="_a2"></a><a class="code" href="classIQRFTR.html">IQRFTR</a>* iqrfTr = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
+<div class="line"><a name="_a2"></a><a class="code" href="classIQRF.html">IQRF</a>* iqrf = <span class="keyword">new</span> <a class="code" href="classIQRF.html">IQRF</a>;</div>
+<div class="line"><a name="_a3"></a><a class="code" href="classIQRFTR.html">IQRFTR</a>* iqrfTr = <span class="keyword">new</span> <a class="code" href="classIQRFTR.html">IQRFTR</a>;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Const data</span></div>
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> testBuffer[12] = {<span class="charliteral">&#39;H&#39;</span>, <span class="charliteral">&#39;e&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;W&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;r&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;d&#39;</span>, <span class="charliteral">&#39;!&#39;</span>};</div>
@@ -152,10 +158,13 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line">    pinMode(13, OUTPUT);</div>
 <div class="line">    <span class="comment">// Up - PC</span></div>
 <div class="line">    Serial.begin(9600);</div>
+<div class="line">    <span class="comment">// Wait for Serial</span></div>
+<div class="line">    <span class="keywordflow">while</span> (!Serial) {</div>
+<div class="line">    }</div>
 <div class="line">    <span class="comment">// Down - IQRF</span></div>
-<div class="line">    <a name="a3"></a><a class="code" href="iqrf__library_8cpp.html#a654a2cf58c4a26993228b55a6705b634">IQRF_Init</a>(rxHandler, txHandler);</div>
+<div class="line">    <a name="a4"></a><a class="code" href="iqrf__library_8cpp.html#affff97e51c5625e429f1a12fe97d83ff">IQRF_Init</a>(rxHandler, txHandler);</div>
 <div class="line">    <span class="comment">// Info - TR</span></div>
-<div class="line">    <span class="keywordflow">switch</span> (<a name="a4"></a><a class="code" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">IQRF_GetModuleType</a>()) {</div>
+<div class="line">    <span class="keywordflow">switch</span> (<a name="a5"></a><a class="code" href="iqrf__library_8h.html#aa7b3d0f423d662bc412e440e6b823e47">IQRF_GetModuleType</a>()) {</div>
 <div class="line">        <span class="keywordflow">case</span> iqrfTr-&gt;types::TR_52D:</div>
 <div class="line">            Serial.println(<span class="stringliteral">&quot;Module type: TR-52D&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
@@ -169,45 +178,36 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
 <div class="line"><span class="preprocessor"></span>    MsTimer2::set(1, msTimerCallback);</div>
 <div class="line">    MsTimer2::start();</div>
+<div class="line"><span class="preprocessor">#elif defined(__SAM3X8E__)</span></div>
+<div class="line"><span class="preprocessor"></span>    Timer6.attachInterrupt(msTimerCallback).start(1000);</div>
 <div class="line"><span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
 <div class="line"><span class="preprocessor"></span>    attachCoreTimerService(msTimerCallback);</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span>    <span class="comment">// Clear variables</span></div>
 <div class="line">    memset(&amp;appVars, 0, <span class="keyword">sizeof</span>(<a class="code" href="structappVarsStruct.html">appVarsStruct</a>));</div>
-<div class="line">    appVars.<a name="a5"></a><a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
+<div class="line">    appVars.<a name="a6"></a><a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
 <div class="line">    <span class="comment">// Done here</span></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Peripherals and IQRF init done&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">    <span class="comment">// TR module SPI comunication driver</span></div>
-<div class="line">    <a name="a6"></a><a class="code" href="iqrf__library_8cpp.html#a020699a7e5e646534a43829ce1324ae5">IQRF_Driver</a>();</div>
+<div class="line">    <a name="a7"></a><a class="code" href="iqrf__library_8cpp.html#a020699a7e5e646534a43829ce1324ae5">IQRF_Driver</a>();</div>
 <div class="line">    <span class="comment">// Test send data every 5s</span></div>
-<div class="line">    <span class="keywordflow">if</span> (appVars.<a name="a7"></a><a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a>) {</div>
+<div class="line">    <span class="keywordflow">if</span> (appVars.<a name="a8"></a><a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a>) {</div>
 <div class="line">        <span class="comment">// Allocate memory for Tx packet</span></div>
-<div class="line">        appVars.<a name="a8"></a><a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a> = (uint8_t *) malloc(<span class="keyword">sizeof</span>(testBuffer));</div>
+<div class="line">        appVars.<a name="a9"></a><a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a> = (uint8_t *) malloc(<span class="keyword">sizeof</span>(testBuffer));</div>
 <div class="line">        <span class="keywordflow">if</span> (appVars.<a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a> != NULL) {</div>
 <div class="line">            <span class="comment">// Copy data from test to Tx packet</span></div>
 <div class="line">            memcpy(appVars.<a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a>, (uint8_t *) &amp; testBuffer, <span class="keyword">sizeof</span>(testBuffer));</div>
 <div class="line">            <span class="comment">// Send data and unallocate data buffer</span></div>
-<div class="line">            appVars.<a name="a9"></a><a class="code" href="structappVarsStruct.html#a2f1453f54ead19c928a2f31bd3645bae">packetId</a> = <a name="a10"></a><a class="code" href="iqrf__library_8cpp.html#adebe2bdc8b760bee0a2b7f2b6f2db824">IQRF_SendData</a>(appVars.<a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a>, <span class="keyword">sizeof</span>(testBuffer), 1);</div>
+<div class="line">            appVars.<a name="a10"></a><a class="code" href="structappVarsStruct.html#a2f1453f54ead19c928a2f31bd3645bae">packetId</a> = iqrf-&gt;<a name="a11"></a><a class="code" href="classIQRF.html#acaa58c7a8b74f2e2f36fee9191aea9d1">sendData</a>(appVars.<a class="code" href="structappVarsStruct.html#ad026fc7b51c84f4acf666f1cf721afab">txBuffer</a>, <span class="keyword">sizeof</span>(testBuffer), 1);</div>
 <div class="line">        }</div>
 <div class="line">        appVars.<a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a> = <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
-<div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="keywordtype">void</span> msTimerCallback() {</div>
-<div class="line">    <span class="comment">// App timer, call handler</span></div>
-<div class="line">    <span class="keywordflow">if</span> (appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a>) {</div>
-<div class="line">        <span class="keywordflow">if</span> ((--appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a>) == 0) {</div>
-<div class="line">            appVars.<a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a> = <span class="keyword">true</span>;</div>
-<div class="line">            appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"><span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
+<div class="line"><span class="preprocessor">#if defined(__PIC32MX__)</span></div>
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line">uint32_t msTimerCallback(uint32_t currentTime) {</div>
 <div class="line">    <span class="comment">// App timer, call handler</span></div>
@@ -219,11 +219,24 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span>(currentTime + CORE_TICK_RATE);</div>
 <div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#else</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="keywordtype">void</span> msTimerCallback() {</div>
+<div class="line">    <span class="comment">// App timer, call handler</span></div>
+<div class="line">    <span class="keywordflow">if</span> (appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a>) {</div>
+<div class="line">        <span class="keywordflow">if</span> ((--appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a>) == 0) {</div>
+<div class="line">            appVars.<a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a> = <span class="keyword">true</span>;</div>
+<div class="line">            appVars.<a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="keywordtype">void</span> rxHandler() {</div>
 <div class="line">    <span class="comment">// Read and print received data</span></div>
-<div class="line">    <a name="a11"></a><a class="code" href="iqrf__library_8cpp.html#a438a10cf50a96475d218fdb422f5a15e">IQRF_GetRxData</a>(appVars.<a name="a12"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, <a name="a13"></a><a class="code" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">IQRF_GetRxDataSize</a>());</div>
+<div class="line">    <a name="a12"></a><a class="code" href="iqrf__library_8cpp.html#a31994cec03064bff07d66d64d433491c">IQRF_GetRxData</a>(appVars.<a name="a13"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, <a name="a14"></a><a class="code" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">IQRF_GetRxDataSize</a>());</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF receive done: &quot;</span>);</div>
 <div class="line">    Serial.write(appVars.<a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, <a class="code" href="iqrf__library_8h.html#a887243256981d63873925e690a7a33af">IQRF_GetRxDataSize</a>());</div>
 <div class="line">    Serial.println();</div>
@@ -237,7 +250,7 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 17 2016 11:58:21 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 08:29:09 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

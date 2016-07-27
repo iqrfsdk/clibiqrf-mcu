@@ -123,6 +123,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a62e57ce86f9287726ad9df74945396a3"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFPackets.html#a62e57ce86f9287726ad9df74945396a3">send</a> (uint8_t spiCmd, uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
+<tr class="separator:a62e57ce86f9287726ad9df74945396a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c55b4136cc1f8c109872e67040d3be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be">setId</a> (uint8_t id)</td></tr>
 <tr class="separator:a03c55b4136cc1f8c109872e67040d3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3bd25e92a5789461b36d67d733b34e1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1">getId</a> ()</td></tr>
@@ -212,6 +214,55 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a62e57ce86f9287726ad9df74945396a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFPackets::send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>spiCmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>dataBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dataLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>unallocationFlag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare SPI packet to packet buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spiCmd</td><td>Command that I want to send to TR module </td></tr>
+    <tr><td class="paramname">dataBuffer</td><td>Pointer to a buffer that contains data that I want to send to TR module </td></tr>
+    <tr><td class="paramname">dataLength</td><td>Number of bytes to send </td></tr>
+    <tr><td class="paramname">unallocationFlag</td><td>If the dataBuffer is dynamically allocated using malloc function. If you wish to unallocate buffer after data is sent, set the unallocationFlag to 1, otherwise to 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Packet ID </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a03c55b4136cc1f8c109872e67040d3be"></a>
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +342,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIQRFPackets.html">IQRFPackets</a></li>
-    <li class="footer">Generated on Sun Jul 17 2016 11:58:21 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 08:29:09 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

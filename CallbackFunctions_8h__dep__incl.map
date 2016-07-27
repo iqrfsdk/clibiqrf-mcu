@@ -1,5 +1,9 @@
 <map id="src/CallbackFunctions.h" name="src/CallbackFunctions.h">
 <area shape="rect" id="node2" href="$CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,80,181,107"/>
 <area shape="rect" id="node3" href="$iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="207,80,321,107"/>
-<area shape="rect" id="node4" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="199,155,328,181"/>
+<area shape="rect" id="node4" href="$IQRF_8h.html" title="src/IQRF.h" alt="" coords="86,155,172,181"/>
+<area shape="rect" id="node6" href="$IQRFPackets_8h.html" title="src/IQRFPackets.h" alt="" coords="197,155,331,181"/>
+<area shape="rect" id="node8" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="355,155,484,181"/>
+<area shape="rect" id="node5" href="$IQRF_8cpp.html" title="src/IQRF.cpp" alt="" coords="72,229,173,256"/>
+<area shape="rect" id="node7" href="$IQRFPackets_8cpp.html" title="src/IQRFPackets.cpp" alt="" coords="197,229,345,256"/>
 </map>

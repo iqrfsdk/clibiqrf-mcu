@@ -110,10 +110,10 @@ $(document).ready(function(){initNavTree('IQRFTR_8h_source.html','');});
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef IQRFTR_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IQRFTR_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if defined(__AVR__)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#elif defined(__PIC32MX__)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;WProgram.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if defined(__PIC32MX__)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;WProgram.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IQRFSettings_8h.html">IQRFSettings.h</a>&quot;</span></div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('IQRFTR_8h_source.html','');});
 <div class="ttc" id="classIQRFTR_html_a9a3d95c9617ba18e6009091862e87c1fac606ca0126b301def7726c6ee01f9d25"><div class="ttname"><a href="classIQRFTR.html#a9a3d95c9617ba18e6009091862e87c1fac606ca0126b301def7726c6ee01f9d25">IQRFTR::TR_56D</a></div><div class="ttdoc">TR module IQRF TR-56D. </div><div class="ttdef"><b>Definition:</b> IQRFTR.h:73</div></div>
 <div class="ttc" id="classIQRFTR_html_a4e4d9d2d8206969f43e8cb94880cb699aa89383e0af9f71f8baab5a961fddf26c"><div class="ttname"><a href="classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699aa89383e0af9f71f8baab5a961fddf26c">IQRFTR::CERTIFIED</a></div><div class="ttdoc">Certified by FCC. </div><div class="ttdef"><b>Definition:</b> IQRFTR.h:93</div></div>
 <div class="ttc" id="classIQRFTR_html_a1c9e6c3860b1e5e95f0dd6cf4e5183ed"><div class="ttname"><a href="classIQRFTR.html#a1c9e6c3860b1e5e95f0dd6cf4e5183ed">IQRFTR::enterProgramMode</a></div><div class="ttdeci">void enterProgramMode()</div><div class="ttdef"><b>Definition:</b> IQRFTR.cpp:42</div></div>
-<div class="ttc" id="classIQSPI_html"><div class="ttname"><a href="classIQSPI.html">IQSPI</a></div><div class="ttdef"><b>Definition:</b> IQSPI.h:40</div></div>
+<div class="ttc" id="classIQSPI_html"><div class="ttname"><a href="classIQSPI.html">IQSPI</a></div><div class="ttdef"><b>Definition:</b> IQSPI.h:41</div></div>
 <div class="ttc" id="classIQRFTR_html_a6d8ec866e85f46186ec0db8cce845cf2"><div class="ttname"><a href="classIQRFTR.html#a6d8ec866e85f46186ec0db8cce845cf2">IQRFTR::controlTask</a></div><div class="ttdeci">void controlTask()</div><div class="ttdef"><b>Definition:</b> IQRFTR.cpp:124</div></div>
 <div class="ttc" id="classIQRFTR_html_a4e4d9d2d8206969f43e8cb94880cb699a68bfb057af914c528fc27887019752ce"><div class="ttname"><a href="classIQRFTR.html#a4e4d9d2d8206969f43e8cb94880cb699a68bfb057af914c528fc27887019752ce">IQRFTR::NOT_CERTIFIED</a></div><div class="ttdoc">Not certified fy FCC. </div><div class="ttdef"><b>Definition:</b> IQRFTR.h:92</div></div>
 <div class="ttc" id="classIQRFSPI_html"><div class="ttname"><a href="classIQRFSPI.html">IQRFSPI</a></div><div class="ttdef"><b>Definition:</b> IQRFSPI.h:32</div></div>
@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('IQRFTR_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="IQRFTR_8h.html">IQRFTR.h</a></li>
-    <li class="footer">Generated on Sun Jul 17 2016 11:58:21 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 08:29:09 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -112,42 +112,51 @@ $(document).ready(function(){initNavTree('IQRFPackets_8h_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classIQRFPackets.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIQRFPackets.html">IQRFPackets</a> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be">setId</a>(uint8_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1">getId</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a4c3b4e94944a245582e49b2390d22a74">setIdCount</a>(uint8_t count);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#add1fb2dcb5009a717a70c9854e0ae354">getIdCount</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a302abf4790869fb034a228e41b0067cb">setLength</a>(uint8_t length);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#aac4973b232e5af859cb23178f63b93cf">getLength</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">   41</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">statuses</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">   42</a></span>&#160;        <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">OK</a> = 1, </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">   43</a></span>&#160;        <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">ERROR</a> = 2 </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    uint8_t id;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    uint8_t idCounter;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    uint8_t length;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classIQRFPackets_html_af3bd25e92a5789461b36d67d733b34e1"><div class="ttname"><a href="classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1">IQRFPackets::getId</a></div><div class="ttdeci">uint8_t getId()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:36</div></div>
-<div class="ttc" id="classIQRFPackets_html_a302abf4790869fb034a228e41b0067cb"><div class="ttname"><a href="classIQRFPackets.html#a302abf4790869fb034a228e41b0067cb">IQRFPackets::setLength</a></div><div class="ttdeci">void setLength(uint8_t length)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:60</div></div>
-<div class="ttc" id="classIQRFPackets_html_aac4973b232e5af859cb23178f63b93cf"><div class="ttname"><a href="classIQRFPackets.html#aac4973b232e5af859cb23178f63b93cf">IQRFPackets::getLength</a></div><div class="ttdeci">uint8_t getLength()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:68</div></div>
-<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">IQRFPackets::OK</a></div><div class="ttdoc">Packet sent OK. </div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:42</div></div>
-<div class="ttc" id="classIQRFPackets_html"><div class="ttname"><a href="classIQRFPackets.html">IQRFPackets</a></div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:30</div></div>
-<div class="ttc" id="classIQRFPackets_html_add1fb2dcb5009a717a70c9854e0ae354"><div class="ttname"><a href="classIQRFPackets.html#add1fb2dcb5009a717a70c9854e0ae354">IQRFPackets::getIdCount</a></div><div class="ttdeci">uint8_t getIdCount()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:52</div></div>
-<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">IQRFPackets::statuses</a></div><div class="ttdeci">statuses</div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:41</div></div>
-<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">IQRFPackets::ERROR</a></div><div class="ttdoc">Packet sent with ERROR. </div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:43</div></div>
-<div class="ttc" id="classIQRFPackets_html_a4c3b4e94944a245582e49b2390d22a74"><div class="ttname"><a href="classIQRFPackets.html#a4c3b4e94944a245582e49b2390d22a74">IQRFPackets::setIdCount</a></div><div class="ttdeci">void setIdCount(uint8_t count)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:44</div></div>
-<div class="ttc" id="classIQRFPackets_html_a03c55b4136cc1f8c109872e67040d3be"><div class="ttname"><a href="classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be">IQRFPackets::setId</a></div><div class="ttdeci">void setId(uint8_t id)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:28</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IQRFSettings_8h.html">IQRFSettings.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="iqrf__library_8h.html">iqrf_library.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classIQRFPackets.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classIQRFPackets.html">IQRFPackets</a> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#a62e57ce86f9287726ad9df74945396a3">send</a>(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t <a class="code" href="iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be">setId</a>(uint8_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1">getId</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a4c3b4e94944a245582e49b2390d22a74">setIdCount</a>(uint8_t count);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#add1fb2dcb5009a717a70c9854e0ae354">getIdCount</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classIQRFPackets.html#a302abf4790869fb034a228e41b0067cb">setLength</a>(uint8_t length);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    uint8_t <a class="code" href="classIQRFPackets.html#aac4973b232e5af859cb23178f63b93cf">getLength</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">   46</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">statuses</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">   47</a></span>&#160;        <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">OK</a> = 1, </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">   48</a></span>&#160;        <a class="code" href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">ERROR</a> = 2 </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    uint8_t id;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    uint8_t idCounter;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    uint8_t length;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classIQRFPackets_html_a62e57ce86f9287726ad9df74945396a3"><div class="ttname"><a href="classIQRFPackets.html#a62e57ce86f9287726ad9df74945396a3">IQRFPackets::send</a></div><div class="ttdeci">uint8_t send(uint8_t spiCmd, uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:33</div></div>
+<div class="ttc" id="iqrf__library_8cpp_html_a1ba388ee46e00444f79b0e822feac102"><div class="ttname"><a href="iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a></div><div class="ttdeci">uint8_t dataLength</div><div class="ttdoc">Data length. </div><div class="ttdef"><b>Definition:</b> iqrf_library.cpp:33</div></div>
+<div class="ttc" id="classIQRFPackets_html_af3bd25e92a5789461b36d67d733b34e1"><div class="ttname"><a href="classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1">IQRFPackets::getId</a></div><div class="ttdeci">uint8_t getId()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:59</div></div>
+<div class="ttc" id="classIQRFPackets_html_a302abf4790869fb034a228e41b0067cb"><div class="ttname"><a href="classIQRFPackets.html#a302abf4790869fb034a228e41b0067cb">IQRFPackets::setLength</a></div><div class="ttdeci">void setLength(uint8_t length)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:83</div></div>
+<div class="ttc" id="IQRFSettings_8h_html"><div class="ttname"><a href="IQRFSettings_8h.html">IQRFSettings.h</a></div></div>
+<div class="ttc" id="classIQRFPackets_html_aac4973b232e5af859cb23178f63b93cf"><div class="ttname"><a href="classIQRFPackets.html#aac4973b232e5af859cb23178f63b93cf">IQRFPackets::getLength</a></div><div class="ttdeci">uint8_t getLength()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:91</div></div>
+<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310">IQRFPackets::OK</a></div><div class="ttdoc">Packet sent OK. </div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:47</div></div>
+<div class="ttc" id="classIQRFPackets_html"><div class="ttname"><a href="classIQRFPackets.html">IQRFPackets</a></div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:33</div></div>
+<div class="ttc" id="classIQRFPackets_html_add1fb2dcb5009a717a70c9854e0ae354"><div class="ttname"><a href="classIQRFPackets.html#add1fb2dcb5009a717a70c9854e0ae354">IQRFPackets::getIdCount</a></div><div class="ttdeci">uint8_t getIdCount()</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:75</div></div>
+<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869">IQRFPackets::statuses</a></div><div class="ttdeci">statuses</div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:46</div></div>
+<div class="ttc" id="iqrf__library_8h_html"><div class="ttname"><a href="iqrf__library_8h.html">iqrf_library.h</a></div></div>
+<div class="ttc" id="classIQRFPackets_html_af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06"><div class="ttname"><a href="classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06">IQRFPackets::ERROR</a></div><div class="ttdoc">Packet sent with ERROR. </div><div class="ttdef"><b>Definition:</b> IQRFPackets.h:48</div></div>
+<div class="ttc" id="classIQRFPackets_html_a4c3b4e94944a245582e49b2390d22a74"><div class="ttname"><a href="classIQRFPackets.html#a4c3b4e94944a245582e49b2390d22a74">IQRFPackets::setIdCount</a></div><div class="ttdeci">void setIdCount(uint8_t count)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:67</div></div>
+<div class="ttc" id="classIQRFPackets_html_a03c55b4136cc1f8c109872e67040d3be"><div class="ttname"><a href="classIQRFPackets.html#a03c55b4136cc1f8c109872e67040d3be">IQRFPackets::setId</a></div><div class="ttdeci">void setId(uint8_t id)</div><div class="ttdef"><b>Definition:</b> IQRFPackets.cpp:51</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="IQRFPackets_8h.html">IQRFPackets.h</a></li>
-    <li class="footer">Generated on Sun Jul 17 2016 11:58:21 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 08:29:09 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
