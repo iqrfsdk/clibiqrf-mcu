@@ -1,7 +1,6 @@
 var iqrf__library_8h =
 [
     [ "trInfo_t", "structtrInfo__t.html", "structtrInfo__t" ],
-    [ "packetBuffer_t", "structpacketBuffer__t.html", "structpacketBuffer__t" ],
     [ "IQRF_Driver", "iqrf__library_8h.html#a020699a7e5e646534a43829ce1324ae5", null ],
     [ "IQRF_GetRxData", "iqrf__library_8h.html#a31994cec03064bff07d66d64d433491c", null ],
     [ "IQRF_Init", "iqrf__library_8h.html#affff97e51c5625e429f1a12fe97d83ff", null ],

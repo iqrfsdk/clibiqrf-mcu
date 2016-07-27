@@ -20,6 +20,6 @@ var searchData=
   ['setuscount0',['setUsCount0',['../classIQRF.html#afe9b8d3886072b7d78f4c5820c4fda6c',1,'IQRF']]],
   ['setuscount1',['setUsCount1',['../classIQRF.html#a2d4784d21c8e084761092d063570f4d8',1,'IQRF']]],
   ['slow_5fmode',['SLOW_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826ad5bfe17d178e8bd590c44f39b65aaad0',1,'IQRFSPI']]],
-  ['spicmd',['spiCmd',['../structpacketBuffer__t.html#ac1cc7c7286b13d4e17bad40640b32959',1,'packetBuffer_t']]],
+  ['spicmd',['spiCmd',['../structIQRFPackets_1_1buffer__t.html#a68f86c36f5272062e0935760123790de',1,'IQRFPackets::buffer_t']]],
   ['statuses',['statuses',['../classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869',1,'IQRFPackets::statuses()'],['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826',1,'IQRFSPI::statuses()']]]
 ];

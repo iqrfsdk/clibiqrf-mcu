@@ -16,7 +16,7 @@ var iqrf__library_8cpp =
     [ "_tr", "iqrf__library_8cpp.html#aadde70242224399a4bb9dcb84fa1bdab", null ],
     [ "dataLength", "iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102", null ],
     [ "endPgmMode", "iqrf__library_8cpp.html#a3b735646c59523ad497e77173824e284", null ],
-    [ "iqrfPacketBuffer", "iqrf__library_8cpp.html#aa2620de77c5051751b94498b34d59f24", null ],
+    [ "iqrfPacketBuffer", "iqrf__library_8cpp.html#ad347954b77f34f640222a5902a0312b5", null ],
     [ "packetBufferInPtr", "iqrf__library_8cpp.html#aea9c2b209b66a2ea10edd0a192f7f82c", null ],
     [ "packetBufferOutPtr", "iqrf__library_8cpp.html#a3d28fb6b65a7fa4778db032f868de1ec", null ],
     [ "trInfo", "iqrf__library_8cpp.html#a00337c2799710312d0473aa3322c2d9a", null ]
