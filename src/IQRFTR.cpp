@@ -166,3 +166,8 @@ void IQRFTR::setInfoReadingStatus(uint8_t status) {
 uint8_t IQRFTR::getInfoReadingStatus() {
 	return this->infoReading;
 }
+
+void IQRFTR::identify() {
+	// TR info data processed
+	this->infoReading--;
+}

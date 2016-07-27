@@ -331,8 +331,7 @@ void trIdentify() {
 	trInfo.fcc = (_buffers->getRxBuffer()[7] & 0x08) >> 3;
 	trInfo.moduleType = _buffers->getRxBuffer()[7] >> 4;
 	trInfo.osBuild = (uint16_t) _buffers->getRxBuffer()[9] << 8 | _buffers->getRxBuffer()[8];
-	// TR info data processed
-	_tr->setInfoReadingStatus(_tr->getInfoReadingStatus() - 1);
+	_tr->identify();
 }
 
 /**

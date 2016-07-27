@@ -49,6 +49,7 @@ public:
 	void controlTask();
 	void setInfoReadingStatus(uint8_t status);
 	uint8_t getInfoReadingStatus();
+	void identify();
 
 	/**
 	 * TR control statuses
