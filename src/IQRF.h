@@ -4,7 +4,7 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.1
  *
- * Copyright 2015 MICRORISC s.r.o.
+ * Copyright 2015-2016 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@
  */
 class IQRF {
 public:
+	void driver();
 	uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 	void setPTYPE(uint8_t PTYPE);
 	uint8_t getPTYPE();
@@ -55,7 +56,7 @@ private:
 	/// Microsecond counter 1
 	unsigned long usCounter1;
 	/// Instance of IQRFSPI class
-	IQRFSPI* spi = new IQRFSPI;
+	IQRFSPI spi;
 };
 
 #endif

@@ -4,7 +4,7 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.1
  *
- * Copyright 2015 MICRORISC s.r.o.
+ * Copyright 2015-2016 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ void IQSPI::begin() {
 	pinMode(TR_SS_PIN, OUTPUT);
 	digitalWrite(TR_SS_PIN, HIGH);
 #if defined(__PIC32MX__)
-	spi->begin();
-	spi->setSpeed(IQSPI_CLOCK);
-	spi->setPinSelect(TR_SS_PIN);
+	spi.begin();
+	spi.setSpeed(IQSPI_CLOCK);
+	spi.setPinSelect(TR_SS_PIN);
 #else
 	SPI.begin();
 #endif
@@ -41,7 +41,7 @@ void IQSPI::begin() {
  */
 void IQSPI::end() {
 #if defined(__PIC32MX__)
-	spi->end();
+	spi.end();
 #else
 	SPI.end();
 #endif
@@ -55,11 +55,11 @@ void IQSPI::end() {
 uint8_t IQSPI::transfer(uint8_t txByte) {
 	uint8_t rxByte;
 #if defined(__PIC32MX__)
-	spi->setSelect(LOW);
+	spi.setSelect(LOW);
 	delayMicroseconds(10);
-	spi->transfer(1, txByte, &rxByte);
+	spi.transfer(1, txByte, &rxByte);
 	delayMicroseconds(10);
-	spi->setSelect(HIGH);
+	spi.setSelect(HIGH);
 #else
 	pinMode(TR_SS_PIN, OUTPUT);
 	digitalWrite(TR_SS_PIN, LOW);

@@ -4,7 +4,7 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.1
  *
- * Copyright 2015 MICRORISC s.r.o.
+ * Copyright 2015-2016 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,14 @@
 #include "IQRF.h"
 
 /**
+ * Periodically called IQRF_Driver
+ */
+void IQRF::driver() {
+	IQRF_Driver();
+}
+
+
+/**
  * Function sends data from buffer to TR module
  * @param dataBuffer Pointer to a buffer that contains data that I want to send to TR module
  * @param dataLength Number of bytes to send
@@ -30,7 +38,7 @@
  * @return Tx packet ID (number 1-255)
  */
 uint8_t IQRF::sendData(uint8_t* dataBuffer, uint8_t dataLength, uint8_t unallocationFlag) {
-	return TR_SendSpiPacket(spi->commands::WR_RD, dataBuffer, dataLength, unallocationFlag);
+	return TR_SendSpiPacket(spi.commands::WR_RD, dataBuffer, dataLength, unallocationFlag);
 }
 
 /**

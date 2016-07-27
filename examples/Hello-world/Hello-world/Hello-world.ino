@@ -63,8 +63,8 @@ typedef struct {
 appVarsStruct appVars;
 
 /// Instances
-IQRF* iqrf = new IQRF;
-IQRFTR* iqrfTr = new IQRFTR;
+IQRF iqrf;
+IQRFTR iqrfTr;
 
 // Const data
 const char testBuffer[12] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!'};
@@ -84,10 +84,10 @@ void setup() {
 	IQRF_Init(rxHandler, txHandler);
 	// Info - TR
 	switch (IQRF_GetModuleType()) {
-		case iqrfTr->types::TR_52D:
+		case iqrfTr.types::TR_52D:
 			Serial.println("Module type: TR-52D");
 			break;
-		case iqrfTr->types::TR_72D:
+		case iqrfTr.types::TR_72D:
 			Serial.println("Module type: TR-72D");
 			break;
 		default:
@@ -114,7 +114,7 @@ void setup() {
  */
 void loop() {
 	// TR module SPI comunication driver
-	IQRF_Driver();
+	iqrf.driver();
 	// Test send data every 5s
 	if (appVars.timerAck) {
 		// Allocate memory for Tx packet
@@ -123,7 +123,7 @@ void loop() {
 			// Copy data from test to Tx packet
 			memcpy(appVars.txBuffer, (uint8_t *) & testBuffer, sizeof(testBuffer));
 			// Send data and unallocate data buffer
-			appVars.packetId = iqrf->sendData(appVars.txBuffer, sizeof(testBuffer), 1);
+			appVars.packetId = iqrf.sendData(appVars.txBuffer, sizeof(testBuffer), 1);
 		}
 		appVars.timerAck = false;
 	}

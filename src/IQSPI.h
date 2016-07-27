@@ -4,7 +4,7 @@
  * @author Roman Ondráček <ondracek.roman@centrum.cz>
  * @version 1.1
  *
- * Copyright 2015 MICRORISC s.r.o.
+ * Copyright 2015-2016 MICRORISC s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public:
 private:
 #if defined(__PIC32MX__)
 	/// Instance of chipKIT SPI class
-	DSPI0* spi = new DSPI0;
+	DSPI0 spi;
 #endif
 };
 
