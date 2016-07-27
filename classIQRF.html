@@ -115,6 +115,14 @@ $(document).ready(function(){initNavTree('classIQRF.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2bece3d1b0c39f72f52bbdd0f6ed3b24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#a2bece3d1b0c39f72f52bbdd0f6ed3b24">begin</a> (<a class="el" href="classIQRFCallbacks.html#a9308476669c31bbe0c5aec8e7597d441">IQRFCallbacks::rxCallback_t</a> rxCallback, <a class="el" href="classIQRFCallbacks.html#af641e5281437ce61cfbabd06952d63db">IQRFCallbacks::txCallback_t</a> txCallback)</td></tr>
+<tr class="separator:a2bece3d1b0c39f72f52bbdd0f6ed3b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe36db5c42d2d87b16ef6d48ebcce74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74">driver</a> ()</td></tr>
+<tr class="separator:adbe36db5c42d2d87b16ef6d48ebcce74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e8fe55a098096412743299c8690810"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a> ()</td></tr>
+<tr class="separator:a77e8fe55a098096412743299c8690810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0aa033b5db05072e60242ea2942422b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#ab0aa033b5db05072e60242ea2942422b">getData</a> (uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>)</td></tr>
+<tr class="separator:ab0aa033b5db05072e60242ea2942422b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa58c7a8b74f2e2f36fee9191aea9d1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#acaa58c7a8b74f2e2f36fee9191aea9d1">sendData</a> (uint8_t *dataBuffer, uint8_t <a class="el" href="iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102">dataLength</a>, uint8_t unallocationFlag)</td></tr>
 <tr class="separator:acaa58c7a8b74f2e2f36fee9191aea9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8d548d5dbf516797ef3be68f377cc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRF.html#a0c8d548d5dbf516797ef3be68f377cc2">setPTYPE</a> (uint8_t PTYPE)</td></tr>
@@ -142,6 +150,58 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classIQRF.html">IQRF</a> </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#_a2">Hello-world.ino</a>.</dd>
 </dl></div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2bece3d1b0c39f72f52bbdd0f6ed3b24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRF::begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIQRFCallbacks.html#a9308476669c31bbe0c5aec8e7597d441">IQRFCallbacks::rxCallback_t</a>&#160;</td>
+          <td class="paramname"><em>rxCallback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIQRFCallbacks.html#af641e5281437ce61cfbabd06952d63db">IQRFCallbacks::txCallback_t</a>&#160;</td>
+          <td class="paramname"><em>txCallback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function perform a TR-module driver initialization Function performes initialization of trInfo identification data structure </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxCallback</td><td>Pointer to callback function. Function is called when the driver receives data from the TR module </td></tr>
+    <tr><td class="paramname">txCallback</td><td>Pointer to callback function. unction is called when the driver sent data to the TR module </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a4">Hello-world.ino</a>.</dd>
+</dl>
+</div>
+</div>
+<a class="anchor" id="adbe36db5c42d2d87b16ef6d48ebcce74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRF::driver </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Periodically called IQRF_Driver </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a7">Hello-world.ino</a>.</dd>
+</dl>
+</div>
+</div>
 <a class="anchor" id="a4efc457d907b1b6aa58e132e2f07a73e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,6 +234,59 @@ Public Member Functions</h2></td></tr>
 <p>Get byte count </p>
 <dl class="section return"><dt>Returns</dt><dd>Byte count </dd></dl>
 
+</div>
+</div>
+<a class="anchor" id="ab0aa033b5db05072e60242ea2942422b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IQRF::getData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>dataBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>dataLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function is usually called inside the callback function, whitch is called when the driver receives data from TR module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataBuffer</td><td>Pointer to my buffer, to which I want to load data received from the TR module </td></tr>
+    <tr><td class="paramname">dataLength</td><td>Number of bytes I want to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a12">Hello-world.ino</a>.</dd>
+</dl>
+</div>
+</div>
+<a class="anchor" id="a77e8fe55a098096412743299c8690810"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRF::getDataLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get size of Rx data </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes recieved from TR module </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a14">Hello-world.ino</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="aad913239cfe08ec42a70b8886f8eac21"></a>
@@ -395,7 +508,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIQRF.html">IQRF</a></li>
-    <li class="footer">Generated on Wed Jul 27 2016 12:16:29 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 19:37:57 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

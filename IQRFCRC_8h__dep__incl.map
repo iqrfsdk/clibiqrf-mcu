@@ -1,11 +1,13 @@
 <map id="src/IQRFCRC.h" name="src/IQRFCRC.h">
-<area shape="rect" id="node2" href="$iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="200,80,315,107"/>
-<area shape="rect" id="node10" href="$IQRFCRC_8cpp.html" title="src/IQRFCRC.cpp" alt="" coords="339,80,468,107"/>
-<area shape="rect" id="node3" href="$CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="27,155,189,181"/>
-<area shape="rect" id="node5" href="$IQRF_8h.html" title="src/IQRF.h" alt="" coords="214,155,300,181"/>
-<area shape="rect" id="node7" href="$IQRFPackets_8h.html" title="src/IQRFPackets.h" alt="" coords="325,155,459,181"/>
-<area shape="rect" id="node9" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="483,155,612,181"/>
+<area shape="rect" id="node2" href="$iqrf__library_8h.html" title="src/iqrf_library.h" alt="" coords="341,80,456,107"/>
+<area shape="rect" id="node12" href="$IQRFCRC_8cpp.html" title="src/IQRFCRC.cpp" alt="" coords="480,80,609,107"/>
+<area shape="rect" id="node3" href="$CallbackFunctions_8h.html" title="src/CallbackFunctions.h" alt="" coords="33,155,196,181"/>
+<area shape="rect" id="node5" href="$IQRF_8h.html" title="src/IQRF.h" alt="" coords="221,155,307,181"/>
+<area shape="rect" id="node7" href="$IQRFPackets_8h.html" title="src/IQRFPackets.h" alt="" coords="331,155,465,181"/>
+<area shape="rect" id="node9" href="$IQRFTR_8h.html" title="src/IQRFTR.h" alt="" coords="490,155,595,181"/>
+<area shape="rect" id="node11" href="$iqrf__library_8cpp.html" title="src/iqrf_library.cpp" alt="" coords="619,155,748,181"/>
 <area shape="rect" id="node4" href="$CallbackFunctions_8cpp.html" title="src/CallbackFunctions.cpp" alt="" coords="5,229,181,256"/>
 <area shape="rect" id="node6" href="$IQRF_8cpp.html" title="src/IQRF.cpp" alt="" coords="207,229,308,256"/>
 <area shape="rect" id="node8" href="$IQRFPackets_8cpp.html" title="src/IQRFPackets.cpp" alt="" coords="332,229,480,256"/>
+<area shape="rect" id="node10" href="$IQRFTR_8cpp.html" title="src/IQRFTR.cpp" alt="" coords="505,229,623,256"/>
 </map>

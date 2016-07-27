@@ -179,6 +179,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a202921bf68c40dc32586d73b1df49520"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a202921bf68c40dc32586d73b1df49520"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>identify</b> ()</td></tr>
 <tr class="separator:a202921bf68c40dc32586d73b1df49520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f27c1d181193aa9774cc4f7e18dca65"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">getOsVersion</a> ()</td></tr>
+<tr class="separator:a8f27c1d181193aa9774cc4f7e18dca65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19753d422cdd1e64447333d1ee38576a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a">getOsBuild</a> ()</td></tr>
+<tr class="separator:a19753d422cdd1e64447333d1ee38576a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d3a1bf0648eee21dcc5e2fce5cbd7f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#ab8d3a1bf0648eee21dcc5e2fce5cbd7f">getId</a> ()</td></tr>
+<tr class="separator:ab8d3a1bf0648eee21dcc5e2fce5cbd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc24ab824d0b366514a1692b6cb7939"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939">getMcuType</a> ()</td></tr>
+<tr class="separator:a9bc24ab824d0b366514a1692b6cb7939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe260864626511966f9780c858dc2fc3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#afe260864626511966f9780c858dc2fc3">getType</a> ()</td></tr>
+<tr class="separator:afe260864626511966f9780c858dc2fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b75b2478fb6655a9d128d094caf933"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">getFccStatus</a> ()</td></tr>
+<tr class="separator:ae9b75b2478fb6655a9d128d094caf933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0435c223b8a8b6639b57fb72381e8f1b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIQRFTR.html#a0435c223b8a8b6639b57fb72381e8f1b">getRawInfoData</a> (uint8_t position)</td></tr>
+<tr class="separator:a0435c223b8a8b6639b57fb72381e8f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classIQRF.html">IQRF</a> TR </p>
@@ -383,6 +397,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>identify</b> ()</td><
 
 </div>
 </div>
+<a class="anchor" id="ae9b75b2478fb6655a9d128d094caf933"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IQRFTR::getFccStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get FCC certification status </p>
+<dl class="section return"><dt>Returns</dt><dd>FCC certification status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab8d3a1bf0648eee21dcc5e2fce5cbd7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t IQRFTR::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get TR module ID </p>
+<dl class="section return"><dt>Returns</dt><dd>Unique 32 bit identifier data word of TR module </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a5675709f63c7c8ba80df072ab58af9f4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -397,6 +445,71 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>identify</b> ()</td><
 </div><div class="memdoc">
 <p>Get TR info reading status </p>
 <dl class="section return"><dt>Returns</dt><dd>TR info reading status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9bc24ab824d0b366514a1692b6cb7939"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IQRFTR::getMcuType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get MCU model inside TR module </p>
+<dl class="section return"><dt>Returns</dt><dd>MCU type <table class="doxtable">
+<tr>
+<th>Code </th><th>Type  </th></tr>
+<tr>
+<td>0 </td><td>unknown type </td></tr>
+<tr>
+<td>1 </td><td>PIC16LF819 </td></tr>
+<tr>
+<td>2 </td><td>PIC16LF88 </td></tr>
+<tr>
+<td>3 </td><td>PIC16F886 </td></tr>
+<tr>
+<td>4 </td><td>PIC16LF1938 </td></tr>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a19753d422cdd1e64447333d1ee38576a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IQRFTR::getOsBuild </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get OS build </p>
+<dl class="section return"><dt>Returns</dt><dd>Build of OS used inside of TR module </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f27c1d181193aa9774cc4f7e18dca65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IQRFTR::getOsVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get OS version </p>
+<dl class="section return"><dt>Returns</dt><dd>Version of OS used inside of TR module </dd></dl>
 
 </div>
 </div>
@@ -415,6 +528,64 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>identify</b> ()</td><
 <p>Get programming flag </p>
 <dl class="section return"><dt>Returns</dt><dd>Programming flag </dd></dl>
 
+</div>
+</div>
+<a class="anchor" id="a0435c223b8a8b6639b57fb72381e8f1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t IQRFTR::getRawInfoData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get raw info data about TR module </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position in info raw buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Data byte from info raw buffer </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afe260864626511966f9780c858dc2fc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t IQRFTR::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get TR module type </p>
+<dl class="section return"><dt>Returns</dt><dd>TR module type <table class="doxtable">
+<tr>
+<th>Code </th><th>Model  </th></tr>
+<tr>
+<td>0 </td><td>TR_52D </td></tr>
+<tr>
+<td>1 </td><td>TR_58D_RJ </td></tr>
+<tr>
+<td>2 </td><td>TR_72D </td></tr>
+<tr>
+<td>8 </td><td>TR_54D </td></tr>
+<tr>
+<td>9 </td><td>TR_55D </td></tr>
+<tr>
+<td>10 </td><td>TR_56D </td></tr>
+</table>
+</dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Hello-world_8ino-example.html#a5">Hello-world.ino</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="a12c0fb8cff8dd1b261821c054ada2778"></a>
@@ -521,7 +692,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>identify</b> ()</td><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classIQRFTR.html">IQRFTR</a></li>
-    <li class="footer">Generated on Wed Jul 27 2016 12:16:29 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Wed Jul 27 2016 19:37:57 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
