@@ -22,10 +22,10 @@
 #ifndef IQRFTR_H
 #define IQRFTR_H
 
-#if defined(__AVR__)
-#include <Arduino.h>
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 #include <WProgram.h>
+#else
+#include <Arduino.h>
 #endif
 
 #include "IQRFSettings.h"

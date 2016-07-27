@@ -24,15 +24,16 @@
 
 #define IQSPI_CLOCK 250000 //!< SPI clock 250kHz
 
-#include <stdint.h>
-#include "IQRFSettings.h"
-#if defined(__AVR__)
-#include <Arduino.h>
-#include <SPI.h>
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 #include <WProgram.h>
 #include <DSPI.h>
+#else
+#include <Arduino.h>
+#include <SPI.h>
 #endif
+#include <stdint.h>
+
+#include "IQRFSettings.h"
 
 /**
  * SPI interface for AVR and PIC32 MCU

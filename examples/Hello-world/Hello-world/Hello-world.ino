@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-#if defined(__AVR__)
-#include <Arduino.h>
-#include <MsTimer2.h>
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 #include <WProgram.h>
+#else
+#include <Arduino.h>
+#endif
+
+#if defined(__AVR__)
+#include <MsTimer2.h>
+#elif defined(__SAM3X8E__)
+#include <DueTimer.h>
 #endif
 
 #include <stddef.h>
@@ -37,10 +42,10 @@ void setup();
 void loop();
 void rxHandler();
 void txHandler(uint8_t packetId, uint8_t packetResult);
-#if defined(__AVR__)
-void msTimerCallback();
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 uint32_t msTimerCallback(uint32_t currentTime);
+#else
+void msTimerCallback();
 #endif
 
 // GLOBAL VARIABLES
@@ -72,6 +77,9 @@ void setup() {
 	pinMode(13, OUTPUT);
 	// Up - PC
 	Serial.begin(9600);
+	// Wait for Serial
+	while (!Serial) {
+	}
 	// Down - IQRF
 	IQRF_Init(rxHandler, txHandler);
 	// Info - TR
@@ -89,6 +97,8 @@ void setup() {
 #if defined(__AVR__)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();
+#elif defined(__SAM3X8E__)
+	Timer6.attachInterrupt(msTimerCallback).start(1000);
 #elif defined(__PIC32MX__)
 	attachCoreTimerService(msTimerCallback);
 #endif
@@ -119,21 +129,7 @@ void loop() {
 	}
 }
 
-#if defined(__AVR__)
-
-/**
- * 1ms timer callback
- */
-void msTimerCallback() {
-	// App timer, call handler
-	if (appVars.timer) {
-		if ((--appVars.timer) == 0) {
-			appVars.timerAck = true;
-			appVars.timer = USER_TIMER_PERIOD;
-		}
-	}
-}
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 
 /**
  * 1ms timer callback
@@ -150,6 +146,22 @@ uint32_t msTimerCallback(uint32_t currentTime) {
 	}
 	return(currentTime + CORE_TICK_RATE);
 }
+
+#else
+
+/**
+ * 1ms timer callback
+ */
+void msTimerCallback() {
+	// App timer, call handler
+	if (appVars.timer) {
+		if ((--appVars.timer) == 0) {
+			appVars.timerAck = true;
+			appVars.timer = USER_TIMER_PERIOD;
+		}
+	}
+}
+
 #endif
 
 /**

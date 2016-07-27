@@ -27,12 +27,12 @@
 void IQSPI::begin() {
 	pinMode(TR_SS_PIN, OUTPUT);
 	digitalWrite(TR_SS_PIN, HIGH);
-#if defined(__AVR__)
-	SPI.begin();
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 	spi->begin();
 	spi->setSpeed(IQSPI_CLOCK);
 	spi->setPinSelect(TR_SS_PIN);
+#else
+	SPI.begin();
 #endif
 }
 
@@ -40,10 +40,10 @@ void IQSPI::begin() {
  * Disable the SPI bud
  */
 void IQSPI::end() {
-#if defined(__AVR__)
-	SPI.end();
-#elif defined(__PIC32MX__)
+#if defined(__PIC32MX__)
 	spi->end();
+#else
+	SPI.end();
 #endif
 }
 
@@ -54,7 +54,13 @@ void IQSPI::end() {
  */
 uint8_t IQSPI::transfer(uint8_t txByte) {
 	uint8_t rxByte;
-#if defined(__AVR__)
+#if defined(__PIC32MX__)
+	spi->setSelect(LOW);
+	delayMicroseconds(10);
+	spi->transfer(1, txByte, &rxByte);
+	delayMicroseconds(10);
+	spi->setSelect(HIGH);
+#else
 	pinMode(TR_SS_PIN, OUTPUT);
 	digitalWrite(TR_SS_PIN, LOW);
 	delayMicroseconds(10);
@@ -63,12 +69,6 @@ uint8_t IQSPI::transfer(uint8_t txByte) {
 	SPI.endTransaction();
 	delayMicroseconds(10);
 	digitalWrite(TR_SS_PIN, HIGH);
-#elif defined(__PIC32MX__)
-	spi->setSelect(LOW);
-	delayMicroseconds(10);
-	spi->transfer(1, txByte, &rxByte);
-	delayMicroseconds(10);
-	spi->setSelect(HIGH);
 #endif
 	return rxByte;
 }

@@ -39,6 +39,7 @@ public:
 	uint8_t getIdCount();
 	void setLength(uint8_t length);
 	uint8_t getLength();
+
 	/**
 	 * Tx packet statuses
 	 */

@@ -26,8 +26,6 @@
 
 #include "iqrf_library.h"
 
-using namespace std;
-
 void doNothingRx();
 void doNothingTx(uint8_t packetId, uint8_t packetResult);
 void identifyRx();

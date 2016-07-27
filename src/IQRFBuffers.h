@@ -35,7 +35,7 @@ public:
 	uint8_t* getRxBuffer();
 	uint8_t getRxBufferSize();
 	uint8_t getRxData(uint8_t position);
-void setRxData(uint8_t position, uint8_t data);
+	void setRxData(uint8_t position, uint8_t data);
 private:
 	/// SPI Rx buffer
 	uint8_t rxBuffer[PACKET_SIZE];
