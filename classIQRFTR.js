@@ -34,6 +34,7 @@ var classIQRFTR =
     [ "getControlStatus", "classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d", null ],
     [ "getInfoReadingStatus", "classIQRFTR.html#a5675709f63c7c8ba80df072ab58af9f4", null ],
     [ "getProgramFlag", "classIQRFTR.html#aae4c5a6014dfdadc9d94d2847b2e871b", null ],
+    [ "identify", "classIQRFTR.html#a202921bf68c40dc32586d73b1df49520", null ],
     [ "reset", "classIQRFTR.html#a12c0fb8cff8dd1b261821c054ada2778", null ],
     [ "setControlStatus", "classIQRFTR.html#adeeddc1036ae1fad59603682c01747ed", null ],
     [ "setInfoReadingStatus", "classIQRFTR.html#a49add0efc37d39cc9734533c61801221", null ],
