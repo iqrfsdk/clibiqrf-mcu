@@ -1,12 +1,12 @@
 <map id="src/iqrf_library.h" name="src/iqrf_library.h">
-<area shape="rect" id="node5" href="$CallbackFunctions_8h.html" title="CallbackFunctions.h" alt="" coords="349,80,489,107"/>
-<area shape="rect" id="node6" href="$IQRF_8h.html" title="IQRF.h" alt="" coords="209,80,273,107"/>
-<area shape="rect" id="node7" href="$IQRFCallbacks_8h.html" title="IQRFCallbacks.h" alt="" coords="101,155,224,181"/>
-<area shape="rect" id="node8" href="$IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="590,155,676,181"/>
-<area shape="rect" id="node9" href="$IQSPI_8h.html" title="IQSPI.h" alt="" coords="803,229,872,256"/>
-<area shape="rect" id="node11" href="$IQRFSettings_8h.html" title="IQRFSettings.h" alt="" coords="658,304,771,331"/>
-<area shape="rect" id="node12" href="$IQRFBuffers_8h.html" title="IQRFBuffers.h" alt="" coords="501,229,608,256"/>
-<area shape="rect" id="node13" href="$IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="5,229,99,256"/>
-<area shape="rect" id="node14" href="$IQRFPackets_8h.html" title="IQRFPackets.h" alt="" coords="401,155,513,181"/>
-<area shape="rect" id="node15" href="$IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="752,80,833,107"/>
+<area shape="rect" id="node5" href="$CallbackFunctions_8h.html" title="CallbackFunctions.h" alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node6" href="$IQRF_8h.html" title="IQRF.h" alt="" coords="597,80,661,107"/>
+<area shape="rect" id="node7" href="$IQRFSPI_8h.html" title="IQRFSPI.h" alt="" coords="657,155,743,181"/>
+<area shape="rect" id="node8" href="$IQSPI_8h.html" title="IQSPI.h" alt="" coords="869,229,939,256"/>
+<area shape="rect" id="node10" href="$IQRFSettings_8h.html" title="IQRFSettings.h" alt="" coords="725,304,837,331"/>
+<area shape="rect" id="node11" href="$IQRFBuffers_8h.html" title="IQRFBuffers.h" alt="" coords="637,229,744,256"/>
+<area shape="rect" id="node12" href="$IQRFCallbacks_8h.html" title="IQRFCallbacks.h" alt="" coords="167,155,289,181"/>
+<area shape="rect" id="node13" href="$IQRFCRC_8h.html" title="IQRFCRC.h" alt="" coords="265,229,359,256"/>
+<area shape="rect" id="node14" href="$IQRFPackets_8h.html" title="IQRFPackets.h" alt="" coords="417,155,529,181"/>
+<area shape="rect" id="node15" href="$IQRFTR_8h.html" title="IQRFTR.h" alt="" coords="819,80,900,107"/>
 </map>

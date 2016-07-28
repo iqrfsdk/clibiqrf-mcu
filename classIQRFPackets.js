@@ -1,6 +1,5 @@
 var classIQRFPackets =
 [
-    [ "buffer_t", "structIQRFPackets_1_1buffer__t.html", "structIQRFPackets_1_1buffer__t" ],
     [ "statuses", "classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869", [
       [ "OK", "classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869a4064c887308f05b2647e5ac932aaa310", null ],
       [ "ERROR", "classIQRFPackets.html#af0cc934ee73b3f929a17d33be78ee869aded7e90e5aa826b53d2818fafc263a06", null ]

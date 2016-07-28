@@ -9,5 +9,6 @@ var annotated =
     [ "IQRFSPI", "classIQRFSPI.html", "classIQRFSPI" ],
     [ "IQRFTR", "classIQRFTR.html", "classIQRFTR" ],
     [ "IQSPI", "classIQSPI.html", "classIQSPI" ],
+    [ "packetBuffer_t", "structpacketBuffer__t.html", "structpacketBuffer__t" ],
     [ "trInfo_t", "structtrInfo__t.html", "structtrInfo__t" ]
 ];

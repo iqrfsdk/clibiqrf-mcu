@@ -1,8 +1,8 @@
 var searchData=
 [
   ['data_5ftransfer',['DATA_TRANSFER',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a419c02c8cdb1b4ea594c63f2e057c8af',1,'IQRFSPI']]],
-  ['databuffer',['dataBuffer',['../structIQRFPackets_1_1buffer__t.html#a77d8de9239131026f12419d16958889c',1,'IQRFPackets::buffer_t']]],
-  ['datalength',['dataLength',['../structIQRFPackets_1_1buffer__t.html#a4818efb3bc9752bf79178d5ddddc5d75',1,'IQRFPackets::buffer_t::dataLength()'],['../iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102',1,'dataLength():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102',1,'dataLength():&#160;iqrf_library.cpp']]],
+  ['databuffer',['dataBuffer',['../structpacketBuffer__t.html#ab8a29db74a33087b470616c10a30ac89',1,'packetBuffer_t']]],
+  ['datalength',['dataLength',['../structpacketBuffer__t.html#a39aa4df965a75be9c1aa6062538ca134',1,'packetBuffer_t::dataLength()'],['../iqrf__library_8cpp.html#a1ba388ee46e00444f79b0e822feac102',1,'dataLength():&#160;iqrf_library.cpp'],['../iqrf__library_8h.html#a1ba388ee46e00444f79b0e822feac102',1,'dataLength():&#160;iqrf_library.cpp']]],
   ['debug_5fmode',['DEBUG_MODE',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a8dceec0e67e9921687789e20169c08fd',1,'IQRFSPI']]],
   ['disabled',['DISABLED',['../classIQRFSPI.html#a02059c96441f36c0e9ca6a8640b3b826a4cf4ac49cafdb28bad0217154adaf413',1,'IQRFSPI']]],
   ['disablefastspi',['disableFastSpi',['../classIQRFSPI.html#a815573427a921959cd2c3bacfe163cb8',1,'IQRFSPI']]],

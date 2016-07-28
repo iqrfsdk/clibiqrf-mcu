@@ -22,8 +22,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "IQRFPackets.cpp", "IQRFPackets_8cpp.html", null ],
     [ "IQRFPackets.h", "IQRFPackets_8h.html", [
-      [ "IQRFPackets", "classIQRFPackets.html", "classIQRFPackets" ],
-      [ "buffer_t", "structIQRFPackets_1_1buffer__t.html", "structIQRFPackets_1_1buffer__t" ]
+      [ "IQRFPackets", "classIQRFPackets.html", "classIQRFPackets" ]
     ] ],
     [ "IQRFSettings.h", "IQRFSettings_8h.html", "IQRFSettings_8h" ],
     [ "IQRFSPI.cpp", "IQRFSPI_8cpp.html", null ],
