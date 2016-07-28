@@ -3,6 +3,7 @@ var classIQRF =
     [ "driver", "classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74", null ],
     [ "getAttepmtsCount", "classIQRF.html#a4efc457d907b1b6aa58e132e2f07a73e", null ],
     [ "getByteCount", "classIQRF.html#aaa7f4ae430d73875b3cdf45d640565b1", null ],
+    [ "getDataLength", "classIQRF.html#a77e8fe55a098096412743299c8690810", null ],
     [ "getPTYPE", "classIQRF.html#aad913239cfe08ec42a70b8886f8eac21", null ],
     [ "getUsCount0", "classIQRF.html#a43e4d58e7f511159adb524378e8ba12b", null ],
     [ "getUsCount1", "classIQRF.html#ad73372206723b385d044afd9001ced42", null ],
