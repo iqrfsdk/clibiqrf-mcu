@@ -85,7 +85,7 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback
 		trInfoTask();
 	}
 	// if TR72D or TR76D is conected
-	if (IQRF_GetModuleType() == _tr.types::TR_72D || IQRF_GetModuleType() == _tr.types::TR_76D) {
+	if (trInfo.moduleType == _tr.types::TR_72D || trInfo.moduleType == _tr.types::TR_76D) {
 		_spi.enableFastSpi();
 		Serial.println("IQRF_Init - set fast spi");
 	}

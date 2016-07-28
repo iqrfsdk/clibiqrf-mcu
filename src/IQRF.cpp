@@ -28,6 +28,14 @@ void IQRF::driver() {
 	IQRF_Driver();
 }
 
+/**
+ * Get size of Rx data
+ * @return Number of bytes recieved from TR module
+ */
+uint8_t IQRF::getDataLength() {
+	return dataLength;
+}
+
 
 /**
  * Function sends data from buffer to TR module

@@ -20,6 +20,7 @@
  */
 
 #include "IQRFTR.h"
+#include "iqrf_library.h"
 
 /**
  * Reset TR module
@@ -170,4 +171,68 @@ uint8_t IQRFTR::getInfoReadingStatus() {
 void IQRFTR::identify() {
 	// TR info data processed
 	this->infoReading--;
+}
+
+/**
+ * Get OS version
+ * @return Version of OS used inside of TR module
+ */
+uint16_t IQRFTR::getOsVersion() {
+	return trInfo.osVersion;
+}
+
+/**
+ * Get OS build
+ * @return Build of OS used inside of TR module
+ */
+uint16_t IQRFTR::getOsBuild() {
+	return trInfo.osBuild;
+}
+
+/**
+ * Get TR module ID
+ * @return Unique 32 bit identifier data word of TR module
+ */
+uint32_t IQRFTR::getModuleId() {
+	return trInfo.moduleId;
+}
+
+/**
+ * Get MCU model inside TR module
+ * @return MCU type
+ * Code |     Type
+ * ---- | ------------
+ *   0  | unknown type
+ *   1  |  PIC16LF819
+ *   2  |  PIC16LF88
+ *   3  |  PIC16F886
+ *   4  | PIC16LF1938
+ */
+uint16_t IQRFTR::getMcuType() {
+	return trInfo.mcuType;
+}
+
+/**
+ * Get TR module type
+ * @return TR module type
+ * Code |   Model
+ * ---- | ---------
+ *   0  |   TR_52D
+ *   1  | TR_58D_RJ
+ *   2  |   TR_72D
+ *   8  |   TR_54D
+ *   9  |   TR_55D
+ *  10  |   TR_56D
+ */
+uint16_t IQRFTR::getModuleType() {
+	return trInfo.moduleType;
+}
+
+/**
+ * Get raw info data about TR module
+ * @param position Position in info raw buffer
+ * @return Data byte from info raw buffer
+ */
+uint8_t IQRFTR::getRawInfoData(uint8_t position) {
+	return trInfo.moduleInfoRawData[position];
 }

@@ -50,6 +50,12 @@ public:
 	void setInfoReadingStatus(uint8_t status);
 	uint8_t getInfoReadingStatus();
 	void identify();
+	uint16_t getOsVersion();
+	uint16_t getOsBuild();
+	uint32_t getModuleId();
+	uint16_t getMcuType();
+	uint16_t getModuleType();
+	uint8_t getRawInfoData(uint8_t position);
 
 	/**
 	 * TR control statuses

@@ -83,7 +83,7 @@ void setup() {
 	// Down - IQRF
 	IQRF_Init(rxHandler, txHandler);
 	// Info - TR
-	switch (IQRF_GetModuleType()) {
+	switch (iqrfTr.getModuleType()) {
 		case iqrfTr.types::TR_52D:
 			Serial.println("Module type: TR-52D");
 			break;
@@ -169,9 +169,9 @@ void msTimerCallback() {
  */
 void rxHandler() {
 	// Read and print received data
-	IQRF_GetRxData(appVars.rxBuffer, IQRF_GetRxDataSize());
+	IQRF_GetRxData(appVars.rxBuffer, iqrf.getDataLength());
 	Serial.print("IQRF receive done: ");
-	Serial.write(appVars.rxBuffer, IQRF_GetRxDataSize());
+	Serial.write(appVars.rxBuffer, iqrf.getDataLength());
 	Serial.println();
 }
 

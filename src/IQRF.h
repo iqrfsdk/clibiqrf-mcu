@@ -33,6 +33,7 @@
 class IQRF {
 public:
 	void driver();
+	uint8_t getDataLength();
 	uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
 	void setPTYPE(uint8_t PTYPE);
 	uint8_t getPTYPE();
