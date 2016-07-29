@@ -81,17 +81,17 @@ void setup() {
 	while (!Serial) {
 	}
 	// Down - IQRF
-	IQRF_Init(rxHandler, txHandler);
+	iqrf.begin(rxHandler, txHandler);
 	// Info - TR
 	switch (iqrfTr.getModuleType()) {
 		case iqrfTr.types::TR_52D:
-			Serial.println("Module type: TR-52D");
+			Serial.println("[IQRF] Module type: TR-52D");
 			break;
 		case iqrfTr.types::TR_72D:
-			Serial.println("Module type: TR-72D");
+			Serial.println("[IQRF] Module type: TR-72D");
 			break;
 		default:
-			Serial.println("Module type: UNKNOWN");
+			Serial.println("[IQRF] Module type: UNKNOWN");
 			break;
 	}
 #if defined(__AVR__)
@@ -105,8 +105,6 @@ void setup() {
 	// Clear variables
 	memset(&appVars, 0, sizeof(appVarsStruct));
 	appVars.timer = USER_TIMER_PERIOD;
-	// Done here
-	Serial.println("Peripherals and IQRF init done");
 }
 
 /**
@@ -170,7 +168,7 @@ void msTimerCallback() {
 void rxHandler() {
 	// Read and print received data
 	IQRF_GetRxData(appVars.rxBuffer, iqrf.getDataLength());
-	Serial.print("IQRF receive done: ");
+	Serial.print("[IQRF] Receive done: ");
 	Serial.write(appVars.rxBuffer, iqrf.getDataLength());
 	Serial.println();
 }
@@ -181,5 +179,5 @@ void rxHandler() {
  * @param packetResult Packet writing result
  */
 void txHandler(uint8_t packetId, uint8_t packetResult) {
-	Serial.println("IQRF send done");
+	Serial.println("[IQRF] Send done");
 }

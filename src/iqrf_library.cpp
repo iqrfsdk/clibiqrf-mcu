@@ -66,11 +66,6 @@ IQSPI _iqSpi;
  * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
  */
 void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback) {
-	_spi.setMasterStatus(_spi.masterStatuses::FREE);
-	_spi.setStatus(_spi.statuses::DISABLED);
-	_iqrf.setUsCount0(0);
-	// normal SPI communication
-	_spi.disableFastSpi();
 	_tr.turnOn();
 	_iqSpi.begin();
 	// enable SPI master function in driver
@@ -87,7 +82,7 @@ void IQRF_Init(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback
 	// if TR72D or TR76D is conected
 	if (trInfo.moduleType == _tr.types::TR_72D || trInfo.moduleType == _tr.types::TR_76D) {
 		_spi.enableFastSpi();
-		Serial.println("IQRF_Init - set fast spi");
+		Serial.println("[IQRF] Enabled Fast SPI");
 	}
 	_callbacks.setRxCallback(rxCallback);
 	_callbacks.setTxCallback(txCallback);

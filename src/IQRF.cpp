@@ -22,6 +22,21 @@
 #include "IQRF.h"
 
 /**
+ * Function perform a TR-module driver initialization
+ * Function performes initialization of trInfo identification data structure
+ * @param rxCallback Pointer to callback function. Function is called when the driver receives data from the TR module
+ * @param txCallback Pointer to callback function. unction is called when the driver sent data to the TR module
+ */
+void IQRF::begin(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback) {
+	spi.setMasterStatus(spi.masterStatuses::FREE);
+	spi.setStatus(spi.statuses::DISABLED);
+	this->usCounter0 = 0;
+	// normal SPI communication
+	spi.disableFastSpi();
+	IQRF_Init(rxCallback, txCallback);
+}
+
+/**
  * Periodically called IQRF_Driver
  */
 void IQRF::driver() {

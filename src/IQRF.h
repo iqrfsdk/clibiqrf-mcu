@@ -24,6 +24,7 @@
 
 #include <stdint.h>
 
+#include "IQRFCallbacks.h"
 #include "IQRFSPI.h"
 #include "iqrf_library.h"
 
@@ -32,6 +33,7 @@
  */
 class IQRF {
 public:
+	void begin(IQRFCallbacks::rxCallback_t rxCallback, IQRFCallbacks::txCallback_t txCallback);
 	void driver();
 	uint8_t getDataLength();
 	uint8_t sendData(uint8_t *dataBuffer, uint8_t dataLength, uint8_t unallocationFlag);
