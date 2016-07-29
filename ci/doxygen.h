@@ -2,6 +2,10 @@
 /**
  * @example Hello-world.ino This example shows how to send data packet.
  */
+/**
+ * @example Get-info.ino This example shows data about TR module.
+ */
+
 
 // Sections
 /**
