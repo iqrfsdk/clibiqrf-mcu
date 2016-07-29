@@ -79,60 +79,60 @@ void setup() {
 	}
 	// Down - IQRF
 	IQRF_Init(rxHandler, txHandler);
-  Serial.print("IQRF OS version: ");
-  Serial.println(iqrfTr.getOsVersion());
-  Serial.print("IQRF OS build: ");
-  Serial.println(iqrfTr.getOsBuild());
-  Serial.print("IQRF module type: ");
-  switch (iqrfTr.getModuleType()) {
-    case iqrfTr.types::TR_52D:
-      Serial.println("TR-52D");
-      break;
-    case iqrfTr.types::TR_58D_RJ:
-      Serial.println("TR-58D-RJ");
-      break;
-    case iqrfTr.types::TR_72D:
-      Serial.println("TR-72D");
-      break;
-    case iqrfTr.types::TR_53D:
-      Serial.println("TR_53D");
-      break;
-    case iqrfTr.types::TR_54D:
-      Serial.println("TR_54D");
-      break;
-    case iqrfTr.types::TR_55D:
-      Serial.println("TR_55D");
-      break;
-    case iqrfTr.types::TR_56D:
-      Serial.println("TR_56D");
-      break;
-    case iqrfTr.types::TR_76D:
-      Serial.println("TR_76D");
-      break;
-    default:
-      Serial.println("UNKNOWN");
-  }
-  Serial.print("IQRF module ID: ");
-  Serial.println(iqrfTr.getModuleId());
-  Serial.print("IQRF module MCU: ");
-  switch(iqrfTr.getMcuType()) {
-    case iqrfTr.mcuTypes::PIC16LF819:
-      Serial.println("PIC16LF819");
-      break;
-    case iqrfTr.mcuTypes::PIC16LF88:
-      Serial.println("PIC16LF88");
-      break;
-    case iqrfTr.mcuTypes::PIC16F886:
-      Serial.println("PIC16F886");
-      break;
-    case iqrfTr.mcuTypes::PIC16LF1938:
-      Serial.println("PIC16LF1938");
-      break;
-    default:
-      Serial.println("UNKNOWN");
-  }
-  Serial.print("IQRF module FCC certification: ");
-  Serial.println(iqrfTr.getFccStatus() ? "YES" : "NO");
+	Serial.print("IQRF OS version: ");
+	Serial.println(iqrfTr.getOsVersion());
+	Serial.print("IQRF OS build: ");
+	Serial.println(iqrfTr.getOsBuild());
+	Serial.print("IQRF module type: ");
+	switch (iqrfTr.getModuleType()) {
+		case iqrfTr.types::TR_52D:
+			Serial.println("TR-52D");
+			break;
+		case iqrfTr.types::TR_58D_RJ:
+			Serial.println("TR-58D-RJ");
+			break;
+		case iqrfTr.types::TR_72D:
+			Serial.println("TR-72D");
+			break;
+		case iqrfTr.types::TR_53D:
+			Serial.println("TR_53D");
+			break;
+		case iqrfTr.types::TR_54D:
+			Serial.println("TR_54D");
+			break;
+		case iqrfTr.types::TR_55D:
+			Serial.println("TR_55D");
+			break;
+		case iqrfTr.types::TR_56D:
+			Serial.println("TR_56D");
+			break;
+		case iqrfTr.types::TR_76D:
+			Serial.println("TR_76D");
+			break;
+		default:
+			Serial.println("UNKNOWN");
+	}
+	Serial.print("IQRF module ID: ");
+	Serial.println(iqrfTr.getModuleId());
+	Serial.print("IQRF module MCU: ");
+	switch (iqrfTr.getMcuType()) {
+		case iqrfTr.mcuTypes::PIC16LF819:
+			Serial.println("PIC16LF819");
+			break;
+		case iqrfTr.mcuTypes::PIC16LF88:
+			Serial.println("PIC16LF88");
+			break;
+		case iqrfTr.mcuTypes::PIC16F886:
+			Serial.println("PIC16F886");
+			break;
+		case iqrfTr.mcuTypes::PIC16LF1938:
+			Serial.println("PIC16LF1938");
+			break;
+		default:
+			Serial.println("UNKNOWN");
+	}
+	Serial.print("IQRF module FCC certification: ");
+	Serial.println(iqrfTr.getFccStatus() ? "YES" : "NO");
 #if defined(__AVR__)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();

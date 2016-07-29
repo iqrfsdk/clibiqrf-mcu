@@ -236,7 +236,6 @@ uint16_t IQRFTR::getFccStatus() {
 	return trInfo.fcc;
 }
 
-
 /**
  * Get raw info data about TR module
  * @param position Position in info raw buffer

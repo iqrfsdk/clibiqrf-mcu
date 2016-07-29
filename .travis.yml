@@ -8,6 +8,7 @@ cache:
         - "~/.platformio"
 env:
     - PLATFORMIO_CI_SRC=examples/Hello-world/Hello-world/Hello-world.ino
+    - PLATFORMIO_CI_SRC=examples/Get-info/Get-info/Get-info.ino
 install:
     # Install PlatformIO
     - pip install -U platformio
