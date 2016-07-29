@@ -212,6 +212,8 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line">    <span class="keywordflow">default</span>:</div>
 <div class="line">      Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
 <div class="line">  }</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;IQRF module FCC certification: &quot;</span>);</div>
+<div class="line">  Serial.println(iqrfTr.<a name="a10"></a><a class="code" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">getFccStatus</a>() ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>);</div>
 <div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
 <div class="line"><span class="preprocessor"></span>    MsTimer2::set(1, msTimerCallback);</div>
 <div class="line">    MsTimer2::start();</div>
@@ -222,16 +224,16 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span>    <span class="comment">// Clear variables</span></div>
 <div class="line">    memset(&amp;appVars, 0, <span class="keyword">sizeof</span>(<a class="code" href="structappVarsStruct.html">appVarsStruct</a>));</div>
-<div class="line">    appVars.<a name="a10"></a><a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
+<div class="line">    appVars.<a name="a11"></a><a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
 <div class="line">    <span class="comment">// Done here</span></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Peripherals and IQRF init done&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">    <span class="comment">// TR module SPI comunication driver</span></div>
-<div class="line">    iqrf.<a name="a11"></a><a class="code" href="classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74">driver</a>();</div>
+<div class="line">    iqrf.<a name="a12"></a><a class="code" href="classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74">driver</a>();</div>
 <div class="line">    <span class="comment">// Test send data every 5s</span></div>
-<div class="line">    <span class="keywordflow">if</span> (appVars.<a name="a12"></a><a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a>) {</div>
+<div class="line">    <span class="keywordflow">if</span> (appVars.<a name="a13"></a><a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a>) {</div>
 <div class="line">        appVars.<a class="code" href="structappVarsStruct.html#a1247ce166faeac4d93fd48acc97a976f">timerAck</a> = <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
@@ -265,7 +267,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="keywordtype">void</span> rxHandler() {</div>
 <div class="line">    <span class="comment">// Read and print received data</span></div>
-<div class="line">    <a name="a13"></a><a class="code" href="iqrf__library_8cpp.html#a31994cec03064bff07d66d64d433491c">IQRF_GetRxData</a>(appVars.<a name="a14"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a name="a15"></a><a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
+<div class="line">    <a name="a14"></a><a class="code" href="iqrf__library_8cpp.html#a31994cec03064bff07d66d64d433491c">IQRF_GetRxData</a>(appVars.<a name="a15"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a name="a16"></a><a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF receive done: &quot;</span>);</div>
 <div class="line">    Serial.write(appVars.<a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
 <div class="line">    Serial.println();</div>
@@ -279,7 +281,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jul 29 2016 08:14:51 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Fri Jul 29 2016 08:23:04 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

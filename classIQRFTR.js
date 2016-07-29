@@ -32,6 +32,7 @@ var classIQRFTR =
     [ "enableProgramFlag", "classIQRFTR.html#a6f161144601a66565e8e1bf760f7d90c", null ],
     [ "enterProgramMode", "classIQRFTR.html#a1c9e6c3860b1e5e95f0dd6cf4e5183ed", null ],
     [ "getControlStatus", "classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d", null ],
+    [ "getFccStatus", "classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933", null ],
     [ "getInfoReadingStatus", "classIQRFTR.html#a5675709f63c7c8ba80df072ab58af9f4", null ],
     [ "getMcuType", "classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939", null ],
     [ "getModuleId", "classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2", null ],
