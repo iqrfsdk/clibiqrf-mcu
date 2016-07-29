@@ -1,5 +1,6 @@
 var classIQRF =
 [
+    [ "begin", "classIQRF.html#a2bece3d1b0c39f72f52bbdd0f6ed3b24", null ],
     [ "driver", "classIQRF.html#adbe36db5c42d2d87b16ef6d48ebcce74", null ],
     [ "getAttepmtsCount", "classIQRF.html#a4efc457d907b1b6aa58e132e2f07a73e", null ],
     [ "getByteCount", "classIQRF.html#aaa7f4ae430d73875b3cdf45d640565b1", null ],

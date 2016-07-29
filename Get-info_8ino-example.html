@@ -159,61 +159,61 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line">    <span class="keywordflow">while</span> (!Serial) {</div>
 <div class="line">    }</div>
 <div class="line">    <span class="comment">// Down - IQRF</span></div>
-<div class="line">    <a name="a4"></a><a class="code" href="iqrf__library_8cpp.html#affff97e51c5625e429f1a12fe97d83ff">IQRF_Init</a>(rxHandler, txHandler);</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF OS version: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a5"></a><a class="code" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">getOsVersion</a>());</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF OS build: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a6"></a><a class="code" href="classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a">getOsBuild</a>());</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF module type: &quot;</span>);</div>
-<div class="line">    <span class="keywordflow">switch</span> (iqrfTr.<a name="a7"></a><a class="code" href="classIQRFTR.html#aa40de369389c13881f61542d8cf8257c">getModuleType</a>()) {</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_52D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR-52D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_58D_RJ:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR-58D-RJ&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_72D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR-72D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_53D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR_53D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_54D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR_54D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_55D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR_55D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_56D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR_56D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_76D:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;TR_76D&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">default</span>:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF module ID: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a8"></a><a class="code" href="classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2">getModuleId</a>());</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF module MCU: &quot;</span>);</div>
-<div class="line">    <span class="keywordflow">switch</span> (iqrfTr.<a name="a9"></a><a class="code" href="classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939">getMcuType</a>()) {</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF819:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;PIC16LF819&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF88:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;PIC16LF88&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16F886:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;PIC16F886&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF1938:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;PIC16LF1938&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">default</span>:</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF module FCC certification: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a10"></a><a class="code" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">getFccStatus</a>() ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>);</div>
+<div class="line">    iqrf.<a name="a4"></a><a class="code" href="classIQRF.html#a2bece3d1b0c39f72f52bbdd0f6ed3b24">begin</a>(rxHandler, txHandler);</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] OS version: &quot;</span>);</div>
+<div class="line">  Serial.println(iqrfTr.<a name="a5"></a><a class="code" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">getOsVersion</a>());</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] OS build: &quot;</span>);</div>
+<div class="line">  Serial.println(iqrfTr.<a name="a6"></a><a class="code" href="classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a">getOsBuild</a>());</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] Module type: &quot;</span>);</div>
+<div class="line">  <span class="keywordflow">switch</span> (iqrfTr.<a name="a7"></a><a class="code" href="classIQRFTR.html#aa40de369389c13881f61542d8cf8257c">getModuleType</a>()) {</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_52D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR-52D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_58D_RJ:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR-58D-RJ&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_72D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR-72D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_53D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR_53D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_54D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR_54D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_55D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR_55D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_56D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR_56D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.types::TR_76D:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;TR_76D&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">default</span>:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] Module ID: &quot;</span>);</div>
+<div class="line">  Serial.println(iqrfTr.<a name="a8"></a><a class="code" href="classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2">getModuleId</a>());</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] Module MCU: &quot;</span>);</div>
+<div class="line">  <span class="keywordflow">switch</span>(iqrfTr.<a name="a9"></a><a class="code" href="classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939">getMcuType</a>()) {</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF819:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;PIC16LF819&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF88:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;PIC16LF88&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16F886:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;PIC16F886&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF1938:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;PIC16LF1938&quot;</span>);</div>
+<div class="line">      <span class="keywordflow">break</span>;</div>
+<div class="line">    <span class="keywordflow">default</span>:</div>
+<div class="line">      Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;[IQRF] Module has FCC certification: &quot;</span>);</div>
+<div class="line">  Serial.println(iqrfTr.<a name="a10"></a><a class="code" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">getFccStatus</a>() ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>);</div>
 <div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
 <div class="line"><span class="preprocessor"></span>    MsTimer2::set(1, msTimerCallback);</div>
 <div class="line">    MsTimer2::start();</div>
@@ -225,8 +225,6 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line"><span class="preprocessor"></span>    <span class="comment">// Clear variables</span></div>
 <div class="line">    memset(&amp;appVars, 0, <span class="keyword">sizeof</span>(<a class="code" href="structappVarsStruct.html">appVarsStruct</a>));</div>
 <div class="line">    appVars.<a name="a11"></a><a class="code" href="structappVarsStruct.html#a6216e731ca0f38e7fb55044624300c00">timer</a> = USER_TIMER_PERIOD;</div>
-<div class="line">    <span class="comment">// Done here</span></div>
-<div class="line">    Serial.println(<span class="stringliteral">&quot;Peripherals and IQRF init done&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -268,20 +266,20 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line"><span class="keywordtype">void</span> rxHandler() {</div>
 <div class="line">    <span class="comment">// Read and print received data</span></div>
 <div class="line">    <a name="a14"></a><a class="code" href="iqrf__library_8cpp.html#a31994cec03064bff07d66d64d433491c">IQRF_GetRxData</a>(appVars.<a name="a15"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a name="a16"></a><a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;IQRF receive done: &quot;</span>);</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Receive done: &quot;</span>);</div>
 <div class="line">    Serial.write(appVars.<a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
 <div class="line">    Serial.println();</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> txHandler(uint8_t packetId, uint8_t packetResult) {</div>
-<div class="line">    Serial.println(<span class="stringliteral">&quot;IQRF send done&quot;</span>);</div>
+<div class="line">    Serial.println(<span class="stringliteral">&quot;[IQRF] Send done&quot;</span>);</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jul 29 2016 08:35:17 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Fri Jul 29 2016 08:50:10 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
