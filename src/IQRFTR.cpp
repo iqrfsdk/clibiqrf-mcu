@@ -229,6 +229,15 @@ uint16_t IQRFTR::getModuleType() {
 }
 
 /**
+ * Get FCC (Federal Communications Commission) certification status
+ * @return FCC (Federal Communications Commission) certification status
+ */
+uint16_t IQRFTR::getFccStatus() {
+	return trInfo.fcc;
+}
+
+
+/**
  * Get raw info data about TR module
  * @param position Position in info raw buffer
  * @return Data byte from info raw buffer

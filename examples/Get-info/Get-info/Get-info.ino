@@ -131,6 +131,8 @@ void setup() {
     default:
       Serial.println("UNKNOWN");
   }
+  Serial.print("IQRF module FCC certification: ");
+  Serial.println(iqrfTr.getFccStatus() ? "YES" : "NO");
 #if defined(__AVR__)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();

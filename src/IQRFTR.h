@@ -55,6 +55,7 @@ public:
 	uint32_t getModuleId();
 	uint16_t getMcuType();
 	uint16_t getModuleType();
+	uint16_t getFccStatus();
 	uint8_t getRawInfoData(uint8_t position);
 
 	/**
