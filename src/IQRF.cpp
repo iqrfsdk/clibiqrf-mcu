@@ -52,6 +52,15 @@ uint8_t IQRF::getDataLength() {
 }
 
 /**
+ * Function is usually called inside the callback function, whitch is called when the driver receives data from TR module
+ * @param dataBuffer Pointer to my buffer, to which I want to load data received from the TR module
+ * @param dataLength Number of bytes I want to read
+ */
+void IQRF::getData(uint8_t* dataBuffer, uint8_t dataLength) {
+	IQRF_GetRxData(dataBuffer, dataLength);
+}
+
+/**
  * Function sends data from buffer to TR module
  * @param dataBuffer Pointer to a buffer that contains data that I want to send to TR module
  * @param dataLength Number of bytes to send

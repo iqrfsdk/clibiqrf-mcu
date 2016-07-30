@@ -28,7 +28,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <iqrf_library.h>
+#include <IQRF.h>
 
 // 5000@1ms = 5s
 #define USER_TIMER_PERIOD 5000
@@ -167,7 +167,7 @@ void msTimerCallback() {
  */
 void rxHandler() {
 	// Read and print received data
-	IQRF_GetRxData(appVars.rxBuffer, iqrf.getDataLength());
+	iqrf.getData(appVars.rxBuffer, iqrf.getDataLength());
 	Serial.print("[IQRF] Receive done: ");
 	Serial.write(appVars.rxBuffer, iqrf.getDataLength());
 	Serial.println();
