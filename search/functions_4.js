@@ -4,6 +4,7 @@ var searchData=
   ['getbytecount',['getByteCount',['../classIQRF.html#aaa7f4ae430d73875b3cdf45d640565b1',1,'IQRF']]],
   ['getbytepause',['getBytePause',['../classIQRFSPI.html#aae5a280703ea8f1803945f609e63c2e1',1,'IQRFSPI']]],
   ['getcontrolstatus',['getControlStatus',['../classIQRFTR.html#a7f0634d559c191d52f2c2f150671b94d',1,'IQRFTR']]],
+  ['getdata',['getData',['../classIQRF.html#ab0aa033b5db05072e60242ea2942422b',1,'IQRF']]],
   ['getdatalength',['getDataLength',['../classIQRF.html#a77e8fe55a098096412743299c8690810',1,'IQRF']]],
   ['getfccstatus',['getFccStatus',['../classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933',1,'IQRFTR']]],
   ['getid',['getId',['../classIQRFPackets.html#af3bd25e92a5789461b36d67d733b34e1',1,'IQRFPackets']]],

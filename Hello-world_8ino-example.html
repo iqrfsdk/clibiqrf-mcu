@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iqrf__library_8h.html">iqrf_library.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="IQRF_8h.html">IQRF.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// 5000@1ms = 5s</span></div>
 <div class="line"><span class="preprocessor">#define USER_TIMER_PERIOD 5000</span></div>
@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <div class="line"><span class="preprocessor"></span></div>
 <div class="line"><span class="keywordtype">void</span> rxHandler() {</div>
 <div class="line">    <span class="comment">// Read and print received data</span></div>
-<div class="line">    <a name="a12"></a><a class="code" href="iqrf__library_8cpp.html#a31994cec03064bff07d66d64d433491c">IQRF_GetRxData</a>(appVars.<a name="a13"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a name="a14"></a><a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
+<div class="line">    iqrf.<a name="a12"></a><a class="code" href="classIQRF.html#ab0aa033b5db05072e60242ea2942422b">getData</a>(appVars.<a name="a13"></a><a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a name="a14"></a><a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Receive done: &quot;</span>);</div>
 <div class="line">    Serial.write(appVars.<a class="code" href="structappVarsStruct.html#afab68e4c3645c7ac8c1838032ab8fdc1">rxBuffer</a>, iqrf.<a class="code" href="classIQRF.html#a77e8fe55a098096412743299c8690810">getDataLength</a>());</div>
 <div class="line">    Serial.println();</div>
@@ -248,7 +248,7 @@ $(document).ready(function(){initNavTree('Hello-world_8ino-example.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jul 29 2016 08:50:10 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Sat Jul 30 2016 16:43:33 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
