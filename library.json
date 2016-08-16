@@ -45,5 +45,10 @@
   ],
   "examples": [
     "examples/*/*/*.ino"
+  ],
+  "exclude": [
+    "ci/",
+    ".gitignore",
+    ".travis.yml"
   ]
 }
