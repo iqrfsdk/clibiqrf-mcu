@@ -10,12 +10,12 @@ env:
     - PLATFORMIO_CI_SRC=examples/Hello-world/Hello-world/Hello-world.ino
     - PLATFORMIO_CI_SRC=examples/Get-info/Get-info/Get-info.ino
 install:
-    # Install PlatformIO
-    - pip install -U platformio
-    # Install MsTimer2 library
-    - platformio lib install 137
+    # - pip install -U platformio
+    # Install development version of PlatformIO 3.0 (remove line below after release)
+    - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+    - platformio lib -g install MsTimer2 DueTimer
 script:
-    - platformio ci --lib="." --board=uno --board=leonardo --board=diecimilaatmega168 --board=megaatmega2560 --board=megaatmega1280
+    - platformio ci --lib="." --project-conf platformio.ini
 after_success:
     - sudo apt-get install doxygen graphviz
     - bash ci/decrypt_key.sh
