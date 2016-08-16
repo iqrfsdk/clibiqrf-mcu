@@ -6,7 +6,8 @@
     "type": "git",
     "url": "https://github.com/iqrfsdk/clibiqrf-uc.git"
   },
-  "version": "1.2.0",
+  "version": "1.2.1",
+  "license": "Apache-2.0",
   "authors": [{
     "name": "Dusan Machut",
     "email": "dusan.machut@gmail.com"
@@ -24,6 +25,7 @@
   }],
   "dependencies": [{
     "name": "MsTimer2",
+    "platforms": "atmelavr",
     "authors": [
       "Javier Valencia",
       "Paul Stoffregen"
@@ -31,6 +33,7 @@
   },
   {
     "name": "DueTimer",
+    "platforms": "atmelsam",
     "authors": [
       "Ivan Seidel"
     ]
