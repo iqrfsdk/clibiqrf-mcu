@@ -23,21 +23,6 @@
     "email": "ondracek.roman@centrum.cz",
     "url": "https://github.com/Roman3349"
   }],
-  "dependencies": [{
-    "name": "MsTimer2",
-    "platforms": "atmelavr",
-    "authors": [
-      "Javier Valencia",
-      "Paul Stoffregen"
-    ]
-  },
-  {
-    "name": "DueTimer",
-    "platforms": "atmelsam",
-    "authors": [
-      "Ivan Seidel"
-    ]
-  }],
   "frameworks": [
     "arduino"
   ],
