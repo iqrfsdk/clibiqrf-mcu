@@ -1,7 +1,7 @@
 # IQRF SPI library for microcontrollers
 
-[![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-uc.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-uc)
-[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/iqrfsdk/clibiqrf-uc/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/iqrfsdk/clibiqrf-mcu.svg?branch=master)](https://travis-ci.org/iqrfsdk/clibiqrf-mcu)
+[![Apache License](https://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/iqrfsdk/clibiqrf-mcu/blob/master/LICENSE)
 
 ## Supported IQRF TR modules
  * IQRF TR-72
@@ -11,7 +11,7 @@
 This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano) and PIC32-based Arduino compatable platforms (e.g. chipKIT).
 
 ## Installation
-The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-uc/releases) or use a [platformio](http://platformio.org/):
+The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-mcu/releases) or use a [platformio](http://platformio.org/):
 
 ```
 platformio lib install 318
@@ -34,12 +34,12 @@ The following table shows the typical pin layout used:
  * [MsTimer2](https://github.com/PaulStoffregen/MsTimer2)
 
 ## Documentation
-Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-uc/).
+Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-mcu/).
 
 ## License
 This library is licensed under Apache License 2.0:
 
- > Copyright 2015 MICRORISC s.r.o.
+ > Copyright 2015-2016 MICRORISC s.r.o.
  >
  > Licensed under the Apache License, Version 2.0 (the "License");
  > you may not use this file except in compliance with the License.
