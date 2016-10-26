@@ -9,6 +9,9 @@ cache:
 env:
     - PLATFORMIO_CI_SRC=examples/Hello-world/Hello-world/Hello-world.ino
     - PLATFORMIO_CI_SRC=examples/Get-info/Get-info/Get-info.ino
+branches:
+    except:
+        - gh-pages
 install:
     - pip install -U platformio
     - platformio lib -g install MsTimer2 DueTimer
