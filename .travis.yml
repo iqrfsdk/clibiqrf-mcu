@@ -10,10 +10,10 @@ env:
     - PLATFORMIO_CI_SRC=examples/Hello-world/Hello-world/Hello-world.ino
     - PLATFORMIO_CI_SRC=examples/Get-info/Get-info/Get-info.ino
 install:
-    # - pip install -U platformio
-    # Install development version of PlatformIO 3.0 (remove line below after release)
-    - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+    - pip install -U platformio
     - platformio lib -g install MsTimer2 DueTimer
+    # Tmp fix for Microchip gcc-pic32
+    - sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
 script:
     - platformio ci --lib="." --project-conf platformio.ini
 after_success:
