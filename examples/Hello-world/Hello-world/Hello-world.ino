@@ -20,7 +20,7 @@
 #include <Arduino.h>
 #endif
 
-#if defined(__AVR__)
+#if defined(__AVR__) || defined(CORE_TEENSY)
 #include <MsTimer2.h>
 #elif defined(__SAM3X8E__)
 #include <DueTimer.h>
@@ -94,7 +94,7 @@ void setup() {
 			Serial.println("[IQRF] Module type: UNKNOWN");
 			break;
 	}
-#if defined(__AVR__)
+#if defined(__AVR__) || defined(CORE_TEENSY)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();
 #elif defined(__SAM3X8E__)

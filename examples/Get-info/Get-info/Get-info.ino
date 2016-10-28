@@ -20,7 +20,7 @@
 #include <Arduino.h>
 #endif
 
-#if defined(__AVR__)
+#if defined(__AVR__) || defined(CORE_TEENSY)
 #include <MsTimer2.h>
 #elif defined(__SAM3X8E__)
 #include <DueTimer.h>
@@ -80,9 +80,9 @@ void setup() {
 	// Down - IQRF
 	iqrf.begin(rxHandler, txHandler);
 	Serial.print("[IQRF] OS version: ");
-	Serial.println(iqrfTr.getOsVersion());
+	Serial.println(iqrfTr.getOsVersion(), HEX);
 	Serial.print("[IQRF] OS build: ");
-	Serial.println(iqrfTr.getOsBuild());
+	Serial.println(iqrfTr.getOsBuild(), HEX);
 	Serial.print("[IQRF] Module type: ");
 	switch (iqrfTr.getModuleType()) {
 		case iqrfTr.types::TR_52D:
@@ -113,7 +113,7 @@ void setup() {
 			Serial.println("UNKNOWN");
 	}
 	Serial.print("[IQRF] Module ID: ");
-	Serial.println(iqrfTr.getModuleId());
+	Serial.println(iqrfTr.getModuleId(), HEX);
 	Serial.print("[IQRF] Module MCU: ");
 	switch (iqrfTr.getMcuType()) {
 		case iqrfTr.mcuTypes::PIC16LF819:
@@ -133,7 +133,7 @@ void setup() {
 	}
 	Serial.print("[IQRF] Module has FCC certification: ");
 	Serial.println(iqrfTr.getFccStatus() ? "YES" : "NO");
-#if defined(__AVR__)
+#if defined(__AVR__) || defined(CORE_TEENSY)
 	MsTimer2::set(1, msTimerCallback);
 	MsTimer2::start();
 #elif defined(__SAM3X8E__)

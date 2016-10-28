@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/iqrfsdk/clibiqrf-mcu.git"
   },
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "Apache-2.0",
   "authors": [{
     "name": "Dusan Machut",
@@ -29,14 +29,17 @@
   "platforms": [
     "atmelavr",
     "atmelsam",
-    "microchippic32"
+    "microchippic32",
+    "teensy"
   ],
   "examples": [
     "examples/*/*/*.ino"
   ],
-  "exclude": [
-    "ci/",
-    ".gitignore",
-    ".travis.yml"
-  ]
+  "export": {
+    "exclude": [
+      "ci/",
+      ".gitignore",
+      ".travis.yml"
+    ]
+  }
 }
