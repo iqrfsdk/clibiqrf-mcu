@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="preprocessor"></span></div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
+<div class="line"><span class="preprocessor">#if defined(__AVR__) || defined(CORE_TEENSY)</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;MsTimer2.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#elif defined(__SAM3X8E__)</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#include &lt;DueTimer.h&gt;</span></div>
@@ -161,9 +161,9 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line">    <span class="comment">// Down - IQRF</span></div>
 <div class="line">    iqrf.<a name="a4"></a><a class="code" href="classIQRF.html#a2bece3d1b0c39f72f52bbdd0f6ed3b24">begin</a>(rxHandler, txHandler);</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] OS version: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a5"></a><a class="code" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">getOsVersion</a>());</div>
+<div class="line">    Serial.println(iqrfTr.<a name="a5"></a><a class="code" href="classIQRFTR.html#a8f27c1d181193aa9774cc4f7e18dca65">getOsVersion</a>(), HEX);</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] OS build: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a6"></a><a class="code" href="classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a">getOsBuild</a>());</div>
+<div class="line">    Serial.println(iqrfTr.<a name="a6"></a><a class="code" href="classIQRFTR.html#a19753d422cdd1e64447333d1ee38576a">getOsBuild</a>(), HEX);</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Module type: &quot;</span>);</div>
 <div class="line">    <span class="keywordflow">switch</span> (iqrfTr.<a name="a7"></a><a class="code" href="classIQRFTR.html#aa40de369389c13881f61542d8cf8257c">getModuleType</a>()) {</div>
 <div class="line">        <span class="keywordflow">case</span> iqrfTr.types::TR_52D:</div>
@@ -194,7 +194,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line">            Serial.println(<span class="stringliteral">&quot;UNKNOWN&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Module ID: &quot;</span>);</div>
-<div class="line">    Serial.println(iqrfTr.<a name="a8"></a><a class="code" href="classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2">getModuleId</a>());</div>
+<div class="line">    Serial.println(iqrfTr.<a name="a8"></a><a class="code" href="classIQRFTR.html#a29b07a6af7cf98fd9fab379f247993b2">getModuleId</a>(), HEX);</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Module MCU: &quot;</span>);</div>
 <div class="line">    <span class="keywordflow">switch</span> (iqrfTr.<a name="a9"></a><a class="code" href="classIQRFTR.html#a9bc24ab824d0b366514a1692b6cb7939">getMcuType</a>()) {</div>
 <div class="line">        <span class="keywordflow">case</span> iqrfTr.mcuTypes::PIC16LF819:</div>
@@ -214,7 +214,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <div class="line">    }</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;[IQRF] Module has FCC certification: &quot;</span>);</div>
 <div class="line">    Serial.println(iqrfTr.<a name="a10"></a><a class="code" href="classIQRFTR.html#ae9b75b2478fb6655a9d128d094caf933">getFccStatus</a>() ? <span class="stringliteral">&quot;YES&quot;</span> : <span class="stringliteral">&quot;NO&quot;</span>);</div>
-<div class="line"><span class="preprocessor">#if defined(__AVR__)</span></div>
+<div class="line"><span class="preprocessor">#if defined(__AVR__) || defined(CORE_TEENSY)</span></div>
 <div class="line"><span class="preprocessor"></span>    MsTimer2::set(1, msTimerCallback);</div>
 <div class="line">    MsTimer2::start();</div>
 <div class="line"><span class="preprocessor">#elif defined(__SAM3X8E__)</span></div>
@@ -279,7 +279,7 @@ $(document).ready(function(){initNavTree('Get-info_8ino-example.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Oct 26 2016 15:49:05 for IQRF SPI library for Arduino by
+    <li class="footer">Generated on Fri Oct 28 2016 13:55:47 for IQRF SPI library for Arduino by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
