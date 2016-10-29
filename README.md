@@ -8,13 +8,13 @@
  * IQRF TR-52
 
 ## Supported platforms
-This library is supported on AVR-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano) and PIC32-based Arduino compatable platforms (e.g. chipKIT).
+This library is supported on AVR-based and SAM-based Arduino compatable platforms (e.g. Arduino Uno, Leonardo, Mega, Nano, Due) and PIC32-based Arduino compatable platforms (e.g. chipKIT).
 
 ## Installation
-The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-mcu/releases) or use a [platformio](http://platformio.org/):
+The best way how to install this library is to [download a latest package](https://github.com/iqrfsdk/clibiqrf-mcu/releases) or use a [platformio](http://platformio.org/lib/show/318/IQRF%20SPI/):
 
 ```
-platformio lib install 318
+platformio lib install "IQRF SPI"
 ```
 ## Pin layout
 The following table shows the typical pin layout used:
@@ -47,13 +47,13 @@ Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-mc
 This library is licensed under Apache License 2.0:
 
  > Copyright 2015-2016 MICRORISC s.r.o.
- >
+ > 
  > Licensed under the Apache License, Version 2.0 (the "License");
  > you may not use this file except in compliance with the License.
  > You may obtain a copy of the License at
- >
+ > 
  >     http://www.apache.org/licenses/LICENSE-2.0
- >
+ > 
  > Unless required by applicable law or agreed to in writing, software
  > distributed under the License is distributed on an "AS IS" BASIS,
  > WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
