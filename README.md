@@ -29,9 +29,16 @@ The following table shows the typical pin layout used:
 
 [1] Configurable, typically defined as ```TR_RESET_IO``` in sketch/program.
 
-
-## Dependecies of this library
- * [MsTimer2](https://github.com/PaulStoffregen/MsTimer2)
+## Compatibility table
+|         MCU        |  Works |            Boards            |
+| ------------------ | :----: | ---------------------------- |
+| Atmega328 @ 16MHz  |    ✓   | Arduino Uno, Nano            |
+| Atmega32u4 @ 16MHz |    ✓   | Arduino Leonardo, Micro      |
+| Atmega2560 @ 16MHz |    ✓   | Arduino Mega 2560            |
+| ATSAM3X8E          |    ✓   | Arduino Due                  |
+| PIC32MX320F128H    |    ✓   | chipKIT Uno32                |
+| PIC32MX340F512H    |    ✓   | chipKIT uC32                 |
+| MK66FX1M0VMD18     |    ✓   | Teensy 3.6                   |
 
 ## Documentation
 Documentation you can found on [this page](https://iqrfsdk.github.io/clibiqrf-mcu/).
